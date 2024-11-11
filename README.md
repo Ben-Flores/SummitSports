@@ -1,28 +1,16 @@
 Readme.md Version# 2023.05.30 (INEW-2330 and INEW-2332 Version)
 
- 
-### [Note: Square brackets [ ] contain information, directions, actions, links or tags that you will delete/remove from your Readme.md file once all changes have been made and before submission for review (Including these instructions)]
-### [The tag: [Must Update] Indicates Sections of the Readme.md file that must be updated]
-### [Make the changes shown below with the [Must Update]. Once all changes are made, delete this line from your Readme.md and make sure to remove the [Must Update] tags. Also remove any lines/contents included in [...]'s]
-
-### [You may not remove any SECTION of this document without the prior approval of the Instructor. All original SECTIONS must be present after your modifications.]
-
-[Review this site (link below) before modifying your Readme.md file:]
-
-[https://medium.com/swlh/how-to-make-the-perfect-readme-md-on-github-92ed5771c061]
-
-[Your Project Logo/Icon (Small) must be of similar size and alignment as the example:] [Must Update]
-```
-Remove this explanation before you submit your work:
-![Alternate 'text' description for the image](/RelativePath/ImageFileName "Hover over text that is displayed")
-```
-
 ![Alternate 'text' description for the image](/Icons/OctoCat_SM.png "My Pet Octocat Logo")
 
-# [Project Name Must Update, example: TechieDave Ninja Academy]
-[Very brief and to the point project description (Summary Paragraph)]
+# Summit Stash
+A hybrid point of sale and marketplace application. Created for businesses to track and manage their product inventory and provide a complete shopping experience to customers.
+The application was designed specifically with alpine sports gear and other similar equipment in mind, but is capable of adapting to whatever products your business requires an
+inventory of. Core functionality includes sales insights for management, inventory control for employees, and browsing and ordering for consumers. The application itself offers
+versatile customization of the inventory database allowing for easy installation and maintenance throughout its use.
 
 ## Detailed Description [Must Update]
+
+test
 
 [Clear semi-detailed professional description of your project. (about a paragraph or slightly more)]
 
@@ -73,15 +61,15 @@ Date | Items | Description
 [Must Update] | Polish/Final Submission | [Must Update]
 [etc.] | [etc.] | [etc.]
 
-### Development Environment [Must Update]
+### Development Environment
 
 Type | Description
 -----|-------------
-Language | [C#, Java, or Python (Choose one)]
-Development Environment | [(Choose one)]<br>[Visual Studio 2022 Community Edition]<br>[or NetBeans]<br>[or VS Code]
-SQL Server Type/Dialect | [(Choose one)]<br>[Microsoft SQL (TSTC Server)]<br>[or MySQL (TSTC Server)]
+Language | C#
+Development Environment | Visual Studio 2022 Community Edition
+SQL Server Type/Dialect | Microsoft SQL (TSTC Server)
 Target Environment | Windows 10 or Windows 11 <br>Desktop Application
-Target Business/Industry | [Whatever your target Business/Industry is]
+Target Business/Industry | Winter Sports
 Help System | Context Sensitive PDF Help Files
 Report Methods | HTML Reports
 Project Version Control | Git and Course assigned GitHub Repository
@@ -102,13 +90,12 @@ Include any essential instructions for:
 - Final Client Demonstration Video [Must Update with URL at each Pull Request approval]
 - URL for any other specific videos for this product [Must Update with URL at each Pull Request approval, if applicable]
 
-### Contact [Must Update]
+### Contact
 
 Contact | Information
 --------|------
-Name | [Your Name]
-Email | [Your Email Address (Does not have to be school email]
-[Social Media Name] | [Your Social Media link(s) (if applicable)]
+Name | Benjamin Flores
+Email | bflores133514@mymail.tstc.edu
 
 ### [License](/LICENSE) [Must Update - Create your license file and link/add it to the word 'License' that navigates to the License file in the Repository]
 
