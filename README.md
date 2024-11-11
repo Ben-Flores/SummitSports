@@ -97,13 +97,7 @@ Contact | Information
 Name | Benjamin Flores
 Email | bflores133514@mymail.tstc.edu
 
-### [License](/LICENSE) [Must Update - Create your license file and link/add it to the word 'License' that navigates to the License file in the Repository]
-
-[Review the Instructions for adding a license file:]
-[https://docs.github.com/en/github/building-a-strong-community/adding-a-license-to-a-repository)]
-
-**[For the Final Project course, we will use the GNU General Public License v3.0]**<br>
-**[When you add the License file, make sure you update the references within it to yours]**
+### [License](/LICENSE)
 
 GNU General Public License v3.0
 
