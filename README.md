@@ -3,30 +3,26 @@ Readme.md Version# 2023.05.30 (INEW-2330 and INEW-2332 Version)
 ![A logo showing a pine tree and a pair of mountains on a black circle](/Icons/iconSmall.png "Summit Stash Logo")
 
 # Summit Stash
-A hybrid point of sale and marketplace application. Created for businesses to track and manage their product inventory and provide a complete shopping experience to customers.
-The application was designed specifically with alpine sports gear and other similar equipment in mind, but is capable of adapting to whatever products your business requires an
-inventory of. Core functionality includes sales insights for management, inventory control for employees, and browsing and ordering for consumers. The application itself offers
-versatile customization of the inventory database allowing for easy installation and maintenance throughout its use.
+A hybrid point of sale and marketplace application. Created for businesses to track and manage their product inventory and to provide a complete shopping experience to customers. The application was designed specifically with alpine sports gear and other similar equipment in mind, but is capable of adapting to whatever products your business requires an inventory of. Core functionality includes sales insights for management, inventory control for employees, and browsing and ordering for consumers. The application itself offers versatile customization of the inventory database allowing for easy installation and maintenance throughout its use.
 
-## Detailed Description [Must Update]
+## Detailed Description
 
-test
+Summit Stash is an inventory application that aims to provide businesses with all the tools they need to track their current product inventory, monitor stock levels, and update and revise the wares they sell. Additionally, the same application provides functionality for customers of the business to create an account and credentials with which they can purchase products in an easy and intuitive way. 
 
-[Clear semi-detailed professional description of your project. (about a paragraph or slightly more)]
+Summit Stash stores the inventory information in an external database that can be accessed by multiple devices running the application with different credentials simultaneously, thus protecting the information while making it as accessible as possible. Summit Stash includes templates for tracking a snow sports inventory that can also be easily customized by accounts with administrative privileges. Different products will require different fields for their relevant attributes, and Summit Stash helps you design your inventory database in a way that can track relevant information optimally. The business front of the application interfaces with the marketplace front in order to provide sales reports that help the business assess popular products, high-demand items, and customer activity across different times.
 
-[Clearly define the Scope of the proposed project - Refer to the System Analysis and Design Course definitions for any needed clarification]
-
-[Clearly define the Limitations of the proposed project - Refer to the System Analysis and Design Course definitions for any needed clarification]
+On the customer front, Summit Stash offers browsing capabilities by categories defined according the structure of the inventory database. Customer credentials are saved in the database, and this helps make checkout faster once personal details have been saved.
 
 ### Inventory and Inventory Control [Must Update]
 
-[Clearly define what the inventory/products are and your plan to limit the quantities(no unlimited inventories).]
+Summit Stash will be able to inventory a variety of equiment used in snow sports.
+* Skis and Snowboards
+* Ski and Snowboard Boots and Bindings (and other snow footwear)
+* Snow Gear (Helmets, Goggles, Gloves, etc.)
+* Snow Clothes (Waterproof Jackets and Overalls)
+* Miscellaneous Gear (Cameras, Poles, Stomp Pads, etc.)
 
-[Provide details of what the customer will be able to purchase.]
-
-[Provide a sample item of your inventory that your program will handle.]
-
-[At minimum the inventory will contain the following fields/data]
+Inventories will not be unlimited: Summit Stash enforces a limit on the stock available dependent on the item category (quantity is verified before query is sent to database server).
 
 #### Inventory Example Data
 Field | Data
@@ -41,14 +37,25 @@ Restock Threshold|10
 Image|[Image binary (Don't need to update for this example]
 Discontinued|false
 
-### Project Introduction [Must Update]  
+### Project Introduction
 
-- [Describe very briefly but clearly what the project does.]
-- [State its goals/what problem(s) it solves.]
-- [State if it is out-of-the-box user-friendly, so it’s clear to the user.]
-- [List its most useful/innovative/noteworthy features.] 
-- [Note its development status.]
-- [If possible, include screenshots and demo videos.]
+#### Functionality
+Summit Stash is a desktop application that asks the user for their credentials (or helps them create new ones) in order to retrieve the inventory data that is visible to them from the external Microsoft SQL Server database. This data is formatted and displayed by the application so that a customer can select what items they will purchase or an employee can see what entries need to be edited. Any purchase or modification is processed by the application and results in an appropriate Transact-SQL query that is sent to the server to update the database in real time. Purchase details are stored in the database as well and can be used to generate reports of customizable time frames to aid the business in determining which products should be restocked and when.
+
+#### Notable Features
+* By combining both the employee interface and the customer interface in one application, Summit Stash aims to be as versatile as possible in the hands of your business.
+  * Inventory testing and viewing of the customer storefront is instant and can be done within the same desktop device.
+  * Desktop devices can be purposed for both employee use and customer use depending on necessity without extra configuration.
+  * Employee and manager administrative actions are available from any device running the application regardless of location.
+* By retaining and providing reports of customer sales, business administrators can evaluate the success of individual products.
+  * Reports can indicate what yearly time frames have higher activity and require more stock than usual.
+  * Reports show which items are of highest demand so that they can be prioritized and lower demand items discontinued.
+
+#### Accessibility
+Summit Stash is extremely user friendly. Installation is fast and easy with only a few clicks. Configuration of the application is not needed. An integrated help system is included to explain the application functions to new users. Dependencies are kept to a minimum to get your inventory system up and running as fast as possible.
+
+#### Development Status
+Summit Stash is currently in development and prerelease is not yet available.
 
 ### Development Plan - Time Table
 #### Below is the development time table and planned benchmarks/milestones to accomplish this project by the due date.
