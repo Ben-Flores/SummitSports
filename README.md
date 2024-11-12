@@ -22,7 +22,7 @@ Summit Stash will be able to inventory a variety of equiment used in snow sports
 * Snow Clothes (Waterproof Jackets and Overalls)
 * Miscellaneous Gear (Cameras, Poles, Stomp Pads, etc.)
 
-Inventories will not be unlimited: Summit Stash enforces a limit on the stock available dependent on the item category (quantity is verified before query is sent to database server).
+Inventory quantities will only be limited by hardware.
 
 #### Inventory Example Data
 Field | Data
