@@ -13,7 +13,7 @@ Summit Stash stores the inventory information in an external database that can b
 
 On the customer front, Summit Stash offers browsing capabilities by categories defined according the structure of the inventory database. Customer credentials are saved in the database, and this helps make checkout faster once personal details have been saved.
 
-### Inventory and Inventory Control [Must Update]
+### Inventory and Inventory Control
 
 Summit Stash will be able to inventory a variety of equiment used in snow sports.
 * Skis and Snowboards
