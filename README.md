@@ -87,7 +87,7 @@ Currently, Summit Stash requires the latest [.NET SDK](https://dotnet.microsoft.
 removing this dependency and making Summit Stash a completely self-contained application.
 
 ### Videos [Must Update your video entries below and add a URL for the specific topic that goes to the Google Drive video file]
-- Project Proposal [Must Update with URL at each Pull Request approval]
+- [Project Proposal](https://drive.google.com/file/d/1utJegFIySdBUF6f2GmcHxY4Y3QpMuwuE/view?usp=drive_link)
 - Logon View [Must Update with URL at each Pull Request approval]
 - Customer View [Must Update with URL at each Pull Request approval]
 - Manager View [Must Update with URL at each Pull Request approval]
