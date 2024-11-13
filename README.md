@@ -11,11 +11,11 @@ Summit Stash is an inventory application that aims to provide businesses with al
 
 Summit Stash stores the inventory information in an external database that can be accessed by multiple devices running the application with different credentials simultaneously, thus protecting the information while making it as accessible as possible. Summit Stash includes templates for tracking a snow sports inventory that can also be easily customized by accounts with administrative privileges. Different products will require different fields for their relevant attributes, and Summit Stash helps you design your inventory database in a way that can track relevant information optimally. The business front of the application interfaces with the marketplace front in order to provide sales reports that help the business assess popular products, high-demand items, and customer activity across different times.
 
-On the customer front, Summit Stash offers browsing capabilities by categories defined according the structure of the inventory database. Customer credentials are saved in the database, and this helps make checkout faster once personal details have been saved.
+On the customer front, Summit Stash offers browsing capabilities by categories defined according to the structure of the inventory database. Customer credentials are saved in the database, and this helps make checkout faster once personal details have been saved.
 
 ### Inventory and Inventory Control
 
-Summit Stash will be able to inventory a variety of equiment used in snow sports.
+Summit Stash will be able to inventory a variety of equipment used in snow sports.
 * Skis and Snowboards
 * Ski and Snowboard Boots and Bindings (and other snow footwear)
 * Snow Gear (Helmets, Goggles, Gloves, etc.)
@@ -28,7 +28,7 @@ Inventory quantities will only be limited by hardware.
 Field | Data
 ------|------
 Item Name | Never Summer Proto FR
-Item Description|Aggressive all mountain snowboard. Triple camber profile.
+Item Description|Aggressive all-mountain snowboard. Triple camber profile.
 Category|Snowboards
 Retail Price|699.99
 Cost|400
@@ -40,7 +40,7 @@ Discontinued|false
 ### Project Introduction
 
 #### Functionality
-Summit Stash is a desktop application that asks the user for their credentials (or helps them create new ones) in order to retrieve the inventory data that is visible to them from the external Microsoft SQL Server database. This data is formatted and displayed by the application so that a customer can select what items they will purchase or an employee can see what entries need to be edited. Any purchase or modification is processed by the application and results in an appropriate Transact-SQL query that is sent to the server to update the database in real time. Purchase details are stored in the database as well and can be used to generate reports of customizable time frames to aid the business in determining which products should be restocked and when.
+Summit Stash is a desktop application that asks the user for their credentials (or helps them create new ones) in order to retrieve the inventory data that is visible to them from the external Microsoft SQL Server database. This data is formatted and displayed by the application so that a customer can select what items they will purchase or an employee can see what entries need to be edited. Any purchase or modification is processed by the application and results in an appropriate Transact-SQL query that is sent to the server to update the database in real-time. Purchase details are stored in the database as well and can be used to generate reports of customizable time frames to aid the business in determining which products should be restocked and when.
 
 #### Notable Features
 * By combining both the employee interface and the customer interface in one application, Summit Stash aims to be as versatile as possible in the hands of your business.
@@ -49,7 +49,7 @@ Summit Stash is a desktop application that asks the user for their credentials (
   * Employee and manager administrative actions are available from any device running the application regardless of location.
 * By retaining and providing reports of customer sales, business administrators can evaluate the success of individual products.
   * Reports can indicate what yearly time frames have higher activity and require more stock than usual.
-  * Reports show which items are of highest demand so that they can be prioritized and lower demand items discontinued.
+  * Reports show which items are of the highest demand so that they can be prioritized and lower-demand items discontinued.
 
 #### Accessibility
 Summit Stash is extremely user friendly. Installation is fast and easy with only a few clicks. Configuration of the application is not needed. An integrated help system is included to explain the application functions to new users. Dependencies are kept to a minimum to get your inventory system up and running as fast as possible.
@@ -57,12 +57,12 @@ Summit Stash is extremely user friendly. Installation is fast and easy with only
 #### Development Status
 Summit Stash is currently in development and prerelease is not yet available.
 
-### Development Plan - Time Table
-#### Below is the development time table and planned benchmarks/milestones to accomplish this project by the due date.
+### Development Plan - Timetable
+#### Below is the development timetable and planned benchmarks/milestones to accomplish this project by the due date.
 Date | Items | Description
 -----|-------------|--------------
 11/11/24 | Project Proposal submitted | Proposal for consideration.
-11/18/24 | Logon View | Complete login functionality (validate credentials from database, present appropriate interface).
+11/18/24 | Login View | Complete login functionality (validate credentials from the database, present appropriate interface).
 11/25/24 | Customer View | Complete shopping functionality (browse inventory catalog, create an order, check out, etc.).
 12/2/24 | Manager View | Complete administrative inventory functionality (add/remove products, retrieve sales reports).
 12/9/24 | Polish/Final Submission | Debug faulty functionality, refine UI elements, QOL, and ensure ease of use.
