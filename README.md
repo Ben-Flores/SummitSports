@@ -1,100 +1,93 @@
 Readme.md Version# 2023.05.30 (INEW-2330 and INEW-2332 Version)
 
- 
-### [Note: Square brackets [ ] contain information, directions, actions, links or tags that you will delete/remove from your Readme.md file once all changes have been made and before submission for review (Including these instructions)]
-### [The tag: [Must Update] Indicates Sections of the Readme.md file that must be updated]
-### [Make the changes shown below with the [Must Update]. Once all changes are made, delete this line from your Readme.md and make sure to remove the [Must Update] tags. Also remove any lines/contents included in [...]'s]
+![A logo showing a pine tree and a pair of mountains on a black circle](/Icons/iconSmall.png "Summit Stash Logo")
 
-### [You may not remove any SECTION of this document without the prior approval of the Instructor. All original SECTIONS must be present after your modifications.]
+# Summit Stash
+A hybrid point of sale and marketplace application. Created for businesses to track and manage their product inventory and to provide a complete shopping experience to customers. The application was designed specifically with alpine sports gear and other similar equipment in mind, but is capable of adapting to whatever products your business requires an inventory of. Core functionality includes sales insights for management, inventory control for employees, and browsing and ordering for consumers. The application itself offers versatile customization of the inventory database allowing for easy installation and maintenance throughout its use.
 
-[Review this site (link below) before modifying your Readme.md file:]
+## Detailed Description
 
-[https://medium.com/swlh/how-to-make-the-perfect-readme-md-on-github-92ed5771c061]
+Summit Stash is an inventory application that aims to provide businesses with all the tools they need to track their current product inventory, monitor stock levels, and update and revise the wares they sell. Additionally, the same application provides functionality for customers of the business to create an account and credentials with which they can purchase products in an easy and intuitive way. 
 
-[Your Project Logo/Icon (Small) must be of similar size and alignment as the example:] [Must Update]
-```
-Remove this explanation before you submit your work:
-![Alternate 'text' description for the image](/RelativePath/ImageFileName "Hover over text that is displayed")
-```
+Summit Stash stores the inventory information in an external database that can be accessed by multiple devices running the application with different credentials simultaneously, thus protecting the information while making it as accessible as possible. Summit Stash includes templates for tracking a snow sports inventory that can also be easily customized by accounts with administrative privileges. Different products will require different fields for their relevant attributes, and Summit Stash helps you design your inventory database in a way that can track relevant information optimally. The business front of the application interfaces with the marketplace front in order to provide sales reports that help the business assess popular products, high-demand items, and customer activity across different times.
 
-![Alternate 'text' description for the image](/Icons/OctoCat_SM.png "My Pet Octocat Logo")
+On the customer front, Summit Stash offers browsing capabilities by categories defined according to the structure of the inventory database. Customer credentials are saved in the database, and this helps make checkout faster once personal details have been saved.
 
-# [Project Name Must Update, example: TechieDave Ninja Academy]
-[Very brief and to the point project description (Summary Paragraph)]
+### Inventory and Inventory Control
 
-## Detailed Description [Must Update]
+Summit Stash will be able to inventory a variety of equipment used in snow sports.
+* Skis and Snowboards
+* Ski and Snowboard Boots and Bindings (and other snow footwear)
+* Snow Gear (Helmets, Goggles, Gloves, etc.)
+* Snow Clothes (Waterproof Jackets and Overalls)
+* Miscellaneous Gear (Cameras, Poles, Stomp Pads, etc.)
 
-[Clear semi-detailed professional description of your project. (about a paragraph or slightly more)]
+Inventory quantities will only be limited by hardware.
 
-[Clearly define the Scope of the proposed project - Refer to the System Analysis and Design Course definitions for any needed clarification]
-
-[Clearly define the Limitations of the proposed project - Refer to the System Analysis and Design Course definitions for any needed clarification]
-
-### Inventory and Inventory Control [Must Update]
-
-[Clearly define what the inventory/products are and your plan to limit the quantities(no unlimited inventories).]
-
-[Provide details of what the customer will be able to purchase.]
-
-[Provide a sample item of your inventory that your program will handle.]
-
-[At minimum the inventory will contain the following fields/data]
-
-#### Inventory Example Data [Must Update]
+#### Inventory Example Data
 Field | Data
 ------|------
-Item Name | [Coffee Mug]
-Item Description|[Mug with a cute Puppy face on it.]
-Category|[Novelty]
-Retail Price|[10.99]
-Cost|[5.00]
-Quantity|[12]
-Restock Threshold|[5]
+Item Name | Never Summer Proto FR
+Item Description|Aggressive all-mountain snowboard. Triple camber profile.
+Category|Snowboards
+Retail Price|699.99
+Cost|400
+Quantity|36
+Restock Threshold|10
 Image|[Image binary (Don't need to update for this example]
-Discontinued|[false]
+Discontinued|false
 
-### Project Introduction [Must Update]  
+### Project Introduction
 
-- [Describe very briefly but clearly what the project does.]
-- [State its goals/what problem(s) it solves.]
-- [State if it is out-of-the-box user-friendly, so it’s clear to the user.]
-- [List its most useful/innovative/noteworthy features.] 
-- [Note its development status.]
-- [If possible, include screenshots and demo videos.]
+#### Functionality
+Summit Stash is a desktop application that asks the user for their credentials (or helps them create new ones) in order to retrieve the inventory data that is visible to them from the external Microsoft SQL Server database. This data is formatted and displayed by the application so that a customer can select what items they will purchase or an employee can see what entries need to be edited. Any purchase or modification is processed by the application and results in an appropriate Transact-SQL query that is sent to the server to update the database in real-time. Purchase details are stored in the database as well and can be used to generate reports of customizable time frames to aid the business in determining which products should be restocked and when.
 
-### Development Plan - Time Table [Must Update, must plan through end of project and adjust as progress changes]
-#### Below is the development time table and planned benchmarks/milestones to accomplish this project by the due date.
+#### Notable Features
+* By combining both the employee interface and the customer interface in one application, Summit Stash aims to be as versatile as possible in the hands of your business.
+  * Inventory testing and viewing of the customer storefront is instant and can be done within the same desktop device.
+  * Desktop devices can be purposed for both employee use and customer use depending on necessity without extra configuration.
+  * Employee and manager administrative actions are available from any device running the application regardless of location.
+* By retaining and providing reports of customer sales, business administrators can evaluate the success of individual products.
+  * Reports can indicate what yearly time frames have higher activity and require more stock than usual.
+  * Reports show which items are of the highest demand so that they can be prioritized and lower-demand items discontinued.
+
+#### Accessibility
+Summit Stash is extremely user friendly. Installation is fast and easy with only a few clicks. Configuration of the application is not needed. An integrated help system is included to explain the application functions to new users. Dependencies are kept to a minimum to get your inventory system up and running as fast as possible.
+
+#### Development Status
+Summit Stash is currently in development and prerelease is not yet available.
+
+### Development Plan - Timetable
+#### Below is the development timetable and planned benchmarks/milestones to accomplish this project by the due date.
 Date | Items | Description
 -----|-------------|--------------
-[Must Update] | Project Proposal submitted | Proposal for consideration.
-[Must Update] | Logon View | [Must Update]
-[Must Update] | Customer View | [Must Update]
-[Must Update] | Manager View | [Must Update]
-[Must Update] | Polish/Final Submission | [Must Update]
-[etc.] | [etc.] | [etc.]
+11/11/24 | Project Proposal submitted | Proposal for consideration.
+11/18/24 | Login View | Complete login functionality (validate credentials from the database, present appropriate interface).
+11/25/24 | Customer View | Complete shopping functionality (browse inventory catalog, create an order, check out, etc.).
+12/2/24 | Manager View | Complete administrative inventory functionality (add/remove products, retrieve sales reports).
+12/9/24 | Polish/Final Submission | Debug faulty functionality, refine UI elements, QOL, and ensure ease of use.
 
-### Development Environment [Must Update]
+### Development Environment
 
 Type | Description
 -----|-------------
-Language | [C#, Java, or Python (Choose one)]
-Development Environment | [(Choose one)]<br>[Visual Studio 2022 Community Edition]<br>[or NetBeans]<br>[or VS Code]
-SQL Server Type/Dialect | [(Choose one)]<br>[Microsoft SQL (TSTC Server)]<br>[or MySQL (TSTC Server)]
+Language | C#
+Development Environment | Visual Studio 2022 Community Edition
+SQL Server Type/Dialect | Microsoft SQL (TSTC Server)
 Target Environment | Windows 10 or Windows 11 <br>Desktop Application
-Target Business/Industry | [Whatever your target Business/Industry is]
+Target Business/Industry | Winter Sports
 Help System | Context Sensitive PDF Help Files
 Report Methods | HTML Reports
 Project Version Control | Git and Course assigned GitHub Repository
 
-### Getting Started/Requirements/Prerequisites/Dependencies
-Include any essential instructions for:
-- Getting your program
-- Installing your program
-- Configuring your program
-- Running your program
+### Getting Started and Dependencies
+Download the latest release from the releases section. Unzip the folder. Run setup.exe to install necessary components to local computer.
+
+Currently, Summit Stash requires the latest [.NET SDK](https://dotnet.microsoft.com/en-us/download) to be installed on the computer. We are looking into
+removing this dependency and making Summit Stash a completely self-contained application.
 
 ### Videos [Must Update your video entries below and add a URL for the specific topic that goes to the Google Drive video file]
-- Project Proposal [Must Update with URL at each Pull Request approval]
+- [Project Proposal](https://drive.google.com/file/d/1utJegFIySdBUF6f2GmcHxY4Y3QpMuwuE/view?usp=drive_link)
 - Logon View [Must Update with URL at each Pull Request approval]
 - Customer View [Must Update with URL at each Pull Request approval]
 - Manager View [Must Update with URL at each Pull Request approval]
@@ -102,21 +95,14 @@ Include any essential instructions for:
 - Final Client Demonstration Video [Must Update with URL at each Pull Request approval]
 - URL for any other specific videos for this product [Must Update with URL at each Pull Request approval, if applicable]
 
-### Contact [Must Update]
+### Contact
 
 Contact | Information
 --------|------
-Name | [Your Name]
-Email | [Your Email Address (Does not have to be school email]
-[Social Media Name] | [Your Social Media link(s) (if applicable)]
+Name | Benjamin Flores
+Email | bflores133514@mymail.tstc.edu
 
-### [License](/LICENSE) [Must Update - Create your license file and link/add it to the word 'License' that navigates to the License file in the Repository]
-
-[Review the Instructions for adding a license file:]
-[https://docs.github.com/en/github/building-a-strong-community/adding-a-license-to-a-repository)]
-
-**[For the Final Project course, we will use the GNU General Public License v3.0]**<br>
-**[When you add the License file, make sure you update the references within it to yours]**
+### [License](/LICENSE)
 
 GNU General Public License v3.0
 
