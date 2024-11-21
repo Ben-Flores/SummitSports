@@ -63,9 +63,9 @@ namespace SummitSportsApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bgLogon {
+        internal static System.Drawing.Bitmap bgLogon43 {
             get {
-                object obj = ResourceManager.GetObject("bgLogon", resourceCulture);
+                object obj = ResourceManager.GetObject("bgLogon43", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
