@@ -31,10 +31,10 @@
             this.tbxUsername = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxPassword = new System.Windows.Forms.TextBox();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.lblLogin = new System.Windows.Forms.Label();
             this.btnCreateAccount = new System.Windows.Forms.Button();
             this.lblCreateAccount = new System.Windows.Forms.Label();
@@ -48,7 +48,6 @@
             this.tbxUsername.Name = "tbxUsername";
             this.tbxUsername.Size = new System.Drawing.Size(500, 36);
             this.tbxUsername.TabIndex = 0;
-            this.tbxUsername.Text = "WWWWWWWWWWWWWWWWWWWW";
             // 
             // lblUsername
             // 
@@ -72,14 +71,13 @@
             this.lblPassword.TabIndex = 4;
             this.lblPassword.Text = "Password:";
             // 
-            // textBox1
+            // tbxPassword
             // 
-            this.textBox1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(12, 276);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(500, 36);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "thequickfoxjumpsoverthelazydog";
+            this.tbxPassword.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxPassword.Location = new System.Drawing.Point(12, 276);
+            this.tbxPassword.Name = "tbxPassword";
+            this.tbxPassword.Size = new System.Drawing.Size(500, 36);
+            this.tbxPassword.TabIndex = 3;
             // 
             // lblWelcome
             // 
@@ -101,15 +99,15 @@
             this.btnLogin.Text = "Log In ▶";
             this.btnLogin.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnReset
             // 
-            this.button1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(12, 325);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(344, 50);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "I Forgot My Password!";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnReset.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Location = new System.Drawing.Point(12, 325);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(344, 50);
+            this.btnReset.TabIndex = 7;
+            this.btnReset.Text = "I Forgot My Password!";
+            this.btnReset.UseVisualStyleBackColor = true;
             // 
             // lblLogin
             // 
@@ -145,7 +143,7 @@
             // 
             this.lblOr.AutoSize = true;
             this.lblOr.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOr.Location = new System.Drawing.Point(12, 396);
+            this.lblOr.Location = new System.Drawing.Point(12, 406);
             this.lblOr.Name = "lblOr";
             this.lblOr.Size = new System.Drawing.Size(46, 36);
             this.lblOr.TabIndex = 11;
@@ -162,11 +160,11 @@
             this.Controls.Add(this.lblCreateAccount);
             this.Controls.Add(this.btnCreateAccount);
             this.Controls.Add(this.lblLogin);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbxPassword);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.tbxUsername);
             this.DoubleBuffered = true;
@@ -187,10 +185,10 @@
         private System.Windows.Forms.TextBox tbxUsername;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxPassword;
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.Button btnCreateAccount;
         private System.Windows.Forms.Label lblCreateAccount;
