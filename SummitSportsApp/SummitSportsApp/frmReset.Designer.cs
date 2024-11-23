@@ -28,86 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbxUsername = new System.Windows.Forms.TextBox();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.tbxPassword = new System.Windows.Forms.TextBox();
-            this.lblWelcome = new System.Windows.Forms.Label();
+            this.tbxQuestion1 = new System.Windows.Forms.TextBox();
+            this.lblQuestion1 = new System.Windows.Forms.Label();
+            this.lblReset = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.btnReset = new System.Windows.Forms.Button();
             this.lblLogin = new System.Windows.Forms.Label();
-            this.btnCreateAccount = new System.Windows.Forms.Button();
-            this.lblCreateAccount = new System.Windows.Forms.Label();
-            this.lblOr = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.lblQuestion2 = new System.Windows.Forms.Label();
+            this.tbxQuestion2 = new System.Windows.Forms.TextBox();
+            this.lblQuestion3 = new System.Windows.Forms.Label();
+            this.tbxQuestion3 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // tbxUsername
+            // tbxQuestion1
             // 
-            this.tbxUsername.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxUsername.Location = new System.Drawing.Point(12, 185);
-            this.tbxUsername.Name = "tbxUsername";
-            this.tbxUsername.Size = new System.Drawing.Size(500, 36);
-            this.tbxUsername.TabIndex = 0;
+            this.tbxQuestion1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxQuestion1.Location = new System.Drawing.Point(12, 200);
+            this.tbxQuestion1.Name = "tbxQuestion1";
+            this.tbxQuestion1.Size = new System.Drawing.Size(500, 36);
+            this.tbxQuestion1.TabIndex = 0;
             // 
-            // lblUsername
+            // lblQuestion1
             // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.BackColor = System.Drawing.Color.Transparent;
-            this.lblUsername.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(12, 146);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(132, 27);
-            this.lblUsername.TabIndex = 2;
-            this.lblUsername.Text = "Username:";
+            this.lblQuestion1.AutoSize = true;
+            this.lblQuestion1.BackColor = System.Drawing.Color.Transparent;
+            this.lblQuestion1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuestion1.Location = new System.Drawing.Point(12, 170);
+            this.lblQuestion1.Name = "lblQuestion1";
+            this.lblQuestion1.Size = new System.Drawing.Size(272, 27);
+            this.lblQuestion1.TabIndex = 2;
+            this.lblQuestion1.Text = "Question 1 Placeholder";
             // 
-            // lblPassword
+            // lblReset
             // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.BackColor = System.Drawing.Color.Transparent;
-            this.lblPassword.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(12, 238);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(126, 27);
-            this.lblPassword.TabIndex = 4;
-            this.lblPassword.Text = "Password:";
-            // 
-            // tbxPassword
-            // 
-            this.tbxPassword.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPassword.Location = new System.Drawing.Point(12, 276);
-            this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.Size = new System.Drawing.Size(500, 36);
-            this.tbxPassword.TabIndex = 3;
-            // 
-            // lblWelcome
-            // 
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Font = new System.Drawing.Font("Rockwell", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.Location = new System.Drawing.Point(12, 12);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(617, 54);
-            this.lblWelcome.TabIndex = 5;
-            this.lblWelcome.Text = "Welcome to Summit Sports";
+            this.lblReset.AutoSize = true;
+            this.lblReset.Font = new System.Drawing.Font("Rockwell", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReset.Location = new System.Drawing.Point(12, 12);
+            this.lblReset.Name = "lblReset";
+            this.lblReset.Size = new System.Drawing.Size(486, 54);
+            this.lblReset.TabIndex = 5;
+            this.lblReset.Text = "Reset Your Password";
             // 
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(362, 325);
+            this.btnLogin.Location = new System.Drawing.Point(620, 491);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(150, 50);
             this.btnLogin.TabIndex = 6;
-            this.btnLogin.Text = "Log In ▶";
+            this.btnLogin.Text = "Reset ▶";
             this.btnLogin.UseVisualStyleBackColor = true;
-            // 
-            // btnReset
-            // 
-            this.btnReset.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(12, 325);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(344, 50);
-            this.btnReset.TabIndex = 7;
-            this.btnReset.Text = "I Forgot My Password!";
-            this.btnReset.UseVisualStyleBackColor = true;
             // 
             // lblLogin
             // 
@@ -115,64 +85,81 @@
             this.lblLogin.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogin.Location = new System.Drawing.Point(12, 87);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(105, 36);
+            this.lblLogin.Size = new System.Drawing.Size(624, 72);
             this.lblLogin.TabIndex = 8;
-            this.lblLogin.Text = "Log In";
+            this.lblLogin.Text = "Correctly answer your \r\nsecurity questions to reset your password";
             // 
-            // btnCreateAccount
+            // btnCancel
             // 
-            this.btnCreateAccount.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateAccount.Location = new System.Drawing.Point(12, 491);
-            this.btnCreateAccount.Name = "btnCreateAccount";
-            this.btnCreateAccount.Size = new System.Drawing.Size(285, 50);
-            this.btnCreateAccount.TabIndex = 9;
-            this.btnCreateAccount.Text = "Create an Account";
-            this.btnCreateAccount.UseVisualStyleBackColor = true;
+            this.btnCancel.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(464, 491);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(150, 50);
+            this.btnCancel.TabIndex = 9;
+            this.btnCancel.Text = "◀ Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // lblCreateAccount
+            // lblQuestion2
             // 
-            this.lblCreateAccount.AutoSize = true;
-            this.lblCreateAccount.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreateAccount.Location = new System.Drawing.Point(12, 442);
-            this.lblCreateAccount.Name = "lblCreateAccount";
-            this.lblCreateAccount.Size = new System.Drawing.Size(286, 36);
-            this.lblCreateAccount.TabIndex = 10;
-            this.lblCreateAccount.Text = "Create an Account";
+            this.lblQuestion2.AutoSize = true;
+            this.lblQuestion2.BackColor = System.Drawing.Color.Transparent;
+            this.lblQuestion2.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuestion2.Location = new System.Drawing.Point(12, 250);
+            this.lblQuestion2.Name = "lblQuestion2";
+            this.lblQuestion2.Size = new System.Drawing.Size(272, 27);
+            this.lblQuestion2.TabIndex = 11;
+            this.lblQuestion2.Text = "Question 2 Placeholder";
             // 
-            // lblOr
+            // tbxQuestion2
             // 
-            this.lblOr.AutoSize = true;
-            this.lblOr.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOr.Location = new System.Drawing.Point(12, 406);
-            this.lblOr.Name = "lblOr";
-            this.lblOr.Size = new System.Drawing.Size(46, 36);
-            this.lblOr.TabIndex = 11;
-            this.lblOr.Text = "or";
+            this.tbxQuestion2.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxQuestion2.Location = new System.Drawing.Point(12, 280);
+            this.tbxQuestion2.Name = "tbxQuestion2";
+            this.tbxQuestion2.Size = new System.Drawing.Size(500, 36);
+            this.tbxQuestion2.TabIndex = 10;
             // 
-            // frmLogon
+            // lblQuestion3
+            // 
+            this.lblQuestion3.AutoSize = true;
+            this.lblQuestion3.BackColor = System.Drawing.Color.Transparent;
+            this.lblQuestion3.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuestion3.Location = new System.Drawing.Point(12, 330);
+            this.lblQuestion3.Name = "lblQuestion3";
+            this.lblQuestion3.Size = new System.Drawing.Size(272, 27);
+            this.lblQuestion3.TabIndex = 13;
+            this.lblQuestion3.Text = "Question 3 Placeholder";
+            // 
+            // tbxQuestion3
+            // 
+            this.tbxQuestion3.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxQuestion3.Location = new System.Drawing.Point(12, 360);
+            this.tbxQuestion3.Name = "tbxQuestion3";
+            this.tbxQuestion3.Size = new System.Drawing.Size(500, 36);
+            this.tbxQuestion3.TabIndex = 12;
+            // 
+            // frmReset
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.DimGray;
             this.BackgroundImage = global::SummitSportsApp.Properties.Resources.bgLogon43;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(782, 553);
-            this.Controls.Add(this.lblOr);
-            this.Controls.Add(this.lblCreateAccount);
-            this.Controls.Add(this.btnCreateAccount);
+            this.Controls.Add(this.lblQuestion3);
+            this.Controls.Add(this.tbxQuestion3);
+            this.Controls.Add(this.lblQuestion2);
+            this.Controls.Add(this.tbxQuestion2);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblLogin);
-            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.lblWelcome);
-            this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.tbxPassword);
-            this.Controls.Add(this.lblUsername);
-            this.Controls.Add(this.tbxUsername);
+            this.Controls.Add(this.lblReset);
+            this.Controls.Add(this.lblQuestion1);
+            this.Controls.Add(this.tbxQuestion1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MaximizeBox = false;
-            this.Name = "frmLogon";
+            this.Name = "frmReset";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Summit Sports - Log In";
             this.ResumeLayout(false);
@@ -182,16 +169,15 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox tbxUsername;
-        private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox tbxPassword;
-        private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.TextBox tbxQuestion1;
+        private System.Windows.Forms.Label lblQuestion1;
+        private System.Windows.Forms.Label lblReset;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label lblLogin;
-        private System.Windows.Forms.Button btnCreateAccount;
-        private System.Windows.Forms.Label lblCreateAccount;
-        private System.Windows.Forms.Label lblOr;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblQuestion2;
+        private System.Windows.Forms.TextBox tbxQuestion2;
+        private System.Windows.Forms.Label lblQuestion3;
+        private System.Windows.Forms.TextBox tbxQuestion3;
     }
 }

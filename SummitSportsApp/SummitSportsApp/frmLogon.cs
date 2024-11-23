@@ -30,7 +30,7 @@ namespace SummitSportsApp
         private void btnRegister_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmRegister frmRegister = new frmRegister();
+            frmRegister frmRegister = new frmRegister(this);
             frmRegister.Show();
         }
     }

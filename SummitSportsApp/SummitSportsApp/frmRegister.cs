@@ -12,9 +12,17 @@ namespace SummitSportsApp
 {
     public partial class frmRegister : Form
     {
-        public frmRegister()
+        Form parentForm;
+        public frmRegister(Form parentForm)
         {
+            this.parentForm = parentForm;
             InitializeComponent();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            parentForm.Show();
         }
     }
 }
