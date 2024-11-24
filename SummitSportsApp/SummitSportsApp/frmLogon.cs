@@ -17,6 +17,11 @@ namespace SummitSportsApp
             InitializeComponent();
         }
 
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             
@@ -24,16 +29,16 @@ namespace SummitSportsApp
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            this.Hide();
             frmReset frmReset = new frmReset(this);
             frmReset.Show();
+            this.Hide();
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            this.Hide();
             frmRegister frmRegister = new frmRegister(this);
             frmRegister.Show();
+            this.Hide();
         }
     }
 }

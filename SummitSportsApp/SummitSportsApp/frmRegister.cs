@@ -22,7 +22,7 @@ namespace SummitSportsApp
             InitializeComponent();
             pnlPersonalInfo.Visible = true;
             pnlCredentials.Visible = false;
-            // pnlQuestions.Visible = false;
+            pnlQuestions.Visible = false;
         }
 
         private void frmRegister_FormClosed(object sender, FormClosedEventArgs e)
