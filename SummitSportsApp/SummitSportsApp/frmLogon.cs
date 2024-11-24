@@ -24,7 +24,9 @@ namespace SummitSportsApp
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
+            frmReset frmReset = new frmReset(this);
+            frmReset.Show();
         }
 
         private void btnRegister_Click(object sender, EventArgs e)

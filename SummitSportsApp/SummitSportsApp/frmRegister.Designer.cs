@@ -30,6 +30,7 @@
         {
             this.lblRegister = new System.Windows.Forms.Label();
             this.pnlPersonalInfo = new System.Windows.Forms.Panel();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.btnNext1 = new System.Windows.Forms.Button();
             this.tbxPhone2 = new System.Windows.Forms.TextBox();
             this.lblPhone2 = new System.Windows.Forms.Label();
@@ -60,8 +61,33 @@
             this.tbxFirstName = new System.Windows.Forms.TextBox();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblPersonalInfo = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.pnlCredentials = new System.Windows.Forms.Panel();
+            this.btnBack2 = new System.Windows.Forms.Button();
+            this.btnNext2 = new System.Windows.Forms.Button();
+            this.tbxPassword = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tbxUsername = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lblCredentials = new System.Windows.Forms.Label();
+            this.gbxCredentials = new System.Windows.Forms.GroupBox();
+            this.tbxCredentials = new System.Windows.Forms.TextBox();
+            this.pnlQuestions = new System.Windows.Forms.Panel();
+            this.btnBack3 = new System.Windows.Forms.Button();
+            this.btnNext3 = new System.Windows.Forms.Button();
+            this.tbxQuestion1 = new System.Windows.Forms.TextBox();
+            this.lblQuestion1 = new System.Windows.Forms.Label();
+            this.lblQuestions = new System.Windows.Forms.Label();
+            this.cbxQuestion1 = new System.Windows.Forms.ComboBox();
+            this.cbxQuestion2 = new System.Windows.Forms.ComboBox();
+            this.tbxQuestion2 = new System.Windows.Forms.TextBox();
+            this.lblQuestion2 = new System.Windows.Forms.Label();
+            this.cbxQuestion3 = new System.Windows.Forms.ComboBox();
+            this.tbxQuestion3 = new System.Windows.Forms.TextBox();
+            this.lblQuestion3 = new System.Windows.Forms.Label();
             this.pnlPersonalInfo.SuspendLayout();
+            this.pnlCredentials.SuspendLayout();
+            this.gbxCredentials.SuspendLayout();
+            this.pnlQuestions.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblRegister
@@ -113,6 +139,16 @@
             this.pnlPersonalInfo.Size = new System.Drawing.Size(758, 472);
             this.pnlPersonalInfo.TabIndex = 6;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(449, 419);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(150, 50);
+            this.btnCancel.TabIndex = 37;
+            this.btnCancel.Text = "◀ Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // btnNext1
             // 
             this.btnNext1.Location = new System.Drawing.Point(605, 419);
@@ -121,6 +157,7 @@
             this.btnNext1.TabIndex = 36;
             this.btnNext1.Text = "Next ▶";
             this.btnNext1.UseVisualStyleBackColor = true;
+            this.btnNext1.Click += new System.EventHandler(this.btnNext1_Click);
             // 
             // tbxPhone2
             // 
@@ -384,15 +421,241 @@
             this.lblPersonalInfo.TabIndex = 7;
             this.lblPersonalInfo.Text = "Step 1: Personal Information";
             // 
-            // btnCancel
+            // pnlCredentials
             // 
-            this.btnCancel.Location = new System.Drawing.Point(449, 419);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(150, 50);
-            this.btnCancel.TabIndex = 37;
-            this.btnCancel.Text = "◀ Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.pnlCredentials.BackColor = System.Drawing.Color.Transparent;
+            this.pnlCredentials.Controls.Add(this.gbxCredentials);
+            this.pnlCredentials.Controls.Add(this.btnBack2);
+            this.pnlCredentials.Controls.Add(this.btnNext2);
+            this.pnlCredentials.Controls.Add(this.tbxPassword);
+            this.pnlCredentials.Controls.Add(this.label13);
+            this.pnlCredentials.Controls.Add(this.tbxUsername);
+            this.pnlCredentials.Controls.Add(this.label14);
+            this.pnlCredentials.Controls.Add(this.lblCredentials);
+            this.pnlCredentials.Location = new System.Drawing.Point(12, 69);
+            this.pnlCredentials.Name = "pnlCredentials";
+            this.pnlCredentials.Size = new System.Drawing.Size(758, 472);
+            this.pnlCredentials.TabIndex = 38;
+            // 
+            // btnBack2
+            // 
+            this.btnBack2.Location = new System.Drawing.Point(449, 419);
+            this.btnBack2.Name = "btnBack2";
+            this.btnBack2.Size = new System.Drawing.Size(150, 50);
+            this.btnBack2.TabIndex = 37;
+            this.btnBack2.Text = "◀ Back";
+            this.btnBack2.UseVisualStyleBackColor = true;
+            this.btnBack2.Click += new System.EventHandler(this.btnBack2_Click);
+            // 
+            // btnNext2
+            // 
+            this.btnNext2.Location = new System.Drawing.Point(605, 419);
+            this.btnNext2.Name = "btnNext2";
+            this.btnNext2.Size = new System.Drawing.Size(150, 50);
+            this.btnNext2.TabIndex = 36;
+            this.btnNext2.Text = "Next ▶";
+            this.btnNext2.UseVisualStyleBackColor = true;
+            this.btnNext2.Click += new System.EventHandler(this.btnNext2_Click);
+            // 
+            // tbxPassword
+            // 
+            this.tbxPassword.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxPassword.Location = new System.Drawing.Point(5, 190);
+            this.tbxPassword.Name = "tbxPassword";
+            this.tbxPassword.Size = new System.Drawing.Size(330, 36);
+            this.tbxPassword.TabIndex = 11;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(5, 160);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(247, 27);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "Password (Required)";
+            // 
+            // tbxUsername
+            // 
+            this.tbxUsername.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxUsername.Location = new System.Drawing.Point(5, 100);
+            this.tbxUsername.Name = "tbxUsername";
+            this.tbxUsername.Size = new System.Drawing.Size(330, 36);
+            this.tbxUsername.TabIndex = 9;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(5, 70);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(253, 27);
+            this.label14.TabIndex = 8;
+            this.label14.Text = "Username (Required)";
+            // 
+            // lblCredentials
+            // 
+            this.lblCredentials.AutoSize = true;
+            this.lblCredentials.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCredentials.Location = new System.Drawing.Point(0, 0);
+            this.lblCredentials.Name = "lblCredentials";
+            this.lblCredentials.Size = new System.Drawing.Size(380, 36);
+            this.lblCredentials.TabIndex = 7;
+            this.lblCredentials.Text = "Step 2: Login Credentials";
+            // 
+            // gbxCredentials
+            // 
+            this.gbxCredentials.Controls.Add(this.tbxCredentials);
+            this.gbxCredentials.Location = new System.Drawing.Point(5, 250);
+            this.gbxCredentials.Name = "gbxCredentials";
+            this.gbxCredentials.Size = new System.Drawing.Size(330, 150);
+            this.gbxCredentials.TabIndex = 38;
+            this.gbxCredentials.TabStop = false;
+            this.gbxCredentials.Text = "Username Requirements:";
+            // 
+            // tbxCredentials
+            // 
+            this.tbxCredentials.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.tbxCredentials.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxCredentials.Location = new System.Drawing.Point(6, 27);
+            this.tbxCredentials.Multiline = true;
+            this.tbxCredentials.Name = "tbxCredentials";
+            this.tbxCredentials.ReadOnly = true;
+            this.tbxCredentials.Size = new System.Drawing.Size(318, 117);
+            this.tbxCredentials.TabIndex = 0;
+            this.tbxCredentials.Text = "8-20 characters long.\r\nCannot begin with a number.\r\nCannot contain special charac" +
+    "ters.\r\nCannot contain spaces.";
+            // 
+            // pnlQuestions
+            // 
+            this.pnlQuestions.BackColor = System.Drawing.Color.Transparent;
+            this.pnlQuestions.Controls.Add(this.cbxQuestion3);
+            this.pnlQuestions.Controls.Add(this.tbxQuestion3);
+            this.pnlQuestions.Controls.Add(this.lblQuestion3);
+            this.pnlQuestions.Controls.Add(this.cbxQuestion2);
+            this.pnlQuestions.Controls.Add(this.tbxQuestion2);
+            this.pnlQuestions.Controls.Add(this.lblQuestion2);
+            this.pnlQuestions.Controls.Add(this.cbxQuestion1);
+            this.pnlQuestions.Controls.Add(this.btnBack3);
+            this.pnlQuestions.Controls.Add(this.btnNext3);
+            this.pnlQuestions.Controls.Add(this.tbxQuestion1);
+            this.pnlQuestions.Controls.Add(this.lblQuestion1);
+            this.pnlQuestions.Controls.Add(this.lblQuestions);
+            this.pnlQuestions.Location = new System.Drawing.Point(12, 69);
+            this.pnlQuestions.Name = "pnlQuestions";
+            this.pnlQuestions.Size = new System.Drawing.Size(758, 472);
+            this.pnlQuestions.TabIndex = 39;
+            // 
+            // btnBack3
+            // 
+            this.btnBack3.Location = new System.Drawing.Point(449, 419);
+            this.btnBack3.Name = "btnBack3";
+            this.btnBack3.Size = new System.Drawing.Size(150, 50);
+            this.btnBack3.TabIndex = 37;
+            this.btnBack3.Text = "◀ Back";
+            this.btnBack3.UseVisualStyleBackColor = true;
+            this.btnBack3.Click += new System.EventHandler(this.btnBack3_Click);
+            // 
+            // btnNext3
+            // 
+            this.btnNext3.Location = new System.Drawing.Point(605, 419);
+            this.btnNext3.Name = "btnNext3";
+            this.btnNext3.Size = new System.Drawing.Size(150, 50);
+            this.btnNext3.TabIndex = 36;
+            this.btnNext3.Text = "Next ▶";
+            this.btnNext3.UseVisualStyleBackColor = true;
+            this.btnNext3.Click += new System.EventHandler(this.btnNext3_Click);
+            // 
+            // tbxQuestion1
+            // 
+            this.tbxQuestion1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxQuestion1.Location = new System.Drawing.Point(5, 121);
+            this.tbxQuestion1.Name = "tbxQuestion1";
+            this.tbxQuestion1.Size = new System.Drawing.Size(330, 36);
+            this.tbxQuestion1.TabIndex = 9;
+            // 
+            // lblQuestion1
+            // 
+            this.lblQuestion1.AutoSize = true;
+            this.lblQuestion1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuestion1.Location = new System.Drawing.Point(5, 50);
+            this.lblQuestion1.Name = "lblQuestion1";
+            this.lblQuestion1.Size = new System.Drawing.Size(259, 27);
+            this.lblQuestion1.TabIndex = 8;
+            this.lblQuestion1.Text = "Question 1 (Required)";
+            // 
+            // lblQuestions
+            // 
+            this.lblQuestions.AutoSize = true;
+            this.lblQuestions.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuestions.Location = new System.Drawing.Point(0, 0);
+            this.lblQuestions.Name = "lblQuestions";
+            this.lblQuestions.Size = new System.Drawing.Size(395, 36);
+            this.lblQuestions.TabIndex = 7;
+            this.lblQuestions.Text = "Step 3: Security Questions";
+            // 
+            // cbxQuestion1
+            // 
+            this.cbxQuestion1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.cbxQuestion1.FormattingEnabled = true;
+            this.cbxQuestion1.Location = new System.Drawing.Point(5, 80);
+            this.cbxQuestion1.Name = "cbxQuestion1";
+            this.cbxQuestion1.Size = new System.Drawing.Size(726, 35);
+            this.cbxQuestion1.TabIndex = 38;
+            // 
+            // cbxQuestion2
+            // 
+            this.cbxQuestion2.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.cbxQuestion2.FormattingEnabled = true;
+            this.cbxQuestion2.Location = new System.Drawing.Point(5, 200);
+            this.cbxQuestion2.Name = "cbxQuestion2";
+            this.cbxQuestion2.Size = new System.Drawing.Size(726, 35);
+            this.cbxQuestion2.TabIndex = 41;
+            // 
+            // tbxQuestion2
+            // 
+            this.tbxQuestion2.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxQuestion2.Location = new System.Drawing.Point(5, 241);
+            this.tbxQuestion2.Name = "tbxQuestion2";
+            this.tbxQuestion2.Size = new System.Drawing.Size(330, 36);
+            this.tbxQuestion2.TabIndex = 40;
+            // 
+            // lblQuestion2
+            // 
+            this.lblQuestion2.AutoSize = true;
+            this.lblQuestion2.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuestion2.Location = new System.Drawing.Point(5, 170);
+            this.lblQuestion2.Name = "lblQuestion2";
+            this.lblQuestion2.Size = new System.Drawing.Size(259, 27);
+            this.lblQuestion2.TabIndex = 39;
+            this.lblQuestion2.Text = "Question 2 (Required)";
+            // 
+            // cbxQuestion3
+            // 
+            this.cbxQuestion3.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.cbxQuestion3.FormattingEnabled = true;
+            this.cbxQuestion3.Location = new System.Drawing.Point(5, 320);
+            this.cbxQuestion3.Name = "cbxQuestion3";
+            this.cbxQuestion3.Size = new System.Drawing.Size(726, 35);
+            this.cbxQuestion3.TabIndex = 44;
+            // 
+            // tbxQuestion3
+            // 
+            this.tbxQuestion3.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxQuestion3.Location = new System.Drawing.Point(5, 361);
+            this.tbxQuestion3.Name = "tbxQuestion3";
+            this.tbxQuestion3.Size = new System.Drawing.Size(330, 36);
+            this.tbxQuestion3.TabIndex = 43;
+            // 
+            // lblQuestion3
+            // 
+            this.lblQuestion3.AutoSize = true;
+            this.lblQuestion3.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuestion3.Location = new System.Drawing.Point(5, 290);
+            this.lblQuestion3.Name = "lblQuestion3";
+            this.lblQuestion3.Size = new System.Drawing.Size(259, 27);
+            this.lblQuestion3.TabIndex = 42;
+            this.lblQuestion3.Text = "Question 3 (Required)";
             // 
             // frmRegister
             // 
@@ -401,6 +664,8 @@
             this.BackgroundImage = global::SummitSportsApp.Properties.Resources.bgLogon43;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.pnlQuestions);
+            this.Controls.Add(this.pnlCredentials);
             this.Controls.Add(this.pnlPersonalInfo);
             this.Controls.Add(this.lblRegister);
             this.DoubleBuffered = true;
@@ -411,8 +676,15 @@
             this.Name = "frmRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Summit Sports - Log In";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmRegister_FormClosed);
             this.pnlPersonalInfo.ResumeLayout(false);
             this.pnlPersonalInfo.PerformLayout();
+            this.pnlCredentials.ResumeLayout(false);
+            this.pnlCredentials.PerformLayout();
+            this.gbxCredentials.ResumeLayout(false);
+            this.gbxCredentials.PerformLayout();
+            this.pnlQuestions.ResumeLayout(false);
+            this.pnlQuestions.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -452,5 +724,28 @@
         private System.Windows.Forms.Label lblPhone1;
         private System.Windows.Forms.Button btnNext1;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Panel pnlCredentials;
+        private System.Windows.Forms.Button btnBack2;
+        private System.Windows.Forms.Button btnNext2;
+        private System.Windows.Forms.TextBox tbxPassword;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox tbxUsername;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblCredentials;
+        private System.Windows.Forms.GroupBox gbxCredentials;
+        private System.Windows.Forms.TextBox tbxCredentials;
+        private System.Windows.Forms.Panel pnlQuestions;
+        private System.Windows.Forms.Button btnBack3;
+        private System.Windows.Forms.Button btnNext3;
+        private System.Windows.Forms.TextBox tbxQuestion1;
+        private System.Windows.Forms.Label lblQuestion1;
+        private System.Windows.Forms.Label lblQuestions;
+        private System.Windows.Forms.ComboBox cbxQuestion3;
+        private System.Windows.Forms.TextBox tbxQuestion3;
+        private System.Windows.Forms.Label lblQuestion3;
+        private System.Windows.Forms.ComboBox cbxQuestion2;
+        private System.Windows.Forms.TextBox tbxQuestion2;
+        private System.Windows.Forms.Label lblQuestion2;
+        private System.Windows.Forms.ComboBox cbxQuestion1;
     }
 }

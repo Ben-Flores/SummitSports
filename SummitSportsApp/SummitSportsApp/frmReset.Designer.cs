@@ -31,7 +31,7 @@
             this.tbxQuestion1 = new System.Windows.Forms.TextBox();
             this.lblQuestion1 = new System.Windows.Forms.Label();
             this.lblReset = new System.Windows.Forms.Label();
-            this.btnLogin = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.lblLogin = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblQuestion2 = new System.Windows.Forms.Label();
@@ -43,7 +43,7 @@
             // tbxQuestion1
             // 
             this.tbxQuestion1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxQuestion1.Location = new System.Drawing.Point(12, 200);
+            this.tbxQuestion1.Location = new System.Drawing.Point(12, 210);
             this.tbxQuestion1.Name = "tbxQuestion1";
             this.tbxQuestion1.Size = new System.Drawing.Size(500, 36);
             this.tbxQuestion1.TabIndex = 0;
@@ -53,7 +53,7 @@
             this.lblQuestion1.AutoSize = true;
             this.lblQuestion1.BackColor = System.Drawing.Color.Transparent;
             this.lblQuestion1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestion1.Location = new System.Drawing.Point(12, 170);
+            this.lblQuestion1.Location = new System.Drawing.Point(12, 180);
             this.lblQuestion1.Name = "lblQuestion1";
             this.lblQuestion1.Size = new System.Drawing.Size(272, 27);
             this.lblQuestion1.TabIndex = 2;
@@ -69,15 +69,16 @@
             this.lblReset.TabIndex = 5;
             this.lblReset.Text = "Reset Your Password";
             // 
-            // btnLogin
+            // btnReset
             // 
-            this.btnLogin.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(620, 491);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(150, 50);
-            this.btnLogin.TabIndex = 6;
-            this.btnLogin.Text = "Reset ▶";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnReset.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Location = new System.Drawing.Point(620, 491);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(150, 50);
+            this.btnReset.TabIndex = 6;
+            this.btnReset.Text = "Reset ▶";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // lblLogin
             // 
@@ -98,13 +99,14 @@
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "◀ Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lblQuestion2
             // 
             this.lblQuestion2.AutoSize = true;
             this.lblQuestion2.BackColor = System.Drawing.Color.Transparent;
             this.lblQuestion2.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestion2.Location = new System.Drawing.Point(12, 250);
+            this.lblQuestion2.Location = new System.Drawing.Point(12, 260);
             this.lblQuestion2.Name = "lblQuestion2";
             this.lblQuestion2.Size = new System.Drawing.Size(272, 27);
             this.lblQuestion2.TabIndex = 11;
@@ -113,7 +115,7 @@
             // tbxQuestion2
             // 
             this.tbxQuestion2.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxQuestion2.Location = new System.Drawing.Point(12, 280);
+            this.tbxQuestion2.Location = new System.Drawing.Point(12, 290);
             this.tbxQuestion2.Name = "tbxQuestion2";
             this.tbxQuestion2.Size = new System.Drawing.Size(500, 36);
             this.tbxQuestion2.TabIndex = 10;
@@ -123,7 +125,7 @@
             this.lblQuestion3.AutoSize = true;
             this.lblQuestion3.BackColor = System.Drawing.Color.Transparent;
             this.lblQuestion3.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestion3.Location = new System.Drawing.Point(12, 330);
+            this.lblQuestion3.Location = new System.Drawing.Point(12, 340);
             this.lblQuestion3.Name = "lblQuestion3";
             this.lblQuestion3.Size = new System.Drawing.Size(272, 27);
             this.lblQuestion3.TabIndex = 13;
@@ -132,7 +134,7 @@
             // tbxQuestion3
             // 
             this.tbxQuestion3.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxQuestion3.Location = new System.Drawing.Point(12, 360);
+            this.tbxQuestion3.Location = new System.Drawing.Point(12, 370);
             this.tbxQuestion3.Name = "tbxQuestion3";
             this.tbxQuestion3.Size = new System.Drawing.Size(500, 36);
             this.tbxQuestion3.TabIndex = 12;
@@ -150,7 +152,7 @@
             this.Controls.Add(this.tbxQuestion2);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblLogin);
-            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.lblReset);
             this.Controls.Add(this.lblQuestion1);
             this.Controls.Add(this.tbxQuestion1);
@@ -162,6 +164,7 @@
             this.Name = "frmReset";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Summit Sports - Log In";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmReset_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,7 +175,7 @@
         private System.Windows.Forms.TextBox tbxQuestion1;
         private System.Windows.Forms.Label lblQuestion1;
         private System.Windows.Forms.Label lblReset;
-        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label lblLogin;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblQuestion2;

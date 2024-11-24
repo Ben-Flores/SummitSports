@@ -12,9 +12,26 @@ namespace SummitSportsApp
 {
     public partial class frmReset : Form
     {
-        public frmReset()
+        Form parentForm;
+        public frmReset(Form parentForm)
         {
             InitializeComponent();
+            this.parentForm = parentForm;
+        }
+
+        private void frmReset_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parentForm.Show();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
