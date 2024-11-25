@@ -39,6 +39,12 @@ namespace SummitSportsApp
 
         private void btnNext1_Click(object sender, EventArgs e)
         {
+            tbxMiddleName.Text = tbxMiddleName.Text.Trim();
+            tbxSuffix.Text = tbxSuffix.Text.Trim();
+            tbxTitle.Text = tbxTitle.Text.Trim();
+            tbxAddress2.Text = tbxAddress2.Text.Trim();
+            tbxAddress3.Text = tbxAddress3.Text.Trim();
+
             if (clsValidation.ValidatePersonalInfo(tbxFirstName, tbxLastName, tbxAddress1, tbxCity, tbxState, tbxZip, tbxEmail, tbxPhone1, tbxPhone2))
             {
                 pnlPersonalInfo.Visible = false;
@@ -69,11 +75,15 @@ namespace SummitSportsApp
         {
             pnlQuestions.Visible = false;
             pnlCredentials.Visible = true;
+            
         }
 
         private void btnNext3_Click(object sender, EventArgs e)
         {
-
+            if (clsValidation.ValidateQuestions())
+            {
+                
+            }
         }
 
         // FIELD VALIDATION
@@ -102,7 +112,7 @@ namespace SummitSportsApp
             clsValidation.ValidateFilled(sender, lblCity);
         }
 
-            // Validating actual characters
+            // Validating characters
 
         private void tbxState_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -171,13 +181,47 @@ namespace SummitSportsApp
         private void tbxPassword_Enter(object sender, EventArgs e)
         {
             gbxCredentials.Text = "Password Requirements:";
-            lblRequirements.Text = "8-20 characters long.\r\nMust contain at least 3 of the following:\r\n\tUppercase Letters\r\n\tLowercase Letters\r\n\tNumbers\r\n\tSpecial Characters";
+            lblRequirements.Text = "8-20 characters long.\r\nMust contain at least 3 of the following:\r\n   Uppercase Letters\r\n   Lowercase Letters\r\n   Numbers\r\n   Special Characters ! @ # $ % ^ & * ( )";
         }
 
         private void tbxConfirm_Enter(object sender, EventArgs e)
         {
             gbxCredentials.Text = "Password Requirements:";
             lblRequirements.Text = "8-20 characters long.\r\nMust contain at least 3 of the following:\r\n   Uppercase Letters\r\n   Lowercase Letters\r\n   Numbers\r\n   Special Characters ! @ # $ % ^ & * ( )";
+        }
+
+            // Validating characters input
+
+        private void tbxUsername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsValidation.ValidateUser(e);
+        }
+
+        private void tbxPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsValidation.ValidatePass(e);
+        }
+
+        private void tbxConfirm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsValidation.ValidatePass(e);
+        }
+
+            // Validating entire submission
+
+        private void tbxUsername_KeyUp(object sender, KeyEventArgs e)
+        {
+            clsValidation.ValidateUserRequirements((TextBox)sender, lblUsername);
+        }
+
+        private void tbxPassword_KeyUp(object sender, KeyEventArgs e)
+        {
+            clsValidation.ValidatePassRequirements((TextBox)sender, lblPassword);
+        }
+
+        private void tbxConfirm_KeyUp(object sender, KeyEventArgs e)
+        {
+            clsValidation.ValidatePassConfirm((TextBox)sender, tbxPassword, lblConfirm);
         }
     }
 }

@@ -89,12 +89,33 @@ namespace SummitSportsApp
 
         public static bool ValidateCredentials(TextBox user, TextBox pass, TextBox conf)
         {
-            return true;
+            if (user.Text.Length < 8 || char.IsDigit(user.Text[0]))
+            {
+                MessageBox.Show("Please enter a valid username.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                user.Focus();
+                return false;
+            }
+            else if (pass.Text.Length < 8 || CheckComplexity(pass.Text) < 3)
+            {
+                MessageBox.Show("Please enter a valid password.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                pass.Focus();
+                return false;
+            }
+            else if (!(conf.Text == pass.Text))
+            {
+                MessageBox.Show("Passwords do not match.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                conf.Focus();
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
-        public static void ValidateQuestions()
+        public static bool ValidateQuestions()
         {
-            
+            return true;
         }
         /*
          * GENERAL IS IT FILLED CHECK
@@ -245,6 +266,97 @@ namespace SummitSportsApp
                 ((TextBox)sender).Text = stripped;
                 ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
             }
+        }
+        /*
+         * USERNAME AND PASSWORD VALIDATION AND FORMATTING
+         */
+        public static void ValidateUser(KeyPressEventArgs e)
+        {
+            if (char.IsLetterOrDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+            }
+        }
+
+        public static void ValidatePass(KeyPressEventArgs e)
+        {
+            string specialChars = "!@#$%^&*()";
+            if (char.IsLetterOrDigit(e.KeyChar) || specialChars.Contains(e.KeyChar.ToString()) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+            }
+        }
+
+        public static void ValidateUserRequirements(TextBox sender, Label label)
+        {
+            if (sender.Text.Length >= 8 && !char.IsDigit(sender.Text[0]))
+            {
+                label.ForeColor = System.Drawing.Color.Black;
+            }
+            else
+            {
+                label.ForeColor = System.Drawing.Color.Crimson;
+            }
+        }
+
+        public static void ValidatePassRequirements(TextBox sender, Label label)
+        {
+            if (sender.Text.Length >= 8)
+            {
+                int complexity = CheckComplexity(sender.Text);
+
+                if (complexity >= 3)
+                    label.ForeColor = System.Drawing.Color.Black;
+            }
+            else
+            {
+                label.ForeColor = System.Drawing.Color.Crimson;
+            }
+        }
+
+        public static void ValidatePassConfirm(TextBox sender, TextBox password, Label label)
+        {
+            if (sender.Text == password.Text)
+            {
+                label.ForeColor = System.Drawing.Color.Black;
+            }
+            else
+            {
+                label.ForeColor = System.Drawing.Color.Crimson;
+            }
+        }
+
+        public static int CheckComplexity(string pass)
+        {
+            string specialChars = "!@#$%^&*()";
+            int complexity = 0;
+
+            if (pass.Any(char.IsUpper))
+                complexity++;
+            if (pass.Any(char.IsLower))
+                complexity++;
+            if (pass.Any(char.IsDigit))
+                complexity++;
+            foreach (char c in pass)
+            {
+                if (specialChars.Contains(c))
+                {
+                    complexity++;
+                    break;
+                }
+            }
+
+            return complexity;
         }
     }
 }
