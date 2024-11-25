@@ -71,6 +71,8 @@ namespace SummitSportsApp
 
         // FIELD VALIDATION
 
+        // PAGE 1
+
             // Are the required fields filled?
 
         private void tbxFirstName_KeyUp(object sender, KeyEventArgs e)
@@ -147,6 +149,26 @@ namespace SummitSportsApp
         {
             clsValidation.FormatPhone(sender);
             clsValidation.ValidatePhoneFormat(sender, lblPhone2);
+        }
+
+        // PAGE 2
+
+        private void tbxUsername_Enter(object sender, EventArgs e)
+        {
+            gbxCredentials.Text = "Username Requirements:";
+            lblRequirements.Text = "8-20 characters long.\r\nCannot begin with a number.\r\nCannot contain special characters.\r\nCannot contain spaces.";
+        }
+
+        private void tbxPassword_Enter(object sender, EventArgs e)
+        {
+            gbxCredentials.Text = "Password Requirements:";
+            lblRequirements.Text = "8-20 characters long.\r\nMust contain at least 3 of the following:\r\n\tUppercase Letters\r\n\tLowercase Letters\r\n\tNumbers\r\n\tSpecial Characters";
+        }
+
+        private void tbxConfirm_Enter(object sender, EventArgs e)
+        {
+            gbxCredentials.Text = "Password Requirements:";
+            lblRequirements.Text = "8-20 characters long.\r\nMust contain at least 3 of the following:\r\n   Uppercase Letters\r\n   Lowercase Letters\r\n   Numbers\r\n   Special Characters ! @ # $ % ^ & * ( )";
         }
     }
 }
