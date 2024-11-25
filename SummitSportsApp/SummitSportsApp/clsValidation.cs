@@ -16,6 +16,17 @@ namespace SummitSportsApp
          */
         public static bool ValidatePersonalInfo(TextBox fName, TextBox lName, TextBox addy, TextBox city, TextBox state, TextBox zip, TextBox email, TextBox phone1, TextBox phone2)
         {
+            // Trim all textboxes
+            fName.Text = fName.Text.Trim();
+            lName.Text = lName.Text.Trim();
+            addy.Text = addy.Text.Trim();
+            city.Text = city.Text.Trim();
+            state.Text = state.Text.Trim();
+            zip.Text = zip.Text.Trim();
+            email.Text = email.Text.Trim();
+            phone1.Text = phone1.Text.Trim();
+            phone2.Text = phone2.Text.Trim();
+
             if (fName.Text.Length == 0)
             {
                 MessageBox.Show("Please enter your first name.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -28,7 +39,7 @@ namespace SummitSportsApp
                 lName.Focus();
                 return false;
             }
-            else if (addy.Text.Length == 0)
+            else if (addy.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Please enter your address.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 addy.Focus();
@@ -76,9 +87,9 @@ namespace SummitSportsApp
             }
         }
 
-        public static void ValidateCredentials()
+        public static bool ValidateCredentials(TextBox user, TextBox pass, TextBox conf)
         {
-
+            return true;
         }
 
         public static void ValidateQuestions()
@@ -90,7 +101,7 @@ namespace SummitSportsApp
          */
         public static void ValidateFilled(object sender, Label label)
         {
-            if (!string.IsNullOrEmpty(((TextBox)sender).Text))
+            if (!string.IsNullOrEmpty(((TextBox)sender).Text.Trim()))
             {
                 label.ForeColor = System.Drawing.Color.Black;
             }

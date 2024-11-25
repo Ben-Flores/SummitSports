@@ -44,6 +44,10 @@ namespace SummitSportsApp
                 pnlPersonalInfo.Visible = false;
                 pnlCredentials.Visible = true;
             }
+            else // this call for email validation is to avoid confusing the stupid people that insist on breaking my database by entering space as an email
+            {
+                clsValidation.ValidateEmailFormat(tbxEmail, lblEmail);
+            }
         }
 
         private void btnBack2_Click(object sender, EventArgs e)
@@ -54,8 +58,11 @@ namespace SummitSportsApp
 
         private void btnNext2_Click(object sender, EventArgs e)
         {
-            pnlCredentials.Visible = false;
-            pnlQuestions.Visible = true;
+            if (clsValidation.ValidateCredentials(tbxUsername, tbxPassword, tbxConfirm))
+            {
+                pnlCredentials.Visible = false;
+                pnlQuestions.Visible = true;
+            }
         }
 
         private void btnBack3_Click(object sender, EventArgs e)
@@ -152,6 +159,8 @@ namespace SummitSportsApp
         }
 
         // PAGE 2
+
+            // Change instructions panel
 
         private void tbxUsername_Enter(object sender, EventArgs e)
         {
