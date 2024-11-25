@@ -36,7 +36,7 @@
             this.lblPhone2 = new System.Windows.Forms.Label();
             this.tbxPhone1 = new System.Windows.Forms.TextBox();
             this.lblPhone1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.tbxZip = new System.Windows.Forms.TextBox();
             this.lblZip = new System.Windows.Forms.Label();
@@ -109,7 +109,7 @@
             this.pnlPersonalInfo.Controls.Add(this.lblPhone2);
             this.pnlPersonalInfo.Controls.Add(this.tbxPhone1);
             this.pnlPersonalInfo.Controls.Add(this.lblPhone1);
-            this.pnlPersonalInfo.Controls.Add(this.textBox1);
+            this.pnlPersonalInfo.Controls.Add(this.tbxEmail);
             this.pnlPersonalInfo.Controls.Add(this.lblEmail);
             this.pnlPersonalInfo.Controls.Add(this.tbxZip);
             this.pnlPersonalInfo.Controls.Add(this.lblZip);
@@ -163,10 +163,13 @@
             // 
             this.tbxPhone2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxPhone2.Location = new System.Drawing.Point(5, 425);
-            this.tbxPhone2.MaxLength = 20;
+            this.tbxPhone2.MaxLength = 14;
             this.tbxPhone2.Name = "tbxPhone2";
+            this.tbxPhone2.ShortcutsEnabled = false;
             this.tbxPhone2.Size = new System.Drawing.Size(330, 31);
             this.tbxPhone2.TabIndex = 35;
+            this.tbxPhone2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxPhone2_KeyPress);
+            this.tbxPhone2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxPhone2_KeyUp);
             // 
             // lblPhone2
             // 
@@ -183,10 +186,13 @@
             // 
             this.tbxPhone1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxPhone1.Location = new System.Drawing.Point(341, 374);
-            this.tbxPhone1.MaxLength = 20;
+            this.tbxPhone1.MaxLength = 14;
             this.tbxPhone1.Name = "tbxPhone1";
+            this.tbxPhone1.ShortcutsEnabled = false;
             this.tbxPhone1.Size = new System.Drawing.Size(330, 31);
             this.tbxPhone1.TabIndex = 33;
+            this.tbxPhone1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxPhone1_KeyPress);
+            this.tbxPhone1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxPhone1_KeyUp);
             // 
             // lblPhone1
             // 
@@ -199,14 +205,15 @@
             this.lblPhone1.TabIndex = 32;
             this.lblPhone1.Text = "Primary Phone";
             // 
-            // textBox1
+            // tbxEmail
             // 
-            this.textBox1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(5, 374);
-            this.textBox1.MaxLength = 40;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(330, 31);
-            this.textBox1.TabIndex = 31;
+            this.tbxEmail.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxEmail.Location = new System.Drawing.Point(5, 374);
+            this.tbxEmail.MaxLength = 40;
+            this.tbxEmail.Name = "tbxEmail";
+            this.tbxEmail.Size = new System.Drawing.Size(330, 31);
+            this.tbxEmail.TabIndex = 31;
+            this.tbxEmail.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxEmail_KeyUp);
             // 
             // lblEmail
             // 
@@ -471,7 +478,7 @@
             this.pnlCredentials.Controls.Add(this.tbxUsername);
             this.pnlCredentials.Controls.Add(this.label14);
             this.pnlCredentials.Controls.Add(this.lblCredentials);
-            this.pnlCredentials.Location = new System.Drawing.Point(12, 540);
+            this.pnlCredentials.Location = new System.Drawing.Point(12, 69);
             this.pnlCredentials.Name = "pnlCredentials";
             this.pnlCredentials.Size = new System.Drawing.Size(758, 472);
             this.pnlCredentials.TabIndex = 38;
@@ -749,7 +756,7 @@
         private System.Windows.Forms.Label lblAddress2;
         private System.Windows.Forms.TextBox tbxAddress1;
         private System.Windows.Forms.Label lblAddress1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxEmail;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox tbxZip;
         private System.Windows.Forms.Label lblZip;

@@ -39,9 +39,11 @@ namespace SummitSportsApp
 
         private void btnNext1_Click(object sender, EventArgs e)
         {
-            // clsValidation.ValidatePersonalInfo();
-            pnlPersonalInfo.Visible = false;
-            pnlCredentials.Visible = true;
+            if (clsValidation.ValidatePersonalInfo(tbxFirstName, tbxLastName, tbxAddress1, tbxCity, tbxState, tbxZip, tbxEmail, tbxPhone1, tbxPhone2))
+            {
+                pnlPersonalInfo.Visible = false;
+                pnlCredentials.Visible = true;
+            }
         }
 
         private void btnBack2_Click(object sender, EventArgs e)
@@ -91,6 +93,28 @@ namespace SummitSportsApp
             clsValidation.ValidateFilled(sender, lblCity);
         }
 
+            // Validating actual characters
+
+        private void tbxState_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsValidation.ValidateState(e);
+        }
+
+        private void tbxZip_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsValidation.ValidateZip(e);
+        }
+
+        private void tbxPhone1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsValidation.ValidatePhone(e);
+        }
+
+        private void tbxPhone2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsValidation.ValidatePhone(e);
+        }
+
             // Are the fields in the right format?
 
         private void tbxState_KeyUp(object sender, KeyEventArgs e)
@@ -104,16 +128,25 @@ namespace SummitSportsApp
             clsValidation.ValidateZipFormat(sender, lblZip);
         }
 
-            // Validating actual characters
-
-        private void tbxState_KeyPress(object sender, KeyPressEventArgs e)
+        private void tbxEmail_KeyUp(object sender, KeyEventArgs e)
         {
-            clsValidation.ValidateState(e, lblState);
+            clsValidation.ValidateEmailFormat(sender, lblEmail);
         }
 
-        private void tbxZip_KeyPress(object sender, KeyPressEventArgs e)
+        
+
+        private void tbxPhone1_KeyUp(object sender, KeyEventArgs e)
         {
-            clsValidation.ValidateZip(e, lblState);
+            clsValidation.FormatPhone(sender);
+            clsValidation.ValidatePhoneFormat(sender, lblPhone1);
+        }
+
+        
+
+        private void tbxPhone2_KeyUp(object sender, KeyEventArgs e)
+        {
+            clsValidation.FormatPhone(sender);
+            clsValidation.ValidatePhoneFormat(sender, lblPhone2);
         }
     }
 }

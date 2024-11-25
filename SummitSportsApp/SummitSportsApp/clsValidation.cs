@@ -13,10 +13,67 @@ namespace SummitSportsApp
     {
         /*
          * FORM SUBMISSION VALIDATION
-         */   
-        public static void ValidatePersonalInfo()
+         */
+        public static bool ValidatePersonalInfo(TextBox fName, TextBox lName, TextBox addy, TextBox city, TextBox state, TextBox zip, TextBox email, TextBox phone1, TextBox phone2)
         {
-
+            if (fName.Text.Length == 0)
+            {
+                MessageBox.Show("Please enter your first name.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                fName.Focus();
+                return false;
+            }
+            else if (lName.Text.Length == 0)
+            {
+                MessageBox.Show("Please enter your last name.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lName.Focus();
+                return false;
+            }
+            else if (addy.Text.Length == 0)
+            {
+                MessageBox.Show("Please enter your address.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                addy.Focus();
+                return false;
+            }
+            else if (city.Text.Length == 0)
+            {
+                MessageBox.Show("Please enter your city.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                city.Focus();
+                return false;
+            }
+            else if (state.Text.Length != 2)
+            {
+                MessageBox.Show("Please enter a valid state.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                state.Focus();
+                return false;
+            }
+            else if (zip.Text.Length != 5 && zip.Text.Length != 10)
+            {
+                MessageBox.Show("Please enter a valid ZIP code.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                zip.Focus();
+                return false;
+            }
+            else if (email.Text.Length != 0 && !Regex.Match(email.Text, @"^(?!.*\.\.)[A-Z0-9](?:[A-Z0-9._%+-]*[A-Z0-9])?@[A-Z0-9](?:[A-Z0-9.-]*[A-Z0-9])?\.[A-Z]{2,}$", RegexOptions.IgnoreCase).Success)
+            {
+                MessageBox.Show("Please enter a valid email (or none at all).", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                email.Focus();
+                return false;
+            }
+            else if (phone1.Text.Length != 0 && phone1.Text.Length != 14)
+            {
+                MessageBox.Show("Please enter a valid primary phone (or none at all).", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                phone1.Focus();
+                return false;
+            }
+            else if (phone2.Text.Length != 0 && phone2.Text.Length != 14)
+            {
+                MessageBox.Show("Please enter a valid secondary phone (or none at all).", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                phone2.Focus();
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         public static void ValidateCredentials()
@@ -45,7 +102,7 @@ namespace SummitSportsApp
         /*
          * STATE VALIDATION
          */
-        public static void ValidateState(KeyPressEventArgs e, Label label)
+        public static void ValidateState(KeyPressEventArgs e)
         {
             if (char.IsLetter(e.KeyChar) || char.IsControl(e.KeyChar))
             {
@@ -70,9 +127,9 @@ namespace SummitSportsApp
             }
         }
         /*
-         * ZIP VALIDATION
+         * ZIP VALIDATION AND FORMATTING
          */
-        public static void ValidateZip(KeyPressEventArgs e, Label label)
+        public static void ValidateZip(KeyPressEventArgs e)
         {
             if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
             {
@@ -103,6 +160,8 @@ namespace SummitSportsApp
             if (stripped.Length > 5)
             {
                 ((TextBox)sender).Text = stripped.Insert(5, "-");
+                if (((TextBox)sender).Text.Length > 10)
+                    ((TextBox)sender).Text = ((TextBox)sender).Text.Substring(0, 10);
                 ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
             }
             else
@@ -116,13 +175,64 @@ namespace SummitSportsApp
          */
         public static void ValidateEmailFormat(object sender, Label label)
         {
-            if (((TextBox)sender).Text.Length == 5 || ((TextBox)sender).Text.Length == 10)
+            if (((TextBox)sender).Text.Length == 0 || Regex.Match(((TextBox)sender).Text, @"^(?!.*\.\.)[A-Z0-9](?:[A-Z0-9._%+-]*[A-Z0-9])?@[A-Z0-9](?:[A-Z0-9.-]*[A-Z0-9])?\.[A-Z]{2,}$", RegexOptions.IgnoreCase).Success)
             {
                 label.ForeColor = System.Drawing.Color.Black;
             }
             else
             {
                 label.ForeColor = System.Drawing.Color.Crimson;
+            }
+        }
+        /*
+         * PHONE VALIDATION AND FORMATTING
+         */
+        public static void ValidatePhone(KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+            }
+        }
+
+        public static void ValidatePhoneFormat(object sender, Label label)
+        {
+            if (((TextBox)sender).Text.Length == 0 || ((TextBox)sender).Text.Length == 14)
+            {
+                label.ForeColor = System.Drawing.Color.Black;
+            }
+            else
+            {
+                label.ForeColor = System.Drawing.Color.Crimson;
+            }
+        }
+
+        public static void FormatPhone(object sender)
+        {
+            string stripped = Regex.Replace(((TextBox)sender).Text, "[^0-9]", "");
+            if (stripped.Length > 6)
+            {
+                ((TextBox)sender).Text = "(" + stripped.Substring(0, 3) + ") " + stripped.Substring(3, 3) + "-" + stripped.Substring(6);
+                if (((TextBox)sender).Text.Length > 14)
+                    ((TextBox)sender).Text = ((TextBox)sender).Text.Substring(0, 14);
+                ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
+            }
+            else if (stripped.Length > 3)
+            {
+                ((TextBox)sender).Text = "(" + stripped.Substring(0, 3) + ") " + stripped.Substring(3);
+                if (((TextBox)sender).Text.Length > 14)
+                    ((TextBox)sender).Text = ((TextBox)sender).Text.Substring(0, 14);
+                ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
+            }
+            else
+            {
+                ((TextBox)sender).Text = stripped;
+                ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
             }
         }
     }
