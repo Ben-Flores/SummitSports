@@ -28,6 +28,7 @@ namespace SummitSportsApp
 
         private void frmRegister_FormClosed(object sender, FormClosedEventArgs e)
         {
+            clsSQL.CloseConnection();
             parentForm.Show();
         }
 
@@ -35,7 +36,7 @@ namespace SummitSportsApp
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            clsSQL.CloseConnection();
+            // clsSQL.CloseConnection();
             this.Close();
         }
 

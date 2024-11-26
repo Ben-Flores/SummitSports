@@ -45,7 +45,7 @@
             this.tbxQuestion1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxQuestion1.Location = new System.Drawing.Point(12, 210);
             this.tbxQuestion1.Name = "tbxQuestion1";
-            this.tbxQuestion1.Size = new System.Drawing.Size(500, 36);
+            this.tbxQuestion1.Size = new System.Drawing.Size(500, 43);
             this.tbxQuestion1.TabIndex = 0;
             // 
             // lblQuestion1
@@ -55,7 +55,7 @@
             this.lblQuestion1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuestion1.Location = new System.Drawing.Point(12, 180);
             this.lblQuestion1.Name = "lblQuestion1";
-            this.lblQuestion1.Size = new System.Drawing.Size(272, 27);
+            this.lblQuestion1.Size = new System.Drawing.Size(338, 35);
             this.lblQuestion1.TabIndex = 2;
             this.lblQuestion1.Text = "Question 1 Placeholder";
             // 
@@ -65,7 +65,7 @@
             this.lblReset.Font = new System.Drawing.Font("Rockwell", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReset.Location = new System.Drawing.Point(12, 12);
             this.lblReset.Name = "lblReset";
-            this.lblReset.Size = new System.Drawing.Size(486, 54);
+            this.lblReset.Size = new System.Drawing.Size(603, 68);
             this.lblReset.TabIndex = 5;
             this.lblReset.Text = "Reset Your Password";
             // 
@@ -86,7 +86,7 @@
             this.lblLogin.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogin.Location = new System.Drawing.Point(12, 87);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(624, 72);
+            this.lblLogin.Size = new System.Drawing.Size(788, 92);
             this.lblLogin.TabIndex = 8;
             this.lblLogin.Text = "Correctly answer your \r\nsecurity questions to reset your password";
             // 
@@ -108,7 +108,7 @@
             this.lblQuestion2.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuestion2.Location = new System.Drawing.Point(12, 260);
             this.lblQuestion2.Name = "lblQuestion2";
-            this.lblQuestion2.Size = new System.Drawing.Size(272, 27);
+            this.lblQuestion2.Size = new System.Drawing.Size(338, 35);
             this.lblQuestion2.TabIndex = 11;
             this.lblQuestion2.Text = "Question 2 Placeholder";
             // 
@@ -117,7 +117,7 @@
             this.tbxQuestion2.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxQuestion2.Location = new System.Drawing.Point(12, 290);
             this.tbxQuestion2.Name = "tbxQuestion2";
-            this.tbxQuestion2.Size = new System.Drawing.Size(500, 36);
+            this.tbxQuestion2.Size = new System.Drawing.Size(500, 43);
             this.tbxQuestion2.TabIndex = 10;
             // 
             // lblQuestion3
@@ -127,7 +127,7 @@
             this.lblQuestion3.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuestion3.Location = new System.Drawing.Point(12, 340);
             this.lblQuestion3.Name = "lblQuestion3";
-            this.lblQuestion3.Size = new System.Drawing.Size(272, 27);
+            this.lblQuestion3.Size = new System.Drawing.Size(338, 35);
             this.lblQuestion3.TabIndex = 13;
             this.lblQuestion3.Text = "Question 3 Placeholder";
             // 
@@ -136,7 +136,7 @@
             this.tbxQuestion3.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxQuestion3.Location = new System.Drawing.Point(12, 370);
             this.tbxQuestion3.Name = "tbxQuestion3";
-            this.tbxQuestion3.Size = new System.Drawing.Size(500, 36);
+            this.tbxQuestion3.Size = new System.Drawing.Size(500, 43);
             this.tbxQuestion3.TabIndex = 12;
             // 
             // frmReset

@@ -21,12 +21,13 @@ namespace SummitSportsApp
 
         private void frmReset_FormClosed(object sender, FormClosedEventArgs e)
         {
+            clsSQL.CloseConnection();
             parentForm.Show();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            clsSQL.CloseConnection();
+            // clsSQL.CloseConnection();
             this.Close();
         }
 
