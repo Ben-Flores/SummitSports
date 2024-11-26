@@ -41,9 +41,10 @@
             this.lblConfirm.AutoSize = true;
             this.lblConfirm.BackColor = System.Drawing.Color.Transparent;
             this.lblConfirm.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfirm.ForeColor = System.Drawing.Color.Crimson;
             this.lblConfirm.Location = new System.Drawing.Point(20, 112);
             this.lblConfirm.Name = "lblConfirm";
-            this.lblConfirm.Size = new System.Drawing.Size(279, 27);
+            this.lblConfirm.Size = new System.Drawing.Size(349, 35);
             this.lblConfirm.TabIndex = 8;
             this.lblConfirm.Text = "Confirm New Password:";
             // 
@@ -55,7 +56,7 @@
             this.tbxConfirm.Name = "tbxConfirm";
             this.tbxConfirm.PasswordChar = '●';
             this.tbxConfirm.ShortcutsEnabled = false;
-            this.tbxConfirm.Size = new System.Drawing.Size(500, 36);
+            this.tbxConfirm.Size = new System.Drawing.Size(500, 43);
             this.tbxConfirm.TabIndex = 7;
             this.tbxConfirm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxConfirm_KeyPress);
             this.tbxConfirm.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxConfirm_KeyUp);
@@ -65,9 +66,10 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.BackColor = System.Drawing.Color.Transparent;
             this.lblPassword.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.ForeColor = System.Drawing.Color.Crimson;
             this.lblPassword.Location = new System.Drawing.Point(20, 20);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(182, 27);
+            this.lblPassword.Size = new System.Drawing.Size(227, 35);
             this.lblPassword.TabIndex = 6;
             this.lblPassword.Text = "New Password:";
             // 
@@ -79,7 +81,7 @@
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.PasswordChar = '●';
             this.tbxPassword.ShortcutsEnabled = false;
-            this.tbxPassword.Size = new System.Drawing.Size(500, 36);
+            this.tbxPassword.Size = new System.Drawing.Size(500, 43);
             this.tbxPassword.TabIndex = 5;
             this.tbxPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxPassword_KeyPress);
             this.tbxPassword.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxPassword_KeyUp);
@@ -108,7 +110,7 @@
             // 
             // frmNewPassword
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 35F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(582, 303);

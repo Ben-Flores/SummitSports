@@ -105,7 +105,7 @@ namespace SummitSportsApp
                     }
                     else
                     {
-                        if (i == dataTable.Rows.Count - 1) 
+                        if (i == dataTable.Rows.Count - 1 && pass != "checkUnique") 
                         {
                             MessageBox.Show("Username not found.", "Login Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             //return false;

@@ -116,6 +116,12 @@ namespace SummitSportsApp
                 user.Focus();
                 return false;
             }
+            else if (clsSQL.VerifyUser(user.Text, "checkUnique", false) != 0)
+            {
+                MessageBox.Show("That username is already taken.\nSorry, please enter a different username.", "Username Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                user.Focus();
+                return false;
+            }
             else if (pass.Text.Length < 8 || CheckComplexity(pass.Text) < 3)
             {
                 MessageBox.Show("Please enter a valid password.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
