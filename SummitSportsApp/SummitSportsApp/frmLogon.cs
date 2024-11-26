@@ -17,6 +17,12 @@ namespace SummitSportsApp
             InitializeComponent();
         }
 
+        public void ClearFields()
+        {
+            tbxUsername.Text = "";
+            tbxPassword.Text = "";
+        }
+
         private void frmLogon_FormClosing(object sender, FormClosingEventArgs e)
         {
             clsSQL.CloseConnection();

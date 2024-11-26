@@ -14,14 +14,14 @@ namespace SummitSportsApp
 {
     public partial class frmRegister : Form
     {
-        Form parentForm;
+        frmLogon parentForm;
         NewUser newUser = new NewUser();
         List<int> set1 = new List<int>();
         List<int> set2 = new List<int>();
         List<int> set3 = new List<int>();
 
 
-        public frmRegister(Form parentForm)
+        public frmRegister(frmLogon parentForm)
         {
             this.parentForm = parentForm;
             InitializeComponent();
@@ -34,6 +34,7 @@ namespace SummitSportsApp
         private void frmRegister_FormClosed(object sender, FormClosedEventArgs e)
         {
             clsSQL.CloseConnection();
+            parentForm.ClearFields();
             parentForm.Show();
         }
 

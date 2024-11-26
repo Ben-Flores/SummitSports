@@ -12,8 +12,8 @@ namespace SummitSportsApp
 {
     public partial class frmReset : Form
     {
-        Form parentForm;
-        public frmReset(Form parentForm)
+        frmLogon parentForm;
+        public frmReset(frmLogon parentForm)
         {
             InitializeComponent();
             this.parentForm = parentForm;
@@ -22,6 +22,7 @@ namespace SummitSportsApp
         private void frmReset_FormClosed(object sender, FormClosedEventArgs e)
         {
             clsSQL.CloseConnection();
+            parentForm.ClearFields();
             parentForm.Show();
         }
 
