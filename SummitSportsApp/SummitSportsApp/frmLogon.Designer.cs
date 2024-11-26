@@ -47,6 +47,7 @@
             this.tbxUsername.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxUsername.Location = new System.Drawing.Point(12, 185);
             this.tbxUsername.Name = "tbxUsername";
+            this.tbxUsername.ShortcutsEnabled = false;
             this.tbxUsername.Size = new System.Drawing.Size(500, 43);
             this.tbxUsername.TabIndex = 0;
             // 
@@ -77,6 +78,7 @@
             this.tbxPassword.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxPassword.Location = new System.Drawing.Point(12, 276);
             this.tbxPassword.Name = "tbxPassword";
+            this.tbxPassword.ShortcutsEnabled = false;
             this.tbxPassword.Size = new System.Drawing.Size(500, 43);
             this.tbxPassword.TabIndex = 3;
             // 

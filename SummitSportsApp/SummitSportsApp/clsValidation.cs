@@ -363,6 +363,8 @@ namespace SummitSportsApp
 
                 if (complexity >= 3)
                     label.ForeColor = System.Drawing.Color.Black;
+                else
+                    label.ForeColor = System.Drawing.Color.Crimson;
             }
             else
             {
@@ -370,15 +372,15 @@ namespace SummitSportsApp
             }
         }
 
-        public static void ValidatePassConfirm(TextBox sender, TextBox password, Label label)
+        public static void ValidatePassConfirm(TextBox sender, TextBox password, Label labelConfirm, Label labelPass)
         {
-            if (sender.Text.Length != 0 && sender.Text == password.Text)
+            if (sender.Text.Length != 0 && labelPass.ForeColor != System.Drawing.Color.Crimson && sender.Text == password.Text)
             {
-                label.ForeColor = System.Drawing.Color.Black;
+                labelConfirm.ForeColor = System.Drawing.Color.Black;
             }
             else
             {
-                label.ForeColor = System.Drawing.Color.Crimson;
+                labelConfirm.ForeColor = System.Drawing.Color.Crimson;
             }
         }
 
@@ -415,6 +417,26 @@ namespace SummitSportsApp
                 return true;
             else
                 return false;
+        }
+
+        public static bool ValidateReset(TextBox pass, TextBox conf)
+        {
+            if (pass.Text.Length < 8 || CheckComplexity(pass.Text) < 3)
+            {
+                MessageBox.Show("Please enter a valid password.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                pass.Focus();
+                return false;
+            }
+            else if (!(conf.Text == pass.Text))
+            {
+                MessageBox.Show("Passwords do not match.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                conf.Focus();
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
         #endregion
     }

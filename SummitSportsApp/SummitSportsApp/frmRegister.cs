@@ -251,12 +251,12 @@ namespace SummitSportsApp
         private void tbxPassword_KeyUp(object sender, KeyEventArgs e)
         {
             clsValidation.ValidatePassRequirements((TextBox)sender, lblPassword);
-            clsValidation.ValidatePassConfirm(tbxConfirm, (TextBox)sender, lblConfirm);
+            clsValidation.ValidatePassConfirm(tbxConfirm, (TextBox)sender, lblConfirm, lblPassword);
         }
 
         private void tbxConfirm_KeyUp(object sender, KeyEventArgs e)
         {
-            clsValidation.ValidatePassConfirm((TextBox)sender, tbxPassword, lblConfirm);
+            clsValidation.ValidatePassConfirm((TextBox)sender, tbxPassword, lblConfirm, lblPassword);
         }
 
         // PAGE 3

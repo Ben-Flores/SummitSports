@@ -40,7 +40,8 @@ namespace SummitSportsApp
             {
                 if (clsValidation.ValidateAnswers(tbxQuestion1, tbxQuestion2 , tbxQuestion3, answers))
                 {
-                    MessageBox.Show("Reset Successful");
+                    frmNewPassword frmNewPassword = new frmNewPassword();
+                    frmNewPassword.ShowDialog();
                 }
                 else
                 {

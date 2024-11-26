@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmNewPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewPassword.Designer.cs">
+      <DependentUpon>frmNewPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="NewUser.cs" />
     <Compile Include="clsSQL.cs" />
     <Compile Include="clsValidation.cs" />
@@ -69,6 +75,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmNewPassword.resx">
+      <DependentUpon>frmNewPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogon.resx">
       <DependentUpon>frmLogon.cs</DependentUpon>
     </EmbeddedResource>
