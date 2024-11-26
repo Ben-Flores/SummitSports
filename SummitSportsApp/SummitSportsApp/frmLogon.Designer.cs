@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogon));
             this.tbxUsername = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
@@ -51,7 +52,7 @@
             this.tbxUsername.Location = new System.Drawing.Point(12, 185);
             this.tbxUsername.Name = "tbxUsername";
             this.tbxUsername.ShortcutsEnabled = false;
-            this.tbxUsername.Size = new System.Drawing.Size(500, 36);
+            this.tbxUsername.Size = new System.Drawing.Size(500, 43);
             this.tbxUsername.TabIndex = 0;
             // 
             // lblUsername
@@ -61,7 +62,7 @@
             this.lblUsername.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.Location = new System.Drawing.Point(12, 146);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(132, 27);
+            this.lblUsername.Size = new System.Drawing.Size(164, 35);
             this.lblUsername.TabIndex = 2;
             this.lblUsername.Text = "Username:";
             // 
@@ -72,7 +73,7 @@
             this.lblPassword.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.Location = new System.Drawing.Point(12, 238);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(126, 27);
+            this.lblPassword.Size = new System.Drawing.Size(157, 35);
             this.lblPassword.TabIndex = 4;
             this.lblPassword.Text = "Password:";
             // 
@@ -83,7 +84,7 @@
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.PasswordChar = '●';
             this.tbxPassword.ShortcutsEnabled = false;
-            this.tbxPassword.Size = new System.Drawing.Size(500, 36);
+            this.tbxPassword.Size = new System.Drawing.Size(500, 43);
             this.tbxPassword.TabIndex = 1;
             // 
             // lblWelcome
@@ -92,7 +93,7 @@
             this.lblWelcome.Font = new System.Drawing.Font("Rockwell", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWelcome.Location = new System.Drawing.Point(12, 12);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(617, 54);
+            this.lblWelcome.Size = new System.Drawing.Size(769, 68);
             this.lblWelcome.TabIndex = 5;
             this.lblWelcome.Text = "Welcome to Summit Sports";
             // 
@@ -124,7 +125,7 @@
             this.lblLogin.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogin.Location = new System.Drawing.Point(12, 87);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(105, 36);
+            this.lblLogin.Size = new System.Drawing.Size(135, 46);
             this.lblLogin.TabIndex = 8;
             this.lblLogin.Text = "Log In";
             // 
@@ -145,7 +146,7 @@
             this.lblCreateAccount.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCreateAccount.Location = new System.Drawing.Point(12, 442);
             this.lblCreateAccount.Name = "lblCreateAccount";
-            this.lblCreateAccount.Size = new System.Drawing.Size(286, 36);
+            this.lblCreateAccount.Size = new System.Drawing.Size(361, 46);
             this.lblCreateAccount.TabIndex = 10;
             this.lblCreateAccount.Text = "Create an Account";
             // 
@@ -155,7 +156,7 @@
             this.lblOr.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOr.Location = new System.Drawing.Point(12, 406);
             this.lblOr.Name = "lblOr";
-            this.lblOr.Size = new System.Drawing.Size(46, 36);
+            this.lblOr.Size = new System.Drawing.Size(60, 46);
             this.lblOr.TabIndex = 11;
             this.lblOr.Text = "or";
             // 
@@ -224,6 +225,7 @@
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.MaximizeBox = false;
             this.Name = "frmLogon";
