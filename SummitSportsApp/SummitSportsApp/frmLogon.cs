@@ -39,13 +39,13 @@ namespace SummitSportsApp
                         switch (position)
                         {
                             case 1000:
-                                MessageBox.Show("Logged in as MANAGER", "Successful Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Logged in as MANAGER", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 break;
                             case 1001:
-                                MessageBox.Show("Logged in as EMPLOYEE", "Successful Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Logged in as EMPLOYEE", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 break;
                             default:
-                                MessageBox.Show("Logged in as CUSTOMER", "Successful Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Logged in as CUSTOMER", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 break;
                         }
                         clsSQL.CloseConnection();
@@ -77,8 +77,11 @@ namespace SummitSportsApp
             if (clsSQL.OpenConnection())
             {
                 frmRegister frmRegister = new frmRegister(this);
-                frmRegister.Show();
-                this.Hide();
+                if (!frmRegister.IsDisposed)
+                {
+                    frmRegister.Show();
+                    this.Hide();
+                }
             }
         }
     }

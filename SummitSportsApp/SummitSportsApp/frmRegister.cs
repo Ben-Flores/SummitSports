@@ -15,6 +15,11 @@ namespace SummitSportsApp
     public partial class frmRegister : Form
     {
         Form parentForm;
+        NewUser newUser = new NewUser();
+        List<int> set1 = new List<int>();
+        List<int> set2 = new List<int>();
+        List<int> set3 = new List<int>();
+
 
         public frmRegister(Form parentForm)
         {
@@ -23,7 +28,7 @@ namespace SummitSportsApp
             pnlPersonalInfo.Visible = true;
             pnlCredentials.Visible = false;
             pnlQuestions.Visible = false;
-            clsSQL.PopulateQuestions(cbxQuestion1, cbxQuestion2, cbxQuestion3);
+            clsSQL.PopulateQuestions(cbxQuestion1, cbxQuestion2, cbxQuestion3, ref set1, ref set2, ref set3, this);
         }
 
         private void frmRegister_FormClosed(object sender, FormClosedEventArgs e)
@@ -50,6 +55,21 @@ namespace SummitSportsApp
 
             if (clsValidation.ValidatePersonalInfo(tbxFirstName, tbxLastName, tbxAddress1, tbxCity, tbxState, tbxZip, tbxEmail, tbxPhone1, tbxPhone2))
             {
+                newUser.title = tbxTitle.Text;
+                newUser.fName = tbxFirstName.Text;
+                newUser.mName = tbxMiddleName.Text;
+                newUser.lName = tbxLastName.Text;
+                newUser.suffix = tbxSuffix.Text;
+                newUser.addy1 = tbxAddress1.Text;
+                newUser.addy2 = tbxAddress2.Text;
+                newUser.addy3 = tbxAddress3.Text;
+                newUser.city = tbxCity.Text;
+                newUser.state = tbxState.Text;
+                newUser.zip = tbxZip.Text;
+                newUser.email = tbxEmail.Text;
+                newUser.phone1 = tbxPhone1.Text;
+                newUser.phone2 = tbxPhone2.Text;
+                
                 pnlPersonalInfo.Visible = false;
                 pnlCredentials.Visible = true;
             }
@@ -69,6 +89,9 @@ namespace SummitSportsApp
         {
             if (clsValidation.ValidateCredentials(tbxUsername, tbxPassword, tbxConfirm))
             {
+                newUser.user = tbxUsername.Text;
+                newUser.pass = tbxPassword.Text;
+
                 pnlCredentials.Visible = false;
                 pnlQuestions.Visible = true;
             }
@@ -85,7 +108,14 @@ namespace SummitSportsApp
         {
             if (clsValidation.ValidateQuestions(tbxQuestion1, tbxQuestion2, tbxQuestion3))
             {
-                MessageBox.Show("Account Created!");
+                newUser.question1 = set1[cbxQuestion1.SelectedIndex];
+                newUser.question2 = set2[cbxQuestion2.SelectedIndex];
+                newUser.question3 = set3[cbxQuestion3.SelectedIndex];
+                newUser.answer1 = tbxQuestion1.Text;
+                newUser.answer2 = tbxQuestion2.Text;
+                newUser.answer3 = tbxQuestion3.Text;
+
+                clsSQL.CreateNewUser(newUser, this);
             }
         }
 

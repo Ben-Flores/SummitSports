@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
 
 namespace SummitSportsApp
 {
@@ -121,7 +122,7 @@ namespace SummitSportsApp
             }
         }
 
-        public static void PopulateQuestions(ComboBox question1, ComboBox question2, ComboBox question3)
+        public static void PopulateQuestions(ComboBox question1, ComboBox question2, ComboBox question3, ref List<int>set1, ref List<int> set2, ref List<int> set3, frmRegister form)
         {
             try
             {
@@ -136,14 +137,17 @@ namespace SummitSportsApp
                     if ((int)row["SetID"] == 1)
                     {
                         question1.Items.Add(row["QuestionPrompt"]);
+                        set1.Add((int)row["QuestionID"]);
                     }
                     else if ((int)row["SetID"] == 2)
                     {
                         question2.Items.Add(row["QuestionPrompt"]);
+                        set2.Add((int)row["QuestionID"]);
                     }
                     else if ((int)row["SetID"] == 3)
                     {
                         question3.Items.Add(row["QuestionPrompt"]);
+                        set3.Add((int)row["QuestionID"]);
                     }
                 }
 
@@ -155,6 +159,81 @@ namespace SummitSportsApp
             {
                 Debug.WriteLine(ex.Message);
                 MessageBox.Show("Unable to retrieve security questions.\nSorry, please try again later.", "Error Retrieving Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                form.Close();
+            }
+        }
+
+        public static void CreateNewUser(NewUser n, frmRegister form)
+        {
+            try
+            {
+                StringBuilder cmd = new StringBuilder();
+
+
+                // Person Table Command
+                cmd.Append("Insert Into " + SCHEMA_NAME + "Person (NameFirst, NameLast, Address1, City, State, Zipcode");
+
+                if (n.title != "")
+                    cmd.Append(", Title");
+                if (n.mName != "")
+                    cmd.Append(", NameMiddle");
+                if (n.suffix != "")
+                    cmd.Append(", Suffix");
+                if (n.addy2 != "")
+                    cmd.Append(", Address2");
+                if (n.addy3 != "")
+                    cmd.Append(", Address3");
+                if (n.email != "")
+                    cmd.Append(", Email");
+                if (n.phone1 != "")
+                    cmd.Append(", PhonePrimary");
+                if (n.phone2 != "")
+                    cmd.Append(", PhoneSecondary");
+
+                cmd.Append(") " +
+                    "Output INSERTED.PersonID " +
+                    "Values ('" + n.fName + "', '" + n.lName + "', '" + n.addy1 + "', '" + n.city + "', '" + n.state + "', '" + n.zip + "'");
+
+                if (n.title != "")
+                    cmd.Append(", '" + n.title + "'");
+                if (n.mName != "")
+                    cmd.Append(", '" + n.mName + "'");
+                if (n.suffix != "")
+                    cmd.Append(", '" + n.suffix + "'");
+                if (n.addy2 != "")
+                    cmd.Append(", '" + n.addy2 + "'");
+                if (n.addy3 != "")
+                    cmd.Append(", '" + n.addy3 + "'");
+                if (n.email != "")
+                    cmd.Append(", '" + n.email + "'");
+                if (n.phone1 != "")
+                    cmd.Append(", '" + n.phone1 + "'");
+                if (n.phone2 != "")
+                    cmd.Append(", '" + n.phone2 + "'");
+
+                cmd.Append(");");
+                // MessageBox.Show(cmd.ToString());
+
+                command = new SqlCommand(cmd.ToString(), connection);
+                int personID = (int)command.ExecuteScalar();
+                // MessageBox.Show(personID.ToString()); 
+
+                cmd.Clear();
+
+                cmd.Append("Insert Into " + SCHEMA_NAME + "Logon (PersonID, LogonName, Password, FirstChallengeQuestion, FirstChallengeAnswer, SecondChallengeQuestion, SecondChallengeAnswer, ThirdChallengeQuestion, ThirdChallengeAnswer) Values (" +
+                    personID + ", '" + n.user + "', '" + n.pass + "', " + n.question1 + ", '" + n.answer1 + "', " + n.question2 + ", '" + n.answer2 + "', " + n.question3 + ", '" + n.answer3 + "');");
+
+                command = new SqlCommand(cmd.ToString(), connection);
+                command.ExecuteNonQuery();
+
+                MessageBox.Show("Your account has been registered!", "Registration Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                form.Close();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to save your account.\nSorry, please try again later.", "Error Registering Account", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                form.Close();
             }
         }
     }
