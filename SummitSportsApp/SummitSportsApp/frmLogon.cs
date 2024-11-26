@@ -17,6 +17,11 @@ namespace SummitSportsApp
             InitializeComponent();
         }
 
+        private void frmLogon_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            clsSQL.CloseConnection();
+        }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -24,17 +29,47 @@ namespace SummitSportsApp
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (clsSQL.OpenConnection())
+            if (clsValidation.ValidateLogonFilled(tbxUsername.Text, tbxPassword.Text, true))
             {
-                
+                if (clsSQL.OpenConnection())
+                {
+                    int position = clsSQL.VerifyUser(tbxUsername.Text, tbxPassword.Text, true);
+                    if (position != 0)
+                    {
+                        switch (position)
+                        {
+                            case 1000:
+                                MessageBox.Show("Logged in as MANAGER", "Successful Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                break;
+                            case 1001:
+                                MessageBox.Show("Logged in as EMPLOYEE", "Successful Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                break;
+                            default:
+                                MessageBox.Show("Logged in as CUSTOMER", "Successful Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                break;
+                        }
+                        clsSQL.CloseConnection();
+                        tbxUsername.Text = "";
+                        tbxPassword.Text = "";
+                    }
+                }
             }
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            frmReset frmReset = new frmReset(this);
-            frmReset.Show();
-            this.Hide();
+            if (clsValidation.ValidateLogonFilled(tbxUsername.Text, "pass not verified", false))
+            {
+                if (clsSQL.OpenConnection())
+                {
+                    if (clsSQL.VerifyUser(tbxUsername.Text, "pass not verified", false) != 0)
+                    {
+                        frmReset frmReset = new frmReset(this);
+                        frmReset.Show();
+                        this.Hide();
+                    }
+                }
+            }
         }
 
         private void btnRegister_Click(object sender, EventArgs e)

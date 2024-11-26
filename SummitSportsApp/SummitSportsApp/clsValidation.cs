@@ -11,6 +11,27 @@ namespace SummitSportsApp
 {
     internal class clsValidation
     {
+        #region frmLogon
+        public static bool ValidateLogonFilled(string user, string pass, bool verifyPass)
+        {
+            if (user == "")
+            {
+                MessageBox.Show("Please enter your username.", "Username Required", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else if (verifyPass && pass == "")
+            {
+                MessageBox.Show("Please enter your password.", "Password Required", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+            else
+                return true;
+        }
+        #endregion
+
+
+
+        #region frmRegister
         /*
          * FORM SUBMISSION VALIDATION
          */
@@ -383,5 +404,6 @@ namespace SummitSportsApp
 
             return complexity;
         }
+        #endregion
     }
 }

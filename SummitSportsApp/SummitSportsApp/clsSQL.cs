@@ -67,6 +67,60 @@ namespace SummitSportsApp
             }
         }
 
+        public static int VerifyUser(string user, string pass, bool verifyPass)
+        {
+            try
+            {
+                dataAdapter = new SqlDataAdapter();
+                dataTable = new DataTable();
+                if (verifyPass)
+                    command = new SqlCommand("Select LogonName, Password, PositionID From " + SCHEMA_NAME + "Logon", connection);
+                else
+                    command = new SqlCommand("Select LogonName From " + SCHEMA_NAME + "Logon", connection);
+                dataAdapter.SelectCommand = command;
+                dataAdapter.Fill(dataTable);
+
+                for (int i = 0; i < dataTable.Rows.Count; i++)
+                {
+                    DataRow row = dataTable.Rows[i];
+                    if (row["LogonName"].ToString().ToLower() == user.ToLower())
+                    {
+                        if (verifyPass)
+                        {
+                            if (row["Password"].ToString() == pass)
+                            {
+                                return (int)row["PositionID"];
+                            }
+                            else
+                            {
+                                MessageBox.Show("Incorrect password.", "Login Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                return 0;
+                            }
+                        }
+                        else
+                        {
+                            return 1;
+                        }
+                    }
+                    else
+                    {
+                        if (i == dataTable.Rows.Count - 1) 
+                        {
+                            MessageBox.Show("Username not found.", "Login Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            //return false;
+                        }
+                    }
+                }
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to verify credentials.\nSorry, please try again later.", "Error Logging In", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+        }
+
         public static void PopulateQuestions(ComboBox question1, ComboBox question2, ComboBox question3)
         {
             try
@@ -77,7 +131,6 @@ namespace SummitSportsApp
                 dataAdapter.SelectCommand = command;
                 dataAdapter.Fill(dataTable);
 
-                //MessageBox.Show(DataTable.Rows.Count.ToString());
                 foreach (DataRow row in dataTable.Rows) 
                 {
                     if ((int)row["SetID"] == 1)
