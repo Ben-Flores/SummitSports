@@ -220,8 +220,8 @@ namespace SummitSportsApp
 
                 cmd.Clear();
 
-                cmd.Append("Insert Into " + SCHEMA_NAME + "Logon (PersonID, LogonName, Password, FirstChallengeQuestion, FirstChallengeAnswer, SecondChallengeQuestion, SecondChallengeAnswer, ThirdChallengeQuestion, ThirdChallengeAnswer) Values (" +
-                    personID + ", '" + n.user + "', '" + n.pass + "', " + n.question1 + ", '" + n.answer1 + "', " + n.question2 + ", '" + n.answer2 + "', " + n.question3 + ", '" + n.answer3 + "');");
+                cmd.Append("Insert Into " + SCHEMA_NAME + "Logon (PersonID, LogonName, Password, FirstChallengeQuestion, FirstChallengeAnswer, SecondChallengeQuestion, SecondChallengeAnswer, ThirdChallengeQuestion, ThirdChallengeAnswer, PositionID) Values (" +
+                    personID + ", '" + n.user + "', '" + n.pass + "', " + n.question1 + ", '" + n.answer1 + "', " + n.question2 + ", '" + n.answer2 + "', " + n.question3 + ", '" + n.answer3 + "', 1002);");
 
                 command = new SqlCommand(cmd.ToString(), connection);
                 command.ExecuteNonQuery();
