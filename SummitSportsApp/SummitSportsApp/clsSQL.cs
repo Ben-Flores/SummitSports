@@ -163,6 +163,58 @@ namespace SummitSportsApp
             }
         }
 
+        public static void FetchQuestions(string user, Label question1, Label question2, Label question3, ref List<string> answers, Form form)
+        {
+            try
+            {
+                int q1, q2, q3;
+
+                dataAdapter = new SqlDataAdapter();
+                dataTable = new DataTable();
+                command = new SqlCommand("Select FirstChallengeQuestion, SecondChallengeQuestion, ThirdChallengeQuestion, FirstChallengeAnswer, SecondChallengeAnswer, ThirdChallengeAnswer From " + SCHEMA_NAME + "Logon Where LogonName = '" + user +  "';", connection);
+                dataAdapter.SelectCommand = command;
+                dataAdapter.Fill(dataTable);
+
+                DataRow row = dataTable.Rows[0];
+
+                q1 = (int)row[0];
+                q2 = (int)row[1];
+                q3 = (int)row[2];
+
+                answers.Add(row[3].ToString());
+                answers.Add(row[4].ToString());
+                answers.Add(row[5].ToString());
+
+                dataAdapter = new SqlDataAdapter();
+                dataTable = new DataTable();
+                command = new SqlCommand("Select QuestionPrompt From " + SCHEMA_NAME + "SecurityQuestions Where QuestionID = " + q1 + ";", connection);
+                dataAdapter.SelectCommand = command;
+                dataAdapter.Fill(dataTable);
+                question1.Text = dataTable.Rows[0][0].ToString();
+
+                dataAdapter = new SqlDataAdapter();
+                dataTable = new DataTable();
+                command = new SqlCommand("Select QuestionPrompt From " + SCHEMA_NAME + "SecurityQuestions Where QuestionID = " + q2 + ";", connection);
+                dataAdapter.SelectCommand = command;
+                dataAdapter.Fill(dataTable);
+                question2.Text = dataTable.Rows[0][0].ToString();
+
+                dataAdapter = new SqlDataAdapter();
+                dataTable = new DataTable();
+                command = new SqlCommand("Select QuestionPrompt From " + SCHEMA_NAME + "SecurityQuestions Where QuestionID = " + q3 + ";", connection);
+                dataAdapter.SelectCommand = command;
+                dataAdapter.Fill(dataTable);
+                question3.Text = dataTable.Rows[0][0].ToString();
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to retrieve security questions.\nSorry, please try again later.", "Error Retrieving Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                form.Close();
+            }
+        }
+
         public static void CreateNewUser(NewUser n, frmRegister form)
         {
             try

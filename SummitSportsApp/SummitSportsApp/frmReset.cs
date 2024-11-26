@@ -13,10 +13,12 @@ namespace SummitSportsApp
     public partial class frmReset : Form
     {
         frmLogon parentForm;
-        public frmReset(frmLogon parentForm)
+        List<string> answers = new List<string>();
+        public frmReset(frmLogon parentForm, string user)
         {
             InitializeComponent();
             this.parentForm = parentForm;
+            clsSQL.FetchQuestions(user, lblQuestion1, lblQuestion2, lblQuestion3, ref answers, this);
         }
 
         private void frmReset_FormClosed(object sender, FormClosedEventArgs e)
@@ -34,7 +36,17 @@ namespace SummitSportsApp
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-
+            if (clsValidation.ValidateQuestions(tbxQuestion1, tbxQuestion2, tbxQuestion3))
+            {
+                if (clsValidation.ValidateAnswers(tbxQuestion1, tbxQuestion2 , tbxQuestion3, answers))
+                {
+                    MessageBox.Show("Reset Successful");
+                }
+                else
+                {
+                    MessageBox.Show("One or more of your answers is not correct.", "Password Reset Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
         }
     }
 }

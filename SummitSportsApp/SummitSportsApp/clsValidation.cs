@@ -405,5 +405,17 @@ namespace SummitSportsApp
             return complexity;
         }
         #endregion
+
+
+
+        #region frmReset
+        public static bool ValidateAnswers(TextBox answer1, TextBox answer2, TextBox answer3, List<string> answers)
+        {
+            if (answer1.Text.ToLower() == answers[0].ToLower() && answer2.Text.ToLower() == answers[1].ToLower() && answer3.Text.ToLower() == answers[2].ToLower())
+                return true;
+            else
+                return false;
+        }
+        #endregion
     }
 }

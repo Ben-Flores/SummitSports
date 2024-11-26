@@ -75,7 +75,7 @@
             this.btnReset.Location = new System.Drawing.Point(620, 491);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(150, 50);
-            this.btnReset.TabIndex = 6;
+            this.btnReset.TabIndex = 4;
             this.btnReset.Text = "Reset ▶";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -96,7 +96,7 @@
             this.btnCancel.Location = new System.Drawing.Point(464, 491);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(150, 50);
-            this.btnCancel.TabIndex = 9;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "◀ Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -118,7 +118,7 @@
             this.tbxQuestion2.Location = new System.Drawing.Point(12, 290);
             this.tbxQuestion2.Name = "tbxQuestion2";
             this.tbxQuestion2.Size = new System.Drawing.Size(500, 43);
-            this.tbxQuestion2.TabIndex = 10;
+            this.tbxQuestion2.TabIndex = 1;
             // 
             // lblQuestion3
             // 
@@ -137,7 +137,7 @@
             this.tbxQuestion3.Location = new System.Drawing.Point(12, 370);
             this.tbxQuestion3.Name = "tbxQuestion3";
             this.tbxQuestion3.Size = new System.Drawing.Size(500, 43);
-            this.tbxQuestion3.TabIndex = 12;
+            this.tbxQuestion3.TabIndex = 2;
             // 
             // frmReset
             // 

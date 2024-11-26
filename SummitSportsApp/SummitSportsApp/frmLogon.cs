@@ -54,10 +54,11 @@ namespace SummitSportsApp
                                 MessageBox.Show("Logged in as CUSTOMER", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 break;
                         }
-                        clsSQL.CloseConnection();
+                        // clsSQL.CloseConnection();
                         tbxUsername.Text = "";
                         tbxPassword.Text = "";
                     }
+                    clsSQL.CloseConnection();
                 }
             }
         }
@@ -70,7 +71,7 @@ namespace SummitSportsApp
                 {
                     if (clsSQL.VerifyUser(tbxUsername.Text, "pass not verified", false) != 0)
                     {
-                        frmReset frmReset = new frmReset(this);
+                        frmReset frmReset = new frmReset(this, tbxUsername.Text);
                         frmReset.Show();
                         this.Hide();
                     }
