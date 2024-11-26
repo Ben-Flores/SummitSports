@@ -24,7 +24,10 @@ namespace SummitSportsApp
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
+            if (clsSQL.OpenConnection())
+            {
+                
+            }
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -36,9 +39,12 @@ namespace SummitSportsApp
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            frmRegister frmRegister = new frmRegister(this);
-            frmRegister.Show();
-            this.Hide();
+            if (clsSQL.OpenConnection())
+            {
+                frmRegister frmRegister = new frmRegister(this);
+                frmRegister.Show();
+                this.Hide();
+            }
         }
     }
 }

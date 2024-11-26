@@ -495,7 +495,7 @@
             this.tbxConfirm.Name = "tbxConfirm";
             this.tbxConfirm.ShortcutsEnabled = false;
             this.tbxConfirm.Size = new System.Drawing.Size(500, 43);
-            this.tbxConfirm.TabIndex = 40;
+            this.tbxConfirm.TabIndex = 12;
             this.tbxConfirm.Enter += new System.EventHandler(this.tbxConfirm_Enter);
             this.tbxConfirm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxConfirm_KeyPress);
             this.tbxConfirm.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxConfirm_KeyUp);
@@ -625,7 +625,7 @@
             this.pnlQuestions.Controls.Add(this.tbxQuestion1);
             this.pnlQuestions.Controls.Add(this.lblQuestion1);
             this.pnlQuestions.Controls.Add(this.lblQuestions);
-            this.pnlQuestions.Location = new System.Drawing.Point(12, 540);
+            this.pnlQuestions.Location = new System.Drawing.Point(12, 69);
             this.pnlQuestions.Name = "pnlQuestions";
             this.pnlQuestions.Size = new System.Drawing.Size(758, 472);
             this.pnlQuestions.TabIndex = 39;
@@ -633,6 +633,7 @@
             // cbxQuestion3
             // 
             this.cbxQuestion3.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.cbxQuestion3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxQuestion3.FormattingEnabled = true;
             this.cbxQuestion3.Location = new System.Drawing.Point(5, 320);
             this.cbxQuestion3.Name = "cbxQuestion3";
@@ -643,14 +644,17 @@
             // 
             this.tbxQuestion3.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxQuestion3.Location = new System.Drawing.Point(5, 361);
+            this.tbxQuestion3.MaxLength = 20;
             this.tbxQuestion3.Name = "tbxQuestion3";
-            this.tbxQuestion3.Size = new System.Drawing.Size(330, 43);
-            this.tbxQuestion3.TabIndex = 43;
+            this.tbxQuestion3.Size = new System.Drawing.Size(500, 43);
+            this.tbxQuestion3.TabIndex = 45;
+            this.tbxQuestion3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxQuestion3_KeyUp);
             // 
             // lblQuestion3
             // 
             this.lblQuestion3.AutoSize = true;
             this.lblQuestion3.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuestion3.ForeColor = System.Drawing.Color.Crimson;
             this.lblQuestion3.Location = new System.Drawing.Point(5, 290);
             this.lblQuestion3.Name = "lblQuestion3";
             this.lblQuestion3.Size = new System.Drawing.Size(321, 35);
@@ -660,6 +664,7 @@
             // cbxQuestion2
             // 
             this.cbxQuestion2.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.cbxQuestion2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxQuestion2.FormattingEnabled = true;
             this.cbxQuestion2.Location = new System.Drawing.Point(5, 200);
             this.cbxQuestion2.Name = "cbxQuestion2";
@@ -670,14 +675,17 @@
             // 
             this.tbxQuestion2.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxQuestion2.Location = new System.Drawing.Point(5, 241);
+            this.tbxQuestion2.MaxLength = 20;
             this.tbxQuestion2.Name = "tbxQuestion2";
-            this.tbxQuestion2.Size = new System.Drawing.Size(330, 43);
-            this.tbxQuestion2.TabIndex = 40;
+            this.tbxQuestion2.Size = new System.Drawing.Size(500, 43);
+            this.tbxQuestion2.TabIndex = 42;
+            this.tbxQuestion2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxQuestion2_KeyUp);
             // 
             // lblQuestion2
             // 
             this.lblQuestion2.AutoSize = true;
             this.lblQuestion2.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuestion2.ForeColor = System.Drawing.Color.Crimson;
             this.lblQuestion2.Location = new System.Drawing.Point(5, 170);
             this.lblQuestion2.Name = "lblQuestion2";
             this.lblQuestion2.Size = new System.Drawing.Size(321, 35);
@@ -687,6 +695,7 @@
             // cbxQuestion1
             // 
             this.cbxQuestion1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.cbxQuestion1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxQuestion1.FormattingEnabled = true;
             this.cbxQuestion1.Location = new System.Drawing.Point(5, 80);
             this.cbxQuestion1.Name = "cbxQuestion1";
@@ -698,7 +707,7 @@
             this.btnBack3.Location = new System.Drawing.Point(449, 419);
             this.btnBack3.Name = "btnBack3";
             this.btnBack3.Size = new System.Drawing.Size(150, 50);
-            this.btnBack3.TabIndex = 37;
+            this.btnBack3.TabIndex = 47;
             this.btnBack3.Text = "◀ Back";
             this.btnBack3.UseVisualStyleBackColor = true;
             this.btnBack3.Click += new System.EventHandler(this.btnBack3_Click);
@@ -708,7 +717,7 @@
             this.btnNext3.Location = new System.Drawing.Point(605, 419);
             this.btnNext3.Name = "btnNext3";
             this.btnNext3.Size = new System.Drawing.Size(150, 50);
-            this.btnNext3.TabIndex = 36;
+            this.btnNext3.TabIndex = 46;
             this.btnNext3.Text = "Next ▶";
             this.btnNext3.UseVisualStyleBackColor = true;
             this.btnNext3.Click += new System.EventHandler(this.btnNext3_Click);
@@ -717,14 +726,17 @@
             // 
             this.tbxQuestion1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxQuestion1.Location = new System.Drawing.Point(5, 121);
+            this.tbxQuestion1.MaxLength = 20;
             this.tbxQuestion1.Name = "tbxQuestion1";
-            this.tbxQuestion1.Size = new System.Drawing.Size(330, 43);
-            this.tbxQuestion1.TabIndex = 9;
+            this.tbxQuestion1.Size = new System.Drawing.Size(500, 43);
+            this.tbxQuestion1.TabIndex = 39;
+            this.tbxQuestion1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxQuestion1_KeyUp);
             // 
             // lblQuestion1
             // 
             this.lblQuestion1.AutoSize = true;
             this.lblQuestion1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuestion1.ForeColor = System.Drawing.Color.Crimson;
             this.lblQuestion1.Location = new System.Drawing.Point(5, 50);
             this.lblQuestion1.Name = "lblQuestion1";
             this.lblQuestion1.Size = new System.Drawing.Size(321, 35);

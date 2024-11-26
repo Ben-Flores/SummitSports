@@ -113,9 +113,34 @@ namespace SummitSportsApp
             }
         }
 
-        public static bool ValidateQuestions()
+        public static bool ValidateQuestions(TextBox question1, TextBox question2, TextBox question3)
         {
-            return true;
+            question1.Text = question1.Text.Trim();
+            question2.Text = question2.Text.Trim();
+            question3.Text = question3.Text.Trim();
+
+            if (question1.Text.Length == 0)
+            {
+                MessageBox.Show("Please answer the first security question.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                question1.Focus();
+                return false;
+            }
+            else if (question2.Text.Length == 0)
+            {
+                MessageBox.Show("Please answer the second security question.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                question2.Focus();
+                return false;
+            }
+            else if (question3.Text.Length == 0)
+            {
+                MessageBox.Show("Please answer the third security question.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                question3.Focus();
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
         /*
          * GENERAL IS IT FILLED CHECK
@@ -326,7 +351,7 @@ namespace SummitSportsApp
 
         public static void ValidatePassConfirm(TextBox sender, TextBox password, Label label)
         {
-            if (sender.Text == password.Text)
+            if (sender.Text.Length != 0 && sender.Text == password.Text)
             {
                 label.ForeColor = System.Drawing.Color.Black;
             }

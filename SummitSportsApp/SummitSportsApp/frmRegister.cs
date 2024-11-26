@@ -23,6 +23,7 @@ namespace SummitSportsApp
             pnlPersonalInfo.Visible = true;
             pnlCredentials.Visible = false;
             pnlQuestions.Visible = false;
+            clsSQL.PopulateQuestions(cbxQuestion1, cbxQuestion2, cbxQuestion3);
         }
 
         private void frmRegister_FormClosed(object sender, FormClosedEventArgs e)
@@ -80,9 +81,9 @@ namespace SummitSportsApp
 
         private void btnNext3_Click(object sender, EventArgs e)
         {
-            if (clsValidation.ValidateQuestions())
+            if (clsValidation.ValidateQuestions(tbxQuestion1, tbxQuestion2, tbxQuestion3))
             {
-                
+                MessageBox.Show("Account Created!");
             }
         }
 
@@ -217,11 +218,31 @@ namespace SummitSportsApp
         private void tbxPassword_KeyUp(object sender, KeyEventArgs e)
         {
             clsValidation.ValidatePassRequirements((TextBox)sender, lblPassword);
+            clsValidation.ValidatePassConfirm(tbxConfirm, (TextBox)sender, lblConfirm);
         }
 
         private void tbxConfirm_KeyUp(object sender, KeyEventArgs e)
         {
             clsValidation.ValidatePassConfirm((TextBox)sender, tbxPassword, lblConfirm);
+        }
+
+        // PAGE 3
+
+            // Are the answers filled out?
+
+        private void tbxQuestion1_KeyUp(object sender, KeyEventArgs e)
+        {
+            clsValidation.ValidateFilled(sender, lblQuestion1);
+        }
+
+        private void tbxQuestion2_KeyUp(object sender, KeyEventArgs e)
+        {
+            clsValidation.ValidateFilled(sender, lblQuestion2);
+        }
+
+        private void tbxQuestion3_KeyUp(object sender, KeyEventArgs e)
+        {
+            clsValidation.ValidateFilled(sender, lblQuestion3);
         }
     }
 }
