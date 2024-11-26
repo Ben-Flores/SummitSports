@@ -277,5 +277,19 @@ namespace SummitSportsApp
         {
             clsValidation.ValidateFilled(sender, lblQuestion3);
         }
+
+        private void btnPeek_Click(object sender, EventArgs e)
+        {
+            if (tbxPassword.PasswordChar != '\0')
+            {
+                tbxPassword.PasswordChar = '\0';
+                tbxConfirm.PasswordChar = '\0';
+            }
+            else
+            {
+                tbxPassword.PasswordChar = '●';
+                tbxConfirm.PasswordChar = '●';
+            }
+        }
     }
 }

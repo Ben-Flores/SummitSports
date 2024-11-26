@@ -40,6 +40,7 @@
             this.lblCreateAccount = new System.Windows.Forms.Label();
             this.lblOr = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnPeek = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbxUsername
@@ -48,7 +49,7 @@
             this.tbxUsername.Location = new System.Drawing.Point(12, 185);
             this.tbxUsername.Name = "tbxUsername";
             this.tbxUsername.ShortcutsEnabled = false;
-            this.tbxUsername.Size = new System.Drawing.Size(500, 43);
+            this.tbxUsername.Size = new System.Drawing.Size(500, 36);
             this.tbxUsername.TabIndex = 0;
             // 
             // lblUsername
@@ -58,7 +59,7 @@
             this.lblUsername.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.Location = new System.Drawing.Point(12, 146);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(164, 35);
+            this.lblUsername.Size = new System.Drawing.Size(132, 27);
             this.lblUsername.TabIndex = 2;
             this.lblUsername.Text = "Username:";
             // 
@@ -69,7 +70,7 @@
             this.lblPassword.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.Location = new System.Drawing.Point(12, 238);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(157, 35);
+            this.lblPassword.Size = new System.Drawing.Size(126, 27);
             this.lblPassword.TabIndex = 4;
             this.lblPassword.Text = "Password:";
             // 
@@ -78,9 +79,10 @@
             this.tbxPassword.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxPassword.Location = new System.Drawing.Point(12, 276);
             this.tbxPassword.Name = "tbxPassword";
+            this.tbxPassword.PasswordChar = '●';
             this.tbxPassword.ShortcutsEnabled = false;
-            this.tbxPassword.Size = new System.Drawing.Size(500, 43);
-            this.tbxPassword.TabIndex = 3;
+            this.tbxPassword.Size = new System.Drawing.Size(500, 36);
+            this.tbxPassword.TabIndex = 1;
             // 
             // lblWelcome
             // 
@@ -88,7 +90,7 @@
             this.lblWelcome.Font = new System.Drawing.Font("Rockwell", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWelcome.Location = new System.Drawing.Point(12, 12);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(769, 68);
+            this.lblWelcome.Size = new System.Drawing.Size(617, 54);
             this.lblWelcome.TabIndex = 5;
             this.lblWelcome.Text = "Welcome to Summit Sports";
             // 
@@ -120,7 +122,7 @@
             this.lblLogin.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogin.Location = new System.Drawing.Point(12, 87);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(135, 46);
+            this.lblLogin.Size = new System.Drawing.Size(105, 36);
             this.lblLogin.TabIndex = 8;
             this.lblLogin.Text = "Log In";
             // 
@@ -141,7 +143,7 @@
             this.lblCreateAccount.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCreateAccount.Location = new System.Drawing.Point(12, 442);
             this.lblCreateAccount.Name = "lblCreateAccount";
-            this.lblCreateAccount.Size = new System.Drawing.Size(361, 46);
+            this.lblCreateAccount.Size = new System.Drawing.Size(286, 36);
             this.lblCreateAccount.TabIndex = 10;
             this.lblCreateAccount.Text = "Create an Account";
             // 
@@ -151,7 +153,7 @@
             this.lblOr.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOr.Location = new System.Drawing.Point(12, 406);
             this.lblOr.Name = "lblOr";
-            this.lblOr.Size = new System.Drawing.Size(60, 46);
+            this.lblOr.Size = new System.Drawing.Size(46, 36);
             this.lblOr.TabIndex = 11;
             this.lblOr.Text = "or";
             // 
@@ -167,6 +169,18 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnPeek
+            // 
+            this.btnPeek.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPeek.Location = new System.Drawing.Point(518, 276);
+            this.btnPeek.Name = "btnPeek";
+            this.btnPeek.Size = new System.Drawing.Size(36, 36);
+            this.btnPeek.TabIndex = 2;
+            this.btnPeek.TabStop = false;
+            this.btnPeek.Text = "👁";
+            this.btnPeek.UseVisualStyleBackColor = true;
+            this.btnPeek.Click += new System.EventHandler(this.btnPeek_Click);
+            // 
             // frmLogon
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -174,6 +188,7 @@
             this.BackgroundImage = global::SummitSportsApp.Properties.Resources.bgLogon43;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.btnPeek);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblOr);
             this.Controls.Add(this.lblCreateAccount);
@@ -214,6 +229,7 @@
         private System.Windows.Forms.Label lblCreateAccount;
         private System.Windows.Forms.Label lblOr;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnPeek;
     }
 }
 
