@@ -62,6 +62,8 @@
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblPersonalInfo = new System.Windows.Forms.Label();
             this.pnlCredentials = new System.Windows.Forms.Panel();
+            this.btnHelp2 = new System.Windows.Forms.Button();
+            this.btnPeek = new System.Windows.Forms.Button();
             this.tbxConfirm = new System.Windows.Forms.TextBox();
             this.lblConfirm = new System.Windows.Forms.Label();
             this.gbxCredentials = new System.Windows.Forms.GroupBox();
@@ -74,6 +76,7 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblCredentials = new System.Windows.Forms.Label();
             this.pnlQuestions = new System.Windows.Forms.Panel();
+            this.btnHelp3 = new System.Windows.Forms.Button();
             this.cbxQuestion3 = new System.Windows.Forms.ComboBox();
             this.tbxQuestion3 = new System.Windows.Forms.TextBox();
             this.lblQuestion3 = new System.Windows.Forms.Label();
@@ -86,7 +89,8 @@
             this.tbxQuestion1 = new System.Windows.Forms.TextBox();
             this.lblQuestion1 = new System.Windows.Forms.Label();
             this.lblQuestions = new System.Windows.Forms.Label();
-            this.btnPeek = new System.Windows.Forms.Button();
+            this.hlpHelp = new System.Windows.Forms.HelpProvider();
+            this.btnHelp1 = new System.Windows.Forms.Button();
             this.pnlPersonalInfo.SuspendLayout();
             this.pnlCredentials.SuspendLayout();
             this.gbxCredentials.SuspendLayout();
@@ -106,6 +110,7 @@
             // pnlPersonalInfo
             // 
             this.pnlPersonalInfo.BackColor = System.Drawing.Color.Transparent;
+            this.pnlPersonalInfo.Controls.Add(this.btnHelp1);
             this.pnlPersonalInfo.Controls.Add(this.btnCancel);
             this.pnlPersonalInfo.Controls.Add(this.btnNext1);
             this.pnlPersonalInfo.Controls.Add(this.tbxPhone2);
@@ -473,6 +478,7 @@
             // pnlCredentials
             // 
             this.pnlCredentials.BackColor = System.Drawing.Color.Transparent;
+            this.pnlCredentials.Controls.Add(this.btnHelp2);
             this.pnlCredentials.Controls.Add(this.btnPeek);
             this.pnlCredentials.Controls.Add(this.tbxConfirm);
             this.pnlCredentials.Controls.Add(this.lblConfirm);
@@ -488,6 +494,31 @@
             this.pnlCredentials.Name = "pnlCredentials";
             this.pnlCredentials.Size = new System.Drawing.Size(758, 472);
             this.pnlCredentials.TabIndex = 38;
+            // 
+            // btnHelp2
+            // 
+            this.btnHelp2.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelp2.ForeColor = System.Drawing.Color.Black;
+            this.btnHelp2.Location = new System.Drawing.Point(343, 419);
+            this.btnHelp2.Name = "btnHelp2";
+            this.btnHelp2.Size = new System.Drawing.Size(100, 50);
+            this.btnHelp2.TabIndex = 41;
+            this.btnHelp2.TabStop = false;
+            this.btnHelp2.Text = "Help";
+            this.btnHelp2.UseVisualStyleBackColor = true;
+            this.btnHelp2.Click += new System.EventHandler(this.btnHelp2_Click);
+            // 
+            // btnPeek
+            // 
+            this.btnPeek.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPeek.Location = new System.Drawing.Point(511, 170);
+            this.btnPeek.Name = "btnPeek";
+            this.btnPeek.Size = new System.Drawing.Size(36, 36);
+            this.btnPeek.TabIndex = 40;
+            this.btnPeek.TabStop = false;
+            this.btnPeek.Text = "👁";
+            this.btnPeek.UseVisualStyleBackColor = true;
+            this.btnPeek.Click += new System.EventHandler(this.btnPeek_Click);
             // 
             // tbxConfirm
             // 
@@ -617,6 +648,7 @@
             // pnlQuestions
             // 
             this.pnlQuestions.BackColor = System.Drawing.Color.Transparent;
+            this.pnlQuestions.Controls.Add(this.btnHelp3);
             this.pnlQuestions.Controls.Add(this.cbxQuestion3);
             this.pnlQuestions.Controls.Add(this.tbxQuestion3);
             this.pnlQuestions.Controls.Add(this.lblQuestion3);
@@ -633,6 +665,19 @@
             this.pnlQuestions.Name = "pnlQuestions";
             this.pnlQuestions.Size = new System.Drawing.Size(758, 472);
             this.pnlQuestions.TabIndex = 39;
+            // 
+            // btnHelp3
+            // 
+            this.btnHelp3.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelp3.ForeColor = System.Drawing.Color.Black;
+            this.btnHelp3.Location = new System.Drawing.Point(343, 419);
+            this.btnHelp3.Name = "btnHelp3";
+            this.btnHelp3.Size = new System.Drawing.Size(100, 50);
+            this.btnHelp3.TabIndex = 48;
+            this.btnHelp3.TabStop = false;
+            this.btnHelp3.Text = "Help";
+            this.btnHelp3.UseVisualStyleBackColor = true;
+            this.btnHelp3.Click += new System.EventHandler(this.btnHelp3_Click);
             // 
             // cbxQuestion3
             // 
@@ -757,17 +802,22 @@
             this.lblQuestions.TabIndex = 7;
             this.lblQuestions.Text = "Step 3: Security Questions";
             // 
-            // btnPeek
+            // hlpHelp
             // 
-            this.btnPeek.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPeek.Location = new System.Drawing.Point(511, 170);
-            this.btnPeek.Name = "btnPeek";
-            this.btnPeek.Size = new System.Drawing.Size(36, 36);
-            this.btnPeek.TabIndex = 40;
-            this.btnPeek.TabStop = false;
-            this.btnPeek.Text = "👁";
-            this.btnPeek.UseVisualStyleBackColor = true;
-            this.btnPeek.Click += new System.EventHandler(this.btnPeek_Click);
+            this.hlpHelp.HelpNamespace = "SummitSportsHelp.chm";
+            // 
+            // btnHelp1
+            // 
+            this.btnHelp1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelp1.ForeColor = System.Drawing.Color.Black;
+            this.btnHelp1.Location = new System.Drawing.Point(343, 419);
+            this.btnHelp1.Name = "btnHelp1";
+            this.btnHelp1.Size = new System.Drawing.Size(100, 50);
+            this.btnHelp1.TabIndex = 38;
+            this.btnHelp1.TabStop = false;
+            this.btnHelp1.Text = "Help";
+            this.btnHelp1.UseVisualStyleBackColor = true;
+            this.btnHelp1.Click += new System.EventHandler(this.btnHelp1_Click);
             // 
             // frmRegister
             // 
@@ -861,5 +911,9 @@
         private System.Windows.Forms.Label lblConfirm;
         private System.Windows.Forms.Label lblRequirements;
         private System.Windows.Forms.Button btnPeek;
+        private System.Windows.Forms.Button btnHelp3;
+        private System.Windows.Forms.HelpProvider hlpHelp;
+        private System.Windows.Forms.Button btnHelp2;
+        private System.Windows.Forms.Button btnHelp1;
     }
 }

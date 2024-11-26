@@ -51,5 +51,10 @@ namespace SummitSportsApp
                 }
             }
         }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, hlpHelp.HelpNamespace, HelpNavigator.Topic, "Topic3_Reset.htm");
+        }
     }
 }

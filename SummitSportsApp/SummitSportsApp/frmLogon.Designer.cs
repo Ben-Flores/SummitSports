@@ -41,6 +41,8 @@
             this.lblOr = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnPeek = new System.Windows.Forms.Button();
+            this.btnHelp = new System.Windows.Forms.Button();
+            this.hlpHelp = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
             // tbxUsername
@@ -181,6 +183,23 @@
             this.btnPeek.UseVisualStyleBackColor = true;
             this.btnPeek.Click += new System.EventHandler(this.btnPeek_Click);
             // 
+            // btnHelp
+            // 
+            this.btnHelp.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelp.ForeColor = System.Drawing.Color.Black;
+            this.btnHelp.Location = new System.Drawing.Point(489, 491);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(100, 50);
+            this.btnHelp.TabIndex = 13;
+            this.btnHelp.TabStop = false;
+            this.btnHelp.Text = "Help";
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
+            // hlpHelp
+            // 
+            this.hlpHelp.HelpNamespace = "SummitSportsHelp.chm";
+            // 
             // frmLogon
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -188,6 +207,7 @@
             this.BackgroundImage = global::SummitSportsApp.Properties.Resources.bgLogon43;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnPeek);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblOr);
@@ -230,6 +250,8 @@
         private System.Windows.Forms.Label lblOr;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnPeek;
+        private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.HelpProvider hlpHelp;
     }
 }
 

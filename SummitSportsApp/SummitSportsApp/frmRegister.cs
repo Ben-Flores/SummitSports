@@ -291,5 +291,20 @@ namespace SummitSportsApp
                 tbxConfirm.PasswordChar = '●';
             }
         }
+
+        private void btnHelp1_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, hlpHelp.HelpNamespace, HelpNavigator.Topic, "Topic2_Register.htm");
+        }
+
+        private void btnHelp2_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, hlpHelp.HelpNamespace, HelpNavigator.Topic, "Topic2_Register.htm");
+        }
+
+        private void btnHelp3_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, hlpHelp.HelpNamespace, HelpNavigator.Topic, "Topic2_Register.htm");
+        }
     }
 }
