@@ -288,5 +288,22 @@ namespace SummitSportsApp
                 form.Close();
             }
         }
+
+        public static void ResetPassword(string user, string pass, Form form)
+        {
+            try
+            {
+                command = new SqlCommand("Update " + SCHEMA_NAME + "Logon Set Password = '" + pass + "' Where LogonName = '" + user + "';", connection);
+                command.ExecuteNonQuery();
+                MessageBox.Show("Your password has been reset!", "Password Reset Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                form.Close();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to reset your password.\nSorry, please try again later.", "Password Reset Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                form.Close();
+            }
+        }
     }
 }

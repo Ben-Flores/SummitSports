@@ -14,10 +14,12 @@ namespace SummitSportsApp
     {
         frmLogon parentForm;
         List<string> answers = new List<string>();
+        string user;
         public frmReset(frmLogon parentForm, string user)
         {
             InitializeComponent();
             this.parentForm = parentForm;
+            this.user = user;
             clsSQL.FetchQuestions(user, lblQuestion1, lblQuestion2, lblQuestion3, ref answers, this);
         }
 
@@ -40,7 +42,7 @@ namespace SummitSportsApp
             {
                 if (clsValidation.ValidateAnswers(tbxQuestion1, tbxQuestion2 , tbxQuestion3, answers))
                 {
-                    frmNewPassword frmNewPassword = new frmNewPassword();
+                    frmNewPassword frmNewPassword = new frmNewPassword(user, this);
                     frmNewPassword.ShowDialog();
                 }
                 else

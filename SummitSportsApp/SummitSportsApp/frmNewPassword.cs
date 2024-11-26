@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,16 +13,26 @@ namespace SummitSportsApp
 {
     public partial class frmNewPassword : Form
     {
-        public frmNewPassword()
+        Form parentForm;
+        string user;
+
+        public frmNewPassword(string user, Form parentForm)
         {
             InitializeComponent();
+            this.parentForm = parentForm;
+            this.user = user;
+        }
+
+        private void frmNewPassword_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parentForm.Close();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
             if (clsValidation.ValidateReset(tbxPassword, tbxConfirm))
             {
-                MessageBox.Show("Reset Successful");
+                clsSQL.ResetPassword(user, tbxPassword.Text, this);
             }
         }
 

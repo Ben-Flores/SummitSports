@@ -109,6 +109,7 @@
             this.Name = "frmNewPassword";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Reset Your Password";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmNewPassword_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
