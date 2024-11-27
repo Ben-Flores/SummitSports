@@ -13,7 +13,7 @@ namespace SummitSportsApp
         /// </summary>
         /// 
 
-        // Logon View Status Check (2024-11-26) 
+        // Logon View Status Check (2024-11-26)
 
         [STAThread]
         static void Main()
