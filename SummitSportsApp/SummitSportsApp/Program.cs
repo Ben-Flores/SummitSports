@@ -11,6 +11,10 @@ namespace SummitSportsApp
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// 
+
+        // Logon View Status Check (2024-11-26)
+
         [STAThread]
         static void Main()
         {
