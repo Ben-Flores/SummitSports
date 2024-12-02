@@ -435,17 +435,20 @@ namespace SummitSportsApp
                 return false;
         }
 
-        public static bool ValidateReset(TextBox pass, TextBox conf)
+        public static bool ValidateReset(TextBox pass, TextBox conf, Label lblError)
         {
+            errorLabel = lblError;
             if (pass.Text.Length < 8 || CheckComplexity(pass.Text) < 3)
             {
-                MessageBox.Show("Please enter a valid password.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorLabel.Text = "Please enter a valid password.";
+                //MessageBox.Show("Please enter a valid password.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 pass.Focus();
                 return false;
             }
             else if (!(conf.Text == pass.Text))
             {
-                MessageBox.Show("Passwords do not match.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorLabel.Text = "Passwords do not match.";
+                //MessageBox.Show("Passwords do not match.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 conf.Focus();
                 return false;
             }
