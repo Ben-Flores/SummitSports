@@ -40,8 +40,9 @@ namespace SummitSportsApp
         /*
          * FORM SUBMISSION VALIDATION
          */
-        public static bool ValidatePersonalInfo(TextBox fName, TextBox lName, TextBox addy, TextBox city, TextBox state, TextBox zip, TextBox email, TextBox phone1, TextBox phone2)
+        public static bool ValidatePersonalInfo(TextBox fName, TextBox lName, TextBox addy, TextBox city, TextBox state, TextBox zip, TextBox email, TextBox phone1, TextBox phone2, Label lblError)
         {
+            errorLabel = lblError;
             // Trim all textboxes
             fName.Text = fName.Text.Trim();
             lName.Text = lName.Text.Trim();
@@ -55,55 +56,64 @@ namespace SummitSportsApp
 
             if (fName.Text.Length == 0)
             {
-                MessageBox.Show("Please enter your first name.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lblError.Text = "Please enter your first name.";
+                //MessageBox.Show("Please enter your first name.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 fName.Focus();
                 return false;
             }
             else if (lName.Text.Length == 0)
             {
-                MessageBox.Show("Please enter your last name.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lblError.Text = "Please enter your last name.";
+                //MessageBox.Show("Please enter your last name.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 lName.Focus();
                 return false;
             }
             else if (addy.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Please enter your address.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lblError.Text = "Please enter your address.";
+                //MessageBox.Show("Please enter your address.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 addy.Focus();
                 return false;
             }
             else if (city.Text.Length == 0)
             {
-                MessageBox.Show("Please enter your city.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lblError.Text = "Please enter your city.";
+                //MessageBox.Show("Please enter your city.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 city.Focus();
                 return false;
             }
             else if (state.Text.Length != 2)
             {
-                MessageBox.Show("Please enter a valid state.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lblError.Text = "Please enter a valid state.";
+                //MessageBox.Show("Please enter a valid state.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 state.Focus();
                 return false;
             }
             else if (zip.Text.Length != 5 && zip.Text.Length != 10)
             {
-                MessageBox.Show("Please enter a valid ZIP code.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lblError.Text = "Please enter a valid ZIP code.";
+                //MessageBox.Show("Please enter a valid ZIP code.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 zip.Focus();
                 return false;
             }
             else if (email.Text.Length != 0 && !Regex.Match(email.Text, @"^(?!.*\.\.)[A-Z0-9](?:[A-Z0-9._%+-]*[A-Z0-9])?@[A-Z0-9](?:[A-Z0-9.-]*[A-Z0-9])?\.[A-Z]{2,}$", RegexOptions.IgnoreCase).Success)
             {
-                MessageBox.Show("Please enter a valid email (or none at all).", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lblError.Text = "Please enter a valid email.";
+                //MessageBox.Show("Please enter a valid email (or none at all).", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 email.Focus();
                 return false;
             }
             else if (phone1.Text.Length != 0 && phone1.Text.Length != 14)
             {
-                MessageBox.Show("Please enter a valid primary phone (or none at all).", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lblError.Text = "Please enter a valid primary phone.";
+                //MessageBox.Show("Please enter a valid primary phone (or none at all).", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 phone1.Focus();
                 return false;
             }
             else if (phone2.Text.Length != 0 && phone2.Text.Length != 14)
             {
-                MessageBox.Show("Please enter a valid secondary phone (or none at all).", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lblError.Text = "Please enter a valid secondary phone.";
+                //MessageBox.Show("Please enter a valid secondary phone (or none at all).", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 phone2.Focus();
                 return false;
             }
@@ -113,29 +123,34 @@ namespace SummitSportsApp
             }
         }
 
-        public static bool ValidateCredentials(TextBox user, TextBox pass, TextBox conf)
+        public static bool ValidateCredentials(TextBox user, TextBox pass, TextBox conf, Label lblError)
         {
+            errorLabel = lblError;
             if (user.Text.Length < 8 || char.IsDigit(user.Text[0]))
             {
-                MessageBox.Show("Please enter a valid username.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorLabel.Text = "Please enter a valid username.";
+                //MessageBox.Show("Please enter a valid username.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 user.Focus();
                 return false;
             }
             else if (clsSQL.VerifyUser(user.Text, "checkUnique", false, errorLabel) != 0)
             {
-                MessageBox.Show("That username is already taken.\nSorry, please enter a different username.", "Username Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorLabel.Text = "Username is taken. Please use a different one.";
+                //MessageBox.Show("That username is already taken.\nSorry, please enter a different username.", "Username Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 user.Focus();
                 return false;
             }
             else if (pass.Text.Length < 8 || CheckComplexity(pass.Text) < 3)
             {
-                MessageBox.Show("Please enter a valid password.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorLabel.Text = "Please enter a valid password.";
+                //MessageBox.Show("Please enter a valid password.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 pass.Focus();
                 return false;
             }
             else if (!(conf.Text == pass.Text))
             {
-                MessageBox.Show("Passwords do not match.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorLabel.Text = "Passwords do not match.";
+                //MessageBox.Show("Passwords do not match.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 conf.Focus();
                 return false;
             }

@@ -54,7 +54,7 @@ namespace SummitSportsApp
             tbxAddress2.Text = tbxAddress2.Text.Trim();
             tbxAddress3.Text = tbxAddress3.Text.Trim();
 
-            if (clsValidation.ValidatePersonalInfo(tbxFirstName, tbxLastName, tbxAddress1, tbxCity, tbxState, tbxZip, tbxEmail, tbxPhone1, tbxPhone2))
+            if (clsValidation.ValidatePersonalInfo(tbxFirstName, tbxLastName, tbxAddress1, tbxCity, tbxState, tbxZip, tbxEmail, tbxPhone1, tbxPhone2, lblError1))
             {
                 newUser.title = tbxTitle.Text;
                 newUser.fName = tbxFirstName.Text;
@@ -88,7 +88,7 @@ namespace SummitSportsApp
 
         private void btnNext2_Click(object sender, EventArgs e)
         {
-            if (clsValidation.ValidateCredentials(tbxUsername, tbxPassword, tbxConfirm))
+            if (clsValidation.ValidateCredentials(tbxUsername, tbxPassword, tbxConfirm, lblError2))
             {
                 newUser.user = tbxUsername.Text;
                 newUser.pass = tbxPassword.Text;
@@ -107,7 +107,7 @@ namespace SummitSportsApp
 
         private void btnNext3_Click(object sender, EventArgs e)
         {
-            if (clsValidation.ValidateQuestions(tbxQuestion1, tbxQuestion2, tbxQuestion3, null))
+            if (clsValidation.ValidateQuestions(tbxQuestion1, tbxQuestion2, tbxQuestion3, lblError3))
             {
                 newUser.question1 = set1[cbxQuestion1.SelectedIndex];
                 newUser.question2 = set2[cbxQuestion2.SelectedIndex];
@@ -150,21 +150,25 @@ namespace SummitSportsApp
 
         private void tbxState_KeyPress(object sender, KeyPressEventArgs e)
         {
+            lblError1.Text = ""; 
             clsValidation.ValidateState(e);
         }
 
         private void tbxZip_KeyPress(object sender, KeyPressEventArgs e)
         {
+            lblError1.Text = ""; 
             clsValidation.ValidateZip(e);
         }
 
         private void tbxPhone1_KeyPress(object sender, KeyPressEventArgs e)
         {
+            lblError1.Text = ""; 
             clsValidation.ValidatePhone(e);
         }
 
         private void tbxPhone2_KeyPress(object sender, KeyPressEventArgs e)
         {
+            lblError1.Text = ""; 
             clsValidation.ValidatePhone(e);
         }
 
@@ -228,16 +232,19 @@ namespace SummitSportsApp
 
         private void tbxUsername_KeyPress(object sender, KeyPressEventArgs e)
         {
+            lblError2.Text = ""; 
             clsValidation.ValidateUser(e);
         }
 
         private void tbxPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
+            lblError2.Text = "";
             clsValidation.ValidatePass(e);
         }
 
         private void tbxConfirm_KeyPress(object sender, KeyPressEventArgs e)
         {
+            lblError2.Text = "";
             clsValidation.ValidatePass(e);
         }
 
@@ -305,6 +312,56 @@ namespace SummitSportsApp
         private void btnHelp3_Click(object sender, EventArgs e)
         {
             Help.ShowHelp(this, hlpHelp.HelpNamespace, HelpNavigator.Topic, "Topic2_Register.htm");
+        }
+
+        private void tbxFirstName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            lblError1.Text = "";
+        }
+
+        private void tbxLastName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            lblError1.Text = "";
+        }
+
+        private void tbxMiddleName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            lblError1.Text = "";
+        }
+
+        private void tbxSuffix_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            lblError1.Text = "";
+        }
+
+        private void tbxTitle_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            lblError1.Text = "";
+        }
+
+        private void tbxAddress1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            lblError1.Text = "";
+        }
+
+        private void tbxAddress2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            lblError1.Text = "";
+        }
+
+        private void tbxAddress3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            lblError1.Text = "";
+        }
+
+        private void tbxCity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            lblError1.Text = "";
+        }
+
+        private void tbxEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            lblError1.Text = "";
         }
     }
 }
