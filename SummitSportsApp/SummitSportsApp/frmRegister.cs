@@ -107,7 +107,7 @@ namespace SummitSportsApp
 
         private void btnNext3_Click(object sender, EventArgs e)
         {
-            if (clsValidation.ValidateQuestions(tbxQuestion1, tbxQuestion2, tbxQuestion3))
+            if (clsValidation.ValidateQuestions(tbxQuestion1, tbxQuestion2, tbxQuestion3, null))
             {
                 newUser.question1 = set1[cbxQuestion1.SelectedIndex];
                 newUser.question2 = set2[cbxQuestion2.SelectedIndex];

@@ -41,24 +41,26 @@
             this.tbxQuestion3 = new System.Windows.Forms.TextBox();
             this.btnHelp = new System.Windows.Forms.Button();
             this.hlpHelp = new System.Windows.Forms.HelpProvider();
+            this.lblError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbxQuestion1
             // 
             this.tbxQuestion1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxQuestion1.Location = new System.Drawing.Point(12, 210);
+            this.tbxQuestion1.Location = new System.Drawing.Point(12, 245);
             this.tbxQuestion1.Name = "tbxQuestion1";
-            this.tbxQuestion1.Size = new System.Drawing.Size(500, 43);
+            this.tbxQuestion1.Size = new System.Drawing.Size(500, 36);
             this.tbxQuestion1.TabIndex = 0;
+            this.tbxQuestion1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxQuestion1_KeyPress);
             // 
             // lblQuestion1
             // 
             this.lblQuestion1.AutoSize = true;
             this.lblQuestion1.BackColor = System.Drawing.Color.Transparent;
             this.lblQuestion1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestion1.Location = new System.Drawing.Point(12, 180);
+            this.lblQuestion1.Location = new System.Drawing.Point(12, 215);
             this.lblQuestion1.Name = "lblQuestion1";
-            this.lblQuestion1.Size = new System.Drawing.Size(338, 35);
+            this.lblQuestion1.Size = new System.Drawing.Size(272, 27);
             this.lblQuestion1.TabIndex = 2;
             this.lblQuestion1.Text = "Question 1 Placeholder";
             // 
@@ -68,7 +70,7 @@
             this.lblReset.Font = new System.Drawing.Font("Rockwell", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReset.Location = new System.Drawing.Point(12, 12);
             this.lblReset.Name = "lblReset";
-            this.lblReset.Size = new System.Drawing.Size(603, 68);
+            this.lblReset.Size = new System.Drawing.Size(486, 54);
             this.lblReset.TabIndex = 5;
             this.lblReset.Text = "Reset Your Password";
             // 
@@ -89,7 +91,7 @@
             this.lblLogin.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogin.Location = new System.Drawing.Point(12, 87);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(788, 92);
+            this.lblLogin.Size = new System.Drawing.Size(624, 72);
             this.lblLogin.TabIndex = 8;
             this.lblLogin.Text = "Correctly answer your \r\nsecurity questions to reset your password";
             // 
@@ -109,38 +111,40 @@
             this.lblQuestion2.AutoSize = true;
             this.lblQuestion2.BackColor = System.Drawing.Color.Transparent;
             this.lblQuestion2.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestion2.Location = new System.Drawing.Point(12, 260);
+            this.lblQuestion2.Location = new System.Drawing.Point(12, 295);
             this.lblQuestion2.Name = "lblQuestion2";
-            this.lblQuestion2.Size = new System.Drawing.Size(338, 35);
+            this.lblQuestion2.Size = new System.Drawing.Size(272, 27);
             this.lblQuestion2.TabIndex = 11;
             this.lblQuestion2.Text = "Question 2 Placeholder";
             // 
             // tbxQuestion2
             // 
             this.tbxQuestion2.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxQuestion2.Location = new System.Drawing.Point(12, 290);
+            this.tbxQuestion2.Location = new System.Drawing.Point(12, 325);
             this.tbxQuestion2.Name = "tbxQuestion2";
-            this.tbxQuestion2.Size = new System.Drawing.Size(500, 43);
+            this.tbxQuestion2.Size = new System.Drawing.Size(500, 36);
             this.tbxQuestion2.TabIndex = 1;
+            this.tbxQuestion2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxQuestion2_KeyPress);
             // 
             // lblQuestion3
             // 
             this.lblQuestion3.AutoSize = true;
             this.lblQuestion3.BackColor = System.Drawing.Color.Transparent;
             this.lblQuestion3.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuestion3.Location = new System.Drawing.Point(12, 340);
+            this.lblQuestion3.Location = new System.Drawing.Point(12, 375);
             this.lblQuestion3.Name = "lblQuestion3";
-            this.lblQuestion3.Size = new System.Drawing.Size(338, 35);
+            this.lblQuestion3.Size = new System.Drawing.Size(272, 27);
             this.lblQuestion3.TabIndex = 13;
             this.lblQuestion3.Text = "Question 3 Placeholder";
             // 
             // tbxQuestion3
             // 
             this.tbxQuestion3.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxQuestion3.Location = new System.Drawing.Point(12, 370);
+            this.tbxQuestion3.Location = new System.Drawing.Point(12, 405);
             this.tbxQuestion3.Name = "tbxQuestion3";
-            this.tbxQuestion3.Size = new System.Drawing.Size(500, 43);
+            this.tbxQuestion3.Size = new System.Drawing.Size(500, 36);
             this.tbxQuestion3.TabIndex = 2;
+            this.tbxQuestion3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxQuestion3_KeyPress);
             // 
             // btnHelp
             // 
@@ -159,6 +163,15 @@
             // 
             this.hlpHelp.HelpNamespace = "SummitSportsHelp.chm";
             // 
+            // lblError
+            // 
+            this.lblError.BackColor = System.Drawing.Color.Transparent;
+            this.lblError.ForeColor = System.Drawing.Color.Crimson;
+            this.lblError.Location = new System.Drawing.Point(12, 174);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(600, 30);
+            this.lblError.TabIndex = 15;
+            // 
             // frmReset
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -166,6 +179,7 @@
             this.BackgroundImage = global::SummitSportsApp.Properties.Resources.bgLogon43;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.lblQuestion3);
             this.Controls.Add(this.tbxQuestion3);
@@ -206,5 +220,6 @@
         private System.Windows.Forms.TextBox tbxQuestion3;
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.HelpProvider hlpHelp;
+        private System.Windows.Forms.Label lblError;
     }
 }

@@ -145,27 +145,32 @@ namespace SummitSportsApp
             }
         }
 
-        public static bool ValidateQuestions(TextBox question1, TextBox question2, TextBox question3)
+        public static bool ValidateQuestions(TextBox question1, TextBox question2, TextBox question3, Label lblError)
         {
+            errorLabel = lblError;
+
             question1.Text = question1.Text.Trim();
             question2.Text = question2.Text.Trim();
             question3.Text = question3.Text.Trim();
 
             if (question1.Text.Length == 0)
             {
-                MessageBox.Show("Please answer the first security question.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorLabel.Text = "Please answer the first question.";
+                //MessageBox.Show("Please answer the first security question.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 question1.Focus();
                 return false;
             }
             else if (question2.Text.Length == 0)
             {
-                MessageBox.Show("Please answer the second security question.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorLabel.Text = "Please answer the second question.";
+                //MessageBox.Show("Please answer the second security question.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 question2.Focus();
                 return false;
             }
             else if (question3.Text.Length == 0)
             {
-                MessageBox.Show("Please answer the third security question.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorLabel.Text = "Please answer the third question.";
+                //MessageBox.Show("Please answer the third security question.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 question3.Focus();
                 return false;
             }

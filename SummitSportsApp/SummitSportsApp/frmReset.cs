@@ -38,7 +38,7 @@ namespace SummitSportsApp
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            if (clsValidation.ValidateQuestions(tbxQuestion1, tbxQuestion2, tbxQuestion3))
+            if (clsValidation.ValidateQuestions(tbxQuestion1, tbxQuestion2, tbxQuestion3, lblError))
             {
                 if (clsValidation.ValidateAnswers(tbxQuestion1, tbxQuestion2 , tbxQuestion3, answers))
                 {
@@ -47,7 +47,8 @@ namespace SummitSportsApp
                 }
                 else
                 {
-                    MessageBox.Show("One or more of your answers is not correct.", "Password Reset Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    lblError.Text = "One or more of your answers is not correct.";
+                    //MessageBox.Show("One or more of your answers is not correct.", "Password Reset Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }
@@ -55,6 +56,21 @@ namespace SummitSportsApp
         private void btnHelp_Click(object sender, EventArgs e)
         {
             Help.ShowHelp(this, hlpHelp.HelpNamespace, HelpNavigator.Topic, "Topic3_Reset.htm");
+        }
+
+        private void tbxQuestion1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            lblError.Text = "";
+        }
+
+        private void tbxQuestion2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            lblError.Text = "";
+        }
+
+        private void tbxQuestion3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            lblError.Text = "";
         }
     }
 }
