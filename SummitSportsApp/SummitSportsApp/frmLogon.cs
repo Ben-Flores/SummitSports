@@ -35,11 +35,11 @@ namespace SummitSportsApp
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (clsValidation.ValidateLogonFilled(tbxUsername.Text, tbxPassword.Text, true))
+            if (clsValidation.ValidateLogonFilled(tbxUsername.Text, tbxPassword.Text, true, lblError))
             {
                 if (clsSQL.OpenConnection())
                 {
-                    int position = clsSQL.VerifyUser(tbxUsername.Text, tbxPassword.Text, true);
+                    int position = clsSQL.VerifyUser(tbxUsername.Text, tbxPassword.Text, true, lblError);
                     if (position != 0)
                     {
                         switch (position)
@@ -65,11 +65,11 @@ namespace SummitSportsApp
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            if (clsValidation.ValidateLogonFilled(tbxUsername.Text, "pass not verified", false))
+            if (clsValidation.ValidateLogonFilled(tbxUsername.Text, "pass not verified", false, lblError))
             {
                 if (clsSQL.OpenConnection())
                 {
-                    if (clsSQL.VerifyUser(tbxUsername.Text, "pass not verified", false) != 0)
+                    if (clsSQL.VerifyUser(tbxUsername.Text, "pass not verified", false, lblError) != 0)
                     {
                         frmReset frmReset = new frmReset(this, tbxUsername.Text);
                         frmReset.Show();
@@ -103,6 +103,16 @@ namespace SummitSportsApp
         private void btnHelp_Click(object sender, EventArgs e)
         {
             Help.ShowHelp(this, hlpHelp.HelpNamespace, HelpNavigator.Topic, "Topic1_Login.htm");
+        }
+
+        private void tbxUsername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            lblError.Text = "";
+        }
+
+        private void tbxPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            lblError.Text = "";
         }
     }
 }

@@ -68,7 +68,7 @@ namespace SummitSportsApp
             }
         }
 
-        public static int VerifyUser(string user, string pass, bool verifyPass)
+        public static int VerifyUser(string user, string pass, bool verifyPass, Label lblError)
         {
             try
             {
@@ -94,7 +94,8 @@ namespace SummitSportsApp
                             }
                             else
                             {
-                                MessageBox.Show("Incorrect password.", "Login Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                lblError.Text = "Incorrect password.";
+                                //MessageBox.Show("Incorrect password.", "Login Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 return 0;
                             }
                         }
@@ -107,7 +108,8 @@ namespace SummitSportsApp
                     {
                         if (i == dataTable.Rows.Count - 1 && pass != "checkUnique") 
                         {
-                            MessageBox.Show("Username not found.", "Login Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            lblError.Text = "Username not found.";
+                            //MessageBox.Show("Username not found.", "Login Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             //return false;
                         }
                     }

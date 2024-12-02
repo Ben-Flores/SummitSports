@@ -11,17 +11,22 @@ namespace SummitSportsApp
 {
     internal class clsValidation
     {
+        static Label errorLabel;
+
         #region frmLogon
-        public static bool ValidateLogonFilled(string user, string pass, bool verifyPass)
+        public static bool ValidateLogonFilled(string user, string pass, bool verifyPass, Label lblError)
         {
+            errorLabel = lblError;
             if (user == "")
             {
-                MessageBox.Show("Please enter your username.", "Username Required", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                errorLabel.Text = "Please enter your username.";
+                // MessageBox.Show("Please enter your username.", "Username Required", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             else if (verifyPass && pass == "")
             {
-                MessageBox.Show("Please enter your password.", "Password Required", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                errorLabel.Text = "Please enter your password.";
+                // MessageBox.Show("Please enter your password.", "Password Required", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             else
@@ -116,7 +121,7 @@ namespace SummitSportsApp
                 user.Focus();
                 return false;
             }
-            else if (clsSQL.VerifyUser(user.Text, "checkUnique", false) != 0)
+            else if (clsSQL.VerifyUser(user.Text, "checkUnique", false, errorLabel) != 0)
             {
                 MessageBox.Show("That username is already taken.\nSorry, please enter a different username.", "Username Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 user.Focus();
