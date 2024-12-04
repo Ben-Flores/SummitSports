@@ -15,8 +15,6 @@ namespace SummitSportsApp
         public frmLogon()
         {
             InitializeComponent();
-            frmShop frmShop = new frmShop();
-            frmShop.Show();
         }
 
         public void ClearFields()
@@ -53,9 +51,9 @@ namespace SummitSportsApp
                                 MessageBox.Show("Logged in as EMPLOYEE", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 break;
                             default:
-                                frmShop frmShop = new frmShop();
+                                frmShop frmShop = new frmShop(this);
                                 frmShop.Show();
-                                //this.Hide();
+                                this.Hide();
                                 //MessageBox.Show("Logged in as CUSTOMER", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 break;
                         }
@@ -118,6 +116,19 @@ namespace SummitSportsApp
         private void tbxPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
             lblError.Text = "";
+        }
+
+        private void btnGuest_Click(object sender, EventArgs e)
+        {
+            if (clsSQL.OpenConnection())
+            {
+                frmShop frmShop = new frmShop(this, true);
+                if (!frmShop.IsDisposed)
+                {
+                    frmShop.Show();
+                    this.Hide();
+                }
+            }
         }
     }
 }

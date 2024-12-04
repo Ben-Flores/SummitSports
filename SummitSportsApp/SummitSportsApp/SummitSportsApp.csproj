@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsCategory.cs" />
     <Compile Include="clsHTML.cs" />
     <Compile Include="frmShop.cs">
       <SubType>Form</SubType>

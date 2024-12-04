@@ -28,8 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmShop));
             this.dgvItems = new System.Windows.Forms.DataGridView();
+            this.inventoryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.retailPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblSearch = new System.Windows.Forms.Label();
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.lblSort = new System.Windows.Forms.Label();
@@ -43,16 +51,18 @@
             this.lblItemDescription = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblCartItems = new System.Windows.Forms.Label();
-            this.lblUnitPrice = new System.Windows.Forms.Label();
+            this.lblRetailPriceLabel = new System.Windows.Forms.Label();
             this.lblQuantity = new System.Windows.Forms.Label();
             this.cbxQuantity = new System.Windows.Forms.ComboBox();
             this.lblRetailPrice = new System.Windows.Forms.Label();
             this.pbxCart = new System.Windows.Forms.PictureBox();
             this.pbxItem = new System.Windows.Forms.PictureBox();
             this.lblTotalPrice = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblTotalPriceLabel = new System.Windows.Forms.Label();
             this.lblInCart = new System.Windows.Forms.Label();
             this.lblCartQty = new System.Windows.Forms.Label();
+            this.lblGuest = new System.Windows.Forms.Label();
+            this.btnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxItem)).BeginInit();
@@ -62,13 +72,84 @@
             // 
             this.dgvItems.AllowUserToAddRows = false;
             this.dgvItems.AllowUserToDeleteRows = false;
+            this.dgvItems.AllowUserToResizeRows = false;
+            this.dgvItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvItems.BackgroundColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rockwell", 18F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.inventoryID,
+            this.itemName,
+            this.retailPrice,
+            this.quantity,
+            this.categoryName});
+            this.dgvItems.EnableHeadersVisualStyles = false;
             this.dgvItems.Location = new System.Drawing.Point(318, 9);
+            this.dgvItems.MultiSelect = false;
             this.dgvItems.Name = "dgvItems";
             this.dgvItems.ReadOnly = true;
+            this.dgvItems.RowHeadersVisible = false;
+            this.dgvItems.RowHeadersWidth = 51;
+            this.dgvItems.RowTemplate.Height = 30;
+            this.dgvItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvItems.Size = new System.Drawing.Size(869, 350);
             this.dgvItems.TabIndex = 4;
+            this.dgvItems.TabStop = false;
+            this.dgvItems.SelectionChanged += new System.EventHandler(this.dgvItems_SelectionChanged);
+            // 
+            // inventoryID
+            // 
+            this.inventoryID.HeaderText = "InventoryID";
+            this.inventoryID.MinimumWidth = 6;
+            this.inventoryID.Name = "inventoryID";
+            this.inventoryID.ReadOnly = true;
+            this.inventoryID.Visible = false;
+            this.inventoryID.Width = 150;
+            // 
+            // itemName
+            // 
+            this.itemName.HeaderText = "Name";
+            this.itemName.MinimumWidth = 6;
+            this.itemName.Name = "itemName";
+            this.itemName.ReadOnly = true;
+            this.itemName.Width = 125;
+            // 
+            // retailPrice
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.retailPrice.DefaultCellStyle = dataGridViewCellStyle2;
+            this.retailPrice.HeaderText = "Price";
+            this.retailPrice.MinimumWidth = 6;
+            this.retailPrice.Name = "retailPrice";
+            this.retailPrice.ReadOnly = true;
+            this.retailPrice.Width = 116;
+            // 
+            // quantity
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.quantity.DefaultCellStyle = dataGridViewCellStyle3;
+            this.quantity.HeaderText = "Qty.";
+            this.quantity.MinimumWidth = 6;
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            this.quantity.Width = 103;
+            // 
+            // categoryName
+            // 
+            this.categoryName.HeaderText = "Category";
+            this.categoryName.MinimumWidth = 6;
+            this.categoryName.Name = "categoryName";
+            this.categoryName.ReadOnly = true;
+            this.categoryName.Width = 175;
             // 
             // lblSearch
             // 
@@ -77,7 +158,7 @@
             this.lblSearch.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearch.Location = new System.Drawing.Point(12, 9);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(124, 36);
+            this.lblSearch.Size = new System.Drawing.Size(158, 46);
             this.lblSearch.TabIndex = 9;
             this.lblSearch.Text = "Search:";
             // 
@@ -87,7 +168,7 @@
             this.tbxSearch.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxSearch.Location = new System.Drawing.Point(12, 48);
             this.tbxSearch.Name = "tbxSearch";
-            this.tbxSearch.Size = new System.Drawing.Size(275, 36);
+            this.tbxSearch.Size = new System.Drawing.Size(275, 43);
             this.tbxSearch.TabIndex = 1;
             // 
             // lblSort
@@ -97,21 +178,20 @@
             this.lblSort.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSort.Location = new System.Drawing.Point(12, 147);
             this.lblSort.Name = "lblSort";
-            this.lblSort.Size = new System.Drawing.Size(275, 36);
+            this.lblSort.Size = new System.Drawing.Size(348, 46);
             this.lblSort.TabIndex = 11;
             this.lblSort.Text = "Sort by Category:";
             // 
             // clbCategories
             // 
             this.clbCategories.BackColor = System.Drawing.Color.Gainsboro;
+            this.clbCategories.CheckOnClick = true;
             this.clbCategories.FormattingEnabled = true;
-            this.clbCategories.Items.AddRange(new object[] {
-            "Snow Sports Clothing",
-            "Placeholder"});
             this.clbCategories.Location = new System.Drawing.Point(12, 186);
             this.clbCategories.Name = "clbCategories";
-            this.clbCategories.Size = new System.Drawing.Size(275, 500);
-            this.clbCategories.TabIndex = 3;
+            this.clbCategories.Size = new System.Drawing.Size(275, 460);
+            this.clbCategories.TabIndex = 2;
+            this.clbCategories.SelectedIndexChanged += new System.EventHandler(this.clbCategories_SelectedIndexChanged);
             // 
             // btnLogout
             // 
@@ -122,6 +202,7 @@
             this.btnLogout.TabIndex = 16;
             this.btnLogout.Text = "◀ Log Out";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnHelp
             // 
@@ -137,6 +218,7 @@
             // 
             // btnCart
             // 
+            this.btnCart.Enabled = false;
             this.btnCart.ForeColor = System.Drawing.Color.Black;
             this.btnCart.Location = new System.Drawing.Point(1012, 709);
             this.btnCart.Name = "btnCart";
@@ -147,6 +229,7 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.Enabled = false;
             this.btnAdd.ForeColor = System.Drawing.Color.Black;
             this.btnAdd.Location = new System.Drawing.Point(318, 709);
             this.btnAdd.Name = "btnAdd";
@@ -157,6 +240,7 @@
             // 
             // btnRemove
             // 
+            this.btnRemove.Enabled = false;
             this.btnRemove.ForeColor = System.Drawing.Color.Black;
             this.btnRemove.Location = new System.Drawing.Point(613, 709);
             this.btnRemove.Name = "btnRemove";
@@ -172,7 +256,7 @@
             this.lblItemName.Font = new System.Drawing.Font("Rockwell", 18F);
             this.lblItemName.Location = new System.Drawing.Point(318, 365);
             this.lblItemName.Name = "lblItemName";
-            this.lblItemName.Size = new System.Drawing.Size(418, 27);
+            this.lblItemName.Size = new System.Drawing.Size(521, 35);
             this.lblItemName.TabIndex = 20;
             this.lblItemName.Text = "Select an item from the grid above ▲";
             // 
@@ -183,7 +267,7 @@
             this.lblItemDescription.Name = "lblItemDescription";
             this.lblItemDescription.Size = new System.Drawing.Size(525, 167);
             this.lblItemDescription.TabIndex = 21;
-            this.lblItemDescription.Text = "...and see more details here";
+            this.lblItemDescription.Text = "...and see more details here.";
             // 
             // btnSearch
             // 
@@ -192,9 +276,10 @@
             this.btnSearch.Location = new System.Drawing.Point(12, 90);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(275, 34);
-            this.btnSearch.TabIndex = 2;
+            this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblCartItems
             // 
@@ -202,20 +287,20 @@
             this.lblCartItems.BackColor = System.Drawing.Color.Transparent;
             this.lblCartItems.Location = new System.Drawing.Point(956, 721);
             this.lblCartItems.Name = "lblCartItems";
-            this.lblCartItems.Size = new System.Drawing.Size(25, 27);
+            this.lblCartItems.Size = new System.Drawing.Size(31, 35);
             this.lblCartItems.TabIndex = 23;
             this.lblCartItems.Text = "0";
             // 
-            // lblUnitPrice
+            // lblRetailPriceLabel
             // 
-            this.lblUnitPrice.AutoSize = true;
-            this.lblUnitPrice.BackColor = System.Drawing.Color.DimGray;
-            this.lblUnitPrice.Font = new System.Drawing.Font("Rockwell", 18F);
-            this.lblUnitPrice.Location = new System.Drawing.Point(318, 575);
-            this.lblUnitPrice.Name = "lblUnitPrice";
-            this.lblUnitPrice.Size = new System.Drawing.Size(127, 27);
-            this.lblUnitPrice.TabIndex = 24;
-            this.lblUnitPrice.Text = "Unit Price:";
+            this.lblRetailPriceLabel.AutoSize = true;
+            this.lblRetailPriceLabel.BackColor = System.Drawing.Color.DimGray;
+            this.lblRetailPriceLabel.Font = new System.Drawing.Font("Rockwell", 18F);
+            this.lblRetailPriceLabel.Location = new System.Drawing.Point(318, 575);
+            this.lblRetailPriceLabel.Name = "lblRetailPriceLabel";
+            this.lblRetailPriceLabel.Size = new System.Drawing.Size(159, 35);
+            this.lblRetailPriceLabel.TabIndex = 24;
+            this.lblRetailPriceLabel.Text = "Unit Price:";
             // 
             // lblQuantity
             // 
@@ -224,18 +309,21 @@
             this.lblQuantity.Font = new System.Drawing.Font("Rockwell", 18F);
             this.lblQuantity.Location = new System.Drawing.Point(318, 617);
             this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(114, 27);
+            this.lblQuantity.Size = new System.Drawing.Size(142, 35);
             this.lblQuantity.TabIndex = 25;
             this.lblQuantity.Text = "Quantity:";
             // 
             // cbxQuantity
             // 
             this.cbxQuantity.BackColor = System.Drawing.Color.Gainsboro;
+            this.cbxQuantity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxQuantity.FormattingEnabled = true;
+            this.cbxQuantity.IntegralHeight = false;
             this.cbxQuantity.Location = new System.Drawing.Point(462, 613);
+            this.cbxQuantity.MaxDropDownItems = 10;
             this.cbxQuantity.Name = "cbxQuantity";
-            this.cbxQuantity.Size = new System.Drawing.Size(145, 35);
-            this.cbxQuantity.TabIndex = 26;
+            this.cbxQuantity.Size = new System.Drawing.Size(145, 43);
+            this.cbxQuantity.TabIndex = 6;
             // 
             // lblRetailPrice
             // 
@@ -281,16 +369,16 @@
             this.lblTotalPrice.Text = "$0.00";
             this.lblTotalPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label2
+            // lblTotalPriceLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.DimGray;
-            this.label2.Font = new System.Drawing.Font("Rockwell", 18F);
-            this.label2.Location = new System.Drawing.Point(318, 659);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 27);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "Total Price:";
+            this.lblTotalPriceLabel.AutoSize = true;
+            this.lblTotalPriceLabel.BackColor = System.Drawing.Color.DimGray;
+            this.lblTotalPriceLabel.Font = new System.Drawing.Font("Rockwell", 18F);
+            this.lblTotalPriceLabel.Location = new System.Drawing.Point(318, 659);
+            this.lblTotalPriceLabel.Name = "lblTotalPriceLabel";
+            this.lblTotalPriceLabel.Size = new System.Drawing.Size(172, 35);
+            this.lblTotalPriceLabel.TabIndex = 28;
+            this.lblTotalPriceLabel.Text = "Total Price:";
             // 
             // lblInCart
             // 
@@ -299,7 +387,7 @@
             this.lblInCart.Font = new System.Drawing.Font("Rockwell", 18F);
             this.lblInCart.Location = new System.Drawing.Point(681, 594);
             this.lblInCart.Name = "lblInCart";
-            this.lblInCart.Size = new System.Drawing.Size(94, 27);
+            this.lblInCart.Size = new System.Drawing.Size(119, 35);
             this.lblInCart.TabIndex = 30;
             this.lblInCart.Text = "In Cart:";
             // 
@@ -311,22 +399,48 @@
             this.lblCartQty.Name = "lblCartQty";
             this.lblCartQty.Size = new System.Drawing.Size(94, 27);
             this.lblCartQty.TabIndex = 31;
-            this.lblCartQty.Text = "0";
             this.lblCartQty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblGuest
+            // 
+            this.lblGuest.AutoSize = true;
+            this.lblGuest.BackColor = System.Drawing.Color.Transparent;
+            this.lblGuest.Font = new System.Drawing.Font("Rockwell", 18F);
+            this.lblGuest.ForeColor = System.Drawing.Color.Crimson;
+            this.lblGuest.Location = new System.Drawing.Point(399, 721);
+            this.lblGuest.Name = "lblGuest";
+            this.lblGuest.Size = new System.Drawing.Size(451, 35);
+            this.lblGuest.TabIndex = 32;
+            this.lblGuest.Text = "Please Log In to Purchase Items";
+            this.lblGuest.Visible = false;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Font = new System.Drawing.Font("Rockwell", 16F);
+            this.btnReset.ForeColor = System.Drawing.Color.Black;
+            this.btnReset.Location = new System.Drawing.Point(12, 661);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(275, 34);
+            this.btnReset.TabIndex = 3;
+            this.btnReset.Text = "Reset Search";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // frmShop
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1199, 771);
+            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.lblGuest);
             this.Controls.Add(this.lblCartQty);
             this.Controls.Add(this.lblInCart);
             this.Controls.Add(this.lblTotalPrice);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblTotalPriceLabel);
             this.Controls.Add(this.lblRetailPrice);
             this.Controls.Add(this.cbxQuantity);
             this.Controls.Add(this.lblQuantity);
-            this.Controls.Add(this.lblUnitPrice);
+            this.Controls.Add(this.lblRetailPriceLabel);
             this.Controls.Add(this.lblCartItems);
             this.Controls.Add(this.pbxCart);
             this.Controls.Add(this.btnSearch);
@@ -351,6 +465,8 @@
             this.Name = "frmShop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Summit Sports - Shop";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmShop_FormClosed);
+            this.Load += new System.EventHandler(this.frmShop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxItem)).EndInit();
@@ -377,13 +493,20 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.PictureBox pbxCart;
         private System.Windows.Forms.Label lblCartItems;
-        private System.Windows.Forms.Label lblUnitPrice;
+        private System.Windows.Forms.Label lblRetailPriceLabel;
         private System.Windows.Forms.Label lblQuantity;
         private System.Windows.Forms.ComboBox cbxQuantity;
         private System.Windows.Forms.Label lblRetailPrice;
         private System.Windows.Forms.Label lblTotalPrice;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTotalPriceLabel;
         private System.Windows.Forms.Label lblInCart;
         private System.Windows.Forms.Label lblCartQty;
+        private System.Windows.Forms.Label lblGuest;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inventoryID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn retailPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryName;
     }
 }

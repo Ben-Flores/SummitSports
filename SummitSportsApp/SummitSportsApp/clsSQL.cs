@@ -68,6 +68,8 @@ namespace SummitSportsApp
             }
         }
 
+        #region logon
+
         public static int VerifyUser(string user, string pass, bool verifyPass, Label lblError)
         {
             try
@@ -307,5 +309,69 @@ namespace SummitSportsApp
                 form.Close();
             }
         }
+
+        #endregion
+
+        #region customer
+
+        private static List<clsCategory> categoriesList = new List<clsCategory>();
+        public static List<clsCategory> CategoriesList
+        {
+            get { return categoriesList; }
+        }
+
+        public static void GetCustomerInventory(DataGridView dgv, CheckedListBox clb, Form form)
+        {
+            try
+            {
+                GetCategories(clb);
+                dataAdapter = new SqlDataAdapter();
+                dataTable = new DataTable();
+                command = new SqlCommand("Select InventoryID, ItemName, ItemDescription, i.CategoryID, CategoryName, RetailPrice, Quantity, ItemImage From " + SCHEMA_NAME + "Inventory as i Join " + SCHEMA_NAME + "Categories as c On i.CategoryID = c.CategoryID Order By CategoryID, ItemName;", connection);
+                dataAdapter.SelectCommand = command;
+                dataAdapter.Fill(dataTable);
+
+                dgv.AutoGenerateColumns = false;
+                dgv.DataSource = dataTable;
+                dgv.Columns["inventoryID"].DataPropertyName = "InventoryID";
+                dgv.Columns["itemName"].DataPropertyName = "ItemName";
+                dgv.Columns["categoryName"].DataPropertyName = "CategoryName";
+                dgv.Columns["retailPrice"].DataPropertyName = "RetailPrice";
+                dgv.Columns["quantity"].DataPropertyName = "Quantity";
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to get inventory items.\nSorry, please try again later.", "Inventory Request Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                form.Close();
+            }
+        }
+
+        public static void GetCategories(CheckedListBox clb)
+        {
+            categoriesList.Clear();
+            try
+            {
+                command = new SqlCommand("Select CategoryID, CategoryName From " + SCHEMA_NAME + "Categories;", connection);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    categoriesList.Add(new clsCategory(reader.GetInt32(0), reader.GetString(1)));
+                }
+                foreach (clsCategory category in categoriesList)
+                {
+                    clb.Items.Add(category.categoryName);
+                    clb.SetItemChecked(clb.Items.Count  - 1, true);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                throw ex;
+            }
+        }
+
+        #endregion
     }
 }

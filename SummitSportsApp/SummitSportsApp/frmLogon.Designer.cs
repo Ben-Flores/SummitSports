@@ -45,6 +45,7 @@
             this.btnHelp = new System.Windows.Forms.Button();
             this.hlpHelp = new System.Windows.Forms.HelpProvider();
             this.lblError = new System.Windows.Forms.Label();
+            this.btnGuest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbxUsername
@@ -213,6 +214,17 @@
             this.lblError.Size = new System.Drawing.Size(600, 30);
             this.lblError.TabIndex = 14;
             // 
+            // btnGuest
+            // 
+            this.btnGuest.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuest.Location = new System.Drawing.Point(231, 381);
+            this.btnGuest.Name = "btnGuest";
+            this.btnGuest.Size = new System.Drawing.Size(281, 50);
+            this.btnGuest.TabIndex = 8;
+            this.btnGuest.Text = "Continue as Guest ▶";
+            this.btnGuest.UseVisualStyleBackColor = true;
+            this.btnGuest.Click += new System.EventHandler(this.btnGuest_Click);
+            // 
             // frmLogon
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -220,6 +232,7 @@
             this.BackgroundImage = global::SummitSportsApp.Properties.Resources.bgLogon43;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.btnGuest);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnPeek);
@@ -268,6 +281,7 @@
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.HelpProvider hlpHelp;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Button btnGuest;
     }
 }
 
