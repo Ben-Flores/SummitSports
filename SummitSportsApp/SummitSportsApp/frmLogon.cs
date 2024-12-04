@@ -15,6 +15,8 @@ namespace SummitSportsApp
         public frmLogon()
         {
             InitializeComponent();
+            frmShop frmShop = new frmShop();
+            frmShop.Show();
         }
 
         public void ClearFields()
@@ -51,7 +53,10 @@ namespace SummitSportsApp
                                 MessageBox.Show("Logged in as EMPLOYEE", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 break;
                             default:
-                                MessageBox.Show("Logged in as CUSTOMER", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                frmShop frmShop = new frmShop();
+                                frmShop.Show();
+                                //this.Hide();
+                                //MessageBox.Show("Logged in as CUSTOMER", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 break;
                         }
                         // clsSQL.CloseConnection();

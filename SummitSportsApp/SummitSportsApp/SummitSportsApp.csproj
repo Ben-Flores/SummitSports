@@ -98,6 +98,9 @@
     <EmbeddedResource Include="frmReset.resx">
       <DependentUpon>frmReset.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmShop.resx">
+      <DependentUpon>frmShop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -131,6 +134,8 @@
     <None Include="images\bgLogon43.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\cart.png" />
+    <None Include="Resources\iconNormal.png" />
     <Content Include="sslogo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

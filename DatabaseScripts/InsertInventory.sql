@@ -56,3 +56,4 @@ VALUES
 ('Black Diamond Traverse Ski Poles', 'Lightweight and adjustable poles perfect for skiing or snowshoeing.', 107, 99.95, 75, 26, 20),
 ('Dakine Heli Pro 20L Backpack', 'Compact, feature-rich backpack with storage for avalanche gear and hydration systems.', 107, 120, 90, 20, 10);
 GO
+
