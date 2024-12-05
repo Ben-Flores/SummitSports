@@ -335,11 +335,22 @@ namespace SummitSportsApp
             }
         }
 
-        public void CreateOrder()
+        public void CreateOrder(string cardNumber, string ccv, string expDate)
         {
-            Order order = new Order(personID, inventoryIDs, quantities, cartDiscount, lblDiscount.Text, lblDiscountedTotal.Text, lblTax.Text, lblTotal.Text);
-            clsHTML.ClearReport();
-            clsHTML.PrintReport(clsHTML.GenerateReport(order));
+            int orderID = 0;
+            Order order = new Order(personID, inventoryIDs, quantities, cartDiscount, lblDiscount.Text, lblDiscountedTotal.Text, lblTax.Text, lblTotal.Text, cardNumber, ccv, expDate);
+
+            if (clsSQL.OpenConnection())
+            {
+                if (clsSQL.UpdateDatabaseQuantities())
+                {
+                    if (clsSQL.InsertOrder(order, ref orderID))
+                    {
+                        clsHTML.ClearReport();
+                        clsHTML.PrintReport(clsHTML.GenerateReport(order, orderID));
+                    }
+                }
+            }
         }
     }
 }

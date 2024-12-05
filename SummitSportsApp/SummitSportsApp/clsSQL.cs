@@ -443,6 +443,69 @@ namespace SummitSportsApp
                 return "";
             }
         }
+
+        public static bool UpdateDatabaseQuantities()
+        {
+            try
+            {
+                for (int i = 0; i < frmCart.InventoryIDs.Count; i++)
+                {
+                    command = new SqlCommand("Update " + SCHEMA_NAME + "Inventory Set Quantity = Quantity - " + frmCart.Quantities[i] + " Where InventoryID = " + frmCart.InventoryIDs[i] + ";", connection);
+                    command.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to complete order.\nSorry, please try again later.", "Customer Request Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public static bool InsertOrder(Order order, ref int orderID)
+        {
+            try
+            {
+                StringBuilder cmd = new StringBuilder();
+
+                cmd.Append("Insert into " + SCHEMA_NAME + "Orders (PersonID, OrderDate, CC_Number, ExpDate, CCV");
+                if (order.discount != null && order.discount.discountLevel == 0)
+                    cmd.Append(", DiscountID");
+                cmd.Append(") Output INSERTED.OrderID Values (" + order.personID + ", '" + DateTime.Now.ToString("yyyy-MM-dd") + "', '" + order.cardNumber + "', '" + order.expDate + "', '" + order.ccv + "'");
+                if (order.discount != null && order.discount.discountLevel == 0)
+                    cmd.Append(", " + order.discount.discountID);
+                cmd.Append(");");
+
+                command = new SqlCommand(cmd.ToString(), connection);
+                int OrderID = (int)command.ExecuteScalar();
+                orderID = OrderID;
+
+                cmd.Clear();
+
+                for (int i = 0; i < order.inventoryIDs.Count; i++) {
+                    cmd.Append("Insert into " + SCHEMA_NAME + "OrderDetails (OrderID, InventoryID, Quantity");
+                    if (order.discount != null && order.discount.inventoryID == order.inventoryIDs[i])
+                        cmd.Append(", DiscountID");
+                    cmd.Append(") Values (" + OrderID + ", " + order.inventoryIDs[i] + ", " + order.quantities[i]);
+                    if (order.discount != null && order.discount.inventoryID == order.inventoryIDs[i])
+                        cmd.Append(", " + order.discount.discountID);
+                    cmd.Append(");");
+
+                    command = new SqlCommand (cmd.ToString(), connection);
+                    command.ExecuteNonQuery();
+                    cmd.Clear();
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to complete order.\nSorry, please try again later.", "Customer Request Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
         #endregion
     }
 }
