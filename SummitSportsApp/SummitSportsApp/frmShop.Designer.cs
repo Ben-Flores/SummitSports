@@ -237,6 +237,7 @@
             this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "Add to Cart";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnRemove
             // 
@@ -324,6 +325,7 @@
             this.cbxQuantity.Name = "cbxQuantity";
             this.cbxQuantity.Size = new System.Drawing.Size(145, 43);
             this.cbxQuantity.TabIndex = 6;
+            this.cbxQuantity.SelectedIndexChanged += new System.EventHandler(this.cbxQuantity_SelectedIndexChanged);
             // 
             // lblRetailPrice
             // 

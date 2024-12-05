@@ -51,6 +51,12 @@
   <ItemGroup>
     <Compile Include="clsCategory.cs" />
     <Compile Include="clsHTML.cs" />
+    <Compile Include="frmCart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCart.Designer.cs">
+      <DependentUpon>frmCart.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmShop.cs">
       <SubType>Form</SubType>
     </Compile>

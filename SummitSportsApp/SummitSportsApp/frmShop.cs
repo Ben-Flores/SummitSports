@@ -25,6 +25,8 @@ namespace SummitSportsApp
             InitializeComponent();
             this.parentForm = parentForm;
             clsSQL.GetCustomerInventory(dgvItems, clbCategories, this);
+            frmCart.InventoryIDs.Clear();
+            frmCart.Quantities.Clear();
         }
 
         public frmShop(frmLogon parentForm, bool guest)
@@ -35,6 +37,8 @@ namespace SummitSportsApp
             btnAdd.Visible = false;
             btnRemove.Visible = false;
             lblGuest.Visible = true;
+            frmCart.InventoryIDs.Clear();
+            frmCart.Quantities.Clear();
         }
 
         private void frmShop_Load(object sender, EventArgs e)
@@ -138,6 +142,26 @@ namespace SummitSportsApp
                         pbxItem.Image = image;
                     }
                 }
+                if (frmCart.InventoryIDs.Count < 1)
+                {
+                    lblCartQty.Text = "0";
+                }
+                else
+                {
+                    for (int i = 0; i < frmCart.InventoryIDs.Count; i++)
+                    {
+                        if (frmCart.InventoryIDs[i] == id)
+                        {
+                            lblCartQty.Text = frmCart.Quantities[i].ToString();
+                            break;
+                        }
+                        if (i == frmCart.InventoryIDs.Count - 1)
+                        {
+                            lblCartQty.Text = "0";
+                        }
+                    }
+                }
+                btnAdd.Enabled = true;
             }
             else
             {
@@ -148,7 +172,60 @@ namespace SummitSportsApp
                 lblTotalPrice.Text = "$0.00";
                 lblCartQty.Text = "";
                 pbxItem.Image = Resources.iconNormal;
+                btnAdd.Enabled = false;
             }
+        }
+
+        private void cbxQuantity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblTotalPrice.Text = (Convert.ToInt32(cbxQuantity.SelectedItem) * Convert.ToDecimal(lblRetailPrice.Text.Substring(1))).ToString("C");
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            int id = (int)dgvItems.SelectedRows[0].Cells["InventoryID"].Value;
+            int qty = Convert.ToInt32(cbxQuantity.SelectedItem);
+
+            if (frmCart.InventoryIDs.Count < 1)
+            {
+                frmCart.InventoryIDs.Add(id);
+                frmCart.Quantities.Add(qty);
+            }
+            else
+            {
+                for (int i = 0; i < frmCart.InventoryIDs.Count; i++)
+                {
+                    if (frmCart.InventoryIDs[i] == id)
+                    {
+                        frmCart.Quantities[i] += qty;
+                        break;
+                    }
+                    if (i == frmCart.InventoryIDs.Count - 1)
+                    {
+                        frmCart.InventoryIDs.Add(id);
+                        frmCart.Quantities.Add(qty);
+                        break;
+                    }
+                }
+            }
+
+            DataRow[] result = clsSQL.DataTable.Select("InventoryID = " + id);
+            result[0]["Quantity"] = (int)result[0]["Quantity"] - qty;
+
+            for (int i = 0; i < frmCart.InventoryIDs.Count; i++)
+            {
+                if (frmCart.InventoryIDs[i] == id)
+                {
+                    lblCartQty.Text = frmCart.Quantities[i].ToString();
+                    break;
+                }
+                if (i == frmCart.InventoryIDs.Count - 1)
+                {
+                    lblCartQty.Text = "0";
+                }
+            }
+
+             lblCartItems.Text = frmCart.InventoryIDs.Count.ToString();
         }
     }
 }
