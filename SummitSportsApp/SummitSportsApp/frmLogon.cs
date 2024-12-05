@@ -39,7 +39,8 @@ namespace SummitSportsApp
             {
                 if (clsSQL.OpenConnection())
                 {
-                    int position = clsSQL.VerifyUser(tbxUsername.Text, tbxPassword.Text, true, lblError);
+                    int personID = 0;
+                    int position = clsSQL.VerifyUser(tbxUsername.Text, tbxPassword.Text, true, lblError, ref personID);
                     if (position != 0)
                     {
                         switch (position)
@@ -51,7 +52,7 @@ namespace SummitSportsApp
                                 MessageBox.Show("Logged in as EMPLOYEE", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 break;
                             default:
-                                frmShop frmShop = new frmShop(this);
+                                frmShop frmShop = new frmShop(this, personID);
                                 frmShop.Show();
                                 this.Hide();
                                 //MessageBox.Show("Logged in as CUSTOMER", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -72,7 +73,8 @@ namespace SummitSportsApp
             {
                 if (clsSQL.OpenConnection())
                 {
-                    if (clsSQL.VerifyUser(tbxUsername.Text, "pass not verified", false, lblError) != 0)
+                    int x = 0;
+                    if (clsSQL.VerifyUser(tbxUsername.Text, "pass not verified", false, lblError, ref x) != 0)
                     {
                         frmReset frmReset = new frmReset(this, tbxUsername.Text);
                         frmReset.Show();

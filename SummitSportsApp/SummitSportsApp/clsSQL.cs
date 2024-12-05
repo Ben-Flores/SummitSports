@@ -70,14 +70,14 @@ namespace SummitSportsApp
 
         #region logon
 
-        public static int VerifyUser(string user, string pass, bool verifyPass, Label lblError)
+        public static int VerifyUser(string user, string pass, bool verifyPass, Label lblError, ref int personID)
         {
             try
             {
                 dataAdapter = new SqlDataAdapter();
                 dataTable = new DataTable();
                 if (verifyPass)
-                    command = new SqlCommand("Select LogonName, Password, PositionID From " + SCHEMA_NAME + "Logon", connection);
+                    command = new SqlCommand("Select LogonName, Password, PositionID, PersonID From " + SCHEMA_NAME + "Logon", connection);
                 else
                     command = new SqlCommand("Select LogonName From " + SCHEMA_NAME + "Logon", connection);
                 dataAdapter.SelectCommand = command;
@@ -92,6 +92,7 @@ namespace SummitSportsApp
                         {
                             if (row["Password"].ToString() == pass)
                             {
+                                personID = (int)row["PersonID"];
                                 return (int)row["PositionID"];
                             }
                             else
@@ -423,6 +424,25 @@ namespace SummitSportsApp
             }
         }
 
+        public static string FindName(int personID)
+        {
+            try
+            {
+                command = new SqlCommand("Select NameFirst, NameLast From " + SCHEMA_NAME + "Person as p Join " + SCHEMA_NAME + "Logon as l On p.PersonID = l.PersonID Where p.PersonID = " + personID + ";", connection);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    return reader.GetString(0) + " " + reader.GetString(1);
+                }
+                return "";
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                // MessageBox.Show("Unable to get customer details.\nSorry, please try again later.", "Customer Request Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "";
+            }
+        }
         #endregion
     }
 }

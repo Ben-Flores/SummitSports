@@ -126,6 +126,7 @@ namespace SummitSportsApp
 
         public static bool ValidateCredentials(TextBox user, TextBox pass, TextBox conf, Label lblError)
         {
+            int x = 0;
             errorLabel = lblError;
             if (user.Text.Length < 8 || char.IsDigit(user.Text[0]))
             {
@@ -134,7 +135,7 @@ namespace SummitSportsApp
                 user.Focus();
                 return false;
             }
-            else if (clsSQL.VerifyUser(user.Text, "checkUnique", false, errorLabel) != 0)
+            else if (clsSQL.VerifyUser(user.Text, "checkUnique", false, errorLabel, ref x) != 0)
             {
                 errorLabel.Text = "Username is taken. Please use a different one.";
                 //MessageBox.Show("That username is already taken.\nSorry, please enter a different username.", "Username Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -616,22 +617,30 @@ namespace SummitSportsApp
                 return false;
             }
             else {
-                DateTime cardDate = DateTime.ParseExact(date, "M/yy", CultureInfo.InvariantCulture);
-                DateTime nowDate = DateTime.ParseExact((DateTime.Now.ToString("MM") + "/" + DateTime.Now.ToString("yy")), "M/yy", CultureInfo.InvariantCulture);
-                DateTime validDate = nowDate.AddYears(5);
-                if (cardDate < nowDate) // expired
+                try
                 {
-                    errorLabel.Text = "Card Expired. Please enter a valid card.";
-                    return false;
+                    DateTime cardDate = DateTime.ParseExact(date, "M/yy", CultureInfo.InvariantCulture);
+                    DateTime nowDate = DateTime.ParseExact((DateTime.Now.ToString("MM") + "/" + DateTime.Now.ToString("yy")), "M/yy", CultureInfo.InvariantCulture);
+                    DateTime validDate = nowDate.AddYears(5);
+                    if (cardDate < nowDate) // expired
+                    {
+                        errorLabel.Text = "Card Expired. Please enter a valid card.";
+                        return false;
+                    }
+                    else if (cardDate > validDate)
+                    {
+                        errorLabel.Text = "Card Expiration Date Invalid. Please enter a valid card.";
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
                 }
-                else if (cardDate > validDate)
+                catch (Exception ex)
                 {
                     errorLabel.Text = "Card Expiration Date Invalid. Please enter a valid card.";
                     return false;
-                }
-                else
-                {
-                    return true;
                 }
             }
         }

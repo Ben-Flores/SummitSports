@@ -16,14 +16,16 @@ namespace SummitSportsApp
     {
 
         frmLogon parentForm;
+        int personID;
 
         StringBuilder searchFilter = new StringBuilder();
         StringBuilder categoriesFilter = new StringBuilder();
 
-        public frmShop(frmLogon parentForm)
+        public frmShop(frmLogon parentForm, int personID)
         {
             InitializeComponent();
             this.parentForm = parentForm;
+            this.personID = personID;
             clsSQL.GetCustomerInventory(dgvItems, clbCategories, this);
             frmCart.InventoryIDs.Clear();
             frmCart.Quantities.Clear();
@@ -302,7 +304,7 @@ namespace SummitSportsApp
         private void btnCart_Click(object sender, EventArgs e)
         {
             dgvItems.ClearSelection();
-            frmCart frmCart = new frmCart(this);
+            frmCart frmCart = new frmCart(this, personID);
             frmCart.ShowDialog();
         }
 

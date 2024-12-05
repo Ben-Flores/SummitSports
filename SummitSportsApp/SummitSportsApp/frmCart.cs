@@ -15,6 +15,7 @@ namespace SummitSportsApp
     public partial class frmCart : Form
     {
         frmShop parentForm;
+        int personID;
 
         private static decimal subtotal, discount, discounttotal, tax, grandtotal;
         private const decimal TAX_RATE = .0825m;
@@ -36,10 +37,11 @@ namespace SummitSportsApp
             set { quantities = value; }
         }
 
-        public frmCart(frmShop parentForm)
+        public frmCart(frmShop parentForm, int personID)
         {
             InitializeComponent();
             this.parentForm = parentForm;
+            this.personID = personID;
         }
 
         private void frmCart_Load(object sender, EventArgs e)
@@ -324,10 +326,20 @@ namespace SummitSportsApp
                         {
                             tbxDiscount.ForeColor = Color.Crimson;
                             cartDiscount = null;
+                            ReloadDiscount();
                         }
                     }
                 }
+                if (cartDiscount != null)
+                    tbxDiscount.Text = cartDiscount.discountCode;
             }
+        }
+
+        public void CreateOrder()
+        {
+            Order order = new Order(personID, inventoryIDs, quantities, cartDiscount, lblDiscount.Text, lblDiscountedTotal.Text, lblTax.Text, lblTotal.Text);
+            clsHTML.ClearReport();
+            clsHTML.PrintReport(clsHTML.GenerateReport(order));
         }
     }
 }

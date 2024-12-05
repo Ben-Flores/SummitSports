@@ -64,7 +64,8 @@ namespace SummitSportsApp
         {
             if (clsValidation.ValidateCheckout(tbxCard.Text, tbxCCV.Text, tbxDate.Text, lblError))
             {
-                MessageBox.Show("Complete");
+                parentForm.CreateOrder();
+                this.Close();
             }
         }
     }
