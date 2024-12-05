@@ -92,6 +92,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCart.resx">
+      <DependentUpon>frmCart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNewPassword.resx">
       <DependentUpon>frmNewPassword.cs</DependentUpon>
     </EmbeddedResource>

@@ -107,7 +107,7 @@ namespace SummitSportsApp
         private void btnReset_Click(object sender, EventArgs e)
         {
             tbxSearch.Text = "";
-            for (int i = 1; i < clbCategories.Items.Count; i++)
+            for (int i = 0; i < clbCategories.Items.Count; i++)
             {
                 clbCategories.SetItemChecked(i, true);
             }
@@ -153,11 +153,13 @@ namespace SummitSportsApp
                         if (frmCart.InventoryIDs[i] == id)
                         {
                             lblCartQty.Text = frmCart.Quantities[i].ToString();
+                            btnRemove.Enabled = true;
                             break;
                         }
                         if (i == frmCart.InventoryIDs.Count - 1)
                         {
                             lblCartQty.Text = "0";
+                            btnRemove.Enabled = false;
                         }
                     }
                 }
@@ -173,6 +175,7 @@ namespace SummitSportsApp
                 lblCartQty.Text = "";
                 pbxItem.Image = Resources.iconNormal;
                 btnAdd.Enabled = false;
+                btnRemove.Enabled = false;
             }
         }
 
@@ -225,7 +228,60 @@ namespace SummitSportsApp
                 }
             }
 
-             lblCartItems.Text = frmCart.InventoryIDs.Count.ToString();
+            lblCartItems.Text = frmCart.InventoryIDs.Count.ToString();
+
+            btnRemove.Enabled = true;
+            btnCart.Enabled = true;
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            int id = (int)dgvItems.SelectedRows[0].Cells["InventoryID"].Value;
+
+            for (int i = 0; i < frmCart.InventoryIDs.Count; i++)
+            {
+                if (frmCart.InventoryIDs[i] == id)
+                {
+                    DataRow[] result = clsSQL.DataTable.Select("InventoryID = " + id);
+                    result[0]["Quantity"] = (int)result[0]["Quantity"] + frmCart.Quantities[i];
+                    frmCart.InventoryIDs.RemoveAt(i);
+                    frmCart.Quantities.RemoveAt(i);
+                    break;
+                }
+            }
+
+            lblCartQty.Text = "0";
+            btnRemove.Enabled = false;
+
+            if (frmCart.InventoryIDs.Count < 1)
+            {
+                lblCartItems.Text = "0";
+                btnCart.Enabled = false;
+            }
+            else
+            {
+                lblCartItems.Text = frmCart.InventoryIDs.Count.ToString();
+            }
+        }
+
+        private void btnCart_Click(object sender, EventArgs e)
+        {
+            dgvItems.ClearSelection();
+            frmCart frmCart = new frmCart(this);
+            frmCart.ShowDialog();
+        }
+
+        public void ReloadCartItems()
+        {
+            if (frmCart.InventoryIDs.Count < 1)
+            {
+                lblCartItems.Text = "0";
+                btnCart.Enabled = false;
+            }
+            else
+            {
+                lblCartItems.Text = frmCart.InventoryIDs.Count.ToString();
+            }
         }
     }
 }

@@ -226,6 +226,7 @@
             this.btnCart.TabIndex = 9;
             this.btnCart.Text = "Go to Cart ▶";
             this.btnCart.UseVisualStyleBackColor = true;
+            this.btnCart.Click += new System.EventHandler(this.btnCart_Click);
             // 
             // btnAdd
             // 
@@ -249,6 +250,7 @@
             this.btnRemove.TabIndex = 8;
             this.btnRemove.Text = "Remove from Cart";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // lblItemName
             // 
