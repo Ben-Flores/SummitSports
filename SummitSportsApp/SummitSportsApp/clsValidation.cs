@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -472,6 +473,169 @@ namespace SummitSportsApp
                 return true;
             }
         }
+        #endregion
+
+        #region frmCheckout
+
+        public static void ValidateCard(KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+            }
+        }
+
+        public static void ValidateCCV(KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+            }
+        }
+
+        public static void ValidateDate(KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+            }
+        }
+
+        public static void FormatCard(object sender)
+        {
+            string stripped = Regex.Replace(((TextBox)sender).Text, "[^0-9]", "");
+            if (stripped.Length > 12)
+            {
+                ((TextBox)sender).Text = stripped.Substring(0, 4) + "-" + stripped.Substring(4, 4) + "-" + stripped.Substring(8, 4) + "-" + stripped.Substring(12);
+                if (((TextBox)sender).Text.Length > 19)
+                    ((TextBox)sender).Text = ((TextBox)sender).Text.Substring(0, 19);
+                ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
+            }
+            else if (stripped.Length > 8)
+            {
+                ((TextBox)sender).Text = stripped.Substring(0, 4) + "-" + stripped.Substring(4, 4) + "-" + stripped.Substring(8);
+                ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
+            }
+            else if (stripped.Length > 4)
+            {
+                ((TextBox)sender).Text = stripped.Substring(0, 4) + "-" + stripped.Substring(4);
+                ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
+            }
+            else
+            {
+                ((TextBox)sender).Text = stripped;
+                ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
+            }
+        }
+
+        public static void FormatDate(object sender)
+        {
+            string stripped = Regex.Replace(((TextBox)sender).Text, "[^0-9]", "");
+            if (stripped.Length > 2)
+            {
+                ((TextBox)sender).Text = stripped.Insert(2, "/");
+                if (((TextBox)sender).Text.Length > 5)
+                    ((TextBox)sender).Text = ((TextBox)sender).Text.Substring(0, 5);
+                ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
+            }
+            else
+            {
+                ((TextBox)sender).Text = stripped;
+                ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
+            }
+        }
+
+        public static void ValidateCardFormat(object sender, Label label)
+        {
+            if (((TextBox)sender).Text.Length == 19)
+            {
+                label.ForeColor = System.Drawing.Color.Black;
+            }
+            else
+            {
+                label.ForeColor = System.Drawing.Color.Crimson;
+            }
+        }
+
+        public static void ValidateCCVFormat(object sender, Label label)
+        {
+            if (((TextBox)sender).Text.Length == 3)
+            {
+                label.ForeColor = System.Drawing.Color.Black;
+            }
+            else
+            {
+                label.ForeColor = System.Drawing.Color.Crimson;
+            }
+        }
+
+        public static void ValidateDateFormat(object sender, Label label)
+        {
+            if (((TextBox)sender).Text.Length == 5)
+            {
+                label.ForeColor = System.Drawing.Color.Black;
+            }
+            else
+            {
+                label.ForeColor = System.Drawing.Color.Crimson;
+            }
+        }
+
+        public static bool ValidateCheckout(string card, string ccv, string date, Label errorLabel)
+        {
+
+
+            if (card.Length != 19)
+            {
+                errorLabel.Text = "Please enter a valid card number.";
+                return false;
+            }
+            else if (ccv.Length != 3)
+            {
+                errorLabel.Text = "Please enter a valid CCV.";
+                return false;
+            }
+            else if (date.Length != 5)
+            {
+                errorLabel.Text = "Please enter a valid expiration date.";
+                return false;
+            }
+            else {
+                DateTime cardDate = DateTime.ParseExact(date, "M/yy", CultureInfo.InvariantCulture);
+                DateTime nowDate = DateTime.ParseExact((DateTime.Now.ToString("MM") + "/" + DateTime.Now.ToString("yy")), "M/yy", CultureInfo.InvariantCulture);
+                DateTime validDate = nowDate.AddYears(5);
+                if (cardDate < nowDate) // expired
+                {
+                    errorLabel.Text = "Card Expired. Please enter a valid card.";
+                    return false;
+                }
+                else if (cardDate > validDate)
+                {
+                    errorLabel.Text = "Card Expiration Date Invalid. Please enter a valid card.";
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+
         #endregion
     }
 }

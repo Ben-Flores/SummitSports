@@ -131,11 +131,19 @@ namespace SummitSportsApp
                     lblRetailPrice.Text = ((decimal)row["RetailPrice"]).ToString("C");
                     lblTotalPrice.Text = ((decimal)row["RetailPrice"]).ToString("C");
                     cbxQuantity.Items.Clear();
-                    for (int i = 1; i <= (int)row["Quantity"]; i++)
+                    if ((int)row["Quantity"] < 1)
                     {
-                        cbxQuantity.Items.Add(i.ToString());
+                        btnAdd.Enabled = false;
                     }
-                    cbxQuantity.SelectedIndex = 0;
+                    else
+                    {
+                        for (int i = 1; i <= (int)row["Quantity"]; i++)
+                        {
+                            cbxQuantity.Items.Add(i.ToString());
+                        }
+                        cbxQuantity.SelectedIndex = 0;
+                        btnAdd.Enabled = true;
+                    }
                     using (MemoryStream ms = new MemoryStream((byte[])row["ItemImage"]))
                     {
                         Image image = Image.FromStream(ms);
@@ -163,7 +171,6 @@ namespace SummitSportsApp
                         }
                     }
                 }
-                btnAdd.Enabled = true;
             }
             else
             {
@@ -214,6 +221,20 @@ namespace SummitSportsApp
 
             DataRow[] result = clsSQL.DataTable.Select("InventoryID = " + id);
             result[0]["Quantity"] = (int)result[0]["Quantity"] - qty;
+            cbxQuantity.Items.Clear();
+            if ((int)result[0]["Quantity"] < 1)
+            {
+                btnAdd.Enabled = false;
+            }
+            else
+            {
+                for (int i = 1; i <= (int)result[0]["Quantity"]; i++)
+                {
+                    cbxQuantity.Items.Add(i.ToString());
+                }
+                cbxQuantity.SelectedIndex = 0;
+                btnAdd.Enabled = true;
+            }
 
             for (int i = 0; i < frmCart.InventoryIDs.Count; i++)
             {
@@ -244,6 +265,20 @@ namespace SummitSportsApp
                 {
                     DataRow[] result = clsSQL.DataTable.Select("InventoryID = " + id);
                     result[0]["Quantity"] = (int)result[0]["Quantity"] + frmCart.Quantities[i];
+                    cbxQuantity.Items.Clear();
+                    if ((int)result[0]["Quantity"] < 1)
+                    {
+                        btnAdd.Enabled = false;
+                    }
+                    else
+                    {
+                        for (int j = 1; j <= (int)result[0]["Quantity"]; j++)
+                        {
+                            cbxQuantity.Items.Add(j.ToString());
+                        }
+                        cbxQuantity.SelectedIndex = 0;
+                        btnAdd.Enabled = true;
+                    }
                     frmCart.InventoryIDs.RemoveAt(i);
                     frmCart.Quantities.RemoveAt(i);
                     break;

@@ -181,7 +181,8 @@ namespace SummitSportsApp
 
         private void btnCheckout_Click(object sender, EventArgs e)
         {
-
+            frmCheckout frmCheckout = new frmCheckout(this);
+            frmCheckout.ShowDialog();
         }
 
         private void btnDiscount_Click(object sender, EventArgs e)
