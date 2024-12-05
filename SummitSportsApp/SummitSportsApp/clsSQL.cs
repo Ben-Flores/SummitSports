@@ -432,8 +432,11 @@ namespace SummitSportsApp
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    return reader.GetString(0) + " " + reader.GetString(1);
+                    string fullName = reader.GetString(0) + " " + reader.GetString(1);
+                    reader.Close();
+                    return fullName;
                 }
+                reader.Close();
                 return "";
             }
             catch (Exception ex)

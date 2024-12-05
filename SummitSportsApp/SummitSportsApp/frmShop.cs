@@ -320,5 +320,12 @@ namespace SummitSportsApp
                 lblCartItems.Text = frmCart.InventoryIDs.Count.ToString();
             }
         }
+
+        public void ResetShop()
+        {
+            clsSQL.GetCustomerInventory(dgvItems, clbCategories, this);
+            dgvItems.ClearSelection();
+            ReloadCartItems();
+        }
     }
 }

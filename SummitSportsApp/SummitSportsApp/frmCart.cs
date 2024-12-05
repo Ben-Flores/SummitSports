@@ -348,6 +348,13 @@ namespace SummitSportsApp
                     {
                         clsHTML.ClearReport();
                         clsHTML.PrintReport(clsHTML.GenerateReport(order, orderID));
+
+                        inventoryIDs.Clear();
+                        quantities.Clear();
+                        cartDiscount = null;
+                        potentialCartDiscount = null;
+                        parentForm.ResetShop();
+                        this.Close();
                     }
                 }
             }
