@@ -40,6 +40,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnCheckout = new System.Windows.Forms.Button();
             this.lblError = new System.Windows.Forms.Label();
+            this.hlpHelp = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
             // lblCheckout
@@ -60,7 +61,7 @@
             this.lblCard.ForeColor = System.Drawing.Color.Crimson;
             this.lblCard.Location = new System.Drawing.Point(98, 141);
             this.lblCard.Name = "lblCard";
-            this.lblCard.Size = new System.Drawing.Size(218, 36);
+            this.lblCard.Size = new System.Drawing.Size(276, 46);
             this.lblCard.TabIndex = 7;
             this.lblCard.Text = "Card Number";
             // 
@@ -72,7 +73,7 @@
             this.lblDate.ForeColor = System.Drawing.Color.Crimson;
             this.lblDate.Location = new System.Drawing.Point(259, 239);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(158, 36);
+            this.lblDate.Size = new System.Drawing.Size(199, 46);
             this.lblDate.TabIndex = 8;
             this.lblDate.Text = "Exp. Date";
             // 
@@ -84,7 +85,7 @@
             this.lblCCV.ForeColor = System.Drawing.Color.Crimson;
             this.lblCCV.Location = new System.Drawing.Point(98, 239);
             this.lblCCV.Name = "lblCCV";
-            this.lblCCV.Size = new System.Drawing.Size(86, 36);
+            this.lblCCV.Size = new System.Drawing.Size(108, 46);
             this.lblCCV.TabIndex = 9;
             this.lblCCV.Text = "CCV";
             // 
@@ -94,7 +95,7 @@
             this.tbxCard.Location = new System.Drawing.Point(98, 180);
             this.tbxCard.MaxLength = 19;
             this.tbxCard.Name = "tbxCard";
-            this.tbxCard.Size = new System.Drawing.Size(319, 45);
+            this.tbxCard.Size = new System.Drawing.Size(319, 54);
             this.tbxCard.TabIndex = 10;
             this.tbxCard.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxCard_KeyPress);
             this.tbxCard.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxCard_KeyUp);
@@ -105,7 +106,7 @@
             this.tbxCCV.Location = new System.Drawing.Point(98, 278);
             this.tbxCCV.MaxLength = 3;
             this.tbxCCV.Name = "tbxCCV";
-            this.tbxCCV.Size = new System.Drawing.Size(86, 45);
+            this.tbxCCV.Size = new System.Drawing.Size(86, 54);
             this.tbxCCV.TabIndex = 11;
             this.tbxCCV.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbxCCV.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxCCV_KeyPress);
@@ -117,7 +118,7 @@
             this.tbxDate.Location = new System.Drawing.Point(259, 278);
             this.tbxDate.MaxLength = 5;
             this.tbxDate.Name = "tbxDate";
-            this.tbxDate.Size = new System.Drawing.Size(158, 45);
+            this.tbxDate.Size = new System.Drawing.Size(158, 54);
             this.tbxDate.TabIndex = 12;
             this.tbxDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbxDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxDate_KeyPress);
@@ -134,6 +135,7 @@
             this.btnHelp.TabStop = false;
             this.btnHelp.Text = "Help";
             this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // btnCancel
             // 
@@ -166,6 +168,10 @@
             this.lblError.Size = new System.Drawing.Size(486, 30);
             this.lblError.TabIndex = 18;
             this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // hlpHelp
+            // 
+            this.hlpHelp.HelpNamespace = "SummitSportsHelp.chm";
             // 
             // frmCheckout
             // 
@@ -209,5 +215,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnCheckout;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.HelpProvider hlpHelp;
     }
 }

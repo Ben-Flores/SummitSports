@@ -49,6 +49,7 @@
             this.btnHelp = new System.Windows.Forms.Button();
             this.tbxDiscount = new System.Windows.Forms.TextBox();
             this.btnDiscount = new System.Windows.Forms.Button();
+            this.hlpHelp = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +60,7 @@
             this.lblCart.Font = new System.Drawing.Font("Rockwell", 36F);
             this.lblCart.Location = new System.Drawing.Point(12, 9);
             this.lblCart.Name = "lblCart";
-            this.lblCart.Size = new System.Drawing.Size(250, 54);
+            this.lblCart.Size = new System.Drawing.Size(315, 68);
             this.lblCart.TabIndex = 10;
             this.lblCart.Text = "Your Cart:";
             // 
@@ -70,7 +71,7 @@
             this.lblSubtotalTitle.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSubtotalTitle.Location = new System.Drawing.Point(12, 461);
             this.lblSubtotalTitle.Name = "lblSubtotalTitle";
-            this.lblSubtotalTitle.Size = new System.Drawing.Size(143, 36);
+            this.lblSubtotalTitle.Size = new System.Drawing.Size(182, 46);
             this.lblSubtotalTitle.TabIndex = 12;
             this.lblSubtotalTitle.Text = "Subtotal:";
             // 
@@ -81,7 +82,7 @@
             this.lblTaxTitle.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTaxTitle.Location = new System.Drawing.Point(12, 599);
             this.lblTaxTitle.Name = "lblTaxTitle";
-            this.lblTaxTitle.Size = new System.Drawing.Size(200, 36);
+            this.lblTaxTitle.Size = new System.Drawing.Size(255, 46);
             this.lblTaxTitle.TabIndex = 13;
             this.lblTaxTitle.Text = "Tax (8.25%):";
             // 
@@ -92,7 +93,7 @@
             this.lblTotalTitle.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalTitle.Location = new System.Drawing.Point(12, 645);
             this.lblTotalTitle.Name = "lblTotalTitle";
-            this.lblTotalTitle.Size = new System.Drawing.Size(162, 36);
+            this.lblTotalTitle.Size = new System.Drawing.Size(208, 46);
             this.lblTotalTitle.TabIndex = 14;
             this.lblTotalTitle.Text = "Total Due:";
             // 
@@ -136,7 +137,7 @@
             this.lblDiscountTitle.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDiscountTitle.Location = new System.Drawing.Point(12, 507);
             this.lblDiscountTitle.Name = "lblDiscountTitle";
-            this.lblDiscountTitle.Size = new System.Drawing.Size(151, 36);
+            this.lblDiscountTitle.Size = new System.Drawing.Size(193, 46);
             this.lblDiscountTitle.TabIndex = 18;
             this.lblDiscountTitle.Text = "Discount:";
             // 
@@ -147,7 +148,7 @@
             this.lblDiscountedTotalTitle.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDiscountedTotalTitle.Location = new System.Drawing.Point(12, 553);
             this.lblDiscountedTotalTitle.Name = "lblDiscountedTotalTitle";
-            this.lblDiscountedTotalTitle.Size = new System.Drawing.Size(316, 36);
+            this.lblDiscountedTotalTitle.Size = new System.Drawing.Size(401, 46);
             this.lblDiscountedTotalTitle.TabIndex = 19;
             this.lblDiscountedTotalTitle.Text = "Discounted Subtotal:";
             // 
@@ -257,13 +258,14 @@
             this.btnHelp.TabStop = false;
             this.btnHelp.Text = "Help";
             this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // tbxDiscount
             // 
             this.tbxDiscount.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxDiscount.Location = new System.Drawing.Point(12, 711);
             this.tbxDiscount.Name = "tbxDiscount";
-            this.tbxDiscount.Size = new System.Drawing.Size(228, 45);
+            this.tbxDiscount.Size = new System.Drawing.Size(228, 54);
             this.tbxDiscount.TabIndex = 27;
             this.tbxDiscount.TextChanged += new System.EventHandler(this.tbxDiscount_TextChanged);
             // 
@@ -279,9 +281,13 @@
             this.btnDiscount.UseVisualStyleBackColor = true;
             this.btnDiscount.Click += new System.EventHandler(this.btnDiscount_Click);
             // 
+            // hlpHelp
+            // 
+            this.hlpHelp.HelpNamespace = "SummitSportsHelp.chm";
+            // 
             // frmCart
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 35F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(984, 771);
@@ -340,5 +346,6 @@
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.TextBox tbxDiscount;
         private System.Windows.Forms.Button btnDiscount;
+        private System.Windows.Forms.HelpProvider hlpHelp;
     }
 }

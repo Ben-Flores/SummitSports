@@ -63,6 +63,7 @@
             this.lblCartQty = new System.Windows.Forms.Label();
             this.lblGuest = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
+            this.hlpHelp = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxItem)).BeginInit();
@@ -215,6 +216,7 @@
             this.btnHelp.TabStop = false;
             this.btnHelp.Text = "Help";
             this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // btnCart
             // 
@@ -430,6 +432,10 @@
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // hlpHelp
+            // 
+            this.hlpHelp.HelpNamespace = "SummitSportsHelp.chm";
+            // 
             // frmShop
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -512,5 +518,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn retailPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryName;
+        private System.Windows.Forms.HelpProvider hlpHelp;
     }
 }
