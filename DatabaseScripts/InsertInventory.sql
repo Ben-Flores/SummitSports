@@ -57,3 +57,9 @@ VALUES
 ('Dakine Heli Pro 20L Backpack', 'Compact, feature-rich backpack with storage for avalanche gear and hydration systems.', 107, 120, 90, 20, 10);
 GO
 
+INSERT INTO bfloresFA24.Discounts
+(DiscountCode, Description, DiscountLevel, InventoryID, DiscountType, DiscountPercentage, DiscountDollarAmount, ExpirationDate)
+VALUES
+('WELCOME', '10% off entire purchase for new customers.', 0, null, 0, 0.1, null, '2025-03-10'),
+('BURTONBOON', '$100 off the 2025 Burton Custom X Snowboard.', 1, 105, 1, null, 100, '2025-02-28');
+GO

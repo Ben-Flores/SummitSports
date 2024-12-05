@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace SummitSportsApp
 {
-    internal class clsCategory
+    internal class Category
     {
         public int categoryID;
         public string categoryName;
 
-        public clsCategory(int categoryID, string categoryName)
+        public Category(int categoryID, string categoryName)
         {
             this.categoryID = categoryID;
             this.categoryName = categoryName;

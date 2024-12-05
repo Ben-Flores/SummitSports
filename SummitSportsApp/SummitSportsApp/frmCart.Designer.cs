@@ -264,15 +264,17 @@
             this.tbxDiscount.Location = new System.Drawing.Point(12, 711);
             this.tbxDiscount.Name = "tbxDiscount";
             this.tbxDiscount.Size = new System.Drawing.Size(228, 45);
-            this.tbxDiscount.TabIndex = 5;
+            this.tbxDiscount.TabIndex = 27;
+            this.tbxDiscount.TextChanged += new System.EventHandler(this.tbxDiscount_TextChanged);
             // 
             // btnDiscount
             // 
+            this.btnDiscount.Enabled = false;
             this.btnDiscount.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnDiscount.Location = new System.Drawing.Point(246, 709);
             this.btnDiscount.Name = "btnDiscount";
             this.btnDiscount.Size = new System.Drawing.Size(274, 50);
-            this.btnDiscount.TabIndex = 6;
+            this.btnDiscount.TabIndex = 28;
             this.btnDiscount.Text = "Apply Discount Code";
             this.btnDiscount.UseVisualStyleBackColor = true;
             this.btnDiscount.Click += new System.EventHandler(this.btnDiscount_Click);

@@ -314,8 +314,8 @@ namespace SummitSportsApp
 
         #region customer
 
-        private static List<clsCategory> categoriesList = new List<clsCategory>();
-        public static List<clsCategory> CategoriesList
+        private static List<Category> categoriesList = new List<Category>();
+        public static List<Category> CategoriesList
         {
             get { return categoriesList; }
         }
@@ -356,9 +356,9 @@ namespace SummitSportsApp
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    categoriesList.Add(new clsCategory(reader.GetInt32(0), reader.GetString(1)));
+                    categoriesList.Add(new Category(reader.GetInt32(0), reader.GetString(1)));
                 }
-                foreach (clsCategory category in categoriesList)
+                foreach (Category category in categoriesList)
                 {
                     clb.Items.Add(category.categoryName);
                     clb.SetItemChecked(clb.Items.Count  - 1, true);
@@ -369,6 +369,57 @@ namespace SummitSportsApp
             {
                 Debug.WriteLine(ex.Message);
                 throw ex;
+            }
+        }
+
+        public static bool FindDiscount(TextBox codeBox, ref Discount discount)
+        {
+            try
+            {
+                command = new SqlCommand("Select DiscountID, DiscountCode, DiscountLevel, InventoryID, DiscountType, DiscountPercentage, DiscountDollarAmount, ExpirationDate From " + SCHEMA_NAME + "Discounts Where DiscountCode = '" + codeBox.Text.ToUpper() + "';", connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (!reader.HasRows)
+                {
+                    codeBox.ForeColor = System.Drawing.Color.Crimson;
+                    reader.Close();
+                    return false;
+                }
+                else
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.GetDateTime(7) < DateTime.Now.Date) // expired?
+                        {
+                            codeBox.ForeColor = System.Drawing.Color.Crimson;
+                            reader.Close();
+                            return false;
+                        }
+                        else
+                        {
+                            discount = new Discount();
+                            discount.discountID = reader.GetInt32(0);
+                            discount.discountCode = reader.GetString(1);
+                            discount.discountLevel = reader.GetInt32(2);
+                            if (reader[3] != DBNull.Value)
+                                discount.inventoryID = reader.GetInt32(3);
+                            discount.discountType = reader.GetInt32(4);
+                            if (reader[5] != DBNull.Value)
+                                discount.discountPercentage = reader.GetDecimal(5);
+                            if (reader[6] != DBNull.Value)
+                                discount.discountDollarAmount = reader.GetDecimal(6);
+                            reader.Close();
+                            return true;
+                        }
+                    }
+                }
+                reader.Close();
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to get discount codes.\nSorry, please try again later.", "Discount Code Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
 
