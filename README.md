@@ -89,7 +89,7 @@ removing this dependency and making Summit Stash a completely self-contained app
 ### Videos [Must Update your video entries below and add a URL for the specific topic that goes to the Google Drive video file]
 - [Project Proposal](https://drive.google.com/file/d/1utJegFIySdBUF6f2GmcHxY4Y3QpMuwuE/view?usp=drive_link)
 - [Logon View](https://drive.google.com/file/d/1qFJURytfA_JeA3xAkaZmNX_Bl7R7FxZ7/view?usp=drive_link)
-- Customer View [Must Update with URL at each Pull Request approval]
+- [Customer View](https://drive.google.com/file/d/1F8mdR-HIVLd5HmDEeX7ytd4ST9r6nNAD/view?usp=drive_link)
 - Manager View [Must Update with URL at each Pull Request approval]
 - Video Resume [Must Update with URL at each Pull Request approval]
 - Final Client Demonstration Video [Must Update with URL at each Pull Request approval]
