@@ -30,7 +30,7 @@ namespace SummitSportsApp
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            if (clsValidation.ValidateReset(tbxPassword, tbxConfirm))
+            if (clsValidation.ValidateReset(tbxPassword, tbxConfirm, lblError))
             {
                 clsSQL.ResetPassword(user, tbxPassword.Text, this);
             }
@@ -38,11 +38,13 @@ namespace SummitSportsApp
 
         private void tbxPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
+            lblError.Text = "";
             clsValidation.ValidatePass(e);
         }
 
         private void tbxConfirm_KeyPress(object sender, KeyPressEventArgs e)
         {
+            lblError.Text = "";
             clsValidation.ValidatePass(e);
         }
 

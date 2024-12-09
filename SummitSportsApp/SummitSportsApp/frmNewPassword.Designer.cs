@@ -34,6 +34,7 @@
             this.tbxPassword = new System.Windows.Forms.TextBox();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnPeek = new System.Windows.Forms.Button();
+            this.lblError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblConfirm
@@ -44,7 +45,7 @@
             this.lblConfirm.ForeColor = System.Drawing.Color.Crimson;
             this.lblConfirm.Location = new System.Drawing.Point(20, 112);
             this.lblConfirm.Name = "lblConfirm";
-            this.lblConfirm.Size = new System.Drawing.Size(349, 35);
+            this.lblConfirm.Size = new System.Drawing.Size(279, 27);
             this.lblConfirm.TabIndex = 8;
             this.lblConfirm.Text = "Confirm New Password:";
             // 
@@ -56,7 +57,7 @@
             this.tbxConfirm.Name = "tbxConfirm";
             this.tbxConfirm.PasswordChar = '●';
             this.tbxConfirm.ShortcutsEnabled = false;
-            this.tbxConfirm.Size = new System.Drawing.Size(500, 43);
+            this.tbxConfirm.Size = new System.Drawing.Size(500, 36);
             this.tbxConfirm.TabIndex = 7;
             this.tbxConfirm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxConfirm_KeyPress);
             this.tbxConfirm.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxConfirm_KeyUp);
@@ -69,7 +70,7 @@
             this.lblPassword.ForeColor = System.Drawing.Color.Crimson;
             this.lblPassword.Location = new System.Drawing.Point(20, 20);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(227, 35);
+            this.lblPassword.Size = new System.Drawing.Size(182, 27);
             this.lblPassword.TabIndex = 6;
             this.lblPassword.Text = "New Password:";
             // 
@@ -81,7 +82,7 @@
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.PasswordChar = '●';
             this.tbxPassword.ShortcutsEnabled = false;
-            this.tbxPassword.Size = new System.Drawing.Size(500, 43);
+            this.tbxPassword.Size = new System.Drawing.Size(500, 36);
             this.tbxPassword.TabIndex = 5;
             this.tbxPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxPassword_KeyPress);
             this.tbxPassword.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxPassword_KeyUp);
@@ -108,13 +109,23 @@
             this.btnPeek.UseVisualStyleBackColor = true;
             this.btnPeek.Click += new System.EventHandler(this.btnPeek_Click);
             // 
+            // lblError
+            // 
+            this.lblError.BackColor = System.Drawing.Color.Transparent;
+            this.lblError.ForeColor = System.Drawing.Color.Crimson;
+            this.lblError.Location = new System.Drawing.Point(20, 210);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(244, 63);
+            this.lblError.TabIndex = 16;
+            // 
             // frmNewPassword
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 35F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(582, 303);
             this.ControlBox = false;
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.btnPeek);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.lblConfirm);
@@ -141,5 +152,6 @@
         private System.Windows.Forms.TextBox tbxPassword;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnPeek;
+        private System.Windows.Forms.Label lblError;
     }
 }

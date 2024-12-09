@@ -49,6 +49,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Discount.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="clsHTML.cs" />
+    <Compile Include="frmCheckout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCheckout.Designer.cs">
+      <DependentUpon>frmCheckout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCart.Designer.cs">
+      <DependentUpon>frmCart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmShop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShop.Designer.cs">
+      <DependentUpon>frmShop.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNewPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +100,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCart.resx">
+      <DependentUpon>frmCart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCheckout.resx">
+      <DependentUpon>frmCheckout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNewPassword.resx">
       <DependentUpon>frmNewPassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReset.resx">
       <DependentUpon>frmReset.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShop.resx">
+      <DependentUpon>frmShop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -124,6 +155,8 @@
     <None Include="images\bgLogon43.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\cart.png" />
+    <None Include="Resources\iconNormal.png" />
     <Content Include="sslogo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

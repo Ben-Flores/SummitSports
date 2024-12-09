@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -11,17 +12,22 @@ namespace SummitSportsApp
 {
     internal class clsValidation
     {
+        static Label errorLabel;
+
         #region frmLogon
-        public static bool ValidateLogonFilled(string user, string pass, bool verifyPass)
+        public static bool ValidateLogonFilled(string user, string pass, bool verifyPass, Label lblError)
         {
+            errorLabel = lblError;
             if (user == "")
             {
-                MessageBox.Show("Please enter your username.", "Username Required", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                errorLabel.Text = "Please enter your username.";
+                // MessageBox.Show("Please enter your username.", "Username Required", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             else if (verifyPass && pass == "")
             {
-                MessageBox.Show("Please enter your password.", "Password Required", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                errorLabel.Text = "Please enter your password.";
+                // MessageBox.Show("Please enter your password.", "Password Required", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             else
@@ -35,8 +41,9 @@ namespace SummitSportsApp
         /*
          * FORM SUBMISSION VALIDATION
          */
-        public static bool ValidatePersonalInfo(TextBox fName, TextBox lName, TextBox addy, TextBox city, TextBox state, TextBox zip, TextBox email, TextBox phone1, TextBox phone2)
+        public static bool ValidatePersonalInfo(TextBox fName, TextBox lName, TextBox addy, TextBox city, TextBox state, TextBox zip, TextBox email, TextBox phone1, TextBox phone2, Label lblError)
         {
+            errorLabel = lblError;
             // Trim all textboxes
             fName.Text = fName.Text.Trim();
             lName.Text = lName.Text.Trim();
@@ -50,55 +57,64 @@ namespace SummitSportsApp
 
             if (fName.Text.Length == 0)
             {
-                MessageBox.Show("Please enter your first name.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lblError.Text = "Please enter your first name.";
+                //MessageBox.Show("Please enter your first name.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 fName.Focus();
                 return false;
             }
             else if (lName.Text.Length == 0)
             {
-                MessageBox.Show("Please enter your last name.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lblError.Text = "Please enter your last name.";
+                //MessageBox.Show("Please enter your last name.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 lName.Focus();
                 return false;
             }
             else if (addy.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Please enter your address.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lblError.Text = "Please enter your address.";
+                //MessageBox.Show("Please enter your address.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 addy.Focus();
                 return false;
             }
             else if (city.Text.Length == 0)
             {
-                MessageBox.Show("Please enter your city.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lblError.Text = "Please enter your city.";
+                //MessageBox.Show("Please enter your city.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 city.Focus();
                 return false;
             }
             else if (state.Text.Length != 2)
             {
-                MessageBox.Show("Please enter a valid state.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lblError.Text = "Please enter a valid state.";
+                //MessageBox.Show("Please enter a valid state.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 state.Focus();
                 return false;
             }
             else if (zip.Text.Length != 5 && zip.Text.Length != 10)
             {
-                MessageBox.Show("Please enter a valid ZIP code.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lblError.Text = "Please enter a valid ZIP code.";
+                //MessageBox.Show("Please enter a valid ZIP code.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 zip.Focus();
                 return false;
             }
             else if (email.Text.Length != 0 && !Regex.Match(email.Text, @"^(?!.*\.\.)[A-Z0-9](?:[A-Z0-9._%+-]*[A-Z0-9])?@[A-Z0-9](?:[A-Z0-9.-]*[A-Z0-9])?\.[A-Z]{2,}$", RegexOptions.IgnoreCase).Success)
             {
-                MessageBox.Show("Please enter a valid email (or none at all).", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lblError.Text = "Please enter a valid email.";
+                //MessageBox.Show("Please enter a valid email (or none at all).", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 email.Focus();
                 return false;
             }
             else if (phone1.Text.Length != 0 && phone1.Text.Length != 14)
             {
-                MessageBox.Show("Please enter a valid primary phone (or none at all).", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lblError.Text = "Please enter a valid primary phone.";
+                //MessageBox.Show("Please enter a valid primary phone (or none at all).", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 phone1.Focus();
                 return false;
             }
             else if (phone2.Text.Length != 0 && phone2.Text.Length != 14)
             {
-                MessageBox.Show("Please enter a valid secondary phone (or none at all).", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                lblError.Text = "Please enter a valid secondary phone.";
+                //MessageBox.Show("Please enter a valid secondary phone (or none at all).", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 phone2.Focus();
                 return false;
             }
@@ -108,29 +124,35 @@ namespace SummitSportsApp
             }
         }
 
-        public static bool ValidateCredentials(TextBox user, TextBox pass, TextBox conf)
+        public static bool ValidateCredentials(TextBox user, TextBox pass, TextBox conf, Label lblError)
         {
+            int x = 0;
+            errorLabel = lblError;
             if (user.Text.Length < 8 || char.IsDigit(user.Text[0]))
             {
-                MessageBox.Show("Please enter a valid username.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorLabel.Text = "Please enter a valid username.";
+                //MessageBox.Show("Please enter a valid username.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 user.Focus();
                 return false;
             }
-            else if (clsSQL.VerifyUser(user.Text, "checkUnique", false) != 0)
+            else if (clsSQL.VerifyUser(user.Text, "checkUnique", false, errorLabel, ref x) != 0)
             {
-                MessageBox.Show("That username is already taken.\nSorry, please enter a different username.", "Username Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorLabel.Text = "Username is taken. Please use a different one.";
+                //MessageBox.Show("That username is already taken.\nSorry, please enter a different username.", "Username Unavailable", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 user.Focus();
                 return false;
             }
             else if (pass.Text.Length < 8 || CheckComplexity(pass.Text) < 3)
             {
-                MessageBox.Show("Please enter a valid password.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorLabel.Text = "Please enter a valid password.";
+                //MessageBox.Show("Please enter a valid password.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 pass.Focus();
                 return false;
             }
             else if (!(conf.Text == pass.Text))
             {
-                MessageBox.Show("Passwords do not match.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorLabel.Text = "Passwords do not match.";
+                //MessageBox.Show("Passwords do not match.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 conf.Focus();
                 return false;
             }
@@ -140,27 +162,32 @@ namespace SummitSportsApp
             }
         }
 
-        public static bool ValidateQuestions(TextBox question1, TextBox question2, TextBox question3)
+        public static bool ValidateQuestions(TextBox question1, TextBox question2, TextBox question3, Label lblError)
         {
+            errorLabel = lblError;
+
             question1.Text = question1.Text.Trim();
             question2.Text = question2.Text.Trim();
             question3.Text = question3.Text.Trim();
 
             if (question1.Text.Length == 0)
             {
-                MessageBox.Show("Please answer the first security question.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorLabel.Text = "Please answer the first question.";
+                //MessageBox.Show("Please answer the first security question.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 question1.Focus();
                 return false;
             }
             else if (question2.Text.Length == 0)
             {
-                MessageBox.Show("Please answer the second security question.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorLabel.Text = "Please answer the second question.";
+                //MessageBox.Show("Please answer the second security question.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 question2.Focus();
                 return false;
             }
             else if (question3.Text.Length == 0)
             {
-                MessageBox.Show("Please answer the third security question.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorLabel.Text = "Please answer the third question.";
+                //MessageBox.Show("Please answer the third security question.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 question3.Focus();
                 return false;
             }
@@ -425,17 +452,20 @@ namespace SummitSportsApp
                 return false;
         }
 
-        public static bool ValidateReset(TextBox pass, TextBox conf)
+        public static bool ValidateReset(TextBox pass, TextBox conf, Label lblError)
         {
+            errorLabel = lblError;
             if (pass.Text.Length < 8 || CheckComplexity(pass.Text) < 3)
             {
-                MessageBox.Show("Please enter a valid password.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorLabel.Text = "Please enter a valid password.";
+                //MessageBox.Show("Please enter a valid password.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 pass.Focus();
                 return false;
             }
             else if (!(conf.Text == pass.Text))
             {
-                MessageBox.Show("Passwords do not match.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorLabel.Text = "Passwords do not match.";
+                //MessageBox.Show("Passwords do not match.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 conf.Focus();
                 return false;
             }
@@ -444,6 +474,177 @@ namespace SummitSportsApp
                 return true;
             }
         }
+        #endregion
+
+        #region frmCheckout
+
+        public static void ValidateCard(KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+            }
+        }
+
+        public static void ValidateCCV(KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+            }
+        }
+
+        public static void ValidateDate(KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+            }
+        }
+
+        public static void FormatCard(object sender)
+        {
+            string stripped = Regex.Replace(((TextBox)sender).Text, "[^0-9]", "");
+            if (stripped.Length > 12)
+            {
+                ((TextBox)sender).Text = stripped.Substring(0, 4) + "-" + stripped.Substring(4, 4) + "-" + stripped.Substring(8, 4) + "-" + stripped.Substring(12);
+                if (((TextBox)sender).Text.Length > 19)
+                    ((TextBox)sender).Text = ((TextBox)sender).Text.Substring(0, 19);
+                ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
+            }
+            else if (stripped.Length > 8)
+            {
+                ((TextBox)sender).Text = stripped.Substring(0, 4) + "-" + stripped.Substring(4, 4) + "-" + stripped.Substring(8);
+                ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
+            }
+            else if (stripped.Length > 4)
+            {
+                ((TextBox)sender).Text = stripped.Substring(0, 4) + "-" + stripped.Substring(4);
+                ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
+            }
+            else
+            {
+                ((TextBox)sender).Text = stripped;
+                ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
+            }
+        }
+
+        public static void FormatDate(object sender)
+        {
+            string stripped = Regex.Replace(((TextBox)sender).Text, "[^0-9]", "");
+            if (stripped.Length > 2)
+            {
+                ((TextBox)sender).Text = stripped.Insert(2, "/");
+                if (((TextBox)sender).Text.Length > 5)
+                    ((TextBox)sender).Text = ((TextBox)sender).Text.Substring(0, 5);
+                ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
+            }
+            else
+            {
+                ((TextBox)sender).Text = stripped;
+                ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
+            }
+        }
+
+        public static void ValidateCardFormat(object sender, Label label)
+        {
+            if (((TextBox)sender).Text.Length == 19)
+            {
+                label.ForeColor = System.Drawing.Color.Black;
+            }
+            else
+            {
+                label.ForeColor = System.Drawing.Color.Crimson;
+            }
+        }
+
+        public static void ValidateCCVFormat(object sender, Label label)
+        {
+            if (((TextBox)sender).Text.Length == 3)
+            {
+                label.ForeColor = System.Drawing.Color.Black;
+            }
+            else
+            {
+                label.ForeColor = System.Drawing.Color.Crimson;
+            }
+        }
+
+        public static void ValidateDateFormat(object sender, Label label)
+        {
+            if (((TextBox)sender).Text.Length == 5)
+            {
+                label.ForeColor = System.Drawing.Color.Black;
+            }
+            else
+            {
+                label.ForeColor = System.Drawing.Color.Crimson;
+            }
+        }
+
+        public static bool ValidateCheckout(string card, string ccv, string date, Label errorLabel)
+        {
+
+
+            if (card.Length != 19)
+            {
+                errorLabel.Text = "Please enter a valid card number.";
+                return false;
+            }
+            else if (ccv.Length != 3)
+            {
+                errorLabel.Text = "Please enter a valid CCV.";
+                return false;
+            }
+            else if (date.Length != 5)
+            {
+                errorLabel.Text = "Please enter a valid expiration date.";
+                return false;
+            }
+            else {
+                try
+                {
+                    DateTime cardDate = DateTime.ParseExact(date, "M/yy", CultureInfo.InvariantCulture);
+                    DateTime nowDate = DateTime.ParseExact((DateTime.Now.ToString("MM") + "/" + DateTime.Now.ToString("yy")), "M/yy", CultureInfo.InvariantCulture);
+                    DateTime validDate = nowDate.AddYears(5);
+                    if (cardDate < nowDate) // expired
+                    {
+                        errorLabel.Text = "Card Expired. Please enter a valid card.";
+                        return false;
+                    }
+                    else if (cardDate > validDate)
+                    {
+                        errorLabel.Text = "Card Expiration Date Invalid. Please enter a valid card.";
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    errorLabel.Text = "Card Expiration Date Invalid. Please enter a valid card.";
+                    return false;
+                }
+            }
+        }
+
         #endregion
     }
 }

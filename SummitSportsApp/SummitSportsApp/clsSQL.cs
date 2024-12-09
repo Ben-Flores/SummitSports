@@ -68,14 +68,16 @@ namespace SummitSportsApp
             }
         }
 
-        public static int VerifyUser(string user, string pass, bool verifyPass)
+        #region logon
+
+        public static int VerifyUser(string user, string pass, bool verifyPass, Label lblError, ref int personID)
         {
             try
             {
                 dataAdapter = new SqlDataAdapter();
                 dataTable = new DataTable();
                 if (verifyPass)
-                    command = new SqlCommand("Select LogonName, Password, PositionID From " + SCHEMA_NAME + "Logon", connection);
+                    command = new SqlCommand("Select LogonName, Password, PositionID, PersonID From " + SCHEMA_NAME + "Logon", connection);
                 else
                     command = new SqlCommand("Select LogonName From " + SCHEMA_NAME + "Logon", connection);
                 dataAdapter.SelectCommand = command;
@@ -90,11 +92,13 @@ namespace SummitSportsApp
                         {
                             if (row["Password"].ToString() == pass)
                             {
+                                personID = (int)row["PersonID"];
                                 return (int)row["PositionID"];
                             }
                             else
                             {
-                                MessageBox.Show("Incorrect password.", "Login Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                lblError.Text = "Incorrect password.";
+                                //MessageBox.Show("Incorrect password.", "Login Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 return 0;
                             }
                         }
@@ -107,7 +111,8 @@ namespace SummitSportsApp
                     {
                         if (i == dataTable.Rows.Count - 1 && pass != "checkUnique") 
                         {
-                            MessageBox.Show("Username not found.", "Login Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            lblError.Text = "Username not found.";
+                            //MessageBox.Show("Username not found.", "Login Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             //return false;
                         }
                     }
@@ -305,5 +310,205 @@ namespace SummitSportsApp
                 form.Close();
             }
         }
+
+        #endregion
+
+        #region customer
+
+        private static List<Category> categoriesList = new List<Category>();
+        public static List<Category> CategoriesList
+        {
+            get { return categoriesList; }
+        }
+
+        public static void GetCustomerInventory(DataGridView dgv, CheckedListBox clb, Form form)
+        {
+            try
+            {
+                GetCategories(clb);
+                dataAdapter = new SqlDataAdapter();
+                dataTable = new DataTable();
+                command = new SqlCommand("Select InventoryID, ItemName, ItemDescription, i.CategoryID, CategoryName, RetailPrice, Quantity, ItemImage From " + SCHEMA_NAME + "Inventory as i Join " + SCHEMA_NAME + "Categories as c On i.CategoryID = c.CategoryID Order By CategoryID, ItemName;", connection);
+                dataAdapter.SelectCommand = command;
+                dataAdapter.Fill(dataTable);
+
+                dgv.AutoGenerateColumns = false;
+                dgv.DataSource = dataTable;
+                dgv.Columns["inventoryID"].DataPropertyName = "InventoryID";
+                dgv.Columns["itemName"].DataPropertyName = "ItemName";
+                dgv.Columns["categoryName"].DataPropertyName = "CategoryName";
+                dgv.Columns["retailPrice"].DataPropertyName = "RetailPrice";
+                dgv.Columns["quantity"].DataPropertyName = "Quantity";
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to get inventory items.\nSorry, please try again later.", "Inventory Request Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                form.Close();
+            }
+        }
+
+        public static void GetCategories(CheckedListBox clb)
+        {
+            categoriesList.Clear();
+            try
+            {
+                command = new SqlCommand("Select CategoryID, CategoryName From " + SCHEMA_NAME + "Categories;", connection);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    categoriesList.Add(new Category(reader.GetInt32(0), reader.GetString(1)));
+                }
+                foreach (Category category in categoriesList)
+                {
+                    clb.Items.Add(category.categoryName);
+                    clb.SetItemChecked(clb.Items.Count  - 1, true);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                throw ex;
+            }
+        }
+
+        public static bool FindDiscount(TextBox codeBox, ref Discount discount)
+        {
+            try
+            {
+                command = new SqlCommand("Select DiscountID, DiscountCode, DiscountLevel, InventoryID, DiscountType, DiscountPercentage, DiscountDollarAmount, ExpirationDate From " + SCHEMA_NAME + "Discounts Where DiscountCode = '" + codeBox.Text.ToUpper() + "';", connection);
+                SqlDataReader reader = command.ExecuteReader();
+                if (!reader.HasRows)
+                {
+                    codeBox.ForeColor = System.Drawing.Color.Crimson;
+                    reader.Close();
+                    return false;
+                }
+                else
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.GetDateTime(7) < DateTime.Now.Date) // expired?
+                        {
+                            codeBox.ForeColor = System.Drawing.Color.Crimson;
+                            reader.Close();
+                            return false;
+                        }
+                        else
+                        {
+                            discount = new Discount();
+                            discount.discountID = reader.GetInt32(0);
+                            discount.discountCode = reader.GetString(1);
+                            discount.discountLevel = reader.GetInt32(2);
+                            if (reader[3] != DBNull.Value)
+                                discount.inventoryID = reader.GetInt32(3);
+                            discount.discountType = reader.GetInt32(4);
+                            if (reader[5] != DBNull.Value)
+                                discount.discountPercentage = reader.GetDecimal(5);
+                            if (reader[6] != DBNull.Value)
+                                discount.discountDollarAmount = reader.GetDecimal(6);
+                            reader.Close();
+                            return true;
+                        }
+                    }
+                }
+                reader.Close();
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to get discount codes.\nSorry, please try again later.", "Discount Code Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public static string FindName(int personID)
+        {
+            try
+            {
+                command = new SqlCommand("Select NameFirst, NameLast From " + SCHEMA_NAME + "Person as p Join " + SCHEMA_NAME + "Logon as l On p.PersonID = l.PersonID Where p.PersonID = " + personID + ";", connection);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string fullName = reader.GetString(0) + " " + reader.GetString(1);
+                    reader.Close();
+                    return fullName;
+                }
+                reader.Close();
+                return "";
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                // MessageBox.Show("Unable to get customer details.\nSorry, please try again later.", "Customer Request Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "";
+            }
+        }
+
+        public static bool UpdateDatabaseQuantities()
+        {
+            try
+            {
+                for (int i = 0; i < frmCart.InventoryIDs.Count; i++)
+                {
+                    command = new SqlCommand("Update " + SCHEMA_NAME + "Inventory Set Quantity = Quantity - " + frmCart.Quantities[i] + " Where InventoryID = " + frmCart.InventoryIDs[i] + ";", connection);
+                    command.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to complete order.\nSorry, please try again later.", "Customer Request Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public static bool InsertOrder(Order order, ref int orderID)
+        {
+            try
+            {
+                StringBuilder cmd = new StringBuilder();
+
+                cmd.Append("Insert into " + SCHEMA_NAME + "Orders (PersonID, OrderDate, CC_Number, ExpDate, CCV");
+                if (order.discount != null && order.discount.discountLevel == 0)
+                    cmd.Append(", DiscountID");
+                cmd.Append(") Output INSERTED.OrderID Values (" + order.personID + ", '" + DateTime.Now.ToString("yyyy-MM-dd") + "', '" + order.cardNumber + "', '" + order.expDate + "', '" + order.ccv + "'");
+                if (order.discount != null && order.discount.discountLevel == 0)
+                    cmd.Append(", " + order.discount.discountID);
+                cmd.Append(");");
+
+                command = new SqlCommand(cmd.ToString(), connection);
+                int OrderID = (int)command.ExecuteScalar();
+                orderID = OrderID;
+
+                cmd.Clear();
+
+                for (int i = 0; i < order.inventoryIDs.Count; i++) {
+                    cmd.Append("Insert into " + SCHEMA_NAME + "OrderDetails (OrderID, InventoryID, Quantity");
+                    if (order.discount != null && order.discount.inventoryID == order.inventoryIDs[i])
+                        cmd.Append(", DiscountID");
+                    cmd.Append(") Values (" + OrderID + ", " + order.inventoryIDs[i] + ", " + order.quantities[i]);
+                    if (order.discount != null && order.discount.inventoryID == order.inventoryIDs[i])
+                        cmd.Append(", " + order.discount.discountID);
+                    cmd.Append(");");
+
+                    command = new SqlCommand (cmd.ToString(), connection);
+                    command.ExecuteNonQuery();
+                    cmd.Clear();
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to complete order.\nSorry, please try again later.", "Customer Request Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        #endregion
     }
 }

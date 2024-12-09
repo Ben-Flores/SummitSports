@@ -35,11 +35,12 @@ namespace SummitSportsApp
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (clsValidation.ValidateLogonFilled(tbxUsername.Text, tbxPassword.Text, true))
+            if (clsValidation.ValidateLogonFilled(tbxUsername.Text, tbxPassword.Text, true, lblError))
             {
                 if (clsSQL.OpenConnection())
                 {
-                    int position = clsSQL.VerifyUser(tbxUsername.Text, tbxPassword.Text, true);
+                    int personID = 0;
+                    int position = clsSQL.VerifyUser(tbxUsername.Text, tbxPassword.Text, true, lblError, ref personID);
                     if (position != 0)
                     {
                         switch (position)
@@ -51,7 +52,10 @@ namespace SummitSportsApp
                                 MessageBox.Show("Logged in as EMPLOYEE", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 break;
                             default:
-                                MessageBox.Show("Logged in as CUSTOMER", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                frmShop frmShop = new frmShop(this, personID);
+                                frmShop.Show();
+                                this.Hide();
+                                //MessageBox.Show("Logged in as CUSTOMER", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 break;
                         }
                         // clsSQL.CloseConnection();
@@ -65,11 +69,12 @@ namespace SummitSportsApp
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            if (clsValidation.ValidateLogonFilled(tbxUsername.Text, "pass not verified", false))
+            if (clsValidation.ValidateLogonFilled(tbxUsername.Text, "pass not verified", false, lblError))
             {
                 if (clsSQL.OpenConnection())
                 {
-                    if (clsSQL.VerifyUser(tbxUsername.Text, "pass not verified", false) != 0)
+                    int x = 0;
+                    if (clsSQL.VerifyUser(tbxUsername.Text, "pass not verified", false, lblError, ref x) != 0)
                     {
                         frmReset frmReset = new frmReset(this, tbxUsername.Text);
                         frmReset.Show();
@@ -103,6 +108,29 @@ namespace SummitSportsApp
         private void btnHelp_Click(object sender, EventArgs e)
         {
             Help.ShowHelp(this, hlpHelp.HelpNamespace, HelpNavigator.Topic, "Topic1_Login.htm");
+        }
+
+        private void tbxUsername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            lblError.Text = "";
+        }
+
+        private void tbxPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            lblError.Text = "";
+        }
+
+        private void btnGuest_Click(object sender, EventArgs e)
+        {
+            if (clsSQL.OpenConnection())
+            {
+                frmShop frmShop = new frmShop(this, true);
+                if (!frmShop.IsDisposed)
+                {
+                    frmShop.Show();
+                    this.Hide();
+                }
+            }
         }
     }
 }

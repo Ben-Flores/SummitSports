@@ -15,13 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_1A58AAB652D34718BF1A69EA37C4D103"
+        "MsmKey" = "8:_0E3408A8441E47CA832D3D4E2B0B9337"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_B1F094F46FD64863B7DE6B56FE55272D"
+        "MsmKey" = "8:_1A58AAB652D34718BF1A69EA37C4D103"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -40,13 +40,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D891EC2DB0D20BBD370E625A548F9189"
+        "OwnerKey" = "8:_F32E20DA59E948A88EBED5513C8982CF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F32E20DA59E948A88EBED5513C8982CF"
+        "OwnerKey" = "8:_D891EC2DB0D20BBD370E625A548F9189"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -67,6 +67,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -83,6 +91,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -112,10 +128,10 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1A58AAB652D34718BF1A69EA37C4D103"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0E3408A8441E47CA832D3D4E2B0B9337"
             {
-            "SourcePath" = "8:..\\SummitSportsApp\\bin\\Debug\\SummitSportsHelp.chm"
-            "TargetName" = "8:SummitSportsHelp.chm"
+            "SourcePath" = "8:..\\SummitSportsApp\\sslogo.ico"
+            "TargetName" = "8:sslogo.ico"
             "Tag" = "8:"
             "Folder" = "8:_8BB2631031814F21B0DE8C52058E5871"
             "Condition" = "8:"
@@ -132,10 +148,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B1F094F46FD64863B7DE6B56FE55272D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1A58AAB652D34718BF1A69EA37C4D103"
             {
-            "SourcePath" = "8:..\\SummitSportsApp\\bin\\Debug\\sslogo.ico"
-            "TargetName" = "8:sslogo.ico"
+            "SourcePath" = "8:..\\SummitSportsApp\\bin\\Debug\\SummitSportsHelp.chm"
+            "TargetName" = "8:SummitSportsHelp.chm"
             "Tag" = "8:"
             "Folder" = "8:_8BB2631031814F21B0DE8C52058E5871"
             "Condition" = "8:"
@@ -268,7 +284,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:Installs the Summit Sports application. Summit Sports allows you to purchase and manage snow gear inventory."
         "ARPURLINFOABOUT" = "8:www.tstc.edu"
-        "ARPPRODUCTICON" = "8:_B1F094F46FD64863B7DE6B56FE55272D"
+        "ARPPRODUCTICON" = "8:_0E3408A8441E47CA832D3D4E2B0B9337"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -382,7 +398,7 @@
             "Target" = "8:_F32E20DA59E948A88EBED5513C8982CF"
             "Folder" = "8:_3A30E57DB8A84B689F376CE60CF9244B"
             "WorkingFolder" = "8:_8BB2631031814F21B0DE8C52058E5871"
-            "Icon" = "8:_B1F094F46FD64863B7DE6B56FE55272D"
+            "Icon" = "8:_0E3408A8441E47CA832D3D4E2B0B9337"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_72A711784A3943C58F05B74A425B5D12"
@@ -396,7 +412,7 @@
             "Target" = "8:_F32E20DA59E948A88EBED5513C8982CF"
             "Folder" = "8:_DC14F047589B40888820EB62D274B936"
             "WorkingFolder" = "8:_8BB2631031814F21B0DE8C52058E5871"
-            "Icon" = "8:_B1F094F46FD64863B7DE6B56FE55272D"
+            "Icon" = "8:_0E3408A8441E47CA832D3D4E2B0B9337"
             "Feature" = "8:"
             }
         }
