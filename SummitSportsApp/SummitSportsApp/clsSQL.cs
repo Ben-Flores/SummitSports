@@ -352,6 +352,7 @@ namespace SummitSportsApp
         public static void GetCategories(CheckedListBox clb)
         {
             categoriesList.Clear();
+            clb.Items.Clear();
             try
             {
                 command = new SqlCommand("Select CategoryID, CategoryName From " + SCHEMA_NAME + "Categories;", connection);
@@ -484,6 +485,8 @@ namespace SummitSportsApp
                 if (order.managerID != 0)
                     cmd.Append(", " + order.managerID);
                 cmd.Append(");");
+
+                //MessageBox.Show(cmd.ToString());
 
                 command = new SqlCommand(cmd.ToString(), connection);
                 int OrderID = (int)command.ExecuteScalar();

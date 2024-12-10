@@ -332,6 +332,9 @@ namespace SummitSportsApp
         {
             clsSQL.GetCustomerInventory(dgvItems, clbCategories, this);
             dgvItems.ClearSelection();
+
+            btnCustomerReset_Click(null, null);
+
             ReloadCartItems();
         }
 
@@ -342,9 +345,12 @@ namespace SummitSportsApp
 
         private void dgvCustomers_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvCustomers.SelectedRows.Count > 0 && frmPOSCart.InventoryIDs.Count > 0)
+            if (dgvCustomers.SelectedRows.Count > 0)
             {
-                btnCart.Enabled = true;
+                int customerID = (int)dgvCustomers.SelectedRows[0].Cells["id"].Value;
+                personID = customerID;
+                if (frmPOSCart.InventoryIDs.Count > 0)
+                    btnCart.Enabled = true;
             }
             else
             {
