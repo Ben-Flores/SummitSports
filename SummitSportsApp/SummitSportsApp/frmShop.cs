@@ -251,7 +251,12 @@ namespace SummitSportsApp
                 }
             }
 
-            lblCartItems.Text = frmCart.InventoryIDs.Count.ToString();
+            int cartItems = 0;
+            for (int i = 0; i < frmCart.Quantities.Count; i++)
+            {
+                cartItems += frmCart.Quantities[i];
+            }
+            lblCartItems.Text = cartItems.ToString();
 
             btnRemove.Enabled = true;
             btnCart.Enabled = true;
@@ -297,7 +302,12 @@ namespace SummitSportsApp
             }
             else
             {
-                lblCartItems.Text = frmCart.InventoryIDs.Count.ToString();
+                int cartItems = 0;
+                for (int i = 0; i < frmCart.Quantities.Count; i++)
+                {
+                    cartItems += frmCart.Quantities[i];
+                }
+                lblCartItems.Text = cartItems.ToString();
             }
         }
 
@@ -317,7 +327,12 @@ namespace SummitSportsApp
             }
             else
             {
-                lblCartItems.Text = frmCart.InventoryIDs.Count.ToString();
+                int cartItems = 0;
+                for (int i = 0; i < frmCart.Quantities.Count; i++)
+                {
+                    cartItems += frmCart.Quantities[i];
+                }
+                lblCartItems.Text = cartItems.ToString();
             }
         }
 
