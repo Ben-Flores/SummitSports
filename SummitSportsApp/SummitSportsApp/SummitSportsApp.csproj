@@ -50,6 +50,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Discount.cs" />
+    <Compile Include="frmPOSCart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPOSCart.Designer.cs">
+      <DependentUpon>frmPOSCart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPOS.Designer.cs">
+      <DependentUpon>frmPOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInventory.Designer.cs">
+      <DependentUpon>frmInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmManagerLaunchpad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManagerLaunchpad.Designer.cs">
+      <DependentUpon>frmManagerLaunchpad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Order.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="clsHTML.cs" />
@@ -106,12 +130,24 @@
     <EmbeddedResource Include="frmCheckout.resx">
       <DependentUpon>frmCheckout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInventory.resx">
+      <DependentUpon>frmInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManagerLaunchpad.resx">
+      <DependentUpon>frmManagerLaunchpad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNewPassword.resx">
       <DependentUpon>frmNewPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogon.resx">
       <DependentUpon>frmLogon.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPOS.resx">
+      <DependentUpon>frmPOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPOSCart.resx">
+      <DependentUpon>frmPOSCart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegister.resx">
       <DependentUpon>frmRegister.cs</DependentUpon>

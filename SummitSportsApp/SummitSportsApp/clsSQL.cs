@@ -19,6 +19,7 @@ namespace SummitSportsApp
         private static SqlCommand command;
         private static SqlDataAdapter dataAdapter;
         private static DataTable dataTable;
+        private static DataTable customersTable;
         private const string SCHEMA_NAME = "bfloresFA24.";
 
         public static DataTable DataTable
@@ -475,9 +476,13 @@ namespace SummitSportsApp
                 cmd.Append("Insert into " + SCHEMA_NAME + "Orders (PersonID, OrderDate, CC_Number, ExpDate, CCV");
                 if (order.discount != null && order.discount.discountLevel == 0)
                     cmd.Append(", DiscountID");
+                if (order.managerID != 0)
+                    cmd.Append(", EmployeeID");
                 cmd.Append(") Output INSERTED.OrderID Values (" + order.personID + ", '" + DateTime.Now.ToString("yyyy-MM-dd") + "', '" + order.cardNumber + "', '" + order.expDate + "', '" + order.ccv + "'");
                 if (order.discount != null && order.discount.discountLevel == 0)
                     cmd.Append(", " + order.discount.discountID);
+                if (order.managerID != 0)
+                    cmd.Append(", " + order.managerID);
                 cmd.Append(");");
 
                 command = new SqlCommand(cmd.ToString(), connection);
@@ -509,6 +514,33 @@ namespace SummitSportsApp
                 return false;
             }
         }
+        #endregion
+
+        #region manager
+
+        public static void GetCustomers(DataGridView dgv, Form form)
+        {
+            try
+            {
+                dataAdapter = new SqlDataAdapter();
+                customersTable = new DataTable();
+                command = new SqlCommand("Select PersonID, (Coalesce((Title + ' '), '') + NameFirst + ' ' + Coalesce((NameMiddle + ' '), '') + NameLast + Coalesce((' ' + Suffix), '')) as [FullName], Email, PhonePrimary, PhoneSecondary From " + SCHEMA_NAME + "Person Where PersonDeleted = 0 OR PersonDeleted Is Null Order By PersonID;", connection);
+                dataAdapter.SelectCommand = command;
+                dataAdapter.Fill(customersTable);
+
+                dgv.AutoGenerateColumns = false;
+                dgv.DataSource = customersTable;
+                dgv.Columns["ID"].DataPropertyName = "PersonID";
+                dgv.Columns["name"].DataPropertyName = "FullName";
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to fetch customers.\nSorry, please try again later.", "Customer Request Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                form.Close();
+            }
+        }
+
         #endregion
     }
 }

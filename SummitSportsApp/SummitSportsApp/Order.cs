@@ -10,6 +10,7 @@ namespace SummitSportsApp
     internal class Order
     {
         public int personID;
+        public int managerID;
         public List<int> inventoryIDs;
         public List<int> quantities;
         public Discount discount;
@@ -26,6 +27,23 @@ namespace SummitSportsApp
         public Order(int personID, List<int> inventoryIDs, List<int>quantities, Discount discount, string discounted, string discountedTotal, string discountedTax, string grandTotal, string cardNumber, string ccv, string expDate)
         {
             this.personID = personID;
+            this.inventoryIDs = inventoryIDs;
+            this.quantities = quantities;
+            this.discount = discount;
+            this.discounted = discounted;
+            this.discountedTotal = discountedTotal;
+            this.discountedTax = discountedTax;
+            this.grandTotal = grandTotal;
+
+            this.cardNumber = cardNumber;
+            this.ccv = ccv;
+            this.expDate = expDate;
+        }
+
+        public Order(int personID, int managerID, List<int> inventoryIDs, List<int> quantities, Discount discount, string discounted, string discountedTotal, string discountedTax, string grandTotal, string cardNumber, string ccv, string expDate)
+        {
+            this.personID = personID;
+            this.managerID = managerID;
             this.inventoryIDs = inventoryIDs;
             this.quantities = quantities;
             this.discount = discount;

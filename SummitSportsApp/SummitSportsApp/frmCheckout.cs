@@ -12,9 +12,9 @@ namespace SummitSportsApp
 {
     public partial class frmCheckout : Form
     {
-        frmCart parentForm;
+        Form parentForm;
 
-        public frmCheckout(frmCart parentForm)
+        public frmCheckout(Form parentForm)
         {
             InitializeComponent();
             this.parentForm = parentForm;
@@ -64,7 +64,14 @@ namespace SummitSportsApp
         {
             if (clsValidation.ValidateCheckout(tbxCard.Text, tbxCCV.Text, tbxDate.Text, lblError))
             {
-                parentForm.CreateOrder(tbxCard.Text, tbxCCV.Text, tbxDate.Text);
+                if (parentForm is frmCart)
+                {
+                    ((frmCart)parentForm).CreateOrder(tbxCard.Text, tbxCCV.Text, tbxDate.Text);
+                }
+                else
+                {
+                    ((frmPOSCart)parentForm).CreateOrder(tbxCard.Text, tbxCCV.Text, tbxDate.Text);
+                }
                 this.Close();
             }
         }

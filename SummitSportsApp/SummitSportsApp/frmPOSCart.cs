@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace SummitSportsApp
 {
-    public partial class frmCart : Form
+    public partial class frmPOSCart : Form
     {
-        frmShop parentForm;
+        frmPOS parentForm;
         int personID;
+        int managerID;
 
         private static decimal subtotal, discount, discounttotal, tax, grandtotal;
         private const decimal TAX_RATE = .0825m;
@@ -37,14 +36,15 @@ namespace SummitSportsApp
             set { quantities = value; }
         }
 
-        public frmCart(frmShop parentForm, int personID)
+        public frmPOSCart(frmPOS parentForm, int personID, int managerID)
         {
             InitializeComponent();
             this.parentForm = parentForm;
             this.personID = personID;
+            this.managerID = managerID;
         }
 
-        private void frmCart_Load(object sender, EventArgs e)
+        private void frmPOSCart_Load(object sender, EventArgs e)
         {
             subtotal = 0;
             string name;
@@ -76,7 +76,7 @@ namespace SummitSportsApp
 
                 subtotal += total;
 
-                string[] row = new string[] { name, price.ToString("C"), qty.ToString(), total.ToString("C"), index.ToString()};
+                string[] row = new string[] { name, price.ToString("C"), qty.ToString(), total.ToString("C"), index.ToString() };
                 dgvCart.Rows.Add(row);
             }
 
@@ -91,7 +91,7 @@ namespace SummitSportsApp
             dgvCart.ClearSelection();
         }
 
-        private void frmCart_FormClosed(object sender, FormClosedEventArgs e)
+        private void frmPOSCart_FormClosed(object sender, FormClosedEventArgs e)
         {
             // parentForm.Close();
         }
@@ -129,15 +129,15 @@ namespace SummitSportsApp
                 btnCheckout.Enabled = false;
                 btnDiscount.Enabled = false;
             }
-                tax = subtotal * TAX_RATE;
-                grandtotal = subtotal + tax;
-                lblSubtotal.Text = subtotal.ToString("C");
-                lblTax.Text = tax.ToString("C");
-                lblTotal.Text = grandtotal.ToString("C");
+            tax = subtotal * TAX_RATE;
+            grandtotal = subtotal + tax;
+            lblSubtotal.Text = subtotal.ToString("C");
+            lblTax.Text = tax.ToString("C");
+            lblTotal.Text = grandtotal.ToString("C");
 
             ReloadDiscount();
 
-                dgvCart.ClearSelection();
+            dgvCart.ClearSelection();
         }
 
         private void dgvCart_SelectionChanged(object sender, EventArgs e)
@@ -343,7 +343,7 @@ namespace SummitSportsApp
         public void CreateOrder(string cardNumber, string ccv, string expDate)
         {
             int orderID = 0;
-            Order order = new Order(personID, inventoryIDs, quantities, cartDiscount, lblDiscount.Text, lblDiscountedTotal.Text, lblTax.Text, lblTotal.Text, cardNumber, ccv, expDate);
+            Order order = new Order(personID, managerID, inventoryIDs, quantities, cartDiscount, lblDiscount.Text, lblDiscountedTotal.Text, lblTax.Text, lblTotal.Text, cardNumber, ccv, expDate);
 
             if (clsSQL.OpenConnection())
             {

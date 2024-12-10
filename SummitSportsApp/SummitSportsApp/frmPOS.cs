@@ -12,50 +12,39 @@ using System.Windows.Forms;
 
 namespace SummitSportsApp
 {
-    public partial class frmShop : Form
+    public partial class frmPOS : Form
     {
-
-        frmLogon parentForm;
+        frmManagerLaunchpad parentForm;
         int personID;
+        int managerID;
 
         StringBuilder searchFilter = new StringBuilder();
         StringBuilder categoriesFilter = new StringBuilder();
 
-        public frmShop(frmLogon parentForm, int personID)
+        public frmPOS(frmManagerLaunchpad parentForm, int managerID)
         {
             InitializeComponent();
             this.parentForm = parentForm;
-            this.personID = personID;
+            this.managerID = managerID;
+            clsSQL.GetCustomers(dgvCustomers, this);
             clsSQL.GetCustomerInventory(dgvItems, clbCategories, this);
-            frmCart.InventoryIDs.Clear();
-            frmCart.Quantities.Clear();
+            frmPOSCart.InventoryIDs.Clear();
+            frmPOSCart.Quantities.Clear();
         }
 
-        public frmShop(frmLogon parentForm, bool guest)
-        {
-            InitializeComponent();
-            this.parentForm = parentForm;
-            clsSQL.GetCustomerInventory(dgvItems, clbCategories, this);
-            btnAdd.Visible = false;
-            btnRemove.Visible = false;
-            lblGuest.Visible = true;
-            frmCart.InventoryIDs.Clear();
-            frmCart.Quantities.Clear();
-        }
-
-        private void frmShop_Load(object sender, EventArgs e)
+        private void frmPOS_Load(object sender, EventArgs e)
         {
             dgvItems.ClearSelection();
+            dgvCustomers.ClearSelection();
         }
 
-        private void frmShop_FormClosed(object sender, FormClosedEventArgs e)
+        private void frmPOS_FormClosed(object sender, FormClosedEventArgs e)
         {
             clsSQL.CloseConnection();
-            parentForm.ClearFields();
             parentForm.Show();
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -72,7 +61,7 @@ namespace SummitSportsApp
             }
             categoriesFilter.Append("0)");
             // MessageBox.Show(filter.ToString());
-            
+
             if (searchFilter.ToString() != "")
             {
                 fullFilter = categoriesFilter.ToString() + " And " + searchFilter.ToString();
@@ -125,7 +114,7 @@ namespace SummitSportsApp
             {
                 // MessageBox.Show(dgvItems.SelectedRows[0].Cells["InventoryID"].Value.ToString());
                 int id = (int)dgvItems.SelectedRows[0].Cells["InventoryID"].Value;
-                DataRow[] result =  clsSQL.DataTable.Select("InventoryID = " + id);
+                DataRow[] result = clsSQL.DataTable.Select("InventoryID = " + id);
                 foreach (var row in result)
                 {
                     lblItemName.Text = (string)row["ItemName"];
@@ -152,21 +141,21 @@ namespace SummitSportsApp
                         pbxItem.Image = image;
                     }
                 }
-                if (frmCart.InventoryIDs.Count < 1)
+                if (frmPOSCart.InventoryIDs.Count < 1)
                 {
                     lblCartQty.Text = "0";
                 }
                 else
                 {
-                    for (int i = 0; i < frmCart.InventoryIDs.Count; i++)
+                    for (int i = 0; i < frmPOSCart.InventoryIDs.Count; i++)
                     {
-                        if (frmCart.InventoryIDs[i] == id)
+                        if (frmPOSCart.InventoryIDs[i] == id)
                         {
-                            lblCartQty.Text = frmCart.Quantities[i].ToString();
+                            lblCartQty.Text = frmPOSCart.Quantities[i].ToString();
                             btnRemove.Enabled = true;
                             break;
                         }
-                        if (i == frmCart.InventoryIDs.Count - 1)
+                        if (i == frmPOSCart.InventoryIDs.Count - 1)
                         {
                             lblCartQty.Text = "0";
                             btnRemove.Enabled = false;
@@ -198,24 +187,24 @@ namespace SummitSportsApp
             int id = (int)dgvItems.SelectedRows[0].Cells["InventoryID"].Value;
             int qty = Convert.ToInt32(cbxQuantity.SelectedItem);
 
-            if (frmCart.InventoryIDs.Count < 1)
+            if (frmPOSCart.InventoryIDs.Count < 1)
             {
-                frmCart.InventoryIDs.Add(id);
-                frmCart.Quantities.Add(qty);
+                frmPOSCart.InventoryIDs.Add(id);
+                frmPOSCart.Quantities.Add(qty);
             }
             else
             {
-                for (int i = 0; i < frmCart.InventoryIDs.Count; i++)
+                for (int i = 0; i < frmPOSCart.InventoryIDs.Count; i++)
                 {
-                    if (frmCart.InventoryIDs[i] == id)
+                    if (frmPOSCart.InventoryIDs[i] == id)
                     {
-                        frmCart.Quantities[i] += qty;
+                        frmPOSCart.Quantities[i] += qty;
                         break;
                     }
-                    if (i == frmCart.InventoryIDs.Count - 1)
+                    if (i == frmPOSCart.InventoryIDs.Count - 1)
                     {
-                        frmCart.InventoryIDs.Add(id);
-                        frmCart.Quantities.Add(qty);
+                        frmPOSCart.InventoryIDs.Add(id);
+                        frmPOSCart.Quantities.Add(qty);
                         break;
                     }
                 }
@@ -238,40 +227,43 @@ namespace SummitSportsApp
                 btnAdd.Enabled = true;
             }
 
-            for (int i = 0; i < frmCart.InventoryIDs.Count; i++)
+            for (int i = 0; i < frmPOSCart.InventoryIDs.Count; i++)
             {
-                if (frmCart.InventoryIDs[i] == id)
+                if (frmPOSCart.InventoryIDs[i] == id)
                 {
-                    lblCartQty.Text = frmCart.Quantities[i].ToString();
+                    lblCartQty.Text = frmPOSCart.Quantities[i].ToString();
                     break;
                 }
-                if (i == frmCart.InventoryIDs.Count - 1)
+                if (i == frmPOSCart.InventoryIDs.Count - 1)
                 {
                     lblCartQty.Text = "0";
                 }
             }
 
             int cartItems = 0;
-            for (int i = 0; i < frmCart.Quantities.Count; i++)
+            for (int i = 0; i < frmPOSCart.Quantities.Count; i++)
             {
-                cartItems += frmCart.Quantities[i];
+                cartItems += frmPOSCart.Quantities[i];
             }
             lblCartItems.Text = cartItems.ToString();
 
             btnRemove.Enabled = true;
-            btnCart.Enabled = true;
+            if (dgvCustomers.SelectedRows.Count > 0)
+            {
+                btnCart.Enabled = true;
+            }
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
             int id = (int)dgvItems.SelectedRows[0].Cells["InventoryID"].Value;
 
-            for (int i = 0; i < frmCart.InventoryIDs.Count; i++)
+            for (int i = 0; i < frmPOSCart.InventoryIDs.Count; i++)
             {
-                if (frmCart.InventoryIDs[i] == id)
+                if (frmPOSCart.InventoryIDs[i] == id)
                 {
                     DataRow[] result = clsSQL.DataTable.Select("InventoryID = " + id);
-                    result[0]["Quantity"] = (int)result[0]["Quantity"] + frmCart.Quantities[i];
+                    result[0]["Quantity"] = (int)result[0]["Quantity"] + frmPOSCart.Quantities[i];
                     cbxQuantity.Items.Clear();
                     if ((int)result[0]["Quantity"] < 1)
                     {
@@ -286,8 +278,8 @@ namespace SummitSportsApp
                         cbxQuantity.SelectedIndex = 0;
                         btnAdd.Enabled = true;
                     }
-                    frmCart.InventoryIDs.RemoveAt(i);
-                    frmCart.Quantities.RemoveAt(i);
+                    frmPOSCart.InventoryIDs.RemoveAt(i);
+                    frmPOSCart.Quantities.RemoveAt(i);
                     break;
                 }
             }
@@ -295,7 +287,7 @@ namespace SummitSportsApp
             lblCartQty.Text = "0";
             btnRemove.Enabled = false;
 
-            if (frmCart.InventoryIDs.Count < 1)
+            if (frmPOSCart.InventoryIDs.Count < 1)
             {
                 lblCartItems.Text = "0";
                 btnCart.Enabled = false;
@@ -303,9 +295,9 @@ namespace SummitSportsApp
             else
             {
                 int cartItems = 0;
-                for (int i = 0; i < frmCart.Quantities.Count; i++)
+                for (int i = 0; i < frmPOSCart.Quantities.Count; i++)
                 {
-                    cartItems += frmCart.Quantities[i];
+                    cartItems += frmPOSCart.Quantities[i];
                 }
                 lblCartItems.Text = cartItems.ToString();
             }
@@ -314,13 +306,13 @@ namespace SummitSportsApp
         private void btnCart_Click(object sender, EventArgs e)
         {
             dgvItems.ClearSelection();
-            frmCart frmCart = new frmCart(this, personID);
-            frmCart.ShowDialog();
+            frmPOSCart frmPOSCart = new frmPOSCart(this, personID, managerID);
+            frmPOSCart.ShowDialog();
         }
 
         public void ReloadCartItems()
         {
-            if (frmCart.InventoryIDs.Count < 1)
+            if (frmPOSCart.InventoryIDs.Count < 1)
             {
                 lblCartItems.Text = "0";
                 btnCart.Enabled = false;
@@ -328,9 +320,9 @@ namespace SummitSportsApp
             else
             {
                 int cartItems = 0;
-                for (int i = 0; i < frmCart.Quantities.Count; i++)
+                for (int i = 0; i < frmPOSCart.Quantities.Count; i++)
                 {
-                    cartItems += frmCart.Quantities[i];
+                    cartItems += frmPOSCart.Quantities[i];
                 }
                 lblCartItems.Text = cartItems.ToString();
             }
@@ -348,5 +340,32 @@ namespace SummitSportsApp
             Help.ShowHelp(this, hlpHelp.HelpNamespace, HelpNavigator.Topic, "Topic4_Shop.htm");
         }
 
+        private void dgvCustomers_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvCustomers.SelectedRows.Count > 0 && frmPOSCart.InventoryIDs.Count > 0)
+            {
+                btnCart.Enabled = true;
+            }
+            else
+            {
+                btnCart.Enabled = false;
+            }
+        }
+
+        private void tbxCustomer_KeyUp(object sender, KeyEventArgs e)
+        {
+            string filter = "Convert(PersonID, System.String) Like '%" + tbxCustomer.Text + "%' OR " + "FullName Like '%" + tbxCustomer.Text + "%' OR " + "Email Like '%" + tbxCustomer.Text + "%' OR " + "PhonePrimary Like '%" + tbxCustomer.Text + "%' OR " + "PhoneSecondary Like '%" + tbxCustomer.Text + "%'";
+
+            (dgvCustomers.DataSource as DataTable).DefaultView.RowFilter = filter;
+            dgvCustomers.ClearSelection();
+        }
+
+        private void btnCustomerReset_Click(object sender, EventArgs e)
+        {
+            tbxCustomer.Text = "";
+            (dgvCustomers.DataSource as DataTable).DefaultView.RowFilter = "";
+            dgvCustomers.ClearSelection();
+            btnCart.Enabled = false;
+        }
     }
 }

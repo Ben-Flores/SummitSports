@@ -46,15 +46,21 @@ namespace SummitSportsApp
                         switch (position)
                         {
                             case 1000:
-                                MessageBox.Show("Logged in as MANAGER", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                frmManagerLaunchpad frmManagerLaunchpad = new frmManagerLaunchpad(this, personID);
+                                frmManagerLaunchpad.Show();
+                                this.Hide();
+                                //MessageBox.Show("Logged in as MANAGER", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 break;
                             case 1001:
                                 MessageBox.Show("Logged in as EMPLOYEE", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 break;
                             default:
                                 frmShop frmShop = new frmShop(this, personID);
-                                frmShop.Show();
-                                this.Hide();
+                                if (!frmShop.IsDisposed)
+                                {
+                                    frmShop.Show();
+                                    this.Hide();
+                                }
                                 //MessageBox.Show("Logged in as CUSTOMER", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 break;
                         }
@@ -77,8 +83,11 @@ namespace SummitSportsApp
                     if (clsSQL.VerifyUser(tbxUsername.Text, "pass not verified", false, lblError, ref x) != 0)
                     {
                         frmReset frmReset = new frmReset(this, tbxUsername.Text);
-                        frmReset.Show();
-                        this.Hide();
+                        if (!frmReset.IsDisposed)
+                        {
+                            frmReset.Show();
+                            this.Hide();
+                        }
                     }
                 }
             }

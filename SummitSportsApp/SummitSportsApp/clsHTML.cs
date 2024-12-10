@@ -17,12 +17,15 @@ namespace SummitSportsApp
         private static StringBuilder html = new StringBuilder();
         private static StringBuilder css = new StringBuilder();
 
-        public static StringBuilder GenerateReport(Order order, int orderID)
+        public static StringBuilder GenerateReceipt(Order order, int orderID)
         {
             string customerName = "";
+            string managerName = "";
             if (clsSQL.OpenConnection())
             {
                 customerName = clsSQL.FindName(order.personID);
+                if (order.managerID != 0)
+                    managerName = clsSQL.FindName(order.managerID);
             }
 
             css.AppendLine("<style>");
@@ -42,6 +45,8 @@ namespace SummitSportsApp
             html.AppendLine("<body>");
             html.AppendLine($"<h1>Summit Sports Purchase<br>" + DateTime.Now + "</h1>");
             html.AppendLine($"<h2>Customer: " + customerName + "</h2>");
+            if (order.managerID != 0)
+                html.AppendLine($"<h2>Sales Associate: " + managerName + "</h2>");
             html.AppendLine($"<h2>OrderID: " + orderID + "</h2>");
             //html.AppendLine($"<h3>Your Receipt - " + DateTime.Now + "</h3>");
 
