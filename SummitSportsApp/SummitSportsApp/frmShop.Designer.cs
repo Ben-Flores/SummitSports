@@ -171,6 +171,7 @@
             this.tbxSearch.Name = "tbxSearch";
             this.tbxSearch.Size = new System.Drawing.Size(275, 43);
             this.tbxSearch.TabIndex = 1;
+            this.tbxSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxSearch_KeyUp);
             // 
             // lblSort
             // 

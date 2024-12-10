@@ -86,6 +86,11 @@ namespace SummitSportsApp
             dgvItems.ClearSelection();
         }
 
+        private void tbxSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            btnSearch_Click(sender, e);
+        }
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string fullFilter;
@@ -347,5 +352,6 @@ namespace SummitSportsApp
         {
             Help.ShowHelp(this, hlpHelp.HelpNamespace, HelpNavigator.Topic, "Topic4_Shop.htm");
         }
+
     }
 }
