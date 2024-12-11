@@ -177,7 +177,7 @@
             this.tbxSearch.Location = new System.Drawing.Point(297, 48);
             this.tbxSearch.Name = "tbxSearch";
             this.tbxSearch.Size = new System.Drawing.Size(275, 36);
-            this.tbxSearch.TabIndex = 1;
+            this.tbxSearch.TabIndex = 2;
             this.tbxSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxSearch_KeyUp);
             // 
             // lblSort
@@ -200,6 +200,7 @@
             this.clbCategories.Name = "clbCategories";
             this.clbCategories.Size = new System.Drawing.Size(275, 438);
             this.clbCategories.TabIndex = 2;
+            this.clbCategories.TabStop = false;
             this.clbCategories.SelectedIndexChanged += new System.EventHandler(this.clbCategories_SelectedIndexChanged);
             // 
             // btnClose
@@ -208,7 +209,7 @@
             this.btnClose.Location = new System.Drawing.Point(12, 709);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(169, 50);
-            this.btnClose.TabIndex = 16;
+            this.btnClose.TabIndex = 8;
             this.btnClose.Text = "◀ Close POS";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -233,7 +234,7 @@
             this.btnCart.Location = new System.Drawing.Point(1297, 709);
             this.btnCart.Name = "btnCart";
             this.btnCart.Size = new System.Drawing.Size(175, 50);
-            this.btnCart.TabIndex = 9;
+            this.btnCart.TabIndex = 7;
             this.btnCart.Text = "Go to Cart ▶";
             this.btnCart.UseVisualStyleBackColor = true;
             this.btnCart.Click += new System.EventHandler(this.btnCart_Click);
@@ -245,7 +246,7 @@
             this.btnAdd.Location = new System.Drawing.Point(603, 709);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(289, 50);
-            this.btnAdd.TabIndex = 7;
+            this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Add to Cart";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -257,7 +258,7 @@
             this.btnRemove.Location = new System.Drawing.Point(898, 709);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(230, 50);
-            this.btnRemove.TabIndex = 8;
+            this.btnRemove.TabIndex = 6;
             this.btnRemove.Text = "Remove from Cart";
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
@@ -324,7 +325,7 @@
             this.cbxQuantity.MaxDropDownItems = 10;
             this.cbxQuantity.Name = "cbxQuantity";
             this.cbxQuantity.Size = new System.Drawing.Size(145, 35);
-            this.cbxQuantity.TabIndex = 6;
+            this.cbxQuantity.TabIndex = 4;
             this.cbxQuantity.SelectedIndexChanged += new System.EventHandler(this.cbxQuantity_SelectedIndexChanged);
             // 
             // lblRetailPrice
@@ -437,7 +438,7 @@
             this.tbxCustomer.Location = new System.Drawing.Point(12, 48);
             this.tbxCustomer.Name = "tbxCustomer";
             this.tbxCustomer.Size = new System.Drawing.Size(275, 36);
-            this.tbxCustomer.TabIndex = 33;
+            this.tbxCustomer.TabIndex = 0;
             this.tbxCustomer.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxCustomer_KeyUp);
             // 
             // dgvCustomers
@@ -504,7 +505,7 @@
             this.btnCustomerReset.Location = new System.Drawing.Point(12, 636);
             this.btnCustomerReset.Name = "btnCustomerReset";
             this.btnCustomerReset.Size = new System.Drawing.Size(275, 50);
-            this.btnCustomerReset.TabIndex = 35;
+            this.btnCustomerReset.TabIndex = 1;
             this.btnCustomerReset.Text = "Reset Customer Search";
             this.btnCustomerReset.UseVisualStyleBackColor = true;
             this.btnCustomerReset.Click += new System.EventHandler(this.btnCustomerReset_Click);

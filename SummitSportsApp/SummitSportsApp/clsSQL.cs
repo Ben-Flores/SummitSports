@@ -631,6 +631,48 @@ namespace SummitSportsApp
             }
         }
 
+        public static void PopulateCategories(ComboBox cbx, ref List<int> ids, frmNewInventory form)
+        {
+            try
+            {
+                dataAdapter = new SqlDataAdapter();
+                dataTable = new DataTable();
+                command = new SqlCommand("Select * From " + SCHEMA_NAME + "Categories", connection);
+                dataAdapter.SelectCommand = command;
+                dataAdapter.Fill(dataTable);
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    cbx.Items.Add(row["CategoryName"]);
+                    ids.Add((int)row["CategoryID"]);
+                }
+
+                cbx.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to retrieve categories.\nSorry, please try again later.", "Error Retrieving Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                form.Close();
+            }
+        }
+
+        public static bool AddInventoryRow(string name, string description, decimal price, decimal cost, int qty, int thr, int category)
+        {
+            try
+            {
+                command = new SqlCommand("Insert Into " + SCHEMA_NAME + "Inventory (ItemName, ItemDescription, CategoryID, RetailPrice, Cost, Quantity, RestockThreshold) Values ('" + name + "', '" + description + "', " + category + ", " + price + ", " + cost + ", " + qty + ", " + thr + ");", connection);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to save new item.\nSorry, please try again later.", "Error Saving Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
         #endregion
     }
 }

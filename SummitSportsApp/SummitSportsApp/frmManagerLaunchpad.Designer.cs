@@ -38,7 +38,6 @@
             this.tsiManage = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiProducts = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiUsers = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsiPromo = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiReports = new System.Windows.Forms.ToolStripMenuItem();
             this.lblSelect = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
@@ -115,8 +114,7 @@
             // 
             this.tsiManage.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsiProducts,
-            this.tsiUsers,
-            this.tsiPromo});
+            this.tsiUsers});
             this.tsiManage.Name = "tsiManage";
             this.tsiManage.Size = new System.Drawing.Size(156, 23);
             this.tsiManage.Text = "Manage Inventory";
@@ -124,21 +122,16 @@
             // tsiProducts
             // 
             this.tsiProducts.Name = "tsiProducts";
-            this.tsiProducts.Size = new System.Drawing.Size(241, 24);
+            this.tsiProducts.Size = new System.Drawing.Size(206, 24);
             this.tsiProducts.Text = "Manage Products";
             this.tsiProducts.Click += new System.EventHandler(this.tsiProducts_Click);
             // 
             // tsiUsers
             // 
             this.tsiUsers.Name = "tsiUsers";
-            this.tsiUsers.Size = new System.Drawing.Size(241, 24);
+            this.tsiUsers.Size = new System.Drawing.Size(206, 24);
             this.tsiUsers.Text = "Manage Users";
-            // 
-            // tsiPromo
-            // 
-            this.tsiPromo.Name = "tsiPromo";
-            this.tsiPromo.Size = new System.Drawing.Size(241, 24);
-            this.tsiPromo.Text = "Manage Promo Codes";
+            this.tsiUsers.Click += new System.EventHandler(this.tsiUsers_Click);
             // 
             // tsiReports
             // 
@@ -193,7 +186,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsiManage;
         private System.Windows.Forms.ToolStripMenuItem tsiProducts;
         private System.Windows.Forms.ToolStripMenuItem tsiUsers;
-        private System.Windows.Forms.ToolStripMenuItem tsiPromo;
         private System.Windows.Forms.ToolStripMenuItem tsiReports;
         private System.Windows.Forms.Label lblSelect;
     }

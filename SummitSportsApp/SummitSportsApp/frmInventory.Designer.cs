@@ -44,7 +44,6 @@
             this.btnNew = new System.Windows.Forms.Button();
             this.btnResetItem = new System.Windows.Forms.Button();
             this.btnUpdateItem = new System.Windows.Forms.Button();
-            this.pbxItem = new System.Windows.Forms.PictureBox();
             this.btnReset = new System.Windows.Forms.Button();
             this.hlpHelp = new System.Windows.Forms.HelpProvider();
             this.lblItemName = new System.Windows.Forms.Label();
@@ -71,6 +70,7 @@
             this.discontinued = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblDollar1 = new System.Windows.Forms.Label();
             this.lblDollar2 = new System.Windows.Forms.Label();
+            this.pbxItem = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxItem)).BeginInit();
             this.SuspendLayout();
@@ -182,7 +182,6 @@
             // 
             // btnNew
             // 
-            this.btnNew.Enabled = false;
             this.btnNew.ForeColor = System.Drawing.Color.Black;
             this.btnNew.Location = new System.Drawing.Point(937, 709);
             this.btnNew.Name = "btnNew";
@@ -190,6 +189,7 @@
             this.btnNew.TabIndex = 9;
             this.btnNew.Text = "Create New Item ▶";
             this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnResetItem
             // 
@@ -214,17 +214,6 @@
             this.btnUpdateItem.Text = "Update Item";
             this.btnUpdateItem.UseVisualStyleBackColor = true;
             this.btnUpdateItem.Click += new System.EventHandler(this.btnUpdateItem_Click);
-            // 
-            // pbxItem
-            // 
-            this.pbxItem.Image = global::SummitSportsApp.Properties.Resources.iconNormal;
-            this.pbxItem.InitialImage = null;
-            this.pbxItem.Location = new System.Drawing.Point(937, 362);
-            this.pbxItem.Name = "pbxItem";
-            this.pbxItem.Size = new System.Drawing.Size(250, 250);
-            this.pbxItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxItem.TabIndex = 16;
-            this.pbxItem.TabStop = false;
             // 
             // btnReset
             // 
@@ -329,8 +318,9 @@
             this.tbxPrice.Location = new System.Drawing.Point(564, 589);
             this.tbxPrice.Name = "tbxPrice";
             this.tbxPrice.ShortcutsEnabled = false;
-            this.tbxPrice.Size = new System.Drawing.Size(100, 36);
+            this.tbxPrice.Size = new System.Drawing.Size(125, 36);
             this.tbxPrice.TabIndex = 28;
+            this.tbxPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tbxPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxPrice_KeyPress);
             // 
             // tbxCost
@@ -338,8 +328,9 @@
             this.tbxCost.Location = new System.Drawing.Point(564, 631);
             this.tbxCost.Name = "tbxCost";
             this.tbxCost.ShortcutsEnabled = false;
-            this.tbxCost.Size = new System.Drawing.Size(100, 36);
+            this.tbxCost.Size = new System.Drawing.Size(125, 36);
             this.tbxCost.TabIndex = 29;
+            this.tbxCost.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tbxCost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxCost_KeyPress);
             // 
             // tbxQuantity
@@ -347,8 +338,9 @@
             this.tbxQuantity.Location = new System.Drawing.Point(564, 673);
             this.tbxQuantity.Name = "tbxQuantity";
             this.tbxQuantity.ShortcutsEnabled = false;
-            this.tbxQuantity.Size = new System.Drawing.Size(100, 36);
+            this.tbxQuantity.Size = new System.Drawing.Size(125, 36);
             this.tbxQuantity.TabIndex = 30;
+            this.tbxQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tbxQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxQuantity_KeyPress);
             // 
             // tbxThreshold
@@ -356,8 +348,9 @@
             this.tbxThreshold.Location = new System.Drawing.Point(564, 715);
             this.tbxThreshold.Name = "tbxThreshold";
             this.tbxThreshold.ShortcutsEnabled = false;
-            this.tbxThreshold.Size = new System.Drawing.Size(100, 36);
+            this.tbxThreshold.Size = new System.Drawing.Size(125, 36);
             this.tbxThreshold.TabIndex = 31;
+            this.tbxThreshold.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tbxThreshold.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxThreshold_KeyPress);
             // 
             // btnDiscontinue
@@ -479,6 +472,17 @@
             this.lblDollar2.TabIndex = 35;
             this.lblDollar2.Text = "$";
             // 
+            // pbxItem
+            // 
+            this.pbxItem.Image = global::SummitSportsApp.Properties.Resources.iconNormal;
+            this.pbxItem.InitialImage = null;
+            this.pbxItem.Location = new System.Drawing.Point(937, 362);
+            this.pbxItem.Name = "pbxItem";
+            this.pbxItem.Size = new System.Drawing.Size(250, 250);
+            this.pbxItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxItem.TabIndex = 16;
+            this.pbxItem.TabStop = false;
+            // 
             // frmInventory
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -519,7 +523,7 @@
             this.MaximizeBox = false;
             this.Name = "frmInventory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Summit Sports - Shop";
+            this.Text = "Summit Sports - Manage Inventory";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmInventory_FormClosed);
             this.Load += new System.EventHandler(this.frmInventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();

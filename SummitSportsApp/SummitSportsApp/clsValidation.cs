@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace SummitSportsApp
 {
@@ -704,6 +706,56 @@ namespace SummitSportsApp
             {
                 e.Handled = true;
                 SystemSounds.Beep.Play();
+            }
+        }
+
+        public static bool ValidateInventoryItem(TextBox name, TextBox description, TextBox price, TextBox cost, TextBox qty, TextBox thr, Label lblError)
+        {
+            if (name.Text.Length == 0)
+            {
+                lblError.Text = "Please enter an item name.";
+                //MessageBox.Show("Please enter your first name.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                name.Focus();
+                return false;
+            }
+            else if (description.Text.Length == 0)
+            {
+                lblError.Text = "Please enter an item description.";
+                //MessageBox.Show("Please enter your first name.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                description.Focus();
+                return false;
+            }
+            else if (price.Text.Length == 0)
+            {
+                lblError.Text = "Please enter a retail price.";
+                //MessageBox.Show("Please enter your first name.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                price.Focus();
+                return false;
+            }
+            else if (cost.Text.Length == 0)
+            {
+                lblError.Text = "Please enter a wholesale cost.";
+                //MessageBox.Show("Please enter your first name.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cost.Focus();
+                return false;
+            }
+            else if (qty.Text.Length == 0)
+            {
+                lblError.Text = "Please enter an item quantity.";
+                //MessageBox.Show("Please enter your first name.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                qty.Focus();
+                return false;
+            }
+            else if (thr.Text.Length == 0)
+            {
+                lblError.Text = "Please enter a restock threshold.";
+                //MessageBox.Show("Please enter your first name.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                thr.Focus();
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
 

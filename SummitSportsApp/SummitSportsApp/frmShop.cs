@@ -146,10 +146,17 @@ namespace SummitSportsApp
                         cbxQuantity.SelectedIndex = 0;
                         btnAdd.Enabled = true;
                     }
-                    using (MemoryStream ms = new MemoryStream((byte[])row["ItemImage"]))
+                    if (row["ItemImage"] != DBNull.Value)
                     {
-                        Image image = Image.FromStream(ms);
-                        pbxItem.Image = image;
+                        using (MemoryStream ms = new MemoryStream((byte[])row["ItemImage"]))
+                        {
+                            Image image = Image.FromStream(ms);
+                            pbxItem.Image = image;
+                        }
+                    }
+                    else
+                    {
+                        pbxItem.Image = Resources.iconNormal;
                     }
                 }
                 if (frmCart.InventoryIDs.Count < 1)

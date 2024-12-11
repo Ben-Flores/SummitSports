@@ -121,10 +121,17 @@ namespace SummitSportsApp
                     tbxCost.Text = ((decimal)row["Cost"]).ToString("0.00");
                     tbxQuantity.Text = ((int)row["Quantity"]).ToString();
                     tbxThreshold.Text = ((int)row["RestockThreshold"]).ToString();
-                    using (MemoryStream ms = new MemoryStream((byte[])row["ItemImage"]))
+                    if (row["ItemImage"] != DBNull.Value)
                     {
-                        Image image = Image.FromStream(ms);
-                        pbxItem.Image = image;
+                        using (MemoryStream ms = new MemoryStream((byte[])row["ItemImage"]))
+                        {
+                            Image image = Image.FromStream(ms);
+                            pbxItem.Image = image;
+                        }
+                    }
+                    else
+                    {
+                        pbxItem.Image = Resources.iconNormal;
                     }
                 }
                 btnResetItem.Enabled = true;
@@ -216,6 +223,23 @@ namespace SummitSportsApp
         private void tbxThreshold_KeyPress(object sender, KeyPressEventArgs e)
         {
             clsValidation.ValidateThreshold(e);
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            frmNewInventory frmNewInventory = new frmNewInventory(this);
+            if (!frmNewInventory.IsDisposed)
+            {
+                frmNewInventory.ShowDialog();
+            }
+
+        }
+
+        public void RefreshItems()
+        {
+            clsSQL.GetManagerInventory(dgvItems, clbCategories, this);
+            dgvItems.ClearSelection();
+            btnReset_Click(null, null);
         }
     }
 }

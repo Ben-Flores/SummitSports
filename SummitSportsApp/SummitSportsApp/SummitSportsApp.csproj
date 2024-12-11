@@ -50,6 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Discount.cs" />
+    <Compile Include="frmNewInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewInventory.Designer.cs">
+      <DependentUpon>frmNewInventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPOSCart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmManagerLaunchpad.resx">
       <DependentUpon>frmManagerLaunchpad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewInventory.resx">
+      <DependentUpon>frmNewInventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNewPassword.resx">
       <DependentUpon>frmNewPassword.cs</DependentUpon>
