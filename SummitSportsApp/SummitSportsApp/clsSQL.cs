@@ -729,6 +729,25 @@ namespace SummitSportsApp
             }
         }
 
+        public static bool GetSales(string start, string end, int personID)
+        {
+            try
+            {
+                dataAdapter = new SqlDataAdapter();
+                dataTable = new DataTable();
+                command = new SqlCommand("Select o.OrderID, OrderDate, o.PersonID, (p.NameFirst + ' ' + p.NameLast) as [Name], ItemName, d.Quantity, (d.Quantity * RetailPrice) as [Total] From " + SCHEMA_NAME + "Orders as o Join " + SCHEMA_NAME + "OrderDetails as d On o.OrderID = d.OrderID Join " + SCHEMA_NAME + "Inventory as i on d.InventoryID = i.InventoryID Join " + SCHEMA_NAME + "Person as p On o.PersonID = p.PersonID Where (p.PersonID = " + personID + ") AND (OrderDate Between '" + start + "' And '" + end + "') Order By OrderDate, OrderID;", connection);
+                dataAdapter.SelectCommand = command;
+                dataAdapter.Fill(dataTable);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to get sales.\nSorry, please try again later.", "Sales Request Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
         public static bool UpdateInventoryRow(int id, string name, string description, decimal price, decimal cost, int qty, int thr)
         {
             try

@@ -108,6 +108,7 @@
             this.btnCustomerReset.TabIndex = 40;
             this.btnCustomerReset.Text = "Reset Search";
             this.btnCustomerReset.UseVisualStyleBackColor = true;
+            this.btnCustomerReset.Click += new System.EventHandler(this.btnCustomerReset_Click);
             // 
             // dgvCustomers
             // 
@@ -143,6 +144,7 @@
             this.dgvCustomers.Size = new System.Drawing.Size(436, 229);
             this.dgvCustomers.TabIndex = 38;
             this.dgvCustomers.TabStop = false;
+            this.dgvCustomers.SelectionChanged += new System.EventHandler(this.dgvCustomers_SelectionChanged);
             // 
             // ID
             // 
@@ -188,6 +190,7 @@
             this.tbxCustomer.Name = "tbxCustomer";
             this.tbxCustomer.Size = new System.Drawing.Size(275, 36);
             this.tbxCustomer.TabIndex = 39;
+            this.tbxCustomer.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxCustomer_KeyUp);
             // 
             // lblSearchCustomer
             // 

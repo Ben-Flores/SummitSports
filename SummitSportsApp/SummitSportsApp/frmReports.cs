@@ -14,15 +14,19 @@ namespace SummitSportsApp
     public partial class frmReports : Form
     {
         frmManagerLaunchpad parentForm;
+        int personID;
 
         public frmReports(frmManagerLaunchpad parentForm)
         {
             InitializeComponent();
             this.parentForm = parentForm;
+            clsSQL.GetCustomers(dgvCustomers, this);
+            dgvCustomers.ClearSelection();
         }
 
         private void frmReports_Load(object sender, EventArgs e)
         {
+            dgvCustomers.ClearSelection();
 
         }
 
@@ -69,10 +73,21 @@ namespace SummitSportsApp
             string startdate = dtpDate.Value.ToString("yyyy-MM-dd");
             string stopdate = startdate;
 
-            if (clsSQL.GetSales(startdate, stopdate))
+            if (personID == 0)
             {
-                clsHTML.ClearReport();
-                clsHTML.PrintReport(clsHTML.GenerateSalesReport("Daily Sales", startdate, stopdate));
+                if (clsSQL.GetSales(startdate, stopdate))
+                {
+                    clsHTML.ClearReport();
+                    clsHTML.PrintReport(clsHTML.GenerateSalesReport("Daily Sales", startdate, stopdate));
+                }
+            }
+            else
+            {
+                if (clsSQL.GetSales(startdate, stopdate, personID))
+                {
+                    clsHTML.ClearReport();
+                    clsHTML.PrintReport(clsHTML.GenerateSalesReport("Daily Sales", startdate, stopdate));
+                }
             }
         }
 
@@ -81,10 +96,21 @@ namespace SummitSportsApp
             string startdate = dtpDate.Value.ToString("yyyy-MM-dd");
             string stopdate = dtpDate.Value.Add(new System.TimeSpan(6, 0, 0, 0)).ToString("yyyy-MM-dd");
 
-            if (clsSQL.GetSales(startdate, stopdate))
+            if (personID == 0)
             {
-                clsHTML.ClearReport();
-                clsHTML.PrintReport(clsHTML.GenerateSalesReport("Weekly Sales", startdate, stopdate));
+                if (clsSQL.GetSales(startdate, stopdate))
+                {
+                    clsHTML.ClearReport();
+                    clsHTML.PrintReport(clsHTML.GenerateSalesReport("Weekly Sales", startdate, stopdate));
+                }
+            }
+            else
+            {
+                if (clsSQL.GetSales(startdate, stopdate, personID))
+                {
+                    clsHTML.ClearReport();
+                    clsHTML.PrintReport(clsHTML.GenerateSalesReport("Weekly Sales", startdate, stopdate));
+                }
             }
         }
 
@@ -93,10 +119,21 @@ namespace SummitSportsApp
             string startdate = dtpDate.Value.ToString("yyyy-MM-dd");
             string stopdate = dtpDate.Value.Add(new System.TimeSpan(29, 0, 0, 0)).ToString("yyyy-MM-dd");
 
-            if (clsSQL.GetSales(startdate, stopdate))
+            if (personID == 0)
             {
-                clsHTML.ClearReport();
-                clsHTML.PrintReport(clsHTML.GenerateSalesReport("Monthly Sales", startdate, stopdate));
+                if (clsSQL.GetSales(startdate, stopdate, personID))
+                {
+                    clsHTML.ClearReport();
+                    clsHTML.PrintReport(clsHTML.GenerateSalesReport("Monthly Sales", startdate, stopdate));
+                }
+            }
+            else
+            {
+                if (clsSQL.GetSales(startdate, stopdate))
+                {
+                    clsHTML.ClearReport();
+                    clsHTML.PrintReport(clsHTML.GenerateSalesReport("Monthly Sales", startdate, stopdate));
+                }
             }
         }
 
@@ -121,6 +158,34 @@ namespace SummitSportsApp
         private void btnHelp_Click(object sender, EventArgs e)
         {
             Help.ShowHelp(this, hlpHelp.HelpNamespace, HelpNavigator.Topic, "Topic6_Reports.htm");
+        }
+
+        private void dgvCustomers_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvCustomers.SelectedRows.Count > 0)
+            {
+                int customerID = (int)dgvCustomers.SelectedRows[0].Cells["id"].Value;
+                personID = customerID;
+            }
+            else
+            {
+                personID = 0;
+            }
+        }
+
+        private void tbxCustomer_KeyUp(object sender, KeyEventArgs e)
+        {
+            string filter = "Convert(PersonID, System.String) Like '%" + tbxCustomer.Text + "%' OR " + "FullName Like '%" + tbxCustomer.Text + "%' OR " + "Email Like '%" + tbxCustomer.Text + "%' OR " + "PhonePrimary Like '%" + tbxCustomer.Text + "%' OR " + "PhoneSecondary Like '%" + tbxCustomer.Text + "%'";
+
+            (dgvCustomers.DataSource as DataTable).DefaultView.RowFilter = filter;
+            dgvCustomers.ClearSelection();
+        }
+
+        private void btnCustomerReset_Click(object sender, EventArgs e)
+        {
+            tbxCustomer.Text = "";
+            (dgvCustomers.DataSource as DataTable).DefaultView.RowFilter = "";
+            dgvCustomers.ClearSelection();
         }
     }
 }
