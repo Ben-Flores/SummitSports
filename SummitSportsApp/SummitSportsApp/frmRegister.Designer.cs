@@ -530,7 +530,7 @@
             this.pnlCredentials.Controls.Add(this.tbxUsername);
             this.pnlCredentials.Controls.Add(this.lblUsername);
             this.pnlCredentials.Controls.Add(this.lblCredentials);
-            this.pnlCredentials.Location = new System.Drawing.Point(12, 69);
+            this.pnlCredentials.Location = new System.Drawing.Point(12, 540);
             this.pnlCredentials.Name = "pnlCredentials";
             this.pnlCredentials.Size = new System.Drawing.Size(758, 472);
             this.pnlCredentials.TabIndex = 38;
@@ -713,7 +713,7 @@
             this.pnlQuestions.Controls.Add(this.tbxQuestion1);
             this.pnlQuestions.Controls.Add(this.lblQuestion1);
             this.pnlQuestions.Controls.Add(this.lblQuestions);
-            this.pnlQuestions.Location = new System.Drawing.Point(12, 69);
+            this.pnlQuestions.Location = new System.Drawing.Point(12, 540);
             this.pnlQuestions.Name = "pnlQuestions";
             this.pnlQuestions.Size = new System.Drawing.Size(758, 472);
             this.pnlQuestions.TabIndex = 39;

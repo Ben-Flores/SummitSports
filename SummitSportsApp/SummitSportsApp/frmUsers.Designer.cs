@@ -37,8 +37,6 @@
             this.lblSearchCustomer = new System.Windows.Forms.Label();
             this.tbxCustomer = new System.Windows.Forms.TextBox();
             this.dgvCustomers = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCustomerReset = new System.Windows.Forms.Button();
             this.btnDisableUser = new System.Windows.Forms.Button();
             this.btnUpdateUser = new System.Windows.Forms.Button();
@@ -70,6 +68,17 @@
             this.btnNewManager = new System.Windows.Forms.Button();
             this.btnNewEmployee = new System.Windows.Forms.Button();
             this.btnNewCustomer = new System.Windows.Forms.Button();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phone1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phone2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbxZip = new System.Windows.Forms.TextBox();
+            this.lblZip = new System.Windows.Forms.Label();
+            this.tbxTitle = new System.Windows.Forms.TextBox();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblError1 = new System.Windows.Forms.Label();
+            this.btnDeleteUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -150,7 +159,10 @@
             this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.name});
+            this.name,
+            this.email,
+            this.phone1,
+            this.phone2});
             this.dgvCustomers.EnableHeadersVisualStyles = false;
             this.dgvCustomers.Location = new System.Drawing.Point(12, 146);
             this.dgvCustomers.MultiSelect = false;
@@ -162,20 +174,7 @@
             this.dgvCustomers.Size = new System.Drawing.Size(275, 551);
             this.dgvCustomers.TabIndex = 0;
             this.dgvCustomers.TabStop = false;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 62;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Name";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 102;
+            this.dgvCustomers.SelectionChanged += new System.EventHandler(this.dgvCustomers_SelectionChanged);
             // 
             // btnCustomerReset
             // 
@@ -193,317 +192,443 @@
             // 
             this.btnDisableUser.Enabled = false;
             this.btnDisableUser.ForeColor = System.Drawing.Color.Black;
-            this.btnDisableUser.Location = new System.Drawing.Point(439, 676);
+            this.btnDisableUser.Location = new System.Drawing.Point(667, 709);
             this.btnDisableUser.Name = "btnDisableUser";
-            this.btnDisableUser.Size = new System.Drawing.Size(210, 50);
+            this.btnDisableUser.Size = new System.Drawing.Size(250, 50);
             this.btnDisableUser.TabIndex = 50;
             this.btnDisableUser.Text = "Disable User";
             this.btnDisableUser.UseVisualStyleBackColor = true;
+            this.btnDisableUser.Click += new System.EventHandler(this.btnDisableUser_Click);
             // 
             // btnUpdateUser
             // 
             this.btnUpdateUser.Enabled = false;
             this.btnUpdateUser.ForeColor = System.Drawing.Color.Black;
-            this.btnUpdateUser.Location = new System.Drawing.Point(439, 620);
+            this.btnUpdateUser.Location = new System.Drawing.Point(667, 653);
             this.btnUpdateUser.Name = "btnUpdateUser";
-            this.btnUpdateUser.Size = new System.Drawing.Size(210, 50);
+            this.btnUpdateUser.Size = new System.Drawing.Size(250, 50);
             this.btnUpdateUser.TabIndex = 37;
             this.btnUpdateUser.Text = "Update User";
             this.btnUpdateUser.UseVisualStyleBackColor = true;
+            this.btnUpdateUser.Click += new System.EventHandler(this.btnUpdateUser_Click);
             // 
             // btnResetUser
             // 
             this.btnResetUser.Enabled = false;
             this.btnResetUser.ForeColor = System.Drawing.Color.Black;
-            this.btnResetUser.Location = new System.Drawing.Point(439, 564);
+            this.btnResetUser.Location = new System.Drawing.Point(667, 597);
             this.btnResetUser.Name = "btnResetUser";
-            this.btnResetUser.Size = new System.Drawing.Size(210, 50);
+            this.btnResetUser.Size = new System.Drawing.Size(250, 50);
             this.btnResetUser.TabIndex = 36;
             this.btnResetUser.Text = "Reset User";
             this.btnResetUser.UseVisualStyleBackColor = true;
+            this.btnResetUser.Click += new System.EventHandler(this.btnResetUser_Click);
             // 
             // lblPhone2
             // 
             this.lblPhone2.AutoSize = true;
-            this.lblPhone2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone2.Font = new System.Drawing.Font("Rockwell", 18F);
             this.lblPhone2.ForeColor = System.Drawing.Color.Black;
-            this.lblPhone2.Location = new System.Drawing.Point(319, 362);
+            this.lblPhone2.Location = new System.Drawing.Point(319, 440);
             this.lblPhone2.Name = "lblPhone2";
-            this.lblPhone2.Size = new System.Drawing.Size(137, 19);
+            this.lblPhone2.Size = new System.Drawing.Size(208, 27);
             this.lblPhone2.TabIndex = 75;
             this.lblPhone2.Text = "Secondary Phone";
             // 
             // tbxPhone1
             // 
-            this.tbxPhone1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPhone1.Location = new System.Drawing.Point(655, 333);
+            this.tbxPhone1.Font = new System.Drawing.Font("Rockwell", 16F);
+            this.tbxPhone1.Location = new System.Drawing.Point(754, 404);
             this.tbxPhone1.MaxLength = 14;
             this.tbxPhone1.Name = "tbxPhone1";
             this.tbxPhone1.ShortcutsEnabled = false;
-            this.tbxPhone1.Size = new System.Drawing.Size(330, 26);
+            this.tbxPhone1.Size = new System.Drawing.Size(429, 33);
             this.tbxPhone1.TabIndex = 74;
+            this.tbxPhone1.TextChanged += new System.EventHandler(this.tbxPhone1_TextChanged);
+            this.tbxPhone1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxPhone1_KeyPress);
+            this.tbxPhone1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxPhone1_KeyUp);
             // 
             // lblPhone1
             // 
             this.lblPhone1.AutoSize = true;
-            this.lblPhone1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone1.Font = new System.Drawing.Font("Rockwell", 18F);
             this.lblPhone1.ForeColor = System.Drawing.Color.Black;
-            this.lblPhone1.Location = new System.Drawing.Point(655, 311);
+            this.lblPhone1.Location = new System.Drawing.Point(754, 374);
             this.lblPhone1.Name = "lblPhone1";
-            this.lblPhone1.Size = new System.Drawing.Size(117, 19);
+            this.lblPhone1.Size = new System.Drawing.Size(177, 27);
             this.lblPhone1.TabIndex = 73;
             this.lblPhone1.Text = "Primary Phone";
             // 
             // tbxEmail
             // 
-            this.tbxEmail.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxEmail.Location = new System.Drawing.Point(319, 333);
+            this.tbxEmail.Font = new System.Drawing.Font("Rockwell", 16F);
+            this.tbxEmail.Location = new System.Drawing.Point(319, 404);
             this.tbxEmail.MaxLength = 40;
             this.tbxEmail.Name = "tbxEmail";
-            this.tbxEmail.Size = new System.Drawing.Size(330, 26);
+            this.tbxEmail.Size = new System.Drawing.Size(429, 33);
             this.tbxEmail.TabIndex = 72;
+            this.tbxEmail.TextChanged += new System.EventHandler(this.tbxEmail_TextChanged);
+            this.tbxEmail.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxEmail_KeyUp);
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Font = new System.Drawing.Font("Rockwell", 18F);
             this.lblEmail.ForeColor = System.Drawing.Color.Black;
-            this.lblEmail.Location = new System.Drawing.Point(319, 311);
+            this.lblEmail.Location = new System.Drawing.Point(319, 374);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(50, 19);
+            this.lblEmail.Size = new System.Drawing.Size(75, 27);
             this.lblEmail.TabIndex = 71;
             this.lblEmail.Text = "Email";
             // 
             // tbxState
             // 
             this.tbxState.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tbxState.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxState.Location = new System.Drawing.Point(655, 207);
+            this.tbxState.Font = new System.Drawing.Font("Rockwell", 16F);
+            this.tbxState.Location = new System.Drawing.Point(754, 257);
             this.tbxState.MaxLength = 2;
             this.tbxState.Name = "tbxState";
             this.tbxState.ShortcutsEnabled = false;
-            this.tbxState.Size = new System.Drawing.Size(174, 26);
+            this.tbxState.Size = new System.Drawing.Size(199, 33);
             this.tbxState.TabIndex = 70;
+            this.tbxState.TextChanged += new System.EventHandler(this.tbxState_TextChanged);
+            this.tbxState.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxState_KeyPress);
+            this.tbxState.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxState_KeyUp);
             // 
             // lblState
             // 
             this.lblState.AutoSize = true;
-            this.lblState.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblState.Font = new System.Drawing.Font("Rockwell", 18F);
             this.lblState.ForeColor = System.Drawing.Color.Crimson;
-            this.lblState.Location = new System.Drawing.Point(655, 185);
+            this.lblState.Location = new System.Drawing.Point(754, 227);
             this.lblState.Name = "lblState";
-            this.lblState.Size = new System.Drawing.Size(130, 19);
+            this.lblState.Size = new System.Drawing.Size(194, 27);
             this.lblState.TabIndex = 69;
             this.lblState.Text = "State (Required)";
             // 
             // tbxCity
             // 
-            this.tbxCity.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxCity.Location = new System.Drawing.Point(655, 156);
+            this.tbxCity.Font = new System.Drawing.Font("Rockwell", 16F);
+            this.tbxCity.Location = new System.Drawing.Point(754, 191);
             this.tbxCity.MaxLength = 30;
             this.tbxCity.Name = "tbxCity";
-            this.tbxCity.Size = new System.Drawing.Size(330, 26);
+            this.tbxCity.Size = new System.Drawing.Size(429, 33);
             this.tbxCity.TabIndex = 68;
+            this.tbxCity.TextChanged += new System.EventHandler(this.tbxCity_TextChanged);
+            this.tbxCity.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxCity_KeyUp);
             // 
             // lblCity
             // 
             this.lblCity.AutoSize = true;
-            this.lblCity.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCity.Font = new System.Drawing.Font("Rockwell", 18F);
             this.lblCity.ForeColor = System.Drawing.Color.Crimson;
-            this.lblCity.Location = new System.Drawing.Point(655, 134);
+            this.lblCity.Location = new System.Drawing.Point(754, 161);
             this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(123, 19);
+            this.lblCity.Size = new System.Drawing.Size(186, 27);
             this.lblCity.TabIndex = 67;
             this.lblCity.Text = "City (Required)";
             // 
             // tbxAddress3
             // 
-            this.tbxAddress3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxAddress3.Location = new System.Drawing.Point(319, 258);
+            this.tbxAddress3.Font = new System.Drawing.Font("Rockwell", 16F);
+            this.tbxAddress3.Location = new System.Drawing.Point(319, 323);
             this.tbxAddress3.MaxLength = 30;
             this.tbxAddress3.Name = "tbxAddress3";
-            this.tbxAddress3.Size = new System.Drawing.Size(330, 26);
+            this.tbxAddress3.Size = new System.Drawing.Size(429, 33);
             this.tbxAddress3.TabIndex = 66;
             // 
             // lblAddress3
             // 
             this.lblAddress3.AutoSize = true;
-            this.lblAddress3.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress3.Font = new System.Drawing.Font("Rockwell", 18F);
             this.lblAddress3.ForeColor = System.Drawing.Color.Black;
-            this.lblAddress3.Location = new System.Drawing.Point(319, 236);
+            this.lblAddress3.Location = new System.Drawing.Point(319, 293);
             this.lblAddress3.Name = "lblAddress3";
-            this.lblAddress3.Size = new System.Drawing.Size(117, 19);
+            this.lblAddress3.Size = new System.Drawing.Size(178, 27);
             this.lblAddress3.TabIndex = 65;
             this.lblAddress3.Text = "Address Line 3";
             // 
             // tbxAddress2
             // 
-            this.tbxAddress2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxAddress2.Location = new System.Drawing.Point(319, 207);
+            this.tbxAddress2.Font = new System.Drawing.Font("Rockwell", 16F);
+            this.tbxAddress2.Location = new System.Drawing.Point(319, 257);
             this.tbxAddress2.MaxLength = 30;
             this.tbxAddress2.Name = "tbxAddress2";
-            this.tbxAddress2.Size = new System.Drawing.Size(330, 26);
+            this.tbxAddress2.Size = new System.Drawing.Size(429, 33);
             this.tbxAddress2.TabIndex = 64;
             // 
             // lblAddress2
             // 
             this.lblAddress2.AutoSize = true;
-            this.lblAddress2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress2.Font = new System.Drawing.Font("Rockwell", 18F);
             this.lblAddress2.ForeColor = System.Drawing.Color.Black;
-            this.lblAddress2.Location = new System.Drawing.Point(319, 185);
+            this.lblAddress2.Location = new System.Drawing.Point(319, 227);
             this.lblAddress2.Name = "lblAddress2";
-            this.lblAddress2.Size = new System.Drawing.Size(117, 19);
+            this.lblAddress2.Size = new System.Drawing.Size(178, 27);
             this.lblAddress2.TabIndex = 63;
             this.lblAddress2.Text = "Address Line 2";
             // 
             // tbxAddress1
             // 
-            this.tbxAddress1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxAddress1.Location = new System.Drawing.Point(319, 156);
+            this.tbxAddress1.Font = new System.Drawing.Font("Rockwell", 16F);
+            this.tbxAddress1.Location = new System.Drawing.Point(319, 191);
             this.tbxAddress1.MaxLength = 30;
             this.tbxAddress1.Name = "tbxAddress1";
-            this.tbxAddress1.Size = new System.Drawing.Size(330, 26);
+            this.tbxAddress1.Size = new System.Drawing.Size(429, 33);
             this.tbxAddress1.TabIndex = 62;
+            this.tbxAddress1.TextChanged += new System.EventHandler(this.tbxAddress1_TextChanged);
+            this.tbxAddress1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxAddress1_KeyUp);
             // 
             // lblAddress1
             // 
             this.lblAddress1.AutoSize = true;
-            this.lblAddress1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress1.Font = new System.Drawing.Font("Rockwell", 18F);
             this.lblAddress1.ForeColor = System.Drawing.Color.Crimson;
-            this.lblAddress1.Location = new System.Drawing.Point(319, 134);
+            this.lblAddress1.Location = new System.Drawing.Point(319, 161);
             this.lblAddress1.Name = "lblAddress1";
-            this.lblAddress1.Size = new System.Drawing.Size(201, 19);
+            this.lblAddress1.Size = new System.Drawing.Size(306, 27);
             this.lblAddress1.TabIndex = 61;
             this.lblAddress1.Text = "Address Line 1 (Required)";
             // 
             // tbxSuffix
             // 
-            this.tbxSuffix.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxSuffix.Location = new System.Drawing.Point(655, 81);
+            this.tbxSuffix.Font = new System.Drawing.Font("Rockwell", 16F);
+            this.tbxSuffix.Location = new System.Drawing.Point(754, 110);
             this.tbxSuffix.MaxLength = 20;
             this.tbxSuffix.Name = "tbxSuffix";
-            this.tbxSuffix.Size = new System.Drawing.Size(174, 26);
+            this.tbxSuffix.Size = new System.Drawing.Size(174, 33);
             this.tbxSuffix.TabIndex = 60;
             // 
             // lblSuffix
             // 
             this.lblSuffix.AutoSize = true;
-            this.lblSuffix.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSuffix.Font = new System.Drawing.Font("Rockwell", 18F);
             this.lblSuffix.ForeColor = System.Drawing.Color.Black;
-            this.lblSuffix.Location = new System.Drawing.Point(655, 59);
+            this.lblSuffix.Location = new System.Drawing.Point(754, 80);
             this.lblSuffix.Name = "lblSuffix";
-            this.lblSuffix.Size = new System.Drawing.Size(174, 19);
+            this.lblSuffix.Size = new System.Drawing.Size(73, 27);
             this.lblSuffix.TabIndex = 59;
-            this.lblSuffix.Text = "Suffix (e.g. \"Jr.\", \"Sr.\")";
+            this.lblSuffix.Text = "Suffix";
             // 
             // tbxMiddleName
             // 
-            this.tbxMiddleName.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxMiddleName.Location = new System.Drawing.Point(655, 31);
+            this.tbxMiddleName.Font = new System.Drawing.Font("Rockwell", 16F);
+            this.tbxMiddleName.Location = new System.Drawing.Point(754, 44);
             this.tbxMiddleName.MaxLength = 20;
             this.tbxMiddleName.Name = "tbxMiddleName";
-            this.tbxMiddleName.Size = new System.Drawing.Size(330, 26);
+            this.tbxMiddleName.Size = new System.Drawing.Size(429, 33);
             this.tbxMiddleName.TabIndex = 58;
             // 
             // lblMiddleName
             // 
             this.lblMiddleName.AutoSize = true;
-            this.lblMiddleName.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMiddleName.Font = new System.Drawing.Font("Rockwell", 18F);
             this.lblMiddleName.ForeColor = System.Drawing.Color.Black;
-            this.lblMiddleName.Location = new System.Drawing.Point(655, 9);
+            this.lblMiddleName.Location = new System.Drawing.Point(754, 14);
             this.lblMiddleName.Name = "lblMiddleName";
-            this.lblMiddleName.Size = new System.Drawing.Size(112, 19);
+            this.lblMiddleName.Size = new System.Drawing.Size(168, 27);
             this.lblMiddleName.TabIndex = 57;
             this.lblMiddleName.Text = "Middle Name ";
             // 
             // tbxLastName
             // 
-            this.tbxLastName.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxLastName.Location = new System.Drawing.Point(319, 81);
+            this.tbxLastName.Font = new System.Drawing.Font("Rockwell", 16F);
+            this.tbxLastName.Location = new System.Drawing.Point(319, 110);
             this.tbxLastName.MaxLength = 20;
             this.tbxLastName.Name = "tbxLastName";
-            this.tbxLastName.Size = new System.Drawing.Size(330, 26);
+            this.tbxLastName.Size = new System.Drawing.Size(429, 33);
             this.tbxLastName.TabIndex = 56;
+            this.tbxLastName.TextChanged += new System.EventHandler(this.tbxLastName_TextChanged);
+            this.tbxLastName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxLastName_KeyUp);
             // 
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastName.Font = new System.Drawing.Font("Rockwell", 18F);
             this.lblLastName.ForeColor = System.Drawing.Color.Crimson;
-            this.lblLastName.Location = new System.Drawing.Point(319, 59);
+            this.lblLastName.Location = new System.Drawing.Point(319, 80);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(170, 19);
+            this.lblLastName.Size = new System.Drawing.Size(255, 27);
             this.lblLastName.TabIndex = 55;
             this.lblLastName.Text = "Last Name (Required)";
             // 
             // tbxFirstName
             // 
-            this.tbxFirstName.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxFirstName.Location = new System.Drawing.Point(319, 31);
+            this.tbxFirstName.Font = new System.Drawing.Font("Rockwell", 16F);
+            this.tbxFirstName.Location = new System.Drawing.Point(319, 44);
             this.tbxFirstName.MaxLength = 20;
             this.tbxFirstName.Name = "tbxFirstName";
-            this.tbxFirstName.Size = new System.Drawing.Size(330, 26);
+            this.tbxFirstName.Size = new System.Drawing.Size(429, 33);
             this.tbxFirstName.TabIndex = 54;
+            this.tbxFirstName.TextChanged += new System.EventHandler(this.tbxFirstName_TextChanged);
+            this.tbxFirstName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxFirstName_KeyUp);
             // 
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFirstName.Font = new System.Drawing.Font("Rockwell", 18F);
             this.lblFirstName.ForeColor = System.Drawing.Color.Crimson;
-            this.lblFirstName.Location = new System.Drawing.Point(319, 9);
+            this.lblFirstName.Location = new System.Drawing.Point(319, 14);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(173, 19);
+            this.lblFirstName.Size = new System.Drawing.Size(259, 27);
             this.lblFirstName.TabIndex = 53;
             this.lblFirstName.Text = "First Name (Required)";
             // 
             // tbxPhone2
             // 
-            this.tbxPhone2.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxPhone2.Location = new System.Drawing.Point(319, 384);
+            this.tbxPhone2.Font = new System.Drawing.Font("Rockwell", 16F);
+            this.tbxPhone2.Location = new System.Drawing.Point(319, 470);
             this.tbxPhone2.MaxLength = 14;
             this.tbxPhone2.Name = "tbxPhone2";
             this.tbxPhone2.ShortcutsEnabled = false;
-            this.tbxPhone2.Size = new System.Drawing.Size(330, 26);
+            this.tbxPhone2.Size = new System.Drawing.Size(429, 33);
             this.tbxPhone2.TabIndex = 76;
+            this.tbxPhone2.TextChanged += new System.EventHandler(this.tbxPhone2_TextChanged);
+            this.tbxPhone2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxPhone2_KeyPress);
+            this.tbxPhone2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxPhone2_KeyUp);
             // 
             // btnNewManager
             // 
-            this.btnNewManager.Enabled = false;
             this.btnNewManager.ForeColor = System.Drawing.Color.Black;
-            this.btnNewManager.Location = new System.Drawing.Point(713, 667);
+            this.btnNewManager.Location = new System.Drawing.Point(937, 709);
             this.btnNewManager.Name = "btnNewManager";
-            this.btnNewManager.Size = new System.Drawing.Size(210, 50);
+            this.btnNewManager.Size = new System.Drawing.Size(250, 50);
             this.btnNewManager.TabIndex = 79;
             this.btnNewManager.Text = "New Manager ▶";
             this.btnNewManager.UseVisualStyleBackColor = true;
             // 
             // btnNewEmployee
             // 
-            this.btnNewEmployee.Enabled = false;
             this.btnNewEmployee.ForeColor = System.Drawing.Color.Black;
-            this.btnNewEmployee.Location = new System.Drawing.Point(713, 611);
+            this.btnNewEmployee.Location = new System.Drawing.Point(937, 653);
             this.btnNewEmployee.Name = "btnNewEmployee";
-            this.btnNewEmployee.Size = new System.Drawing.Size(210, 50);
+            this.btnNewEmployee.Size = new System.Drawing.Size(250, 50);
             this.btnNewEmployee.TabIndex = 78;
             this.btnNewEmployee.Text = "New Employee ▶";
             this.btnNewEmployee.UseVisualStyleBackColor = true;
             // 
             // btnNewCustomer
             // 
-            this.btnNewCustomer.Enabled = false;
             this.btnNewCustomer.ForeColor = System.Drawing.Color.Black;
-            this.btnNewCustomer.Location = new System.Drawing.Point(713, 555);
+            this.btnNewCustomer.Location = new System.Drawing.Point(937, 597);
             this.btnNewCustomer.Name = "btnNewCustomer";
-            this.btnNewCustomer.Size = new System.Drawing.Size(210, 50);
+            this.btnNewCustomer.Size = new System.Drawing.Size(250, 50);
             this.btnNewCustomer.TabIndex = 77;
             this.btnNewCustomer.Text = "New Customer ▶";
             this.btnNewCustomer.UseVisualStyleBackColor = true;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 62;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 102;
+            // 
+            // email
+            // 
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            // 
+            // phone1
+            // 
+            this.phone1.HeaderText = "Phone 1";
+            this.phone1.Name = "phone1";
+            this.phone1.ReadOnly = true;
+            this.phone1.Width = 126;
+            // 
+            // phone2
+            // 
+            this.phone2.HeaderText = "Phone 2";
+            this.phone2.Name = "phone2";
+            this.phone2.ReadOnly = true;
+            this.phone2.Width = 126;
+            // 
+            // tbxZip
+            // 
+            this.tbxZip.Font = new System.Drawing.Font("Rockwell", 16F);
+            this.tbxZip.Location = new System.Drawing.Point(959, 257);
+            this.tbxZip.MaxLength = 10;
+            this.tbxZip.Name = "tbxZip";
+            this.tbxZip.ShortcutsEnabled = false;
+            this.tbxZip.Size = new System.Drawing.Size(174, 33);
+            this.tbxZip.TabIndex = 83;
+            this.tbxZip.TextChanged += new System.EventHandler(this.tbxZip_TextChanged);
+            this.tbxZip.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxZip_KeyPress);
+            this.tbxZip.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxZip_KeyUp);
+            // 
+            // lblZip
+            // 
+            this.lblZip.AutoSize = true;
+            this.lblZip.Font = new System.Drawing.Font("Rockwell", 16F);
+            this.lblZip.ForeColor = System.Drawing.Color.Crimson;
+            this.lblZip.Location = new System.Drawing.Point(954, 228);
+            this.lblZip.Name = "lblZip";
+            this.lblZip.Size = new System.Drawing.Size(223, 25);
+            this.lblZip.TabIndex = 82;
+            this.lblZip.Text = "ZIP Code (Required)";
+            // 
+            // tbxTitle
+            // 
+            this.tbxTitle.Font = new System.Drawing.Font("Rockwell", 16F);
+            this.tbxTitle.Location = new System.Drawing.Point(934, 110);
+            this.tbxTitle.MaxLength = 15;
+            this.tbxTitle.Name = "tbxTitle";
+            this.tbxTitle.Size = new System.Drawing.Size(185, 33);
+            this.tbxTitle.TabIndex = 81;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Rockwell", 16F);
+            this.lblTitle.ForeColor = System.Drawing.Color.Black;
+            this.lblTitle.Location = new System.Drawing.Point(934, 82);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(57, 25);
+            this.lblTitle.TabIndex = 80;
+            this.lblTitle.Text = "Title";
+            // 
+            // lblError1
+            // 
+            this.lblError1.BackColor = System.Drawing.Color.Transparent;
+            this.lblError1.Font = new System.Drawing.Font("Rockwell", 18F);
+            this.lblError1.ForeColor = System.Drawing.Color.Crimson;
+            this.lblError1.Location = new System.Drawing.Point(319, 506);
+            this.lblError1.Name = "lblError1";
+            this.lblError1.Size = new System.Drawing.Size(714, 30);
+            this.lblError1.TabIndex = 84;
+            this.lblError1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnDeleteUser
+            // 
+            this.btnDeleteUser.Enabled = false;
+            this.btnDeleteUser.ForeColor = System.Drawing.Color.Crimson;
+            this.btnDeleteUser.Location = new System.Drawing.Point(411, 709);
+            this.btnDeleteUser.Name = "btnDeleteUser";
+            this.btnDeleteUser.Size = new System.Drawing.Size(250, 50);
+            this.btnDeleteUser.TabIndex = 85;
+            this.btnDeleteUser.Text = "Delete User";
+            this.btnDeleteUser.UseVisualStyleBackColor = true;
+            this.btnDeleteUser.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // frmUsers
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1199, 771);
+            this.Controls.Add(this.btnDeleteUser);
+            this.Controls.Add(this.lblError1);
+            this.Controls.Add(this.tbxZip);
+            this.Controls.Add(this.lblZip);
+            this.Controls.Add(this.tbxTitle);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnNewManager);
             this.Controls.Add(this.btnNewEmployee);
             this.Controls.Add(this.btnNewCustomer);
@@ -566,8 +691,6 @@
         private System.Windows.Forms.TextBox tbxCustomer;
         private System.Windows.Forms.DataGridView dgvCustomers;
         private System.Windows.Forms.Button btnCustomerReset;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.Button btnDisableUser;
         private System.Windows.Forms.Button btnUpdateUser;
         private System.Windows.Forms.Button btnResetUser;
@@ -598,5 +721,16 @@
         private System.Windows.Forms.Button btnNewManager;
         private System.Windows.Forms.Button btnNewEmployee;
         private System.Windows.Forms.Button btnNewCustomer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phone1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phone2;
+        private System.Windows.Forms.TextBox tbxZip;
+        private System.Windows.Forms.Label lblZip;
+        private System.Windows.Forms.TextBox tbxTitle;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblError1;
+        private System.Windows.Forms.Button btnDeleteUser;
     }
 }

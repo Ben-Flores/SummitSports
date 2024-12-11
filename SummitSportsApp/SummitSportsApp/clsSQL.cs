@@ -28,6 +28,11 @@ namespace SummitSportsApp
             get { return dataTable; }
             set { dataTable = value; }
         }
+        public static DataTable CustomersTable
+        {
+            get { return customersTable; }
+            set { customersTable = value; }
+        }
 
         public static bool OpenConnection()
         {
@@ -79,9 +84,9 @@ namespace SummitSportsApp
                 dataAdapter = new SqlDataAdapter();
                 dataTable = new DataTable();
                 if (verifyPass)
-                    command = new SqlCommand("Select LogonName, Password, PositionID, PersonID From " + SCHEMA_NAME + "Logon", connection);
+                    command = new SqlCommand("Select LogonName, Password, PositionID, PersonID From " + SCHEMA_NAME + "Logon Where (AccountDisabled = 0 OR AccountDisabled Is Null) AND (AccountDeleted = 0 OR AccountDeleted Is Null)", connection);
                 else
-                    command = new SqlCommand("Select LogonName From " + SCHEMA_NAME + "Logon", connection);
+                    command = new SqlCommand("Select LogonName From " + SCHEMA_NAME + "Logon Where (AccountDisabled = 0 OR AccountDisabled Is Null) AND (AccountDeleted = 0 OR AccountDeleted Is Null)", connection);
                 dataAdapter.SelectCommand = command;
                 dataAdapter.Fill(dataTable);
 
@@ -541,6 +546,35 @@ namespace SummitSportsApp
                 dgv.DataSource = customersTable;
                 dgv.Columns["ID"].DataPropertyName = "PersonID";
                 dgv.Columns["name"].DataPropertyName = "FullName";
+                dgv.Columns["email"].DataPropertyName = "Email";
+                dgv.Columns["phone1"].DataPropertyName = "PhonePrimary";
+                dgv.Columns["phone2"].DataPropertyName = "PhoneSecondary";
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to fetch customers.\nSorry, please try again later.", "Customer Request Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                form.Close();
+            }
+        }
+
+        public static void GetCustomersToEdit(DataGridView dgv, Form form)
+        {
+            try
+            {
+                dataAdapter = new SqlDataAdapter();
+                customersTable = new DataTable();
+                command = new SqlCommand("Select PersonID, (Coalesce((Title + ' '), '') + NameFirst + ' ' + Coalesce((NameMiddle + ' '), '') + NameLast + Coalesce((' ' + Suffix), '')) as [FullName], Title, NameFirst, NameMiddle, NameLast, Suffix, Address1, Address2, Address3, City, Zipcode, State, Email, PhonePrimary, PhoneSecondary From " + SCHEMA_NAME + "Person Order By PersonID;", connection);
+                dataAdapter.SelectCommand = command;
+                dataAdapter.Fill(customersTable);
+
+                dgv.AutoGenerateColumns = false;
+                dgv.DataSource = customersTable;
+                dgv.Columns["ID"].DataPropertyName = "PersonID";
+                dgv.Columns["name"].DataPropertyName = "FullName";
+                dgv.Columns["email"].DataPropertyName = "Email";
+                dgv.Columns["phone1"].DataPropertyName = "PhonePrimary";
+                dgv.Columns["phone2"].DataPropertyName = "PhonrSecondary";
             }
             catch (Exception ex)
             {
@@ -597,6 +631,72 @@ namespace SummitSportsApp
             }
         }
 
+        public static bool UpdateCustomerRow(int personID, string fname, string lname, string addy1, string city, string state, string zip, string email, string phone1, string phone2, string title, string mname, string suffix, string addy2, string addy3)
+        {
+            try
+            {
+                StringBuilder cmd = new StringBuilder();
+
+
+                // Person Table Command
+                cmd.Append("Update " + SCHEMA_NAME + "Person Set NameFirst = '" + fname + "', NameLast = '" + lname + "', Address1 = '" + addy1 + "', City = '" + city + "', State = '" + state + "', Zipcode = '" + zip + "'");
+
+                if (email != "")
+                    cmd.Append(", Email = '" + email + "'");
+                else
+                    cmd.Append(", Email = Null");
+
+                if (phone1 != "")
+                    cmd.Append(", PhonePrimary = '" + phone1 + "'");
+                else
+                    cmd.Append(", PhonePrimary = Null");
+
+                if (phone2 != "")
+                    cmd.Append(", PhoneSecondary = '" + phone2 + "'");
+                else
+                    cmd.Append(", PhoneSecondary = Null");
+
+                if (title != "")
+                    cmd.Append(", Title = '" + title + "'");
+                else
+                    cmd.Append(", Title = Null");
+
+                if (mname != "")
+                    cmd.Append(", NameMiddle = '" + mname + "'");
+                else
+                    cmd.Append(", NameMiddle = Null");
+
+                if (suffix != "")
+                    cmd.Append(", Suffix = '" + suffix + "'");
+                else
+                    cmd.Append(", Suffix = Null");
+
+                if (addy2 != "")
+                    cmd.Append(", Address2 = '" + addy2 + "'");
+                else
+                    cmd.Append(", Address2 = Null");
+
+                if (addy3 != "")
+                    cmd.Append(", Address3 = '" + addy3 + "'");
+                else
+                    cmd.Append(", Address3 = Null");
+
+
+                cmd.Append(" Where PersonID = " + personID + ";");
+                // MessageBox.Show(cmd.ToString());
+
+                command = new SqlCommand(cmd.ToString(), connection);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to update user record.\nSorry, please try again later.", "User Update Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
         public static bool DiscontinueInventoryRow(int id)
         {
             try
@@ -609,6 +709,40 @@ namespace SummitSportsApp
             {
                 Debug.WriteLine(ex.Message);
                 MessageBox.Show("Unable to update inventory item.\nSorry, please try again later.", "Inventory Update Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public static bool DisableUser(int id)
+        {
+            try
+            {
+                command = new SqlCommand("Update " + SCHEMA_NAME + "Logon Set AccountDisabled = 1 Where PersonID = " + id + ";", connection);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to disable user.\nSorry, please try again later.", "User Update Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public static bool DeleteUser(int id)
+        {
+            try
+            {
+                command = new SqlCommand("Update " + SCHEMA_NAME + "Logon Set AccountDeleted = 1 Where PersonID = " + id + ";", connection);
+                command.ExecuteNonQuery();
+                command = new SqlCommand("Update " + SCHEMA_NAME + "Person Set PersonDeleted = 1 Where PersonID = " + id + ";", connection);
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to delete user.\nSorry, please try again later.", "User Update Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

@@ -47,6 +47,7 @@ namespace SummitSportsApp
         public static bool ValidatePersonalInfo(TextBox fName, TextBox lName, TextBox addy, TextBox city, TextBox state, TextBox zip, TextBox email, TextBox phone1, TextBox phone2, Label lblError)
         {
             errorLabel = lblError;
+            lblError.Text = "";
             // Trim all textboxes
             fName.Text = fName.Text.Trim();
             lName.Text = lName.Text.Trim();
