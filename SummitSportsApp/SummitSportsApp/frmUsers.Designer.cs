@@ -68,17 +68,17 @@
             this.btnNewManager = new System.Windows.Forms.Button();
             this.btnNewEmployee = new System.Windows.Forms.Button();
             this.btnNewCustomer = new System.Windows.Forms.Button();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phone1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phone2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbxZip = new System.Windows.Forms.TextBox();
             this.lblZip = new System.Windows.Forms.Label();
             this.tbxTitle = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblError1 = new System.Windows.Forms.Label();
             this.btnDeleteUser = new System.Windows.Forms.Button();
+            this.phone2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phone1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -496,6 +496,7 @@
             this.btnNewManager.TabIndex = 79;
             this.btnNewManager.Text = "New Manager ▶";
             this.btnNewManager.UseVisualStyleBackColor = true;
+            this.btnNewManager.Click += new System.EventHandler(this.btnNewManager_Click);
             // 
             // btnNewEmployee
             // 
@@ -506,6 +507,7 @@
             this.btnNewEmployee.TabIndex = 78;
             this.btnNewEmployee.Text = "New Employee ▶";
             this.btnNewEmployee.UseVisualStyleBackColor = true;
+            this.btnNewEmployee.Click += new System.EventHandler(this.btnNewEmployee_Click);
             // 
             // btnNewCustomer
             // 
@@ -516,40 +518,7 @@
             this.btnNewCustomer.TabIndex = 77;
             this.btnNewCustomer.Text = "New Customer ▶";
             this.btnNewCustomer.UseVisualStyleBackColor = true;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 62;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Name";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 102;
-            // 
-            // email
-            // 
-            this.email.HeaderText = "Email";
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
-            // 
-            // phone1
-            // 
-            this.phone1.HeaderText = "Phone 1";
-            this.phone1.Name = "phone1";
-            this.phone1.ReadOnly = true;
-            this.phone1.Width = 126;
-            // 
-            // phone2
-            // 
-            this.phone2.HeaderText = "Phone 2";
-            this.phone2.Name = "phone2";
-            this.phone2.ReadOnly = true;
-            this.phone2.Width = 126;
+            this.btnNewCustomer.Click += new System.EventHandler(this.btnNewCustomer_Click);
             // 
             // tbxZip
             // 
@@ -617,6 +586,40 @@
             this.btnDeleteUser.Text = "Delete User";
             this.btnDeleteUser.UseVisualStyleBackColor = true;
             this.btnDeleteUser.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // phone2
+            // 
+            this.phone2.HeaderText = "Phone 2";
+            this.phone2.Name = "phone2";
+            this.phone2.ReadOnly = true;
+            this.phone2.Width = 126;
+            // 
+            // phone1
+            // 
+            this.phone1.HeaderText = "Phone 1";
+            this.phone1.Name = "phone1";
+            this.phone1.ReadOnly = true;
+            this.phone1.Width = 126;
+            // 
+            // email
+            // 
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 102;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 62;
             // 
             // frmUsers
             // 
@@ -721,16 +724,16 @@
         private System.Windows.Forms.Button btnNewManager;
         private System.Windows.Forms.Button btnNewEmployee;
         private System.Windows.Forms.Button btnNewCustomer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phone1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phone2;
         private System.Windows.Forms.TextBox tbxZip;
         private System.Windows.Forms.Label lblZip;
         private System.Windows.Forms.TextBox tbxTitle;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblError1;
         private System.Windows.Forms.Button btnDeleteUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phone1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phone2;
     }
 }

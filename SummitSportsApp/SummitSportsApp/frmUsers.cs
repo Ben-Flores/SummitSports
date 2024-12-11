@@ -295,5 +295,39 @@ namespace SummitSportsApp
                 btnCustomerReset_Click(null, null);
             }
         }
+
+        private void btnNewCustomer_Click(object sender, EventArgs e)
+        {
+            frmRegister frmRegister = new frmRegister(this, 1002);
+            if (!frmRegister.IsDisposed)
+            {
+                frmRegister.ShowDialog();
+            }
+        }
+
+        private void btnNewEmployee_Click(object sender, EventArgs e)
+        {
+            frmRegister frmRegister = new frmRegister(this, 1001);
+            if (!frmRegister.IsDisposed)
+            {
+                frmRegister.ShowDialog();
+            }
+        }
+
+        private void btnNewManager_Click(object sender, EventArgs e)
+        {
+            frmRegister frmRegister = new frmRegister(this, 1000);
+            if (!frmRegister.IsDisposed)
+            {
+                frmRegister.ShowDialog();
+            }
+        }
+
+        public void RefreshUsers()
+        {
+            clsSQL.GetCustomersToEdit(dgvCustomers, this);
+            dgvCustomers.ClearSelection();
+            btnCustomerReset_Click(null, null);
+        }
     }
 }

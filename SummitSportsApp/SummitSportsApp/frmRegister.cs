@@ -14,8 +14,9 @@ namespace SummitSportsApp
 {
     public partial class frmRegister : Form
     {
-        frmLogon parentForm;
+        Form parentForm;
         NewUser newUser = new NewUser();
+        int position;
         List<int> set1 = new List<int>();
         List<int> set2 = new List<int>();
         List<int> set3 = new List<int>();
@@ -30,12 +31,29 @@ namespace SummitSportsApp
             pnlQuestions.Visible = false;
             clsSQL.PopulateQuestions(cbxQuestion1, cbxQuestion2, cbxQuestion3, ref set1, ref set2, ref set3, this);
         }
+        public frmRegister(frmUsers parentForm, int position)
+        {
+            this.parentForm = parentForm;
+            InitializeComponent();
+            pnlPersonalInfo.Visible = true;
+            pnlCredentials.Visible = false;
+            pnlQuestions.Visible = false;
+            clsSQL.PopulateQuestions(cbxQuestion1, cbxQuestion2, cbxQuestion3, ref set1, ref set2, ref set3, this);
+            this.position = position;
+        }
 
         private void frmRegister_FormClosed(object sender, FormClosedEventArgs e)
         {
-            clsSQL.CloseConnection();
-            parentForm.ClearFields();
-            parentForm.Show();
+            if (parentForm is frmLogon)
+            {
+                clsSQL.CloseConnection();
+                ((frmLogon)parentForm).ClearFields();
+                parentForm.Show();
+            }
+            else if (parentForm is frmUsers)
+            {
+                ((frmUsers)parentForm).RefreshUsers();
+            }
         }
 
         // PAGE NAVIGATION
@@ -116,7 +134,12 @@ namespace SummitSportsApp
                 newUser.answer2 = tbxQuestion2.Text;
                 newUser.answer3 = tbxQuestion3.Text;
 
-                clsSQL.CreateNewUser(newUser, this);
+                if (position == 1000)
+                    clsSQL.CreateNewUser(newUser, position, this);
+                else if (position == 1001)
+                    clsSQL.CreateNewUser(newUser, position, this);
+                else
+                    clsSQL.CreateNewUser(newUser, 1002, this);
             }
         }
 
