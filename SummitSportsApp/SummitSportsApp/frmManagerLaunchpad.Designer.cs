@@ -138,6 +138,7 @@
             this.tsiReports.Name = "tsiReports";
             this.tsiReports.Size = new System.Drawing.Size(152, 23);
             this.tsiReports.Text = "Generate Reports";
+            this.tsiReports.Click += new System.EventHandler(this.tsiReports_Click);
             // 
             // lblSelect
             // 

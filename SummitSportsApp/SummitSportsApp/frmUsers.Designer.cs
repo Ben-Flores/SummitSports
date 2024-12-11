@@ -37,6 +37,11 @@
             this.lblSearchCustomer = new System.Windows.Forms.Label();
             this.tbxCustomer = new System.Windows.Forms.TextBox();
             this.dgvCustomers = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phone1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phone2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCustomerReset = new System.Windows.Forms.Button();
             this.btnDisableUser = new System.Windows.Forms.Button();
             this.btnUpdateUser = new System.Windows.Forms.Button();
@@ -74,11 +79,6 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblError1 = new System.Windows.Forms.Label();
             this.btnDeleteUser = new System.Windows.Forms.Button();
-            this.phone2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phone1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,7 +88,7 @@
             this.btnBack.Location = new System.Drawing.Point(12, 709);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(169, 50);
-            this.btnBack.TabIndex = 8;
+            this.btnBack.TabIndex = 23;
             this.btnBack.Text = "◀ Go Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -176,6 +176,40 @@
             this.dgvCustomers.TabStop = false;
             this.dgvCustomers.SelectionChanged += new System.EventHandler(this.dgvCustomers_SelectionChanged);
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 62;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "Name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 102;
+            // 
+            // email
+            // 
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            this.email.ReadOnly = true;
+            // 
+            // phone1
+            // 
+            this.phone1.HeaderText = "Phone 1";
+            this.phone1.Name = "phone1";
+            this.phone1.ReadOnly = true;
+            this.phone1.Width = 126;
+            // 
+            // phone2
+            // 
+            this.phone2.HeaderText = "Phone 2";
+            this.phone2.Name = "phone2";
+            this.phone2.ReadOnly = true;
+            this.phone2.Width = 126;
+            // 
             // btnCustomerReset
             // 
             this.btnCustomerReset.Font = new System.Drawing.Font("Rockwell", 16F);
@@ -195,7 +229,7 @@
             this.btnDisableUser.Location = new System.Drawing.Point(667, 709);
             this.btnDisableUser.Name = "btnDisableUser";
             this.btnDisableUser.Size = new System.Drawing.Size(250, 50);
-            this.btnDisableUser.TabIndex = 50;
+            this.btnDisableUser.TabIndex = 18;
             this.btnDisableUser.Text = "Disable User";
             this.btnDisableUser.UseVisualStyleBackColor = true;
             this.btnDisableUser.Click += new System.EventHandler(this.btnDisableUser_Click);
@@ -207,7 +241,7 @@
             this.btnUpdateUser.Location = new System.Drawing.Point(667, 653);
             this.btnUpdateUser.Name = "btnUpdateUser";
             this.btnUpdateUser.Size = new System.Drawing.Size(250, 50);
-            this.btnUpdateUser.TabIndex = 37;
+            this.btnUpdateUser.TabIndex = 17;
             this.btnUpdateUser.Text = "Update User";
             this.btnUpdateUser.UseVisualStyleBackColor = true;
             this.btnUpdateUser.Click += new System.EventHandler(this.btnUpdateUser_Click);
@@ -219,7 +253,7 @@
             this.btnResetUser.Location = new System.Drawing.Point(667, 597);
             this.btnResetUser.Name = "btnResetUser";
             this.btnResetUser.Size = new System.Drawing.Size(250, 50);
-            this.btnResetUser.TabIndex = 36;
+            this.btnResetUser.TabIndex = 16;
             this.btnResetUser.Text = "Reset User";
             this.btnResetUser.UseVisualStyleBackColor = true;
             this.btnResetUser.Click += new System.EventHandler(this.btnResetUser_Click);
@@ -243,7 +277,7 @@
             this.tbxPhone1.Name = "tbxPhone1";
             this.tbxPhone1.ShortcutsEnabled = false;
             this.tbxPhone1.Size = new System.Drawing.Size(429, 33);
-            this.tbxPhone1.TabIndex = 74;
+            this.tbxPhone1.TabIndex = 14;
             this.tbxPhone1.TextChanged += new System.EventHandler(this.tbxPhone1_TextChanged);
             this.tbxPhone1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxPhone1_KeyPress);
             this.tbxPhone1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxPhone1_KeyUp);
@@ -266,7 +300,7 @@
             this.tbxEmail.MaxLength = 40;
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(429, 33);
-            this.tbxEmail.TabIndex = 72;
+            this.tbxEmail.TabIndex = 13;
             this.tbxEmail.TextChanged += new System.EventHandler(this.tbxEmail_TextChanged);
             this.tbxEmail.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxEmail_KeyUp);
             // 
@@ -290,7 +324,7 @@
             this.tbxState.Name = "tbxState";
             this.tbxState.ShortcutsEnabled = false;
             this.tbxState.Size = new System.Drawing.Size(199, 33);
-            this.tbxState.TabIndex = 70;
+            this.tbxState.TabIndex = 11;
             this.tbxState.TextChanged += new System.EventHandler(this.tbxState_TextChanged);
             this.tbxState.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxState_KeyPress);
             this.tbxState.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxState_KeyUp);
@@ -313,7 +347,7 @@
             this.tbxCity.MaxLength = 30;
             this.tbxCity.Name = "tbxCity";
             this.tbxCity.Size = new System.Drawing.Size(429, 33);
-            this.tbxCity.TabIndex = 68;
+            this.tbxCity.TabIndex = 10;
             this.tbxCity.TextChanged += new System.EventHandler(this.tbxCity_TextChanged);
             this.tbxCity.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxCity_KeyUp);
             // 
@@ -335,7 +369,7 @@
             this.tbxAddress3.MaxLength = 30;
             this.tbxAddress3.Name = "tbxAddress3";
             this.tbxAddress3.Size = new System.Drawing.Size(429, 33);
-            this.tbxAddress3.TabIndex = 66;
+            this.tbxAddress3.TabIndex = 9;
             // 
             // lblAddress3
             // 
@@ -355,7 +389,7 @@
             this.tbxAddress2.MaxLength = 30;
             this.tbxAddress2.Name = "tbxAddress2";
             this.tbxAddress2.Size = new System.Drawing.Size(429, 33);
-            this.tbxAddress2.TabIndex = 64;
+            this.tbxAddress2.TabIndex = 8;
             // 
             // lblAddress2
             // 
@@ -375,7 +409,7 @@
             this.tbxAddress1.MaxLength = 30;
             this.tbxAddress1.Name = "tbxAddress1";
             this.tbxAddress1.Size = new System.Drawing.Size(429, 33);
-            this.tbxAddress1.TabIndex = 62;
+            this.tbxAddress1.TabIndex = 7;
             this.tbxAddress1.TextChanged += new System.EventHandler(this.tbxAddress1_TextChanged);
             this.tbxAddress1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxAddress1_KeyUp);
             // 
@@ -397,7 +431,7 @@
             this.tbxSuffix.MaxLength = 20;
             this.tbxSuffix.Name = "tbxSuffix";
             this.tbxSuffix.Size = new System.Drawing.Size(174, 33);
-            this.tbxSuffix.TabIndex = 60;
+            this.tbxSuffix.TabIndex = 5;
             // 
             // lblSuffix
             // 
@@ -417,7 +451,7 @@
             this.tbxMiddleName.MaxLength = 20;
             this.tbxMiddleName.Name = "tbxMiddleName";
             this.tbxMiddleName.Size = new System.Drawing.Size(429, 33);
-            this.tbxMiddleName.TabIndex = 58;
+            this.tbxMiddleName.TabIndex = 4;
             // 
             // lblMiddleName
             // 
@@ -437,7 +471,7 @@
             this.tbxLastName.MaxLength = 20;
             this.tbxLastName.Name = "tbxLastName";
             this.tbxLastName.Size = new System.Drawing.Size(429, 33);
-            this.tbxLastName.TabIndex = 56;
+            this.tbxLastName.TabIndex = 3;
             this.tbxLastName.TextChanged += new System.EventHandler(this.tbxLastName_TextChanged);
             this.tbxLastName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxLastName_KeyUp);
             // 
@@ -459,7 +493,7 @@
             this.tbxFirstName.MaxLength = 20;
             this.tbxFirstName.Name = "tbxFirstName";
             this.tbxFirstName.Size = new System.Drawing.Size(429, 33);
-            this.tbxFirstName.TabIndex = 54;
+            this.tbxFirstName.TabIndex = 2;
             this.tbxFirstName.TextChanged += new System.EventHandler(this.tbxFirstName_TextChanged);
             this.tbxFirstName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxFirstName_KeyUp);
             // 
@@ -482,7 +516,7 @@
             this.tbxPhone2.Name = "tbxPhone2";
             this.tbxPhone2.ShortcutsEnabled = false;
             this.tbxPhone2.Size = new System.Drawing.Size(429, 33);
-            this.tbxPhone2.TabIndex = 76;
+            this.tbxPhone2.TabIndex = 15;
             this.tbxPhone2.TextChanged += new System.EventHandler(this.tbxPhone2_TextChanged);
             this.tbxPhone2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxPhone2_KeyPress);
             this.tbxPhone2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxPhone2_KeyUp);
@@ -493,7 +527,7 @@
             this.btnNewManager.Location = new System.Drawing.Point(937, 709);
             this.btnNewManager.Name = "btnNewManager";
             this.btnNewManager.Size = new System.Drawing.Size(250, 50);
-            this.btnNewManager.TabIndex = 79;
+            this.btnNewManager.TabIndex = 22;
             this.btnNewManager.Text = "New Manager ▶";
             this.btnNewManager.UseVisualStyleBackColor = true;
             this.btnNewManager.Click += new System.EventHandler(this.btnNewManager_Click);
@@ -504,7 +538,7 @@
             this.btnNewEmployee.Location = new System.Drawing.Point(937, 653);
             this.btnNewEmployee.Name = "btnNewEmployee";
             this.btnNewEmployee.Size = new System.Drawing.Size(250, 50);
-            this.btnNewEmployee.TabIndex = 78;
+            this.btnNewEmployee.TabIndex = 21;
             this.btnNewEmployee.Text = "New Employee ▶";
             this.btnNewEmployee.UseVisualStyleBackColor = true;
             this.btnNewEmployee.Click += new System.EventHandler(this.btnNewEmployee_Click);
@@ -515,7 +549,7 @@
             this.btnNewCustomer.Location = new System.Drawing.Point(937, 597);
             this.btnNewCustomer.Name = "btnNewCustomer";
             this.btnNewCustomer.Size = new System.Drawing.Size(250, 50);
-            this.btnNewCustomer.TabIndex = 77;
+            this.btnNewCustomer.TabIndex = 20;
             this.btnNewCustomer.Text = "New Customer ▶";
             this.btnNewCustomer.UseVisualStyleBackColor = true;
             this.btnNewCustomer.Click += new System.EventHandler(this.btnNewCustomer_Click);
@@ -528,7 +562,7 @@
             this.tbxZip.Name = "tbxZip";
             this.tbxZip.ShortcutsEnabled = false;
             this.tbxZip.Size = new System.Drawing.Size(174, 33);
-            this.tbxZip.TabIndex = 83;
+            this.tbxZip.TabIndex = 12;
             this.tbxZip.TextChanged += new System.EventHandler(this.tbxZip_TextChanged);
             this.tbxZip.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxZip_KeyPress);
             this.tbxZip.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxZip_KeyUp);
@@ -551,7 +585,7 @@
             this.tbxTitle.MaxLength = 15;
             this.tbxTitle.Name = "tbxTitle";
             this.tbxTitle.Size = new System.Drawing.Size(185, 33);
-            this.tbxTitle.TabIndex = 81;
+            this.tbxTitle.TabIndex = 6;
             // 
             // lblTitle
             // 
@@ -582,44 +616,10 @@
             this.btnDeleteUser.Location = new System.Drawing.Point(411, 709);
             this.btnDeleteUser.Name = "btnDeleteUser";
             this.btnDeleteUser.Size = new System.Drawing.Size(250, 50);
-            this.btnDeleteUser.TabIndex = 85;
+            this.btnDeleteUser.TabIndex = 19;
             this.btnDeleteUser.Text = "Delete User";
             this.btnDeleteUser.UseVisualStyleBackColor = true;
             this.btnDeleteUser.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // phone2
-            // 
-            this.phone2.HeaderText = "Phone 2";
-            this.phone2.Name = "phone2";
-            this.phone2.ReadOnly = true;
-            this.phone2.Width = 126;
-            // 
-            // phone1
-            // 
-            this.phone1.HeaderText = "Phone 1";
-            this.phone1.Name = "phone1";
-            this.phone1.ReadOnly = true;
-            this.phone1.Width = 126;
-            // 
-            // email
-            // 
-            this.email.HeaderText = "Email";
-            this.email.Name = "email";
-            this.email.ReadOnly = true;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "Name";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 102;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 62;
             // 
             // frmUsers
             // 

@@ -352,7 +352,7 @@ namespace SummitSportsApp
                     if (clsSQL.InsertOrder(order, ref orderID))
                     {
                         clsHTML.ClearReport();
-                        clsHTML.PrintReport(clsHTML.GenerateReceipt(order, orderID));
+                        clsHTML.PrintReceipt(clsHTML.GenerateReceipt(order, orderID));
 
                         inventoryIDs.Clear();
                         quantities.Clear();

@@ -615,6 +615,101 @@ namespace SummitSportsApp
             }
         }
 
+        public static bool GetInventory()
+        {
+            try
+            {
+                dataAdapter = new SqlDataAdapter();
+                dataTable = new DataTable();
+                command = new SqlCommand("Select InventoryID, ItemName, i.CategoryID, CategoryName, RetailPrice, Cost, Quantity, RestockThreshold, Discontinued From " + SCHEMA_NAME + "Inventory as i Join " + SCHEMA_NAME + "Categories as c On i.CategoryID = c.CategoryID Order By CategoryID, InventoryID, ItemName;", connection);
+                dataAdapter.SelectCommand = command;
+                dataAdapter.Fill(dataTable);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to get inventory items.\nSorry, please try again later.", "Inventory Request Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public static bool GetAvailableInventory()
+        {
+            try
+            {
+                dataAdapter = new SqlDataAdapter();
+                dataTable = new DataTable();
+                command = new SqlCommand("Select InventoryID, ItemName, i.CategoryID, CategoryName, RetailPrice, Cost, Quantity, RestockThreshold, Discontinued From " + SCHEMA_NAME + "Inventory as i Join " + SCHEMA_NAME + "Categories as c On i.CategoryID = c.CategoryID Where Discontinued = 0 OR Discontinued Is Null Order By CategoryID, InventoryID, ItemName;", connection);
+                dataAdapter.SelectCommand = command;
+                dataAdapter.Fill(dataTable);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to get inventory items.\nSorry, please try again later.", "Inventory Request Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public static bool GetRestockInventory()
+        {
+            try
+            {
+                dataAdapter = new SqlDataAdapter();
+                dataTable = new DataTable();
+                command = new SqlCommand("Select InventoryID, ItemName, i.CategoryID, CategoryName, RetailPrice, Cost, Quantity, RestockThreshold, Discontinued From " + SCHEMA_NAME + "Inventory as i Join " + SCHEMA_NAME + "Categories as c On i.CategoryID = c.CategoryID Where (Discontinued = 0 OR Discontinued Is Null) AND (Quantity <= RestockThreshold) Order By CategoryID, InventoryID, ItemName;", connection);
+                dataAdapter.SelectCommand = command;
+                dataAdapter.Fill(dataTable);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to get inventory items.\nSorry, please try again later.", "Inventory Request Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public static bool GetCustomersRep()
+        {
+            try
+            {
+                dataAdapter = new SqlDataAdapter();
+                dataTable = new DataTable();
+                command = new SqlCommand("Select p.PersonID, LogonName, (Coalesce((Title + ' '), '') + NameFirst + ' ' + Coalesce((NameMiddle + ' '), '') + NameLast + Coalesce((' ' + Suffix), '')) as [FullName], Address1, Address2, Address3, City, Zipcode, State, Email, PhonePrimary, PhoneSecondary, AccountDisabled From " + SCHEMA_NAME + "Person as p Join " + SCHEMA_NAME + "Logon as l On p.PersonID = L.PersonID Where (PersonDeleted = 0 OR PersonDeleted Is Null) AND (PositionID = 1002) Order By PersonID;", connection);
+                dataAdapter.SelectCommand = command;
+                dataAdapter.Fill(dataTable);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to get customers.\nSorry, please try again later.", "Customer Request Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public static bool GetEmployeesRep()
+        {
+            try
+            {
+                dataAdapter = new SqlDataAdapter();
+                dataTable = new DataTable();
+                command = new SqlCommand("Select p.PersonID, LogonName, (Coalesce((Title + ' '), '') + NameFirst + ' ' + Coalesce((NameMiddle + ' '), '') + NameLast + Coalesce((' ' + Suffix), '')) as [FullName], Address1, Address2, Address3, City, Zipcode, State, Email, PhonePrimary, PhoneSecondary, AccountDisabled From " + SCHEMA_NAME + "Person as p Join " + SCHEMA_NAME + "Logon as l On p.PersonID = L.PersonID Where (PersonDeleted = 0 OR PersonDeleted Is Null) AND (PositionID != 1002) Order By PersonID;", connection);
+                dataAdapter.SelectCommand = command;
+                dataAdapter.Fill(dataTable);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Unable to get employees.\nSorry, please try again later.", "Employee Request Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
         public static bool UpdateInventoryRow(int id, string name, string description, decimal price, decimal cost, int qty, int thr)
         {
             try

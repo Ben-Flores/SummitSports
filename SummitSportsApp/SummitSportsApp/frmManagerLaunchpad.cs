@@ -73,5 +73,18 @@ namespace SummitSportsApp
                 }
             }
         }
+
+        private void tsiReports_Click(object sender, EventArgs e)
+        {
+            if (clsSQL.OpenConnection())
+            {
+                frmReports frmReports = new frmReports(this);
+                if (!frmReports.IsDisposed)
+                {
+                    frmReports.Show();
+                    this.Hide();
+                }
+            }
+        }
     }
 }
