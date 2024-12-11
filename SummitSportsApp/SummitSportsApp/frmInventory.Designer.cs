@@ -254,6 +254,7 @@
             this.btnHelp.TabStop = false;
             this.btnHelp.Text = "Help";
             this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // btnNew
             // 
@@ -304,7 +305,7 @@
             // 
             // hlpHelp
             // 
-            this.hlpHelp.HelpNamespace = "SummitSportsHelp.chm";
+            this.hlpHelp.HelpNamespace = "SummitSportsManagerHelp.chm";
             // 
             // lblItemName
             // 

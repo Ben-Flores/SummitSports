@@ -27,6 +27,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_CAE32FBBE11F4E32A2CDD698F7494219"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_D891EC2DB0D20BBD370E625A548F9189"
         "OwnerKey" = "8:_F32E20DA59E948A88EBED5513C8982CF"
         "MsmSig" = "8:_UNDEFINED"
@@ -74,6 +80,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -98,6 +112,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -152,6 +174,26 @@
             {
             "SourcePath" = "8:..\\SummitSportsApp\\bin\\Debug\\SummitSportsHelp.chm"
             "TargetName" = "8:SummitSportsHelp.chm"
+            "Tag" = "8:"
+            "Folder" = "8:_8BB2631031814F21B0DE8C52058E5871"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CAE32FBBE11F4E32A2CDD698F7494219"
+            {
+            "SourcePath" = "8:..\\SummitSportsApp\\SummitSportsManagerHelp.chm"
+            "TargetName" = "8:SummitSportsManagerHelp.chm"
             "Tag" = "8:"
             "Folder" = "8:_8BB2631031814F21B0DE8C52058E5871"
             "Condition" = "8:"
@@ -816,7 +858,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_F32E20DA59E948A88EBED5513C8982CF"
             {
-            "SourcePath" = "8:..\\SummitSportsApp\\obj\\Release\\SummitSportsApp.exe"
+            "SourcePath" = "8:..\\SummitSportsApp\\obj\\Debug\\SummitSportsApp.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_8BB2631031814F21B0DE8C52058E5871"

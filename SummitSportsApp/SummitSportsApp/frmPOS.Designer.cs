@@ -55,8 +55,6 @@
             this.lblQuantity = new System.Windows.Forms.Label();
             this.cbxQuantity = new System.Windows.Forms.ComboBox();
             this.lblRetailPrice = new System.Windows.Forms.Label();
-            this.pbxCart = new System.Windows.Forms.PictureBox();
-            this.pbxItem = new System.Windows.Forms.PictureBox();
             this.lblTotalPrice = new System.Windows.Forms.Label();
             this.lblTotalPriceLabel = new System.Windows.Forms.Label();
             this.lblInCart = new System.Windows.Forms.Label();
@@ -73,10 +71,12 @@
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pbxCart = new System.Windows.Forms.PictureBox();
+            this.pbxItem = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxItem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvItems
@@ -342,28 +342,6 @@
             this.lblRetailPrice.Text = "$0.00";
             this.lblRetailPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // pbxCart
-            // 
-            this.pbxCart.Image = global::SummitSportsApp.Properties.Resources.cart;
-            this.pbxCart.InitialImage = null;
-            this.pbxCart.Location = new System.Drawing.Point(1185, 709);
-            this.pbxCart.Name = "pbxCart";
-            this.pbxCart.Size = new System.Drawing.Size(50, 50);
-            this.pbxCart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxCart.TabIndex = 22;
-            this.pbxCart.TabStop = false;
-            // 
-            // pbxItem
-            // 
-            this.pbxItem.Image = global::SummitSportsApp.Properties.Resources.iconNormal;
-            this.pbxItem.InitialImage = null;
-            this.pbxItem.Location = new System.Drawing.Point(1134, 365);
-            this.pbxItem.Name = "pbxItem";
-            this.pbxItem.Size = new System.Drawing.Size(338, 338);
-            this.pbxItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxItem.TabIndex = 16;
-            this.pbxItem.TabStop = false;
-            // 
             // lblTotalPrice
             // 
             this.lblTotalPrice.BackColor = System.Drawing.Color.Gainsboro;
@@ -421,7 +399,7 @@
             // 
             // hlpHelp
             // 
-            this.hlpHelp.HelpNamespace = "SummitSportsHelp.chm";
+            this.hlpHelp.HelpNamespace = "SummitSportsManagerHelp.chm";
             // 
             // lblSearchCustomer
             // 
@@ -539,6 +517,28 @@
             this.phone2.ReadOnly = true;
             this.phone2.Width = 126;
             // 
+            // pbxCart
+            // 
+            this.pbxCart.Image = global::SummitSportsApp.Properties.Resources.cart;
+            this.pbxCart.InitialImage = null;
+            this.pbxCart.Location = new System.Drawing.Point(1185, 709);
+            this.pbxCart.Name = "pbxCart";
+            this.pbxCart.Size = new System.Drawing.Size(50, 50);
+            this.pbxCart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxCart.TabIndex = 22;
+            this.pbxCart.TabStop = false;
+            // 
+            // pbxItem
+            // 
+            this.pbxItem.Image = global::SummitSportsApp.Properties.Resources.iconNormal;
+            this.pbxItem.InitialImage = null;
+            this.pbxItem.Location = new System.Drawing.Point(1134, 365);
+            this.pbxItem.Name = "pbxItem";
+            this.pbxItem.Size = new System.Drawing.Size(338, 338);
+            this.pbxItem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxItem.TabIndex = 16;
+            this.pbxItem.TabStop = false;
+            // 
             // frmPOS
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -584,9 +584,9 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmPOS_FormClosed);
             this.Load += new System.EventHandler(this.frmPOS_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxItem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

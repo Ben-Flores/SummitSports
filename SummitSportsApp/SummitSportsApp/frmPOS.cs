@@ -349,7 +349,7 @@ namespace SummitSportsApp
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
-            Help.ShowHelp(this, hlpHelp.HelpNamespace, HelpNavigator.Topic, "Topic4_Shop.htm");
+            Help.ShowHelp(this, hlpHelp.HelpNamespace, HelpNavigator.Topic, "Topic2_POS.htm");
         }
 
         private void dgvCustomers_SelectionChanged(object sender, EventArgs e)

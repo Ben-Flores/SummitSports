@@ -247,5 +247,11 @@ namespace SummitSportsApp
             dgvItems.ClearSelection();
             btnReset_Click(null, null);
         }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, hlpHelp.HelpNamespace, HelpNavigator.Topic, "Topic3_ManageItems.htm");
+
+        }
     }
 }

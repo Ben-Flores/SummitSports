@@ -53,6 +53,7 @@
             this.btnEmployee = new System.Windows.Forms.Button();
             this.btnCustomer = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
+            this.hlpHelp = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -301,6 +302,11 @@
             this.btnHelp.TabStop = false;
             this.btnHelp.Text = "Help";
             this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
+            // hlpHelp
+            // 
+            this.hlpHelp.HelpNamespace = "SummitSportsManagerHelp.chm";
             // 
             // frmReports
             // 
@@ -364,5 +370,6 @@
         private System.Windows.Forms.Button btnEmployee;
         private System.Windows.Forms.Button btnCustomer;
         private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.HelpProvider hlpHelp;
     }
 }

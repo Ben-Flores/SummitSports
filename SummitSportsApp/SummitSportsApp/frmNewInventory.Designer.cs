@@ -49,6 +49,8 @@
             this.lblCategory = new System.Windows.Forms.Label();
             this.cbxCategories = new System.Windows.Forms.ComboBox();
             this.lblError = new System.Windows.Forms.Label();
+            this.btnHelp = new System.Windows.Forms.Button();
+            this.hlpHelp = new System.Windows.Forms.HelpProvider();
             this.SuspendLayout();
             // 
             // lblDollar2
@@ -254,11 +256,29 @@
             this.lblError.TabIndex = 55;
             this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // btnHelp
+            // 
+            this.btnHelp.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelp.ForeColor = System.Drawing.Color.Black;
+            this.btnHelp.Location = new System.Drawing.Point(12, 491);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(100, 50);
+            this.btnHelp.TabIndex = 56;
+            this.btnHelp.TabStop = false;
+            this.btnHelp.Text = "Help";
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
+            // hlpHelp
+            // 
+            this.hlpHelp.HelpNamespace = "SummitSportsManagerHelp.chm";
+            // 
             // frmNewInventory
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.cbxCategories);
             this.Controls.Add(this.lblCategory);
@@ -315,5 +335,7 @@
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.ComboBox cbxCategories;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.HelpProvider hlpHelp;
     }
 }

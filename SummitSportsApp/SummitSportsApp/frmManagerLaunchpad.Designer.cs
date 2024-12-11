@@ -40,6 +40,7 @@
             this.tsiUsers = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiReports = new System.Windows.Forms.ToolStripMenuItem();
             this.lblSelect = new System.Windows.Forms.Label();
+            this.hlpHelp = new System.Windows.Forms.HelpProvider();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +77,7 @@
             this.btnHelp.TabStop = false;
             this.btnHelp.Text = "Help";
             this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // lblName
             // 
@@ -150,6 +152,10 @@
             this.lblSelect.TabIndex = 23;
             this.lblSelect.Text = "Select an administrative option from the menu above";
             // 
+            // hlpHelp
+            // 
+            this.hlpHelp.HelpNamespace = "SummitSportsManagerHelp.chm";
+            // 
             // frmManagerLaunchpad
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -189,5 +195,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsiUsers;
         private System.Windows.Forms.ToolStripMenuItem tsiReports;
         private System.Windows.Forms.Label lblSelect;
+        private System.Windows.Forms.HelpProvider hlpHelp;
     }
 }

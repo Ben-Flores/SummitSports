@@ -64,5 +64,10 @@ namespace SummitSportsApp
         {
             clsValidation.ValidateThreshold(e);
         }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, hlpHelp.HelpNamespace, HelpNavigator.Topic, "Topic4_AddItems.htm");
+        }
     }
 }
