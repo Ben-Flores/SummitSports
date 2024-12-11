@@ -47,5 +47,18 @@ namespace SummitSportsApp
             }
             clsSQL.CloseConnection();
         }
+
+        private void tsiProducts_Click(object sender, EventArgs e)
+        {
+            if (clsSQL.OpenConnection())
+            {
+                frmInventory frmInventory = new frmInventory(this);
+                if (!frmInventory.IsDisposed)
+                {
+                    frmInventory.Show();
+                    this.Hide();
+                }
+            }
+        }
     }
 }

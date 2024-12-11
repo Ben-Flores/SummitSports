@@ -477,6 +477,8 @@ namespace SummitSportsApp
         }
         #endregion
 
+
+
         #region frmCheckout
 
         public static void ValidateCard(KeyPressEventArgs e)
@@ -644,6 +646,64 @@ namespace SummitSportsApp
                     errorLabel.Text = "Card Expiration Date Invalid. Please enter a valid card.";
                     return false;
                 }
+            }
+        }
+
+        #endregion
+
+
+
+        #region frmInventory
+
+        public static void ValidatePrice(KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar) || e.KeyChar == 46)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+            }
+        }
+
+        public static void ValidateCost(KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar) || e.KeyChar == 46)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+            }
+        }
+
+        public static void ValidateQuantity(KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
+            }
+        }
+
+        public static void ValidateThreshold(KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                SystemSounds.Beep.Play();
             }
         }
 

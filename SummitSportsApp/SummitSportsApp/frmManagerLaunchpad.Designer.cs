@@ -62,7 +62,7 @@
             this.lblWelcome.Font = new System.Drawing.Font("Rockwell", 30F);
             this.lblWelcome.Location = new System.Drawing.Point(12, 39);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(260, 56);
+            this.lblWelcome.Size = new System.Drawing.Size(209, 46);
             this.lblWelcome.TabIndex = 18;
             this.lblWelcome.Text = "Welcome,";
             // 
@@ -85,7 +85,7 @@
             this.lblName.Font = new System.Drawing.Font("Rockwell", 30F);
             this.lblName.Location = new System.Drawing.Point(12, 90);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(639, 56);
+            this.lblName.Size = new System.Drawing.Size(510, 46);
             this.lblName.TabIndex = 21;
             this.lblName.Text = "Really Long Longish Name";
             // 
@@ -99,7 +99,7 @@
             this.tsiReports});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(584, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(584, 27);
             this.menuStrip1.TabIndex = 22;
             this.menuStrip1.TabStop = true;
             this.menuStrip1.Text = "mstMenu";
@@ -107,7 +107,7 @@
             // tsiPOS
             // 
             this.tsiPOS.Name = "tsiPOS";
-            this.tsiPOS.Size = new System.Drawing.Size(153, 26);
+            this.tsiPOS.Size = new System.Drawing.Size(125, 23);
             this.tsiPOS.Text = "Point-Of-Sales";
             this.tsiPOS.Click += new System.EventHandler(this.tsiPOS_Click);
             // 
@@ -118,31 +118,32 @@
             this.tsiUsers,
             this.tsiPromo});
             this.tsiManage.Name = "tsiManage";
-            this.tsiManage.Size = new System.Drawing.Size(190, 26);
+            this.tsiManage.Size = new System.Drawing.Size(156, 23);
             this.tsiManage.Text = "Manage Inventory";
             // 
             // tsiProducts
             // 
             this.tsiProducts.Name = "tsiProducts";
-            this.tsiProducts.Size = new System.Drawing.Size(296, 26);
+            this.tsiProducts.Size = new System.Drawing.Size(241, 24);
             this.tsiProducts.Text = "Manage Products";
+            this.tsiProducts.Click += new System.EventHandler(this.tsiProducts_Click);
             // 
             // tsiUsers
             // 
             this.tsiUsers.Name = "tsiUsers";
-            this.tsiUsers.Size = new System.Drawing.Size(296, 26);
+            this.tsiUsers.Size = new System.Drawing.Size(241, 24);
             this.tsiUsers.Text = "Manage Users";
             // 
             // tsiPromo
             // 
             this.tsiPromo.Name = "tsiPromo";
-            this.tsiPromo.Size = new System.Drawing.Size(296, 26);
+            this.tsiPromo.Size = new System.Drawing.Size(241, 24);
             this.tsiPromo.Text = "Manage Promo Codes";
             // 
             // tsiReports
             // 
             this.tsiReports.Name = "tsiReports";
-            this.tsiReports.Size = new System.Drawing.Size(184, 26);
+            this.tsiReports.Size = new System.Drawing.Size(152, 23);
             this.tsiReports.Text = "Generate Reports";
             // 
             // lblSelect
