@@ -711,6 +711,7 @@ namespace SummitSportsApp
 
         public static bool ValidateInventoryItem(TextBox name, TextBox description, TextBox price, TextBox cost, TextBox qty, TextBox thr, Label lblError)
         {
+            lblError.Text = "";
             if (name.Text.Length == 0)
             {
                 lblError.Text = "Please enter an item name.";

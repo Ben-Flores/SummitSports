@@ -35,6 +35,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInventory));
             this.dgvItems = new System.Windows.Forms.DataGridView();
+            this.inventoryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.retailPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.restockThreshold = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.discontinued = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblSearch = new System.Windows.Forms.Label();
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.lblSort = new System.Windows.Forms.Label();
@@ -60,17 +68,10 @@
             this.tbxThreshold = new System.Windows.Forms.TextBox();
             this.btnDiscontinue = new System.Windows.Forms.Button();
             this.btnImage = new System.Windows.Forms.Button();
-            this.inventoryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.retailPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.restockThreshold = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.discontinued = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblDollar1 = new System.Windows.Forms.Label();
             this.lblDollar2 = new System.Windows.Forms.Label();
             this.pbxItem = new System.Windows.Forms.PictureBox();
+            this.lblError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxItem)).BeginInit();
             this.SuspendLayout();
@@ -113,6 +114,79 @@
             this.dgvItems.TabIndex = 4;
             this.dgvItems.TabStop = false;
             this.dgvItems.SelectionChanged += new System.EventHandler(this.dgvItems_SelectionChanged);
+            // 
+            // inventoryID
+            // 
+            this.inventoryID.HeaderText = "ID";
+            this.inventoryID.MinimumWidth = 6;
+            this.inventoryID.Name = "inventoryID";
+            this.inventoryID.ReadOnly = true;
+            this.inventoryID.Width = 62;
+            // 
+            // itemName
+            // 
+            this.itemName.HeaderText = "Name";
+            this.itemName.MinimumWidth = 6;
+            this.itemName.Name = "itemName";
+            this.itemName.ReadOnly = true;
+            this.itemName.Width = 102;
+            // 
+            // retailPrice
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.retailPrice.DefaultCellStyle = dataGridViewCellStyle2;
+            this.retailPrice.HeaderText = "Price";
+            this.retailPrice.MinimumWidth = 6;
+            this.retailPrice.Name = "retailPrice";
+            this.retailPrice.ReadOnly = true;
+            this.retailPrice.Width = 95;
+            // 
+            // cost
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.cost.DefaultCellStyle = dataGridViewCellStyle3;
+            this.cost.HeaderText = "Cost";
+            this.cost.Name = "cost";
+            this.cost.ReadOnly = true;
+            this.cost.Width = 87;
+            // 
+            // quantity
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.quantity.DefaultCellStyle = dataGridViewCellStyle4;
+            this.quantity.HeaderText = "Qty.";
+            this.quantity.MinimumWidth = 6;
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            this.quantity.Width = 84;
+            // 
+            // restockThreshold
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.restockThreshold.DefaultCellStyle = dataGridViewCellStyle5;
+            this.restockThreshold.HeaderText = "Th.";
+            this.restockThreshold.Name = "restockThreshold";
+            this.restockThreshold.ReadOnly = true;
+            this.restockThreshold.Width = 72;
+            // 
+            // categoryName
+            // 
+            this.categoryName.HeaderText = "Category";
+            this.categoryName.MinimumWidth = 6;
+            this.categoryName.Name = "categoryName";
+            this.categoryName.ReadOnly = true;
+            this.categoryName.Width = 142;
+            // 
+            // discontinued
+            // 
+            this.discontinued.HeaderText = "Discontinued";
+            this.discontinued.Name = "discontinued";
+            this.discontinued.ReadOnly = true;
+            this.discontinued.Width = 185;
             // 
             // lblSearch
             // 
@@ -196,7 +270,7 @@
             // 
             this.btnResetItem.Enabled = false;
             this.btnResetItem.ForeColor = System.Drawing.Color.Black;
-            this.btnResetItem.Location = new System.Drawing.Point(707, 589);
+            this.btnResetItem.Location = new System.Drawing.Point(707, 581);
             this.btnResetItem.Name = "btnResetItem";
             this.btnResetItem.Size = new System.Drawing.Size(210, 50);
             this.btnResetItem.TabIndex = 8;
@@ -208,7 +282,7 @@
             // 
             this.btnUpdateItem.Enabled = false;
             this.btnUpdateItem.ForeColor = System.Drawing.Color.Black;
-            this.btnUpdateItem.Location = new System.Drawing.Point(707, 645);
+            this.btnUpdateItem.Location = new System.Drawing.Point(707, 637);
             this.btnUpdateItem.Name = "btnUpdateItem";
             this.btnUpdateItem.Size = new System.Drawing.Size(210, 50);
             this.btnUpdateItem.TabIndex = 9;
@@ -248,7 +322,7 @@
             this.lblDescription.AutoSize = true;
             this.lblDescription.BackColor = System.Drawing.Color.DimGray;
             this.lblDescription.Font = new System.Drawing.Font("Rockwell", 18F);
-            this.lblDescription.Location = new System.Drawing.Point(318, 404);
+            this.lblDescription.Location = new System.Drawing.Point(318, 401);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(149, 27);
             this.lblDescription.TabIndex = 21;
@@ -259,7 +333,7 @@
             this.lblRetail.AutoSize = true;
             this.lblRetail.BackColor = System.Drawing.Color.DimGray;
             this.lblRetail.Font = new System.Drawing.Font("Rockwell", 18F);
-            this.lblRetail.Location = new System.Drawing.Point(318, 594);
+            this.lblRetail.Location = new System.Drawing.Point(318, 586);
             this.lblRetail.Name = "lblRetail";
             this.lblRetail.Size = new System.Drawing.Size(146, 27);
             this.lblRetail.TabIndex = 22;
@@ -270,7 +344,7 @@
             this.lblCost.AutoSize = true;
             this.lblCost.BackColor = System.Drawing.Color.DimGray;
             this.lblCost.Font = new System.Drawing.Font("Rockwell", 18F);
-            this.lblCost.Location = new System.Drawing.Point(318, 636);
+            this.lblCost.Location = new System.Drawing.Point(318, 628);
             this.lblCost.Name = "lblCost";
             this.lblCost.Size = new System.Drawing.Size(193, 27);
             this.lblCost.TabIndex = 23;
@@ -281,7 +355,7 @@
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.BackColor = System.Drawing.Color.DimGray;
             this.lblQuantity.Font = new System.Drawing.Font("Rockwell", 18F);
-            this.lblQuantity.Location = new System.Drawing.Point(318, 678);
+            this.lblQuantity.Location = new System.Drawing.Point(318, 670);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(114, 27);
             this.lblQuantity.TabIndex = 24;
@@ -292,7 +366,7 @@
             this.lblRestock.AutoSize = true;
             this.lblRestock.BackColor = System.Drawing.Color.DimGray;
             this.lblRestock.Font = new System.Drawing.Font("Rockwell", 18F);
-            this.lblRestock.Location = new System.Drawing.Point(318, 720);
+            this.lblRestock.Location = new System.Drawing.Point(318, 712);
             this.lblRestock.Name = "lblRestock";
             this.lblRestock.Size = new System.Drawing.Size(226, 27);
             this.lblRestock.TabIndex = 25;
@@ -308,7 +382,7 @@
             // 
             // tbxDescription
             // 
-            this.tbxDescription.Location = new System.Drawing.Point(318, 434);
+            this.tbxDescription.Location = new System.Drawing.Point(318, 431);
             this.tbxDescription.Multiline = true;
             this.tbxDescription.Name = "tbxDescription";
             this.tbxDescription.Size = new System.Drawing.Size(613, 145);
@@ -316,7 +390,7 @@
             // 
             // tbxPrice
             // 
-            this.tbxPrice.Location = new System.Drawing.Point(564, 589);
+            this.tbxPrice.Location = new System.Drawing.Point(564, 581);
             this.tbxPrice.Name = "tbxPrice";
             this.tbxPrice.ShortcutsEnabled = false;
             this.tbxPrice.Size = new System.Drawing.Size(125, 36);
@@ -326,7 +400,7 @@
             // 
             // tbxCost
             // 
-            this.tbxCost.Location = new System.Drawing.Point(564, 631);
+            this.tbxCost.Location = new System.Drawing.Point(564, 623);
             this.tbxCost.Name = "tbxCost";
             this.tbxCost.ShortcutsEnabled = false;
             this.tbxCost.Size = new System.Drawing.Size(125, 36);
@@ -336,7 +410,7 @@
             // 
             // tbxQuantity
             // 
-            this.tbxQuantity.Location = new System.Drawing.Point(564, 673);
+            this.tbxQuantity.Location = new System.Drawing.Point(564, 665);
             this.tbxQuantity.Name = "tbxQuantity";
             this.tbxQuantity.ShortcutsEnabled = false;
             this.tbxQuantity.Size = new System.Drawing.Size(125, 36);
@@ -346,7 +420,7 @@
             // 
             // tbxThreshold
             // 
-            this.tbxThreshold.Location = new System.Drawing.Point(564, 715);
+            this.tbxThreshold.Location = new System.Drawing.Point(564, 707);
             this.tbxThreshold.Name = "tbxThreshold";
             this.tbxThreshold.ShortcutsEnabled = false;
             this.tbxThreshold.Size = new System.Drawing.Size(125, 36);
@@ -358,7 +432,7 @@
             // 
             this.btnDiscontinue.Enabled = false;
             this.btnDiscontinue.ForeColor = System.Drawing.Color.Black;
-            this.btnDiscontinue.Location = new System.Drawing.Point(707, 701);
+            this.btnDiscontinue.Location = new System.Drawing.Point(707, 693);
             this.btnDiscontinue.Name = "btnDiscontinue";
             this.btnDiscontinue.Size = new System.Drawing.Size(210, 50);
             this.btnDiscontinue.TabIndex = 10;
@@ -378,85 +452,12 @@
             this.btnImage.UseVisualStyleBackColor = true;
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
-            // inventoryID
-            // 
-            this.inventoryID.HeaderText = "ID";
-            this.inventoryID.MinimumWidth = 6;
-            this.inventoryID.Name = "inventoryID";
-            this.inventoryID.ReadOnly = true;
-            this.inventoryID.Width = 62;
-            // 
-            // itemName
-            // 
-            this.itemName.HeaderText = "Name";
-            this.itemName.MinimumWidth = 6;
-            this.itemName.Name = "itemName";
-            this.itemName.ReadOnly = true;
-            this.itemName.Width = 102;
-            // 
-            // retailPrice
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.retailPrice.DefaultCellStyle = dataGridViewCellStyle2;
-            this.retailPrice.HeaderText = "Price";
-            this.retailPrice.MinimumWidth = 6;
-            this.retailPrice.Name = "retailPrice";
-            this.retailPrice.ReadOnly = true;
-            this.retailPrice.Width = 95;
-            // 
-            // cost
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.cost.DefaultCellStyle = dataGridViewCellStyle3;
-            this.cost.HeaderText = "Cost";
-            this.cost.Name = "cost";
-            this.cost.ReadOnly = true;
-            this.cost.Width = 87;
-            // 
-            // quantity
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.quantity.DefaultCellStyle = dataGridViewCellStyle4;
-            this.quantity.HeaderText = "Qty.";
-            this.quantity.MinimumWidth = 6;
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
-            this.quantity.Width = 84;
-            // 
-            // restockThreshold
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.restockThreshold.DefaultCellStyle = dataGridViewCellStyle5;
-            this.restockThreshold.HeaderText = "Th.";
-            this.restockThreshold.Name = "restockThreshold";
-            this.restockThreshold.ReadOnly = true;
-            this.restockThreshold.Width = 72;
-            // 
-            // categoryName
-            // 
-            this.categoryName.HeaderText = "Category";
-            this.categoryName.MinimumWidth = 6;
-            this.categoryName.Name = "categoryName";
-            this.categoryName.ReadOnly = true;
-            this.categoryName.Width = 142;
-            // 
-            // discontinued
-            // 
-            this.discontinued.HeaderText = "Discontinued";
-            this.discontinued.Name = "discontinued";
-            this.discontinued.ReadOnly = true;
-            this.discontinued.Width = 185;
-            // 
             // lblDollar1
             // 
             this.lblDollar1.AutoSize = true;
             this.lblDollar1.BackColor = System.Drawing.Color.Transparent;
             this.lblDollar1.Font = new System.Drawing.Font("Rockwell", 18F);
-            this.lblDollar1.Location = new System.Drawing.Point(538, 594);
+            this.lblDollar1.Location = new System.Drawing.Point(538, 586);
             this.lblDollar1.Name = "lblDollar1";
             this.lblDollar1.Size = new System.Drawing.Size(25, 27);
             this.lblDollar1.TabIndex = 34;
@@ -467,7 +468,7 @@
             this.lblDollar2.AutoSize = true;
             this.lblDollar2.BackColor = System.Drawing.Color.Transparent;
             this.lblDollar2.Font = new System.Drawing.Font("Rockwell", 18F);
-            this.lblDollar2.Location = new System.Drawing.Point(538, 636);
+            this.lblDollar2.Location = new System.Drawing.Point(538, 628);
             this.lblDollar2.Name = "lblDollar2";
             this.lblDollar2.Size = new System.Drawing.Size(25, 27);
             this.lblDollar2.TabIndex = 35;
@@ -484,11 +485,23 @@
             this.pbxItem.TabIndex = 16;
             this.pbxItem.TabStop = false;
             // 
+            // lblError
+            // 
+            this.lblError.BackColor = System.Drawing.Color.Transparent;
+            this.lblError.Font = new System.Drawing.Font("Rockwell", 16F);
+            this.lblError.ForeColor = System.Drawing.Color.Crimson;
+            this.lblError.Location = new System.Drawing.Point(447, 740);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(354, 32);
+            this.lblError.TabIndex = 56;
+            this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // frmInventory
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1199, 771);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblDollar2);
             this.Controls.Add(this.lblDollar1);
             this.Controls.Add(this.btnImage);
@@ -573,5 +586,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn discontinued;
         private System.Windows.Forms.Label lblDollar1;
         private System.Windows.Forms.Label lblDollar2;
+        private System.Windows.Forms.Label lblError;
     }
 }

@@ -165,11 +165,17 @@ namespace SummitSportsApp
         private void btnUpdateItem_Click(object sender, EventArgs e)
         {
             int id = (int)dgvItems.SelectedRows[0].Cells["InventoryID"].Value;
-            if (clsSQL.UpdateInventoryRow(id, tbxItemName.Text, tbxDescription.Text, Convert.ToDecimal(tbxPrice.Text), Convert.ToDecimal(tbxCost.Text), Convert.ToInt32(tbxQuantity.Text), Convert.ToInt32(tbxThreshold.Text)))
+
+            tbxItemName.Text = tbxItemName.Text.Trim();
+            tbxDescription.Text = tbxDescription.Text.Trim();
+            if (clsValidation.ValidateInventoryItem(tbxItemName, tbxDescription, tbxPrice, tbxCost, tbxQuantity, tbxThreshold, lblError))
             {
-                clsSQL.GetManagerInventory(dgvItems, clbCategories, this);
-                dgvItems.ClearSelection();
-                btnReset_Click(null, null);
+                if (clsSQL.UpdateInventoryRow(id, tbxItemName.Text, tbxDescription.Text, Convert.ToDecimal(tbxPrice.Text), Convert.ToDecimal(tbxCost.Text), Convert.ToInt32(tbxQuantity.Text), Convert.ToInt32(tbxThreshold.Text)))
+                {
+                    clsSQL.GetManagerInventory(dgvItems, clbCategories, this);
+                    dgvItems.ClearSelection();
+                    btnReset_Click(null, null);
+                }
             }
         }
 
