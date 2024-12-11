@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -65,17 +66,38 @@ namespace SummitSportsApp
 
         private void btnDaily_Click(object sender, EventArgs e)
         {
+            string startdate = dtpDate.Value.ToString("yyyy-MM-dd");
+            string stopdate = startdate;
 
+            if (clsSQL.GetSales(startdate, stopdate))
+            {
+                clsHTML.ClearReport();
+                clsHTML.PrintReport(clsHTML.GenerateSalesReport("Daily Sales", startdate, stopdate));
+            }
         }
 
         private void btnWeekly_Click(object sender, EventArgs e)
         {
+            string startdate = dtpDate.Value.ToString("yyyy-MM-dd");
+            string stopdate = dtpDate.Value.Add(new System.TimeSpan(6, 0, 0, 0)).ToString("yyyy-MM-dd");
 
+            if (clsSQL.GetSales(startdate, stopdate))
+            {
+                clsHTML.ClearReport();
+                clsHTML.PrintReport(clsHTML.GenerateSalesReport("Weekly Sales", startdate, stopdate));
+            }
         }
 
         private void btnMonthly_Click(object sender, EventArgs e)
         {
+            string startdate = dtpDate.Value.ToString("yyyy-MM-dd");
+            string stopdate = dtpDate.Value.Add(new System.TimeSpan(29, 0, 0, 0)).ToString("yyyy-MM-dd");
 
+            if (clsSQL.GetSales(startdate, stopdate))
+            {
+                clsHTML.ClearReport();
+                clsHTML.PrintReport(clsHTML.GenerateSalesReport("Monthly Sales", startdate, stopdate));
+            }
         }
 
         private void btnCustomer_Click(object sender, EventArgs e)

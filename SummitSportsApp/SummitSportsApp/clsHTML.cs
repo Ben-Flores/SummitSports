@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -274,6 +275,71 @@ namespace SummitSportsApp
                 html.Append($"<td id=\"left\">{phone2}</td>");
                 html.Append("</tr>");
             }
+            html.AppendLine("</body></html>");
+            return html;
+        }
+
+        public static StringBuilder GenerateSalesReport(string title, string start, string end)
+        {
+            css.AppendLine("<style>");
+            css.AppendLine("body {margin: auto; padding-top: 20; font-family: rockwell; text-align:center; max-width: 1500; background-color:DimGray}");
+            css.AppendLine("table {margin: auto; width: 100%; border: 3px solid black; border-collapse: collapse}");
+            css.AppendLine("td, th {background-color: gainsboro; padding: 5px; text-align:right; font-weight: bold; border: 3px solid black; border-collapse: collapse}");
+            css.AppendLine("th {font-size: 20}");
+            css.AppendLine("#left {text-align:left}");
+            css.AppendLine("h1 {}");
+            css.AppendLine("h2 {text-align:left}");
+            css.AppendLine("h3 {text-align:right}");
+            css.AppendLine("#gainsboro {color: gainsboro; font-size: 24}");
+            css.AppendLine("</style>");
+
+            html.AppendLine("<html>");
+            html.AppendLine($"<head>{css}<title>{title}</title></head>");
+            html.AppendLine("<body>");
+            html.AppendLine($"<h1>{title}<br>" + DateTime.Now + "</h1>");
+            if (start.Equals(end))
+                html.AppendLine($"<h1>{DateTime.ParseExact(start, "yyyy-MM-dd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy")}</h1>");
+            else
+                html.AppendLine($"<h1>{DateTime.ParseExact(start, "yyyy-MM-dd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy")} - {DateTime.ParseExact(end, "yyyy-MM-dd", CultureInfo.InvariantCulture).ToString("MM/dd/yyyy")}</h1>");
+            //html.AppendLine($"<h3>Your Receipt - " + DateTime.Now + "</h3>");
+
+            html.AppendLine("<table>");
+            html.AppendLine("<tr><th id=\"left\">Order</th><th id=\"left\">Date</th><th id=\"left\">PersonID</th><th id=\"left\">Name</th><th id=\"left\">Item Name</th><th id=\"left\">Quantity</th><th id=\"left\">Total</th></tr>");
+            html.AppendLine("<tr><td colspan=7></td></tr>");
+
+            int orderid;
+            string date;
+            int personid;
+            string name;
+            string item;
+            int qty;
+            decimal total;
+            decimal grandtotal = 0;
+
+            for (int i = 0; i < clsSQL.DataTable.Rows.Count; i++)
+            {
+                DataRow result = clsSQL.DataTable.Rows[i];
+
+                orderid = (int)result["OrderID"];
+                date = result["OrderDate"].ToString();
+                personid = (int)result["PersonID"];
+                name = result["Name"].ToString();
+                item = result["ItemName"].ToString();
+                qty = (int)result["Quantity"];
+                total = (decimal)result["Total"];
+                grandtotal += total;
+
+                html.Append("<tr>");
+                html.Append($"<td id=\"left\">{orderid}</td>");
+                html.Append($"<td id=\"left\">{DateTime.Parse(date).ToString("MM/dd/yyyy")}</td>");
+                html.Append($"<td id=\"left\">{personid}</td>");
+                html.Append($"<td id=\"left\">{name}</td>");
+                html.Append($"<td id=\"left\">{item}</td>");
+                html.Append($"<td id=\"left\">{qty}</td>");
+                html.Append($"<td id=\"left\">{total}</td>");
+                html.Append("</tr>");
+            }
+            html.AppendLine($"<h3 id=\"gainsboro\">Grand Total: {grandtotal.ToString("C")}</h3>");
             html.AppendLine("</body></html>");
             return html;
         }

@@ -52,6 +52,7 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnEmployee = new System.Windows.Forms.Button();
             this.btnCustomer = new System.Windows.Forms.Button();
+            this.btnHelp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,7 +101,7 @@
             // 
             this.btnCustomerReset.Font = new System.Drawing.Font("Rockwell", 16F);
             this.btnCustomerReset.ForeColor = System.Drawing.Color.Black;
-            this.btnCustomerReset.Location = new System.Drawing.Point(633, 213);
+            this.btnCustomerReset.Location = new System.Drawing.Point(633, 251);
             this.btnCustomerReset.Name = "btnCustomerReset";
             this.btnCustomerReset.Size = new System.Drawing.Size(155, 36);
             this.btnCustomerReset.TabIndex = 40;
@@ -130,7 +131,7 @@
             this.phone1,
             this.phone2});
             this.dgvCustomers.EnableHeadersVisualStyles = false;
-            this.dgvCustomers.Location = new System.Drawing.Point(352, 252);
+            this.dgvCustomers.Location = new System.Drawing.Point(352, 290);
             this.dgvCustomers.MultiSelect = false;
             this.dgvCustomers.Name = "dgvCustomers";
             this.dgvCustomers.ReadOnly = true;
@@ -182,7 +183,7 @@
             // 
             this.tbxCustomer.BackColor = System.Drawing.Color.Gainsboro;
             this.tbxCustomer.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxCustomer.Location = new System.Drawing.Point(352, 213);
+            this.tbxCustomer.Location = new System.Drawing.Point(352, 251);
             this.tbxCustomer.Name = "tbxCustomer";
             this.tbxCustomer.Size = new System.Drawing.Size(275, 36);
             this.tbxCustomer.TabIndex = 39;
@@ -192,7 +193,7 @@
             this.lblSearchCustomer.AutoSize = true;
             this.lblSearchCustomer.BackColor = System.Drawing.Color.DimGray;
             this.lblSearchCustomer.Font = new System.Drawing.Font("Rockwell", 16F);
-            this.lblSearchCustomer.Location = new System.Drawing.Point(353, 185);
+            this.lblSearchCustomer.Location = new System.Drawing.Point(353, 223);
             this.lblSearchCustomer.Name = "lblSearchCustomer";
             this.lblSearchCustomer.Size = new System.Drawing.Size(169, 25);
             this.lblSearchCustomer.TabIndex = 41;
@@ -289,11 +290,24 @@
             this.btnCustomer.UseVisualStyleBackColor = true;
             this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
             // 
+            // btnHelp
+            // 
+            this.btnHelp.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelp.ForeColor = System.Drawing.Color.Black;
+            this.btnHelp.Location = new System.Drawing.Point(187, 469);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(100, 50);
+            this.btnHelp.TabIndex = 51;
+            this.btnHelp.TabStop = false;
+            this.btnHelp.Text = "Help";
+            this.btnHelp.UseVisualStyleBackColor = true;
+            // 
             // frmReports
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(800, 531);
+            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnEmployee);
             this.Controls.Add(this.btnCustomer);
             this.Controls.Add(this.btnLogout);
@@ -349,5 +363,6 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnEmployee;
         private System.Windows.Forms.Button btnCustomer;
+        private System.Windows.Forms.Button btnHelp;
     }
 }
