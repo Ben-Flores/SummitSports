@@ -63,7 +63,15 @@ namespace SummitSportsApp
 
         private void tsiUsers_Click(object sender, EventArgs e)
         {
-
+            if (clsSQL.OpenConnection())
+            {
+                frmUsers frmUsers = new frmUsers(this);
+                if (!frmUsers.IsDisposed)
+                {
+                    frmUsers.Show();
+                    this.Hide();
+                }
+            }
         }
     }
 }

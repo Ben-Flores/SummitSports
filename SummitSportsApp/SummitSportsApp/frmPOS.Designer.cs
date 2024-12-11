@@ -127,7 +127,7 @@
             this.itemName.MinimumWidth = 6;
             this.itemName.Name = "itemName";
             this.itemName.ReadOnly = true;
-            this.itemName.Width = 102;
+            this.itemName.Width = 125;
             // 
             // retailPrice
             // 
@@ -139,7 +139,7 @@
             this.retailPrice.MinimumWidth = 6;
             this.retailPrice.Name = "retailPrice";
             this.retailPrice.ReadOnly = true;
-            this.retailPrice.Width = 95;
+            this.retailPrice.Width = 116;
             // 
             // quantity
             // 
@@ -149,7 +149,7 @@
             this.quantity.MinimumWidth = 6;
             this.quantity.Name = "quantity";
             this.quantity.ReadOnly = true;
-            this.quantity.Width = 84;
+            this.quantity.Width = 103;
             // 
             // categoryName
             // 
@@ -157,7 +157,7 @@
             this.categoryName.MinimumWidth = 6;
             this.categoryName.Name = "categoryName";
             this.categoryName.ReadOnly = true;
-            this.categoryName.Width = 142;
+            this.categoryName.Width = 175;
             // 
             // lblSearch
             // 
@@ -166,7 +166,7 @@
             this.lblSearch.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearch.Location = new System.Drawing.Point(297, 9);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(261, 36);
+            this.lblSearch.Size = new System.Drawing.Size(330, 46);
             this.lblSearch.TabIndex = 9;
             this.lblSearch.Text = "Search Products:";
             // 
@@ -176,7 +176,7 @@
             this.tbxSearch.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxSearch.Location = new System.Drawing.Point(297, 48);
             this.tbxSearch.Name = "tbxSearch";
-            this.tbxSearch.Size = new System.Drawing.Size(275, 36);
+            this.tbxSearch.Size = new System.Drawing.Size(275, 43);
             this.tbxSearch.TabIndex = 2;
             this.tbxSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxSearch_KeyUp);
             // 
@@ -187,7 +187,7 @@
             this.lblSort.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSort.Location = new System.Drawing.Point(297, 147);
             this.lblSort.Name = "lblSort";
-            this.lblSort.Size = new System.Drawing.Size(275, 36);
+            this.lblSort.Size = new System.Drawing.Size(348, 46);
             this.lblSort.TabIndex = 11;
             this.lblSort.Text = "Sort by Category:";
             // 
@@ -198,7 +198,7 @@
             this.clbCategories.FormattingEnabled = true;
             this.clbCategories.Location = new System.Drawing.Point(297, 186);
             this.clbCategories.Name = "clbCategories";
-            this.clbCategories.Size = new System.Drawing.Size(275, 438);
+            this.clbCategories.Size = new System.Drawing.Size(275, 422);
             this.clbCategories.TabIndex = 2;
             this.clbCategories.TabStop = false;
             this.clbCategories.SelectedIndexChanged += new System.EventHandler(this.clbCategories_SelectedIndexChanged);
@@ -270,7 +270,7 @@
             this.lblItemName.Font = new System.Drawing.Font("Rockwell", 18F);
             this.lblItemName.Location = new System.Drawing.Point(603, 365);
             this.lblItemName.Name = "lblItemName";
-            this.lblItemName.Size = new System.Drawing.Size(418, 27);
+            this.lblItemName.Size = new System.Drawing.Size(521, 35);
             this.lblItemName.TabIndex = 20;
             this.lblItemName.Text = "Select an item from the grid above ▲";
             // 
@@ -289,7 +289,7 @@
             this.lblCartItems.BackColor = System.Drawing.Color.Transparent;
             this.lblCartItems.Location = new System.Drawing.Point(1241, 721);
             this.lblCartItems.Name = "lblCartItems";
-            this.lblCartItems.Size = new System.Drawing.Size(25, 27);
+            this.lblCartItems.Size = new System.Drawing.Size(31, 35);
             this.lblCartItems.TabIndex = 23;
             this.lblCartItems.Text = "0";
             // 
@@ -300,7 +300,7 @@
             this.lblRetailPriceLabel.Font = new System.Drawing.Font("Rockwell", 18F);
             this.lblRetailPriceLabel.Location = new System.Drawing.Point(603, 575);
             this.lblRetailPriceLabel.Name = "lblRetailPriceLabel";
-            this.lblRetailPriceLabel.Size = new System.Drawing.Size(127, 27);
+            this.lblRetailPriceLabel.Size = new System.Drawing.Size(159, 35);
             this.lblRetailPriceLabel.TabIndex = 24;
             this.lblRetailPriceLabel.Text = "Unit Price:";
             // 
@@ -311,7 +311,7 @@
             this.lblQuantity.Font = new System.Drawing.Font("Rockwell", 18F);
             this.lblQuantity.Location = new System.Drawing.Point(603, 617);
             this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(114, 27);
+            this.lblQuantity.Size = new System.Drawing.Size(142, 35);
             this.lblQuantity.TabIndex = 25;
             this.lblQuantity.Text = "Quantity:";
             // 
@@ -324,7 +324,7 @@
             this.cbxQuantity.Location = new System.Drawing.Point(747, 613);
             this.cbxQuantity.MaxDropDownItems = 10;
             this.cbxQuantity.Name = "cbxQuantity";
-            this.cbxQuantity.Size = new System.Drawing.Size(145, 35);
+            this.cbxQuantity.Size = new System.Drawing.Size(145, 43);
             this.cbxQuantity.TabIndex = 4;
             this.cbxQuantity.SelectedIndexChanged += new System.EventHandler(this.cbxQuantity_SelectedIndexChanged);
             // 
@@ -379,7 +379,7 @@
             this.lblTotalPriceLabel.Font = new System.Drawing.Font("Rockwell", 18F);
             this.lblTotalPriceLabel.Location = new System.Drawing.Point(603, 659);
             this.lblTotalPriceLabel.Name = "lblTotalPriceLabel";
-            this.lblTotalPriceLabel.Size = new System.Drawing.Size(138, 27);
+            this.lblTotalPriceLabel.Size = new System.Drawing.Size(172, 35);
             this.lblTotalPriceLabel.TabIndex = 28;
             this.lblTotalPriceLabel.Text = "Total Price:";
             // 
@@ -390,7 +390,7 @@
             this.lblInCart.Font = new System.Drawing.Font("Rockwell", 18F);
             this.lblInCart.Location = new System.Drawing.Point(966, 594);
             this.lblInCart.Name = "lblInCart";
-            this.lblInCart.Size = new System.Drawing.Size(94, 27);
+            this.lblInCart.Size = new System.Drawing.Size(119, 35);
             this.lblInCart.TabIndex = 30;
             this.lblInCart.Text = "In Cart:";
             // 
@@ -427,7 +427,7 @@
             this.lblSearchCustomer.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearchCustomer.Location = new System.Drawing.Point(12, 9);
             this.lblSearchCustomer.Name = "lblSearchCustomer";
-            this.lblSearchCustomer.Size = new System.Drawing.Size(240, 36);
+            this.lblSearchCustomer.Size = new System.Drawing.Size(305, 46);
             this.lblSearchCustomer.TabIndex = 32;
             this.lblSearchCustomer.Text = "Find Customer:";
             // 
@@ -437,7 +437,7 @@
             this.tbxCustomer.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbxCustomer.Location = new System.Drawing.Point(12, 48);
             this.tbxCustomer.Name = "tbxCustomer";
-            this.tbxCustomer.Size = new System.Drawing.Size(275, 36);
+            this.tbxCustomer.Size = new System.Drawing.Size(275, 43);
             this.tbxCustomer.TabIndex = 0;
             this.tbxCustomer.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxCustomer_KeyUp);
             // 
@@ -466,6 +466,7 @@
             this.dgvCustomers.Name = "dgvCustomers";
             this.dgvCustomers.ReadOnly = true;
             this.dgvCustomers.RowHeadersVisible = false;
+            this.dgvCustomers.RowHeadersWidth = 51;
             this.dgvCustomers.RowTemplate.Height = 30;
             this.dgvCustomers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCustomers.Size = new System.Drawing.Size(275, 435);
@@ -476,16 +477,18 @@
             // ID
             // 
             this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
-            this.ID.Width = 62;
+            this.ID.Width = 75;
             // 
             // name
             // 
             this.name.HeaderText = "Name";
+            this.name.MinimumWidth = 6;
             this.name.Name = "name";
             this.name.ReadOnly = true;
-            this.name.Width = 102;
+            this.name.Width = 125;
             // 
             // lblSelectCustomer
             // 
@@ -494,7 +497,7 @@
             this.lblSelectCustomer.Font = new System.Drawing.Font("Rockwell", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSelectCustomer.Location = new System.Drawing.Point(12, 147);
             this.lblSelectCustomer.Name = "lblSelectCustomer";
-            this.lblSelectCustomer.Size = new System.Drawing.Size(264, 36);
+            this.lblSelectCustomer.Size = new System.Drawing.Size(335, 46);
             this.lblSelectCustomer.TabIndex = 34;
             this.lblSelectCustomer.Text = "Select Customer:";
             // 
@@ -551,7 +554,7 @@
             this.MaximizeBox = false;
             this.Name = "frmPOS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Summit Sports - Shop";
+            this.Text = "Summit Sports - POS";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmPOS_FormClosed);
             this.Load += new System.EventHandler(this.frmPOS_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();

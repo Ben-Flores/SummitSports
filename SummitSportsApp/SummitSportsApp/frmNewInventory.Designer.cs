@@ -79,7 +79,7 @@
             this.tbxThreshold.Name = "tbxThreshold";
             this.tbxThreshold.ShortcutsEnabled = false;
             this.tbxThreshold.Size = new System.Drawing.Size(125, 36);
-            this.tbxThreshold.TabIndex = 47;
+            this.tbxThreshold.TabIndex = 5;
             this.tbxThreshold.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxThreshold_KeyPress);
             // 
             // tbxQuantity
@@ -88,7 +88,7 @@
             this.tbxQuantity.Name = "tbxQuantity";
             this.tbxQuantity.ShortcutsEnabled = false;
             this.tbxQuantity.Size = new System.Drawing.Size(125, 36);
-            this.tbxQuantity.TabIndex = 46;
+            this.tbxQuantity.TabIndex = 4;
             this.tbxQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxQuantity_KeyPress);
             // 
             // tbxCost
@@ -97,7 +97,7 @@
             this.tbxCost.Name = "tbxCost";
             this.tbxCost.ShortcutsEnabled = false;
             this.tbxCost.Size = new System.Drawing.Size(125, 36);
-            this.tbxCost.TabIndex = 45;
+            this.tbxCost.TabIndex = 3;
             this.tbxCost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxCost_KeyPress);
             // 
             // tbxPrice
@@ -106,7 +106,7 @@
             this.tbxPrice.Name = "tbxPrice";
             this.tbxPrice.ShortcutsEnabled = false;
             this.tbxPrice.Size = new System.Drawing.Size(125, 36);
-            this.tbxPrice.TabIndex = 44;
+            this.tbxPrice.TabIndex = 2;
             this.tbxPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxPrice_KeyPress);
             // 
             // tbxDescription
@@ -115,7 +115,7 @@
             this.tbxDescription.Multiline = true;
             this.tbxDescription.Name = "tbxDescription";
             this.tbxDescription.Size = new System.Drawing.Size(613, 145);
-            this.tbxDescription.TabIndex = 43;
+            this.tbxDescription.TabIndex = 1;
             // 
             // tbxItemName
             // 
@@ -123,7 +123,7 @@
             this.tbxItemName.MaxLength = 100;
             this.tbxItemName.Name = "tbxItemName";
             this.tbxItemName.Size = new System.Drawing.Size(458, 36);
-            this.tbxItemName.TabIndex = 42;
+            this.tbxItemName.TabIndex = 0;
             // 
             // lblRestock
             // 
@@ -207,7 +207,7 @@
             this.btnCancel.Location = new System.Drawing.Point(414, 491);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(150, 50);
-            this.btnCancel.TabIndex = 51;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "◀ Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -217,7 +217,7 @@
             this.btnCreate.Location = new System.Drawing.Point(570, 491);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(200, 50);
-            this.btnCreate.TabIndex = 52;
+            this.btnCreate.TabIndex = 7;
             this.btnCreate.Text = "Create Item ▶";
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
@@ -241,7 +241,7 @@
             this.cbxCategories.Location = new System.Drawing.Point(409, 362);
             this.cbxCategories.Name = "cbxCategories";
             this.cbxCategories.Size = new System.Drawing.Size(340, 35);
-            this.cbxCategories.TabIndex = 54;
+            this.cbxCategories.TabIndex = 6;
             // 
             // lblError
             // 

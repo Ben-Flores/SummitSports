@@ -93,8 +93,6 @@ namespace SummitSportsApp
 
         private void frmPOSCart_FormClosed(object sender, FormClosedEventArgs e)
         {
-            inventoryIDs.Clear();
-            quantities.Clear();
             // parentForm.Close();
         }
 
@@ -181,9 +179,9 @@ namespace SummitSportsApp
             int index = Convert.ToInt32(dgvCart.SelectedRows[0].Cells["Index"].Value);
             int id = inventoryIDs[index];
             DataRow[] result = clsSQL.DataTable.Select("InventoryID = " + id);
-            result[0]["Quantity"] = (int)result[0]["Quantity"] + frmCart.Quantities[index];
-            frmCart.InventoryIDs.RemoveAt(index);
-            frmCart.Quantities.RemoveAt(index);
+            result[0]["Quantity"] = (int)result[0]["Quantity"] + frmPOSCart.Quantities[index];
+            frmPOSCart.InventoryIDs.RemoveAt(index);
+            frmPOSCart.Quantities.RemoveAt(index);
             // dgvCart.Rows.RemoveAt(dgvCart.CurrentCell.RowIndex);
             ReloadDGV();
             parentForm.ReloadCartItems();
@@ -191,10 +189,10 @@ namespace SummitSportsApp
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < frmCart.InventoryIDs.Count; i++)
+            for (int i = 0; i < frmPOSCart.InventoryIDs.Count; i++)
             {
                 DataRow[] result = clsSQL.DataTable.Select("InventoryID = " + inventoryIDs[i]);
-                result[0]["Quantity"] = (int)result[0]["Quantity"] + frmCart.Quantities[i];
+                result[0]["Quantity"] = (int)result[0]["Quantity"] + frmPOSCart.Quantities[i];
             }
             inventoryIDs.Clear();
             quantities.Clear();

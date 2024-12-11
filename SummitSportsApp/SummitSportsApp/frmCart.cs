@@ -93,8 +93,6 @@ namespace SummitSportsApp
 
         private void frmCart_FormClosed(object sender, FormClosedEventArgs e)
         {
-            inventoryIDs.Clear();
-            quantities.Clear();
             // parentForm.Close();
         }
 

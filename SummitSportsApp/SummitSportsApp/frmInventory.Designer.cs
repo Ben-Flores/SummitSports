@@ -132,7 +132,7 @@
             this.tbxSearch.Location = new System.Drawing.Point(12, 48);
             this.tbxSearch.Name = "tbxSearch";
             this.tbxSearch.Size = new System.Drawing.Size(275, 36);
-            this.tbxSearch.TabIndex = 1;
+            this.tbxSearch.TabIndex = 0;
             this.tbxSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbxSearch_KeyUp);
             // 
             // lblSort
@@ -155,6 +155,7 @@
             this.clbCategories.Name = "clbCategories";
             this.clbCategories.Size = new System.Drawing.Size(275, 438);
             this.clbCategories.TabIndex = 2;
+            this.clbCategories.TabStop = false;
             this.clbCategories.SelectedIndexChanged += new System.EventHandler(this.clbCategories_SelectedIndexChanged);
             // 
             // btnLogout
@@ -163,7 +164,7 @@
             this.btnLogout.Location = new System.Drawing.Point(12, 709);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(169, 50);
-            this.btnLogout.TabIndex = 16;
+            this.btnLogout.TabIndex = 13;
             this.btnLogout.Text = "◀ Go Back";
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
@@ -186,7 +187,7 @@
             this.btnNew.Location = new System.Drawing.Point(937, 709);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(250, 50);
-            this.btnNew.TabIndex = 9;
+            this.btnNew.TabIndex = 12;
             this.btnNew.Text = "Create New Item ▶";
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
@@ -195,10 +196,10 @@
             // 
             this.btnResetItem.Enabled = false;
             this.btnResetItem.ForeColor = System.Drawing.Color.Black;
-            this.btnResetItem.Location = new System.Drawing.Point(697, 597);
+            this.btnResetItem.Location = new System.Drawing.Point(707, 589);
             this.btnResetItem.Name = "btnResetItem";
             this.btnResetItem.Size = new System.Drawing.Size(210, 50);
-            this.btnResetItem.TabIndex = 7;
+            this.btnResetItem.TabIndex = 8;
             this.btnResetItem.Text = "Reset Item";
             this.btnResetItem.UseVisualStyleBackColor = true;
             this.btnResetItem.Click += new System.EventHandler(this.btnResetItem_Click);
@@ -207,10 +208,10 @@
             // 
             this.btnUpdateItem.Enabled = false;
             this.btnUpdateItem.ForeColor = System.Drawing.Color.Black;
-            this.btnUpdateItem.Location = new System.Drawing.Point(697, 653);
+            this.btnUpdateItem.Location = new System.Drawing.Point(707, 645);
             this.btnUpdateItem.Name = "btnUpdateItem";
             this.btnUpdateItem.Size = new System.Drawing.Size(210, 50);
-            this.btnUpdateItem.TabIndex = 8;
+            this.btnUpdateItem.TabIndex = 9;
             this.btnUpdateItem.Text = "Update Item";
             this.btnUpdateItem.UseVisualStyleBackColor = true;
             this.btnUpdateItem.Click += new System.EventHandler(this.btnUpdateItem_Click);
@@ -222,7 +223,7 @@
             this.btnReset.Location = new System.Drawing.Point(12, 630);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(275, 50);
-            this.btnReset.TabIndex = 3;
+            this.btnReset.TabIndex = 1;
             this.btnReset.Text = "Reset Search";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -303,7 +304,7 @@
             this.tbxItemName.MaxLength = 100;
             this.tbxItemName.Name = "tbxItemName";
             this.tbxItemName.Size = new System.Drawing.Size(458, 36);
-            this.tbxItemName.TabIndex = 26;
+            this.tbxItemName.TabIndex = 2;
             // 
             // tbxDescription
             // 
@@ -311,7 +312,7 @@
             this.tbxDescription.Multiline = true;
             this.tbxDescription.Name = "tbxDescription";
             this.tbxDescription.Size = new System.Drawing.Size(613, 145);
-            this.tbxDescription.TabIndex = 27;
+            this.tbxDescription.TabIndex = 3;
             // 
             // tbxPrice
             // 
@@ -319,7 +320,7 @@
             this.tbxPrice.Name = "tbxPrice";
             this.tbxPrice.ShortcutsEnabled = false;
             this.tbxPrice.Size = new System.Drawing.Size(125, 36);
-            this.tbxPrice.TabIndex = 28;
+            this.tbxPrice.TabIndex = 4;
             this.tbxPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tbxPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxPrice_KeyPress);
             // 
@@ -329,7 +330,7 @@
             this.tbxCost.Name = "tbxCost";
             this.tbxCost.ShortcutsEnabled = false;
             this.tbxCost.Size = new System.Drawing.Size(125, 36);
-            this.tbxCost.TabIndex = 29;
+            this.tbxCost.TabIndex = 5;
             this.tbxCost.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tbxCost.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxCost_KeyPress);
             // 
@@ -339,7 +340,7 @@
             this.tbxQuantity.Name = "tbxQuantity";
             this.tbxQuantity.ShortcutsEnabled = false;
             this.tbxQuantity.Size = new System.Drawing.Size(125, 36);
-            this.tbxQuantity.TabIndex = 30;
+            this.tbxQuantity.TabIndex = 6;
             this.tbxQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tbxQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxQuantity_KeyPress);
             // 
@@ -349,7 +350,7 @@
             this.tbxThreshold.Name = "tbxThreshold";
             this.tbxThreshold.ShortcutsEnabled = false;
             this.tbxThreshold.Size = new System.Drawing.Size(125, 36);
-            this.tbxThreshold.TabIndex = 31;
+            this.tbxThreshold.TabIndex = 7;
             this.tbxThreshold.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tbxThreshold.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxThreshold_KeyPress);
             // 
@@ -357,10 +358,10 @@
             // 
             this.btnDiscontinue.Enabled = false;
             this.btnDiscontinue.ForeColor = System.Drawing.Color.Black;
-            this.btnDiscontinue.Location = new System.Drawing.Point(697, 709);
+            this.btnDiscontinue.Location = new System.Drawing.Point(707, 701);
             this.btnDiscontinue.Name = "btnDiscontinue";
             this.btnDiscontinue.Size = new System.Drawing.Size(210, 50);
-            this.btnDiscontinue.TabIndex = 32;
+            this.btnDiscontinue.TabIndex = 10;
             this.btnDiscontinue.Text = "Discontinue Item";
             this.btnDiscontinue.UseVisualStyleBackColor = true;
             this.btnDiscontinue.Click += new System.EventHandler(this.btnDiscontinue_Click);
@@ -372,7 +373,7 @@
             this.btnImage.Location = new System.Drawing.Point(937, 618);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(250, 50);
-            this.btnImage.TabIndex = 33;
+            this.btnImage.TabIndex = 11;
             this.btnImage.Text = "Change Image";
             this.btnImage.UseVisualStyleBackColor = true;
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);

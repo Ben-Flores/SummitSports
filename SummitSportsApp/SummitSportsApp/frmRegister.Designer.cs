@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegister));
             this.lblRegister = new System.Windows.Forms.Label();
             this.pnlPersonalInfo = new System.Windows.Forms.Panel();
+            this.lblError1 = new System.Windows.Forms.Label();
             this.btnHelp1 = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnNext1 = new System.Windows.Forms.Button();
@@ -64,6 +65,7 @@
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblPersonalInfo = new System.Windows.Forms.Label();
             this.pnlCredentials = new System.Windows.Forms.Panel();
+            this.lblError2 = new System.Windows.Forms.Label();
             this.btnHelp2 = new System.Windows.Forms.Button();
             this.btnPeek = new System.Windows.Forms.Button();
             this.tbxConfirm = new System.Windows.Forms.TextBox();
@@ -78,6 +80,7 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblCredentials = new System.Windows.Forms.Label();
             this.pnlQuestions = new System.Windows.Forms.Panel();
+            this.lblError3 = new System.Windows.Forms.Label();
             this.btnHelp3 = new System.Windows.Forms.Button();
             this.cbxQuestion3 = new System.Windows.Forms.ComboBox();
             this.tbxQuestion3 = new System.Windows.Forms.TextBox();
@@ -92,9 +95,6 @@
             this.lblQuestion1 = new System.Windows.Forms.Label();
             this.lblQuestions = new System.Windows.Forms.Label();
             this.hlpHelp = new System.Windows.Forms.HelpProvider();
-            this.lblError1 = new System.Windows.Forms.Label();
-            this.lblError2 = new System.Windows.Forms.Label();
-            this.lblError3 = new System.Windows.Forms.Label();
             this.pnlPersonalInfo.SuspendLayout();
             this.pnlCredentials.SuspendLayout();
             this.gbxCredentials.SuspendLayout();
@@ -151,6 +151,17 @@
             this.pnlPersonalInfo.Name = "pnlPersonalInfo";
             this.pnlPersonalInfo.Size = new System.Drawing.Size(758, 472);
             this.pnlPersonalInfo.TabIndex = 6;
+            // 
+            // lblError1
+            // 
+            this.lblError1.BackColor = System.Drawing.Color.Transparent;
+            this.lblError1.Font = new System.Drawing.Font("Rockwell", 12F);
+            this.lblError1.ForeColor = System.Drawing.Color.Crimson;
+            this.lblError1.Location = new System.Drawing.Point(427, 3);
+            this.lblError1.Name = "lblError1";
+            this.lblError1.Size = new System.Drawing.Size(328, 30);
+            this.lblError1.TabIndex = 39;
+            this.lblError1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnHelp1
             // 
@@ -524,6 +535,17 @@
             this.pnlCredentials.Size = new System.Drawing.Size(758, 472);
             this.pnlCredentials.TabIndex = 38;
             // 
+            // lblError2
+            // 
+            this.lblError2.BackColor = System.Drawing.Color.Transparent;
+            this.lblError2.Font = new System.Drawing.Font("Rockwell", 12F);
+            this.lblError2.ForeColor = System.Drawing.Color.Crimson;
+            this.lblError2.Location = new System.Drawing.Point(386, 3);
+            this.lblError2.Name = "lblError2";
+            this.lblError2.Size = new System.Drawing.Size(369, 30);
+            this.lblError2.TabIndex = 42;
+            this.lblError2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // btnHelp2
             // 
             this.btnHelp2.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -696,6 +718,17 @@
             this.pnlQuestions.Size = new System.Drawing.Size(758, 472);
             this.pnlQuestions.TabIndex = 39;
             // 
+            // lblError3
+            // 
+            this.lblError3.BackColor = System.Drawing.Color.Transparent;
+            this.lblError3.Font = new System.Drawing.Font("Rockwell", 12F);
+            this.lblError3.ForeColor = System.Drawing.Color.Crimson;
+            this.lblError3.Location = new System.Drawing.Point(401, 3);
+            this.lblError3.Name = "lblError3";
+            this.lblError3.Size = new System.Drawing.Size(354, 30);
+            this.lblError3.TabIndex = 49;
+            this.lblError3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // btnHelp3
             // 
             this.btnHelp3.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -835,39 +868,6 @@
             // hlpHelp
             // 
             this.hlpHelp.HelpNamespace = "SummitSportsHelp.chm";
-            // 
-            // lblError1
-            // 
-            this.lblError1.BackColor = System.Drawing.Color.Transparent;
-            this.lblError1.Font = new System.Drawing.Font("Rockwell", 12F);
-            this.lblError1.ForeColor = System.Drawing.Color.Crimson;
-            this.lblError1.Location = new System.Drawing.Point(427, 3);
-            this.lblError1.Name = "lblError1";
-            this.lblError1.Size = new System.Drawing.Size(328, 30);
-            this.lblError1.TabIndex = 39;
-            this.lblError1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblError2
-            // 
-            this.lblError2.BackColor = System.Drawing.Color.Transparent;
-            this.lblError2.Font = new System.Drawing.Font("Rockwell", 12F);
-            this.lblError2.ForeColor = System.Drawing.Color.Crimson;
-            this.lblError2.Location = new System.Drawing.Point(386, 3);
-            this.lblError2.Name = "lblError2";
-            this.lblError2.Size = new System.Drawing.Size(369, 30);
-            this.lblError2.TabIndex = 42;
-            this.lblError2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblError3
-            // 
-            this.lblError3.BackColor = System.Drawing.Color.Transparent;
-            this.lblError3.Font = new System.Drawing.Font("Rockwell", 12F);
-            this.lblError3.ForeColor = System.Drawing.Color.Crimson;
-            this.lblError3.Location = new System.Drawing.Point(401, 3);
-            this.lblError3.Name = "lblError3";
-            this.lblError3.Size = new System.Drawing.Size(354, 30);
-            this.lblError3.TabIndex = 49;
-            this.lblError3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frmRegister
             // 

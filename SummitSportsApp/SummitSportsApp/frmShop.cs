@@ -29,6 +29,8 @@ namespace SummitSportsApp
             clsSQL.GetCustomerInventory(dgvItems, clbCategories, this);
             frmCart.InventoryIDs.Clear();
             frmCart.Quantities.Clear();
+            frmPOSCart.InventoryIDs.Clear();
+            frmPOSCart.Quantities.Clear();
         }
 
         public frmShop(frmLogon parentForm, bool guest)
@@ -41,6 +43,8 @@ namespace SummitSportsApp
             lblGuest.Visible = true;
             frmCart.InventoryIDs.Clear();
             frmCart.Quantities.Clear();
+            frmPOSCart.InventoryIDs.Clear();
+            frmPOSCart.Quantities.Clear();
         }
 
         private void frmShop_Load(object sender, EventArgs e)

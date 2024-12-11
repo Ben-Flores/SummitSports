@@ -30,6 +30,8 @@ namespace SummitSportsApp
             clsSQL.GetCustomerInventory(dgvItems, clbCategories, this);
             frmPOSCart.InventoryIDs.Clear();
             frmPOSCart.Quantities.Clear();
+            frmCart.InventoryIDs.Clear();
+            frmCart.Quantities.Clear();
         }
 
         private void frmPOS_Load(object sender, EventArgs e)
